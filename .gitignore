@@ -1,0 +1,4 @@
+# Raw backup of the old site and extracted data (large, contains private data)
+/first-backup/
+# Client report outputs (uploaded to the dashboard, not part of the repo)
+/release/
