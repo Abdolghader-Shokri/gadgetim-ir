@@ -1,0 +1,3384 @@
+# Copyright (C) 2026 Gadgetim
+# This file is distributed under the Proprietary.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gadgetim 1.0.0-dev\n"
+"Report-Msgid-Bugs-To: https://gadgetim.ir/\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Gadgetim <https://gadgetim.ir/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-05T02:27:20+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: gadgetim\n"
+
+#. Theme Name of the theme
+#. Author of the theme
+#: style.css
+msgid "Gadgetim"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://gadgetim.ir/"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "Aurora storefront theme for Gadgetim, an Iranian shop for original gadgets. Light, colourful and animated, RTL-first (Persian and Arabic) with an LTR English view, server-rendered WooCommerce templates and vanilla ES modules. Presentation only: data, pricing, languages and settings come from the gadgetim-core plugin."
+msgstr ""
+
+#. translators: %s: the error code (404) in local digits
+#: 404.php:65
+#, php-format
+msgid "Error %s · low battery"
+msgstr ""
+
+#. translators: %s: the error code (404) in local digits
+#: 404.php:66
+msgid "This page could not be found"
+msgstr ""
+
+#: 404.php:67
+msgid "Looks like this page ran out of charge. The link may be old or mistyped. Search for what you need, or start again from the home page."
+msgstr ""
+
+#: 404.php:81
+msgid "Back to the home page"
+msgstr ""
+
+#: 404.php:89
+#: inc/assets.php:338
+#: page-templates/about.php:60
+#: page-templates/guarantee.php:45
+#: search.php:171
+#: templates/archive/empty.php:45
+#: templates/archive/empty.php:69
+#: templates/footer/drawers.php:97
+#: templates/footer/drawers.php:105
+#: templates/pages/blog.php:121
+#: templates/pages/cta.php:50
+#: woocommerce/loop/no-products-found.php:33
+msgid "Browse the shop"
+msgstr ""
+
+#: archive.php:18
+msgid "Archive"
+msgstr ""
+
+#: archive.php:22
+#: inc/archive.php:433
+msgid "Category"
+msgstr ""
+
+#: archive.php:26
+#: inc/archive.php:433
+msgid "Tag"
+msgstr ""
+
+#: archive.php:30
+msgid "Author"
+msgstr ""
+
+#: archive.php:42
+#: templates/pages/blog.php:18
+msgid "Articles and guides"
+msgstr ""
+
+#: archive.php:44
+#: templates/pages/blog.php:20
+msgid "Buying guides, comparisons and tips for getting more out of your gadgets."
+msgstr ""
+
+#. translators: %s: number of comments
+#: comments.php:27
+#: single.php:38
+#, php-format
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:28
+msgid "Comments"
+msgstr ""
+
+#: comments.php:32
+msgid "What readers say about this article"
+msgstr ""
+
+#: comments.php:32
+msgid "Be the first to share your thoughts"
+msgstr ""
+
+#: comments.php:52
+msgid "Older comments"
+msgstr ""
+
+#: comments.php:53
+msgid "Newer comments"
+msgstr ""
+
+#: comments.php:61
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:69
+msgid "Leave a comment"
+msgstr ""
+
+#. translators: %s: comment author being replied to
+#: comments.php:71
+#, php-format
+msgid "Reply to %s"
+msgstr ""
+
+#: comments.php:74
+msgid "Cancel reply"
+msgstr ""
+
+#: comments.php:75
+msgid "Your email address will not be published. Required fields are marked *"
+msgstr ""
+
+#: comments.php:76
+msgid "Your comment"
+msgstr ""
+
+#: comments.php:79
+msgid "Post comment"
+msgstr ""
+
+#: footer.php:23
+msgid "Back to top"
+msgstr ""
+
+#: header.php:19
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:21
+msgid "Skip to products"
+msgstr ""
+
+#: inc/archive.php:320
+#: inc/woocommerce.php:162
+msgid "Default order"
+msgstr ""
+
+#: inc/archive.php:321
+#: inc/woocommerce.php:153
+#: templates/home/ranked.php:18
+msgid "Most viewed"
+msgstr ""
+
+#: inc/archive.php:322
+#: inc/menus.php:610
+#: inc/woocommerce.php:154
+msgid "Newest"
+msgstr ""
+
+#: inc/archive.php:323
+#: inc/woocommerce.php:155
+msgid "Cheapest first"
+msgstr ""
+
+#: inc/archive.php:324
+#: inc/woocommerce.php:156
+msgid "Most expensive first"
+msgstr ""
+
+#: inc/archive.php:329
+msgid "Most relevant"
+msgstr ""
+
+#: inc/archive.php:397
+#: templates/footer/bnav.php:36
+#: templates/header/search.php:37
+#: templates/pages/faq-search.php:20
+#: templates/pages/search-form.php:34
+msgid "Search"
+msgstr ""
+
+#. translators: %s: search query
+#: inc/archive.php:399
+#: search.php:67
+#, php-format
+msgid "Results for “%s”"
+msgstr ""
+
+#. translators: %s: number of products
+#: inc/archive.php:415
+#, php-format
+msgid "%s original product matches your search."
+msgid_plural "%s original products match your search."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/archive.php:416
+msgid "Nothing matches these words yet."
+msgstr ""
+
+#. translators: %s: category name
+#: inc/archive.php:419
+#, php-format
+msgid "Showing the results in %s."
+msgstr ""
+
+#: inc/archive.php:423
+msgid "Brand"
+msgstr ""
+
+#. translators: %s: brand name
+#: inc/archive.php:429
+#, php-format
+msgid "Every %s product here is original and comes with an authenticity guarantee."
+msgstr ""
+
+#: inc/archive.php:439
+msgid "Original products with an authenticity guarantee, a 7-day return and fast delivery across Iran."
+msgstr ""
+
+#: inc/archive.php:442
+msgid "Shop"
+msgstr ""
+
+#: inc/archive.php:444
+#: inc/menus.php:624
+#: inc/menus.php:709
+#: templates/header/mega.php:25
+msgid "All products"
+msgstr ""
+
+#. translators: 1: number of products, 2: number of categories
+#: inc/archive.php:448
+#, php-format
+msgid "%1$s original gadgets in %2$s categories, every one with an authenticity guarantee."
+msgstr ""
+
+#: inc/archive.php:449
+msgid "New original gadgets are on their way."
+msgstr ""
+
+#: inc/archive.php:659
+#: inc/assets.php:364
+#: templates/footer/bnav.php:33
+#: templates/header/search.php:51
+msgid "Categories"
+msgstr ""
+
+#: inc/archive.php:663
+msgid "Subcategories"
+msgstr ""
+
+#: inc/archive.php:730
+msgid "All results"
+msgstr ""
+
+#: inc/archive.php:745
+msgid "Categories of this brand"
+msgstr ""
+
+#: inc/archive.php:745
+msgid "Refine by category"
+msgstr ""
+
+#. translators: %s: category name
+#. translators: %s: category group name
+#: inc/archive.php:785
+#: templates/footer/drawers.php:59
+#, php-format
+msgid "All of %s"
+msgstr ""
+
+#: inc/archive.php:887
+#: templates/product/stock.php:31
+msgid "In stock"
+msgstr ""
+
+#: inc/archive.php:894
+msgid "Discounted"
+msgstr ""
+
+#. translators: %s: amount in millions
+#: inc/archive.php:931
+#, php-format
+msgid "%s million"
+msgstr ""
+
+#. translators: %s: amount in thousands
+#: inc/archive.php:935
+#, php-format
+msgid "%s thousand"
+msgstr ""
+
+#. translators: 1: lower price, 2: upper price, 3: currency unit
+#: inc/archive.php:947
+#, php-format
+msgid "%1$s to %2$s %3$s"
+msgstr ""
+
+#. translators: 1: lower price, 2: currency unit
+#: inc/archive.php:951
+#, php-format
+msgid "From %1$s %2$s"
+msgstr ""
+
+#. translators: 1: upper price, 2: currency unit
+#: inc/archive.php:954
+#, php-format
+msgid "Up to %1$s %2$s"
+msgstr ""
+
+#. translators: %s: number of products
+#: inc/archive.php:1020
+#: templates/archive/filters.php:51
+#, php-format
+msgid "Show %s product"
+msgid_plural "Show %s products"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of products
+#: inc/archive.php:1022
+#, php-format
+msgid "Show %s products"
+msgstr ""
+
+#. translators: %s: number of products
+#: inc/archive.php:1023
+#: templates/archive/filters.php:51
+msgid "No product matches"
+msgstr ""
+
+#: inc/archive.php:1024
+msgid "Show the products"
+msgstr ""
+
+#. translators: %s: number of products
+#: inc/archive.php:1026
+#, php-format
+msgid "%s product found"
+msgstr ""
+
+#. translators: %s: number of products
+#: inc/archive.php:1028
+#, php-format
+msgid "%s products found"
+msgstr ""
+
+#: inc/archive.php:1029
+#: templates/archive/empty.php:29
+msgid "No product matches these filters"
+msgstr ""
+
+#. translators: 1: first product shown, 2: last product shown, 3: total products
+#. translators: 1: first result, 2: last result, 3: total results
+#: inc/archive.php:1031
+#: templates/archive/more.php:28
+#: woocommerce/loop/result-count.php:35
+#, php-format
+msgid "Showing %1$s–%2$s of %3$s products"
+msgstr ""
+
+#. translators: %s: page number
+#: inc/archive.php:1033
+#, php-format
+msgid "Page %s added to the list"
+msgstr ""
+
+#. translators: 1: price, 2: currency unit
+#: inc/archive.php:1035
+#, php-format
+msgctxt "price and currency unit"
+msgid "%1$s %2$s"
+msgstr ""
+
+#: inc/assets.php:330
+#: templates/product/sticky-bar.php:85
+msgid "Add to cart"
+msgstr ""
+
+#: inc/assets.php:331
+msgid "Adding…"
+msgstr ""
+
+#: inc/assets.php:332
+#: templates/product/mini-buy.php:54
+#: woocommerce/single-product/add-to-cart/simple.php:83
+msgid "Added to cart"
+msgstr ""
+
+#: inc/assets.php:333
+#: templates/footer/drawers.php:103
+msgid "View cart"
+msgstr ""
+
+#: inc/assets.php:334
+#: templates/footer/drawers.php:102
+msgid "Continue to checkout"
+msgstr ""
+
+#: inc/assets.php:335
+#: inc/newsletter.php:36
+#: templates/footer/newsletter.php:18
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: inc/assets.php:336
+#: templates/footer/drawers.php:97
+#: templates/footer/drawers.php:105
+msgid "Your cart is empty"
+msgstr ""
+
+#: inc/assets.php:337
+#: templates/footer/drawers.php:97
+#: templates/footer/drawers.php:105
+msgid "Add original gadgets with the + button."
+msgstr ""
+
+#: inc/assets.php:339
+#: templates/footer/drawers.php:100
+msgid "Cart total"
+msgstr ""
+
+#. translators: %s: amount saved, already formatted with the currency
+#: inc/assets.php:341
+#, php-format
+msgid "You save %s on this order"
+msgstr ""
+
+#. translators: %s: number of items
+#: inc/assets.php:343
+#, php-format
+msgid "%s items"
+msgstr ""
+
+#. translators: %s: number of items
+#: inc/assets.php:345
+#, php-format
+msgid "Cart, %s items"
+msgstr ""
+
+#: inc/assets.php:346
+msgid "Cart, empty"
+msgstr ""
+
+#. translators: %s: number of items
+#: inc/assets.php:348
+#, php-format
+msgid "Wishlist, %s items"
+msgstr ""
+
+#: inc/assets.php:349
+#: templates/footer/drawers.php:119
+msgid "Your wishlist is empty"
+msgstr ""
+
+#: inc/assets.php:350
+#: templates/footer/drawers.php:120
+msgid "Tap the heart on any product to keep it here. The list is saved on this device."
+msgstr ""
+
+#: inc/assets.php:351
+msgid "Saved to your wishlist"
+msgstr ""
+
+#: inc/assets.php:352
+msgid "Removed from your wishlist"
+msgstr ""
+
+#: inc/assets.php:353
+msgid "View list"
+msgstr ""
+
+#: inc/assets.php:354
+msgid "Remove"
+msgstr ""
+
+#. translators: %s: product name
+#. translators: %s: product title
+#: inc/assets.php:356
+#: woocommerce/cart/cart.php:221
+#: woocommerce/single-product/add-to-cart/simple.php:56
+#, php-format
+msgid "Increase quantity of %s"
+msgstr ""
+
+#. translators: %s: product name
+#. translators: %s: product title
+#: inc/assets.php:358
+#: woocommerce/cart/cart.php:223
+#: woocommerce/single-product/add-to-cart/simple.php:75
+#, php-format
+msgid "Decrease quantity of %s"
+msgstr ""
+
+#. translators: %s: product name
+#: inc/assets.php:360
+#: woocommerce/cart/cart.php:223
+#, php-format
+msgid "Remove %s from the cart"
+msgstr ""
+
+#: inc/assets.php:361
+#: inc/template-tags.php:693
+#: inc/template-tags.php:721
+#: inc/template-tags.php:738
+#: inc/template-tags.php:755
+#: templates/product/mini-buy.php:59
+#: templates/product/stock.php:22
+#: woocommerce/single-product/product-image.php:128
+msgid "Out of stock"
+msgstr ""
+
+#: inc/assets.php:362
+msgid "Searching…"
+msgstr ""
+
+#: inc/assets.php:363
+msgid "Products"
+msgstr ""
+
+#: inc/assets.php:365
+#: inc/settings.php:43
+#: search.php:185
+#: templates/archive/empty.php:122
+#: templates/header/search.php:41
+#: templates/header/search.php:42
+msgid "Popular searches"
+msgstr ""
+
+#. translators: %s: search query
+#: inc/assets.php:367
+#, php-format
+msgid "See all results for “%s”"
+msgstr ""
+
+#. translators: %s: search query
+#: inc/assets.php:369
+#: search.php:166
+#: templates/archive/empty.php:41
+#, php-format
+msgid "Nothing found for “%s”"
+msgstr ""
+
+#: inc/assets.php:370
+#: templates/archive/empty.php:42
+msgid "Check the spelling or try one of these categories."
+msgstr ""
+
+#: inc/assets.php:371
+msgid "Too many searches. Please wait a moment."
+msgstr ""
+
+#: inc/assets.php:372
+#: templates/product/lightbox.php:33
+msgid "Close"
+msgstr ""
+
+#: inc/assets.php:373
+#: templates/home/hero.php:40
+msgid "Pause autoplay"
+msgstr ""
+
+#: inc/assets.php:374
+msgid "Resume autoplay"
+msgstr ""
+
+#. translators: 1: slide number, 2: number of slides
+#: inc/assets.php:376
+#: templates/home/slide.php:48
+#, php-format
+msgid "Slide %1$s of %2$s"
+msgstr ""
+
+#: inc/assets.php:377
+#: inc/template-tags.php:990
+msgid "hours"
+msgstr ""
+
+#: inc/assets.php:378
+#: inc/template-tags.php:991
+msgid "minutes"
+msgstr ""
+
+#: inc/assets.php:379
+#: inc/template-tags.php:992
+msgid "seconds"
+msgstr ""
+
+#: inc/assets.php:380
+#: inc/template-tags.php:988
+msgid "days"
+msgstr ""
+
+#. translators: 1: hours, 2: minutes
+#: inc/assets.php:382
+#: inc/template-tags.php:994
+#, php-format
+msgid "%1$s hours and %2$s minutes left"
+msgstr ""
+
+#: inc/assets.php:383
+msgid "This offer has ended"
+msgstr ""
+
+#: inc/assets.php:384
+#: inc/newsletter.php:34
+#: templates/footer/newsletter.php:16
+msgid "Thank you! You are on the list."
+msgstr ""
+
+#: inc/assets.php:385
+#: inc/newsletter.php:35
+#: inc/pages.php:1151
+#: templates/footer/newsletter.php:17
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: inc/commerce.php:197
+msgid "Removed from your cart"
+msgstr ""
+
+#: inc/commerce.php:198
+msgid "Undo"
+msgstr ""
+
+#. translators: %s: quantity
+#: inc/commerce.php:200
+#, php-format
+msgid "Quantity: %s"
+msgstr ""
+
+#: inc/commerce.php:201
+msgid "Updating your cart…"
+msgstr ""
+
+#: inc/commerce.php:202
+msgid "Your cart has been updated"
+msgstr ""
+
+#: inc/commerce.php:203
+msgid "Show items"
+msgstr ""
+
+#: inc/commerce.php:204
+#: woocommerce/checkout/form-checkout.php:72
+msgid "Hide items"
+msgstr ""
+
+#: inc/commerce.php:205
+msgid "Order number copied"
+msgstr ""
+
+#. translators: %s: number of items
+#: inc/commerce.php:411
+#, php-format
+msgid "%s item"
+msgid_plural "%s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/commerce.php:458
+#: templates/footer/bnav.php:40
+#: templates/footer/drawers.php:93
+#: templates/header/bar.php:38
+#: templates/product/sticky-bar.php:94
+msgid "Cart"
+msgstr ""
+
+#: inc/commerce.php:459
+#: woocommerce/checkout/form-billing.php:32
+msgid "Delivery details"
+msgstr ""
+
+#: inc/commerce.php:460
+#: woocommerce/checkout/form-checkout.php:92
+msgid "Payment"
+msgstr ""
+
+#: inc/commerce.php:464
+msgid "Checkout progress"
+msgstr ""
+
+#. translators: %s: step number
+#: inc/commerce.php:470
+#, php-format
+msgid "Step %s"
+msgstr ""
+
+#: inc/commerce.php:487
+#: inc/pages.php:770
+#: inc/product.php:470
+msgid "Secure payment"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/commerce.php:488
+#: inc/menus.php:683
+#: inc/pages.php:908
+#: templates/archive/hero.php:57
+#: templates/header/nav.php:30
+#: templates/product/mini-buy.php:67
+#: templates/product/side.php:54
+msgid "Authenticity guarantee"
+msgstr ""
+
+#: inc/commerce.php:489
+#: inc/product.php:342
+#: inc/product.php:464
+#: templates/header/promo.php:20
+#: templates/product/mini-buy.php:69
+msgid "7-day return guarantee"
+msgstr ""
+
+#. translators: %s: order number
+#: inc/commerce.php:504
+#, php-format
+msgid "Hello! I have a question about order %s."
+msgstr ""
+
+#: inc/commerce.php:505
+msgid "Hello! I have a question about my order."
+msgstr ""
+
+#. translators: %s: list of products with quantities, one per line
+#: inc/commerce.php:522
+#, php-format
+msgid ""
+"Hello! I would like to order:\n"
+"%s"
+msgstr ""
+
+#: inc/commerce.php:593
+msgid "Waiting for payment."
+msgstr ""
+
+#: inc/commerce.php:595
+msgid "Your payment is confirmed."
+msgstr ""
+
+#: inc/commerce.php:597
+msgid "We are confirming your payment."
+msgstr ""
+
+#: inc/commerce.php:603
+msgid "Order placed"
+msgstr ""
+
+#: inc/commerce.php:604
+msgid "We have received your order."
+msgstr ""
+
+#: inc/commerce.php:611
+msgid "Payment confirmed"
+msgstr ""
+
+#: inc/commerce.php:619
+msgid "Preparing your parcel"
+msgstr ""
+
+#: inc/commerce.php:620
+msgid "Checked, sealed and packed with care."
+msgstr ""
+
+#: inc/commerce.php:627
+msgid "Shipped and completed"
+msgstr ""
+
+#: inc/commerce.php:628
+msgid "On its way to you, or already delivered."
+msgstr ""
+
+#: inc/commerce.php:640
+msgid "The payment did not go through. You can try again."
+msgstr ""
+
+#: inc/commerce.php:640
+msgid "This order is closed. Contact us if you have a question."
+msgstr ""
+
+#: inc/commerce.php:756
+#: templates/commerce/suggestions.php:26
+msgid "Goes well with your cart"
+msgstr ""
+
+#: inc/commerce.php:757
+msgid "Picked from the categories in your cart"
+msgstr ""
+
+#: inc/commerce.php:872
+msgid "Too many attempts. Please wait a few minutes and try again."
+msgstr ""
+
+#: inc/commerce.php:876
+msgid "Please enter the mobile number or email you used for the order."
+msgstr ""
+
+#: inc/commerce.php:889
+msgid "This form has expired. Please enter the details again and press Track."
+msgstr ""
+
+#: inc/commerce.php:972
+msgid "Order tracking page"
+msgstr ""
+
+#: inc/commerce.php:976
+msgid "Creates the «پیگیری سفارش» page with the order tracking form (order number + mobile number or email) when it is missing."
+msgstr ""
+
+#: inc/commerce.php:977
+msgid "Create the page"
+msgstr ""
+
+#: inc/compat.php:23
+msgid "The Gadgetim theme needs the gadgetim-core plugin. Prices, languages and settings are running on fallbacks until it is activated."
+msgstr ""
+
+#. translators: 1: API generation the theme expects, 2: the plugin's API generation
+#: inc/compat.php:27
+#, php-format
+msgid "The Gadgetim theme expects gadgetim-core API %1$s but the active plugin provides %2$s. Update both packages together."
+msgstr ""
+
+#: inc/home.php:57
+msgid "Original gadgets with an authenticity guarantee"
+msgstr ""
+
+#. translators: 1: shop name, 2: tagline
+#: inc/home.php:60
+#, php-format
+msgid "%1$s — %2$s"
+msgstr ""
+
+#: inc/home.php:125
+#: inc/home.php:361
+#: inc/home.php:362
+#: inc/menus.php:602
+#: inc/menus.php:714
+#: templates/home/offers.php:29
+msgid "Amazing offers"
+msgstr ""
+
+#: inc/home.php:256
+msgid "All"
+msgstr ""
+
+#. translators: %s: discount percentage, e.g. 57%
+#: inc/home.php:474
+#, php-format
+msgid "Up to %s off"
+msgstr ""
+
+#: inc/home.php:486
+msgctxt "discount sticker: line above the percentage"
+msgid "up to"
+msgstr ""
+
+#: inc/home.php:487
+msgctxt "discount sticker: line below the percentage"
+msgid "off"
+msgstr ""
+
+#: inc/menus.php:617
+#: inc/menus.php:723
+#: templates/home/ranked.php:18
+#: templates/pages/popular.php:25
+msgid "Best sellers"
+msgstr ""
+
+#: inc/menus.php:633
+#: templates/archive/filters.php:136
+msgid "Brands"
+msgstr ""
+
+#: inc/menus.php:660
+#: templates/header/promo.php:30
+#: woocommerce/checkout/thankyou.php:135
+#: woocommerce/myaccount/form-login.php:149
+msgid "Track your order"
+msgstr ""
+
+#: inc/menus.php:666
+#: inc/pages.php:907
+msgid "Frequently asked questions"
+msgstr ""
+
+#: inc/menus.php:667
+#: inc/pages.php:910
+msgid "Terms and conditions"
+msgstr ""
+
+#: inc/menus.php:668
+#: inc/pages.php:911
+msgid "Privacy policy"
+msgstr ""
+
+#: inc/menus.php:669
+#: inc/pages.php:909
+#: page-templates/about.php:68
+#: templates/header/promo.php:38
+#: templates/pages/cta.php:43
+#: templates/pages/faq-list.php:138
+msgid "Contact us"
+msgstr ""
+
+#: inc/menus.php:704
+#: inc/pages.php:912
+msgid "About Gadgetim"
+msgstr ""
+
+#: inc/menus.php:719
+#: templates/home/newest.php:20
+#: templates/home/newest.php:29
+msgid "Newest products"
+msgstr ""
+
+#: inc/pages.php:231
+msgid "Your privacy"
+msgstr ""
+
+#: inc/pages.php:232
+msgid "How we collect, use and protect your information when you shop with us."
+msgstr ""
+
+#: inc/pages.php:237
+msgid "Rules and policies"
+msgstr ""
+
+#: inc/pages.php:238
+msgid "The rules for using the site, placing orders, delivery and returns."
+msgstr ""
+
+#. translators: %s: number of minutes
+#: inc/pages.php:379
+#, php-format
+msgid "%s min read"
+msgid_plural "%s min read"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/pages.php:732
+msgid "Every product is checked for authenticity and quality before it ships."
+msgstr ""
+
+#: inc/pages.php:733
+msgid "A clear return process if the product does not match its description."
+msgstr ""
+
+#: inc/pages.php:734
+msgid "Safe, protective packaging and delivery across Iran."
+msgstr ""
+
+#: inc/pages.php:735
+msgid "Advice before you buy and help after it, on WhatsApp and Telegram."
+msgstr ""
+
+#: inc/pages.php:736
+msgid "Secure payment through trusted bank gateways."
+msgstr ""
+
+#: inc/pages.php:793
+#: page-templates/contact.php:24
+#: templates/pages/cta.php:26
+#: templates/pages/faq-list.php:85
+#: templates/pages/help.php:23
+msgid "Hello! I have a question for Gadgetim."
+msgstr ""
+
+#: inc/pages.php:804
+#: inc/product.php:600
+#: templates/footer/columns.php:45
+#: templates/product/sticky-bar.php:67
+msgid "WhatsApp"
+msgstr ""
+
+#: inc/pages.php:808
+msgid "Start a chat"
+msgstr ""
+
+#: inc/pages.php:810
+msgid "The quickest way to reach us"
+msgstr ""
+
+#: inc/pages.php:817
+#: inc/pages.php:1243
+msgid "Phone"
+msgstr ""
+
+#: inc/pages.php:821
+msgid "Call now"
+msgstr ""
+
+#: inc/pages.php:823
+msgid "Call or send a text message"
+msgstr ""
+
+#: inc/pages.php:830
+#: inc/product.php:594
+#: templates/footer/columns.php:48
+#: templates/product/sticky-bar.php:68
+msgid "Telegram"
+msgstr ""
+
+#: inc/pages.php:834
+msgid "Open Telegram"
+msgstr ""
+
+#: inc/pages.php:843
+msgid "Instagram"
+msgstr ""
+
+#: inc/pages.php:847
+msgid "See our page"
+msgstr ""
+
+#: inc/pages.php:856
+#: inc/pages.php:1244
+#: templates/footer/columns.php:51
+#: templates/pages/contact-form.php:95
+#: woocommerce/single-product-reviews.php:146
+msgid "Email"
+msgstr ""
+
+#: inc/pages.php:860
+msgid "Write an email"
+msgstr ""
+
+#: inc/pages.php:869
+#: templates/footer/columns.php:54
+msgid "Address"
+msgstr ""
+
+#: inc/pages.php:882
+#: templates/footer/columns.php:54
+msgid "Opening hours"
+msgstr ""
+
+#: inc/pages.php:1112
+msgid "A question about a product"
+msgstr ""
+
+#: inc/pages.php:1113
+msgid "An order I placed"
+msgstr ""
+
+#: inc/pages.php:1114
+msgid "Authenticity and guarantee"
+msgstr ""
+
+#: inc/pages.php:1115
+msgid "Returns and exchanges"
+msgstr ""
+
+#: inc/pages.php:1116
+msgid "Wholesale and partnership"
+msgstr ""
+
+#: inc/pages.php:1117
+msgid "Something else"
+msgstr ""
+
+#: inc/pages.php:1134
+msgid "Thank you! Your message has been sent. We will get back to you soon."
+msgstr ""
+
+#: inc/pages.php:1135
+msgid "Please check the highlighted fields."
+msgstr ""
+
+#: inc/pages.php:1136
+msgid "You have sent several messages in a short time. Please try again later, or message us on WhatsApp."
+msgstr ""
+
+#: inc/pages.php:1137
+msgid "Your message could not be sent. Please try again, or contact us by phone or WhatsApp."
+msgstr ""
+
+#: inc/pages.php:1138
+msgid "This form has expired. Please reload the page and send it again."
+msgstr ""
+
+#: inc/pages.php:1149
+msgid "Please enter your name."
+msgstr ""
+
+#: inc/pages.php:1150
+msgid "Please enter a valid phone number."
+msgstr ""
+
+#: inc/pages.php:1152
+msgid "Enter a phone number or an email address so we can reply."
+msgstr ""
+
+#: inc/pages.php:1153
+msgid "Please write your message (at least 10 characters)."
+msgstr ""
+
+#. translators: %s: shop name
+#: inc/pages.php:1240
+#, php-format
+msgid "A new message from the contact form of %s"
+msgstr ""
+
+#: inc/pages.php:1242
+#: woocommerce/single-product-reviews.php:139
+msgid "Name"
+msgstr ""
+
+#: inc/pages.php:1245
+#: templates/pages/contact-form.php:101
+msgid "Topic"
+msgstr ""
+
+#: inc/pages.php:1248
+#: templates/pages/contact-form.php:109
+#: woocommerce/myaccount/view-order.php:32
+#: woocommerce/order/form-tracking.php:43
+#: woocommerce/order/tracking.php:30
+msgid "Order number"
+msgstr ""
+
+#: inc/pages.php:1250
+msgid "Sent from"
+msgstr ""
+
+#: inc/pages.php:1251
+msgid "Date"
+msgstr ""
+
+#: inc/pages.php:1253
+msgid "Message"
+msgstr ""
+
+#. translators: 1: shop name, 2: topic, 3: sender name
+#: inc/pages.php:1256
+#, php-format
+msgid "[%1$s] %2$s — %3$s"
+msgstr ""
+
+#: inc/pages.php:1465
+msgid "Authenticity guarantee page"
+msgstr ""
+
+#: inc/pages.php:1469
+msgid "Creates the «ضمانت اصالت کالا» page with its template when it is missing, and links it from the trust settings."
+msgstr ""
+
+#: inc/pages.php:1470
+msgid "Create or link the page"
+msgstr ""
+
+#: inc/pages.php:1586
+msgid "Share on WhatsApp"
+msgstr ""
+
+#: inc/pages.php:1592
+msgid "Share on Telegram"
+msgstr ""
+
+#: inc/pages.php:1632
+msgid "Awaiting moderation"
+msgstr ""
+
+#: inc/pages.php:1643
+msgid "Reply"
+msgstr ""
+
+#: inc/product.php:88
+msgid "Product page"
+msgstr ""
+
+#: inc/product.php:88
+msgid "Texts shown when a shopper taps the delivery, return or payment card under the buy button. The card titles come from the Trust tab. Leave a text empty to use the built-in sentence."
+msgstr ""
+
+#: inc/product.php:90
+msgid "Delivery card text"
+msgstr ""
+
+#: inc/product.php:91
+msgid "Return card text"
+msgstr ""
+
+#: inc/product.php:92
+msgid "Payment card text"
+msgstr ""
+
+#: inc/product.php:236
+msgid "Weight"
+msgstr ""
+
+#: inc/product.php:242
+msgid "Dimensions"
+msgstr ""
+
+#: inc/product.php:341
+#: inc/product.php:458
+#: templates/product/mini-buy.php:68
+msgid "Delivery across Iran"
+msgstr ""
+
+#: inc/product.php:345
+#: templates/product/side.php:60
+msgid "Every product is genuine, with an authenticity guarantee."
+msgstr ""
+
+#. translators: %s: list of verification steps
+#: inc/product.php:348
+#, php-format
+msgid "You can check it yourself: %s."
+msgstr ""
+
+#: inc/product.php:352
+msgid "Is this product original?"
+msgstr ""
+
+#: inc/product.php:356
+msgid "How is my order delivered?"
+msgstr ""
+
+#. translators: %s: delivery promise from the settings, e.g. "Delivery across Iran"
+#: inc/product.php:358
+#, php-format
+msgid "%s. The shipping cost and the delivery time for your city are shown at checkout, before you pay."
+msgstr ""
+
+#: inc/product.php:361
+msgid "Can I return it?"
+msgstr ""
+
+#. translators: %s: return promise from the settings, e.g. "7-day return guarantee"
+#: inc/product.php:363
+#, php-format
+msgid "Yes — %s. If the product does not match its description, contact us within that window and we will arrange the return."
+msgstr ""
+
+#: inc/product.php:368
+msgid "Not sure it is the right one for you?"
+msgstr ""
+
+#: inc/product.php:369
+msgid "Ask us on WhatsApp before you buy: we will check compatibility with your device and suggest the right model."
+msgstr ""
+
+#: inc/product.php:388
+msgid "Overview"
+msgstr ""
+
+#: inc/product.php:391
+msgid "Specifications"
+msgstr ""
+
+#: inc/product.php:394
+#: woocommerce/single-product-reviews.php:87
+msgid "Reviews"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/product.php:397
+#: templates/header/promo.php:34
+msgid "FAQ"
+msgstr ""
+
+#: inc/product.php:407
+msgid "Related"
+msgstr ""
+
+#: inc/product.php:459
+msgid "Orders are packed securely and sent to every city in Iran. The shipping cost and delivery time for your address are shown at checkout, before you pay."
+msgstr ""
+
+#: inc/product.php:465
+msgid "If the product does not match its description or arrives faulty, contact us within the return window and we will arrange the return."
+msgstr ""
+
+#: inc/product.php:471
+msgid "You pay on the secure page of the bank gateway. Your card details are entered there and are never stored by Gadgetim."
+msgstr ""
+
+#. translators: 1: base price with its currency (AED 25), 2: rate in Toman, 3: currency name, 4: date of the rate
+#: inc/product.php:523
+#, php-format
+msgid "This product is priced at %1$s. Its Toman price uses a rate of %2$s Toman per %3$s (rate of %4$s)."
+msgstr ""
+
+#. translators: 1: base price with its currency (AED 25), 2: rate in Toman, 3: currency name
+#: inc/product.php:525
+#, php-format
+msgid "This product is priced at %1$s. Its Toman price uses a rate of %2$s Toman per %3$s."
+msgstr ""
+
+#. translators: %s: rounding step in Toman
+#: inc/product.php:529
+#, php-format
+msgid "The result is rounded to the nearest %s Toman."
+msgstr ""
+
+#. translators: %s: rounding step in Toman
+#: inc/product.php:531
+#, php-format
+msgid "The result is rounded up to the next %s Toman."
+msgstr ""
+
+#. translators: %s: rounding step in Toman
+#: inc/product.php:533
+#, php-format
+msgid "The result is rounded down to a whole %s Toman."
+msgstr ""
+
+#: inc/product.php:540
+msgid "You always pay in Toman."
+msgstr ""
+
+#. translators: 1: product title, 2: quantity, 3: product URL
+#: inc/product.php:553
+#, php-format
+msgid "Hello, I would like to order “%1$s” (quantity: %2$s). %3$s"
+msgstr ""
+
+#. translators: 1: product title, 2: product URL
+#: inc/product.php:562
+#, php-format
+msgid "Hello, when will “%1$s” be available again? %2$s"
+msgstr ""
+
+#: inc/product.php:704
+#: templates/product/mini-buy.php:62
+#: woocommerce/checkout/payment.php:48
+#: woocommerce/single-product/add-to-cart/simple.php:92
+msgid "Order on WhatsApp"
+msgstr ""
+
+#: inc/product.php:704
+#: templates/product/mini-buy.php:62
+msgid "Ask about availability on WhatsApp"
+msgstr ""
+
+#. translators: 1: image number, 2: number of images
+#: inc/product.php:822
+#: templates/product/lightbox.php:41
+#: templates/product/lightbox.php:69
+#: woocommerce/single-product/product-image.php:65
+#: woocommerce/single-product/product-image.php:185
+#, php-format
+msgid "Image %1$s of %2$s"
+msgstr ""
+
+#: inc/product.php:823
+#: templates/product/lightbox.php:32
+msgid "Zoom in"
+msgstr ""
+
+#: inc/product.php:824
+#: templates/product/lightbox.php:31
+msgid "Zoom out"
+msgstr ""
+
+#: inc/product.php:825
+#: single.php:125
+#: templates/pages/faq-list.php:121
+msgid "Link copied"
+msgstr ""
+
+#: inc/product.php:826
+msgid "Copying is blocked here. Hold the address bar to copy the link."
+msgstr ""
+
+#: inc/product.php:827
+#: templates/archive/description.php:35
+#: templates/product/side.php:42
+#: woocommerce/single-product/tabs/tabs.php:79
+msgid "Read more"
+msgstr ""
+
+#: inc/product.php:828
+#: templates/archive/description.php:36
+msgid "Show less"
+msgstr ""
+
+#: inc/product.php:829
+#: woocommerce/single-product-reviews.php:182
+msgid "Very poor"
+msgstr ""
+
+#: inc/product.php:830
+#: woocommerce/single-product-reviews.php:181
+msgid "Not that bad"
+msgstr ""
+
+#: inc/product.php:831
+#: woocommerce/single-product-reviews.php:180
+msgid "Average"
+msgstr ""
+
+#: inc/product.php:832
+#: woocommerce/single-product-reviews.php:179
+msgid "Good"
+msgstr ""
+
+#: inc/product.php:833
+#: woocommerce/single-product-reviews.php:178
+msgid "Perfect"
+msgstr ""
+
+#: inc/settings.php:27
+msgid "Storefront"
+msgstr ""
+
+#: inc/settings.php:31
+msgid "Header and search"
+msgstr ""
+
+#: inc/settings.php:36
+msgid "Promo strip messages"
+msgstr ""
+
+#: inc/settings.php:37
+msgid "Short lines rotating in the coloured strip above the header. Empty: the trust badges are used."
+msgstr ""
+
+#: inc/settings.php:44
+msgid "Suggested queries shown when the search box is opened empty."
+msgstr ""
+
+#: inc/settings.php:53
+#: templates/home/flash.php:47
+#: templates/home/offers.php:24
+msgid "Amazing offers end"
+msgstr ""
+
+#: inc/settings.php:54
+msgid "Real end of the current campaign, format 2026-11-30 23:59 (site time). Empty: countdowns use each product’s own sale end date, or are hidden."
+msgstr ""
+
+#: inc/settings.php:61
+msgid "Footer"
+msgstr ""
+
+#: inc/settings.php:65
+msgid "Show the newsletter form"
+msgstr ""
+
+#: inc/settings.php:70
+msgid "eNamad seal link"
+msgstr ""
+
+#: inc/settings.php:74
+msgid "eNamad seal image URL"
+msgstr ""
+
+#: inc/settings.php:78
+msgid "Samandehi seal link"
+msgstr ""
+
+#: inc/settings.php:82
+msgid "Samandehi seal image URL"
+msgstr ""
+
+#. translators: %s: language name
+#: inc/setup.php:60
+#, php-format
+msgid "Primary — %s"
+msgstr ""
+
+#. translators: %s: language name
+#: inc/setup.php:62
+#, php-format
+msgid "Footer — %s"
+msgstr ""
+
+#. translators: %s: language name
+#: inc/setup.php:64
+#, php-format
+msgid "Legal — %s"
+msgstr ""
+
+#: inc/setup.php:83
+msgid "Persian"
+msgstr ""
+
+#: inc/setup.php:84
+msgid "English"
+msgstr ""
+
+#: inc/setup.php:85
+msgid "Arabic"
+msgstr ""
+
+#: inc/template-tags.php:425
+msgid "Discount"
+msgstr ""
+
+#. translators: 1: average rating, 2: number of reviews
+#: inc/template-tags.php:441
+#: templates/product/head.php:67
+#: woocommerce/single-product-reviews.php:44
+#, php-format
+msgid "Rated %1$s out of 5 from %2$s reviews"
+msgstr ""
+
+#. translators: %s: product title
+#: inc/template-tags.php:536
+#, php-format
+msgid "Ask about “%s” on WhatsApp"
+msgstr ""
+
+#: inc/template-tags.php:537
+msgid "Ask"
+msgstr ""
+
+#. translators: %s: product title
+#: inc/template-tags.php:544
+#, php-format
+msgid "Add “%s” to cart"
+msgstr ""
+
+#: inc/template-tags.php:547
+msgid "Buy"
+msgstr ""
+
+#. translators: %s: product title
+#: inc/template-tags.php:550
+#, php-format
+msgid "Choose options for “%s”"
+msgstr ""
+
+#: inc/template-tags.php:551
+msgid "Options"
+msgstr ""
+
+#. translators: %s: product title
+#: inc/template-tags.php:559
+#, php-format
+msgid "Save “%s” to your wishlist"
+msgstr ""
+
+#: inc/template-tags.php:676
+#: woocommerce/single-product/product-image.php:125
+msgid "New"
+msgstr ""
+
+#. translators: %s: number of items left
+#: inc/template-tags.php:688
+#: templates/home/flash.php:118
+#: woocommerce/cart/cart.php:181
+#, php-format
+msgid "Only %s left"
+msgstr ""
+
+#. translators: %s: rank number
+#: inc/template-tags.php:743
+#, php-format
+msgid "Rank %s:"
+msgstr ""
+
+#: inc/template-tags.php:798
+#: templates/header/mega-pane.php:26
+#: templates/home/offers.php:91
+#: woocommerce/myaccount/dashboard.php:113
+#: woocommerce/single-product/related.php:58
+msgid "View all"
+msgstr ""
+
+#: inc/template-tags.php:828
+msgid "Previous items"
+msgstr ""
+
+#: inc/template-tags.php:829
+msgid "Next items"
+msgstr ""
+
+#: inc/template-tags.php:843
+#: inc/template-tags.php:848
+#: inc/woocommerce.php:174
+#: templates/footer/bnav.php:30
+msgid "Home"
+msgstr ""
+
+#: inc/template-tags.php:863
+#: search.php:68
+msgid "Search results"
+msgstr ""
+
+#: inc/template-tags.php:865
+msgid "Page not found"
+msgstr ""
+
+#: inc/template-tags.php:883
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/template-tags.php:921
+msgid "Pagination"
+msgstr ""
+
+#: inc/template-tags.php:923
+msgid "Previous page"
+msgstr ""
+
+#: inc/template-tags.php:939
+msgid "Next page"
+msgstr ""
+
+#. translators: %s: shop name
+#: inc/template-tags.php:1053
+#, php-format
+msgid "%s, home page"
+msgstr ""
+
+#: inc/template-tags.php:1204
+msgid "My account"
+msgstr ""
+
+#: inc/template-tags.php:1207
+#: woocommerce/myaccount/form-login.php:49
+msgid "Log in or sign up"
+msgstr ""
+
+#: inc/template-tags.php:1207
+msgid "Log in | Sign up"
+msgstr ""
+
+#: inc/template-tags.php:1209
+msgid "Log in"
+msgstr ""
+
+#: inc/woocommerce.php:153
+msgid "Best selling"
+msgstr ""
+
+#. translators: %s: number of products
+#: inc/woocommerce.php:183
+#: templates/archive/toolbar.php:35
+#: templates/home/brands.php:38
+#: templates/home/categories.php:66
+#, php-format
+msgid "%s product"
+msgid_plural "%s products"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Template Name of the theme
+msgid "About"
+msgstr ""
+
+#: page-templates/about.php:54
+msgid "days to return"
+msgstr ""
+
+#: page-templates/about.php:55
+#: page-templates/about.php:168
+msgid "original"
+msgstr ""
+
+#: page-templates/about.php:95
+msgid "original products"
+msgstr ""
+
+#: page-templates/about.php:100
+msgid "trusted brands"
+msgstr ""
+
+#: page-templates/about.php:105
+msgid "categories"
+msgstr ""
+
+#: page-templates/about.php:110
+msgid "day return guarantee"
+msgstr ""
+
+#: page-templates/about.php:124
+msgid "An online shop for original, special and useful gadgets."
+msgstr ""
+
+#: page-templates/about.php:143
+msgid "Our story"
+msgstr ""
+
+#: page-templates/about.php:177
+msgid "Gadgetim today"
+msgstr ""
+
+#: page-templates/about.php:177
+msgid "Gadgetim in numbers"
+msgstr ""
+
+#: page-templates/about.php:178
+msgid "Live from our showcase right now"
+msgstr ""
+
+#: page-templates/about.php:178
+msgid "The trust of our customers is our biggest asset"
+msgstr ""
+
+#: page-templates/about.php:195
+msgid "Ask us for the best"
+msgstr ""
+
+#: page-templates/about.php:196
+msgid "Not sure which gadget is right for you? Tell us what you need and we will help you choose."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Contact"
+msgstr ""
+
+#: page-templates/contact.php:31
+#: templates/home/contact.php:29
+#: templates/home/flash.php:30
+#: templates/pages/cta.php:29
+#: templates/pages/help.php:38
+msgid "Chat on WhatsApp"
+msgstr ""
+
+#: page-templates/contact.php:44
+msgid "Call us"
+msgstr ""
+
+#: page-templates/contact.php:53
+msgid "Hello!"
+msgstr ""
+
+#: page-templates/contact.php:65
+#: templates/footer/columns.php:81
+msgid "Customer service"
+msgstr ""
+
+#: page-templates/contact.php:66
+msgid "A question about a product, an order or authenticity? Message us or call: a real person from our team will answer."
+msgstr ""
+
+#: page-templates/contact.php:83
+msgid "More about us"
+msgstr ""
+
+#: page-templates/contact.php:91
+msgid "Quick answers"
+msgstr ""
+
+#: page-templates/contact.php:104
+msgid "All frequently asked questions"
+msgstr ""
+
+#: page-templates/faq.php:53
+msgid "Help center"
+msgstr ""
+
+#: page-templates/faq.php:54
+msgid "Quick answers about authenticity, ordering, delivery and returns."
+msgstr ""
+
+#. translators: %s: number of questions
+#: page-templates/faq.php:62
+#, php-format
+msgid "%s question"
+msgid_plural "%s questions"
+msgstr[0] ""
+msgstr[1] ""
+
+#: page-templates/faq.php:92
+#: page-templates/guarantee.php:172
+#: single.php:129
+#: templates/pages/page-body.php:79
+msgid "Help and related pages"
+msgstr ""
+
+#: page-templates/faq.php:97
+msgid "Did not find your answer?"
+msgstr ""
+
+#: page-templates/faq.php:98
+msgid "Ask us directly. We answer questions about products, orders and authenticity."
+msgstr ""
+
+#: page-templates/guarantee.php:27
+msgid "Hello! I have a question about the authenticity of a product."
+msgstr ""
+
+#: page-templates/guarantee.php:53
+msgid "Ask about a product"
+msgstr ""
+
+#: page-templates/guarantee.php:80
+#: page-templates/guarantee.php:81
+msgid "Make sure the box arrives sealed and undamaged before you open it."
+msgstr ""
+
+#: page-templates/guarantee.php:82
+#: page-templates/guarantee.php:83
+msgid "Compare the warranty or serial number on the box with the one on your invoice."
+msgstr ""
+
+#: page-templates/guarantee.php:84
+#: page-templates/guarantee.php:85
+msgid "Keep the official invoice: it is your proof of an original purchase."
+msgstr ""
+
+#: page-templates/guarantee.php:102
+msgid "Still unsure? Ask us"
+msgstr ""
+
+#: page-templates/guarantee.php:103
+msgid "Send us a photo of the box, its labels and the invoice on WhatsApp before you use the product."
+msgstr ""
+
+#: page-templates/guarantee.php:115
+msgid "Shop with confidence"
+msgstr ""
+
+#: page-templates/guarantee.php:116
+msgid "Every product at Gadgetim is genuine and original."
+msgstr ""
+
+#: page-templates/guarantee.php:132
+msgid "What the guarantee means"
+msgstr ""
+
+#: page-templates/guarantee.php:133
+msgid "Promises that come with every order"
+msgstr ""
+
+#: page-templates/guarantee.php:143
+msgid "Check it yourself"
+msgstr ""
+
+#: page-templates/guarantee.php:144
+msgid "A few simple checks when your order arrives"
+msgstr ""
+
+#: page-templates/guarantee.php:167
+msgid "The guarantee in detail"
+msgstr ""
+
+#: page-templates/guarantee.php:177
+msgid "A doubt about a product?"
+msgstr ""
+
+#: page-templates/guarantee.php:178
+msgid "Ask us before you use it. We check every question about authenticity."
+msgstr ""
+
+#: page-templates/guarantee.php:193
+msgid "Questions about the guarantee"
+msgstr ""
+
+#: page-templates/guarantee.php:198
+msgid "All questions"
+msgstr ""
+
+#: page-templates/guarantee.php:218
+#: templates/archive/empty.php:77
+#: templates/pages/faq-list.php:135
+#: templates/product/sticky-bar.php:91
+msgid "Ask on WhatsApp"
+msgstr ""
+
+#: page-templates/guarantee.php:231
+msgid "Send a message"
+msgstr ""
+
+#: page-templates/guarantee.php:240
+msgid "Not sure a product is genuine?"
+msgstr ""
+
+#: page-templates/guarantee.php:241
+msgid "Ask us before you buy or before you use it. We will look into it with you."
+msgstr ""
+
+#. translators: %s: number of pages and articles
+#: search.php:41
+#, php-format
+msgid "%s page or article"
+msgid_plural "%s pages and articles"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: search query
+#: search.php:51
+#: search.php:67
+msgid "Search the site"
+msgstr ""
+
+#: search.php:52
+msgid "Search products, guides and help pages…"
+msgstr ""
+
+#: search.php:84
+#: search.php:96
+msgid "Matching products"
+msgstr ""
+
+#: search.php:85
+msgid "Original gadgets that match your search"
+msgstr ""
+
+#. translators: %s: number of products, e.g. "12 products"
+#: search.php:90
+#, php-format
+msgid "See all %s"
+msgstr ""
+
+#: search.php:120
+msgid "Pages and articles"
+msgstr ""
+
+#: search.php:133
+#: templates/pages/post-card.php:62
+msgid "Page"
+msgstr ""
+
+#: search.php:133
+#: single.php:56
+msgid "Article"
+msgstr ""
+
+#: search.php:167
+msgid "Check the spelling, try a shorter or more general word, or pick one of the suggestions below."
+msgstr ""
+
+#: single.php:106
+#: templates/pages/page-body.php:72
+msgid "Page sections"
+msgstr ""
+
+#: single.php:114
+msgid "Tags"
+msgstr ""
+
+#: single.php:120
+msgid "Share this article"
+msgstr ""
+
+#: single.php:121
+#: templates/product/head.php:92
+msgid "Share"
+msgstr ""
+
+#: single.php:125
+msgid "Copy the link"
+msgstr ""
+
+#: single.php:145
+msgid "Need advice before buying?"
+msgstr ""
+
+#: single.php:146
+msgid "Tell us what you need and we will help you choose the right gadget."
+msgstr ""
+
+#: single.php:155
+msgid "More articles"
+msgstr ""
+
+#: single.php:158
+msgid "Previous article"
+msgstr ""
+
+#: single.php:164
+msgid "Next article"
+msgstr ""
+
+#: single.php:177
+msgid "Read next"
+msgstr ""
+
+#: single.php:178
+msgid "More guides from Gadgetim"
+msgstr ""
+
+#: templates/archive/actives.php:21
+msgid "Active filters"
+msgstr ""
+
+#: templates/archive/actives.php:29
+msgid "(remove this filter)"
+msgstr ""
+
+#: templates/archive/actives.php:35
+#: templates/archive/filters.php:65
+msgid "Clear all"
+msgstr ""
+
+#. translators: %s: category or brand name
+#: templates/archive/description.php:27
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: templates/archive/empty.php:16
+msgid "Hello, I am looking for a product:"
+msgstr ""
+
+#: templates/archive/empty.php:30
+msgid "Remove a filter or two, or widen the price range, and the list fills up again."
+msgstr ""
+
+#: templates/archive/empty.php:33
+#: templates/archive/filters.php:194
+msgid "Clear filters"
+msgstr ""
+
+#: templates/archive/empty.php:52
+msgid "This section is not available in your language yet"
+msgstr ""
+
+#: templates/archive/empty.php:53
+msgid "The products are being translated. Meanwhile you can browse the Persian catalogue."
+msgstr ""
+
+#: templates/archive/empty.php:58
+msgid "View the Persian catalogue"
+msgstr ""
+
+#: templates/archive/empty.php:65
+msgid "This category is empty for now"
+msgstr ""
+
+#: templates/archive/empty.php:66
+msgid "New original gadgets arrive every week. Ask us on WhatsApp and we will find it for you."
+msgstr ""
+
+#: templates/archive/empty.php:103
+msgid "Best deals of this brand"
+msgstr ""
+
+#: templates/archive/empty.php:103
+#: templates/header/mega-pane.php:61
+msgid "Best deals in this category"
+msgstr ""
+
+#: templates/archive/empty.php:105
+msgid "Best deals right now"
+msgstr ""
+
+#: templates/archive/filters.php:62
+#: templates/archive/toolbar.php:42
+msgid "Filters"
+msgstr ""
+
+#: templates/archive/filters.php:66
+msgid "Close the filters"
+msgstr ""
+
+#: templates/archive/filters.php:72
+#: templates/archive/toolbar.php:66
+#: woocommerce/loop/orderby.php:30
+msgid "Sort by"
+msgstr ""
+
+#: templates/archive/filters.php:87
+msgid "Only products in stock"
+msgstr ""
+
+#: templates/archive/filters.php:94
+msgid "Only discounted products"
+msgstr ""
+
+#: templates/archive/filters.php:110
+msgid "Price range"
+msgstr ""
+
+#: templates/archive/filters.php:113
+msgid "Lowest price"
+msgstr ""
+
+#: templates/archive/filters.php:114
+msgid "Highest price"
+msgstr ""
+
+#: templates/archive/filters.php:118
+msgid "From"
+msgstr ""
+
+#: templates/archive/filters.php:125
+msgid "To"
+msgstr ""
+
+#. translators: %s: number of brands
+#: templates/archive/filters.php:159
+#, php-format
+msgid "Show all %s brands"
+msgstr ""
+
+#: templates/archive/filters.php:162
+msgid "Show fewer brands"
+msgstr ""
+
+#. translators: %s: lowest price with the currency unit
+#: templates/archive/hero.php:62
+#, php-format
+msgid "From %s"
+msgstr ""
+
+#: templates/archive/hero.php:66
+#: templates/header/promo.php:19
+msgid "Fast delivery across Iran"
+msgstr ""
+
+#: templates/archive/hero.php:91
+msgid "up to"
+msgstr ""
+
+#: templates/archive/hero.php:91
+msgid "off"
+msgstr ""
+
+#: templates/archive/more.php:34
+msgid "Show more products"
+msgstr ""
+
+#: templates/archive/sheet.php:22
+msgid "Filter and sort"
+msgstr ""
+
+#. translators: %s: number of active filters
+#: templates/archive/toolbar.php:48
+#, php-format
+msgid "%s active"
+msgstr ""
+
+#: templates/archive/toolbar.php:56
+msgid "Sort products"
+msgstr ""
+
+#: templates/archive/toolbar.php:57
+msgid "Sort:"
+msgstr ""
+
+#: templates/archive/toolbar.php:75
+#: woocommerce/loop/orderby.php:39
+msgid "Sort"
+msgstr ""
+
+#: templates/archive/toolbar.php:85
+msgid "Products per row"
+msgstr ""
+
+#: templates/archive/toolbar.php:86
+msgid "Four products per row"
+msgstr ""
+
+#: templates/archive/toolbar.php:89
+msgid "Five products per row"
+msgstr ""
+
+#: templates/commerce/checkout-bar.php:22
+msgid "Continue to payment"
+msgstr ""
+
+#: templates/commerce/checkout-shipping.php:23
+msgid "Shipping method"
+msgstr ""
+
+#: templates/commerce/checkout-shipping.php:24
+msgid "How should we send your parcel?"
+msgstr ""
+
+#: templates/commerce/head.php:46
+msgid "See where your parcel is: enter the order number and the mobile number or email you used at checkout."
+msgstr ""
+
+#: templates/commerce/head.php:53
+msgid "Secure checkout"
+msgstr ""
+
+#: templates/commerce/head.php:55
+#: templates/footer/bottom.php:24
+msgid "Every product genuine, with an authenticity guarantee"
+msgstr ""
+
+#: templates/commerce/timeline.php:21
+msgid "Done"
+msgstr ""
+
+#: templates/commerce/timeline.php:22
+msgid "In progress"
+msgstr ""
+
+#: templates/commerce/timeline.php:23
+msgid "Up next"
+msgstr ""
+
+#: templates/commerce/timeline.php:24
+msgid "Stopped"
+msgstr ""
+
+#: templates/commerce/timeline.php:35
+#: templates/commerce/timeline.php:46
+msgid "Order status"
+msgstr ""
+
+#. translators: %s: order number
+#: templates/commerce/timeline.php:39
+#: woocommerce/myaccount/dashboard.php:139
+#, php-format
+msgid "Order %s"
+msgstr ""
+
+#: templates/footer/bnav.php:27
+msgid "Quick navigation"
+msgstr ""
+
+#: templates/footer/bnav.php:44
+msgid "Account"
+msgstr ""
+
+#. translators: 1: year (Jalali in Persian), 2: shop name
+#: templates/footer/bottom.php:13
+#, php-format
+msgid "© %1$s %2$s — all rights reserved."
+msgstr ""
+
+#: templates/footer/bottom.php:18
+#: templates/footer/drawers.php:81
+msgid "Languages"
+msgstr ""
+
+#: templates/footer/columns.php:25
+msgid "eNamad trust seal"
+msgstr ""
+
+#: templates/footer/columns.php:26
+msgid "eNamad seal"
+msgstr ""
+
+#: templates/footer/columns.php:30
+msgid "Samandehi registration seal"
+msgstr ""
+
+#: templates/footer/columns.php:31
+msgid "Samandehi seal"
+msgstr ""
+
+#: templates/footer/columns.php:39
+msgid "Gadgetim is an online shop for original, special and useful gadgets: chargers, cables and power banks, headphones and speakers, and gadgets for the home and the car. Every product is genuine and comes with an authenticity guarantee."
+msgstr ""
+
+#: templates/footer/columns.php:42
+msgid "Support phone"
+msgstr ""
+
+#: templates/footer/columns.php:60
+msgid "Quick access"
+msgstr ""
+
+#: templates/footer/columns.php:70
+#: templates/home/stories.php:17
+#: templates/pages/stories.php:23
+#: woocommerce/cart/cart-empty.php:78
+msgid "Popular categories"
+msgstr ""
+
+#: templates/footer/columns.php:91
+msgid "Trust seals"
+msgstr ""
+
+#: templates/footer/columns.php:108
+msgid "Gadgetim on Instagram"
+msgstr ""
+
+#: templates/footer/columns.php:111
+msgid "Gadgetim on Telegram"
+msgstr ""
+
+#: templates/footer/columns.php:114
+msgid "Gadgetim on WhatsApp"
+msgstr ""
+
+#: templates/footer/drawers.php:24
+#: templates/header/nav.php:19
+msgid "Product categories"
+msgstr ""
+
+#: templates/footer/drawers.php:25
+msgid "Close the menu"
+msgstr ""
+
+#: templates/footer/drawers.php:77
+msgid "Free advice on WhatsApp"
+msgstr ""
+
+#: templates/footer/drawers.php:94
+msgid "Close the cart"
+msgstr ""
+
+#: templates/footer/drawers.php:111
+#: templates/header/bar.php:34
+#: woocommerce/myaccount/dashboard.php:90
+msgid "Wishlist"
+msgstr ""
+
+#: templates/footer/drawers.php:112
+msgid "Close the wishlist"
+msgstr ""
+
+#: templates/footer/drawers.php:127
+msgid "See amazing offers"
+msgstr ""
+
+#: templates/footer/drawers.php:133
+#: templates/header/search.php:52
+msgid "Browse categories"
+msgstr ""
+
+#: templates/footer/newsletter.php:26
+msgid "Never miss a deal"
+msgstr ""
+
+#: templates/footer/newsletter.php:27
+msgid "Join the newsletter and be the first to hear about amazing offers and new gadgets."
+msgstr ""
+
+#: templates/footer/newsletter.php:33
+msgid "Your email"
+msgstr ""
+
+#: templates/footer/newsletter.php:34
+msgid "Enter your email"
+msgstr ""
+
+#: templates/footer/newsletter.php:35
+#: templates/pages/contact-form.php:117
+msgid "Leave this field empty"
+msgstr ""
+
+#: templates/footer/newsletter.php:36
+msgid "Subscribe"
+msgstr ""
+
+#: templates/header/bar.php:22
+msgid "Open the categories menu"
+msgstr ""
+
+#: templates/header/mega-pane.php:51
+msgid "Popular brands in this category"
+msgstr ""
+
+#: templates/header/mega-pane.php:81
+msgid "Featured in this category"
+msgstr ""
+
+#: templates/header/nav.php:15
+msgid "Main menu"
+msgstr ""
+
+#: templates/header/nav.php:32
+msgid "WhatsApp support"
+msgstr ""
+
+#: templates/header/promo.php:18
+msgid "Every product is genuine, with an authenticity guarantee"
+msgstr ""
+
+#: templates/header/promo.php:21
+#: woocommerce/myaccount/dashboard.php:104
+msgid "Advice and support on WhatsApp"
+msgstr ""
+
+#: templates/header/promo.php:42
+msgid "Shop announcements"
+msgstr ""
+
+#: templates/header/promo.php:50
+msgid "Help links"
+msgstr ""
+
+#: templates/header/promo.php:55
+#: templates/home/contact.php:32
+#: templates/home/flash.php:32
+msgid "Call us:"
+msgstr ""
+
+#: templates/header/search.php:24
+msgid "Search in category"
+msgstr ""
+
+#: templates/header/search.php:26
+#: templates/home/categories.php:27
+msgid "All categories"
+msgstr ""
+
+#: templates/header/search.php:34
+#: templates/pages/search-form.php:20
+msgid "Search products"
+msgstr ""
+
+#: templates/header/search.php:35
+#: templates/pages/search-form.php:21
+msgid "Search original gadgets…"
+msgstr ""
+
+#: templates/header/search.php:38
+msgid "Search suggestions"
+msgstr ""
+
+#: templates/header/search.php:66
+#: templates/header/search.php:67
+msgid "Today’s best deals"
+msgstr ""
+
+#: templates/home/banners.php:18
+msgid "Brand and category picks"
+msgstr ""
+
+#: templates/home/banners.php:21
+#: templates/home/slide.php:29
+msgid "Shop now"
+msgstr ""
+
+#: templates/home/brands.php:56
+msgid "Original brands at Gadgetim"
+msgstr ""
+
+#: templates/home/brands.php:57
+msgid "The trusted makers and brands behind our shelves"
+msgstr ""
+
+#: templates/home/brands.php:93
+msgid "original product"
+msgid_plural "original products"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/home/brands.php:94
+msgid "trusted brand"
+msgid_plural "trusted brands"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/home/brands.php:95
+msgid "category"
+msgid_plural "categories"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/home/brands.php:96
+msgid "day to return an item"
+msgid_plural "days to return an item"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/home/categories.php:21
+msgid "Shop by category"
+msgstr ""
+
+#: templates/home/categories.php:22
+msgid "Every gadget you need, in its own category"
+msgstr ""
+
+#: templates/home/contact.php:14
+#: templates/home/flash.php:18
+msgid "Hello, I would like advice on a product."
+msgstr ""
+
+#: templates/home/contact.php:24
+msgid "Not sure which one to choose?"
+msgstr ""
+
+#: templates/home/contact.php:25
+msgid "Tell us what you need on WhatsApp and get honest advice before you buy."
+msgstr ""
+
+#: templates/home/featured.php:23
+msgid "Filter featured products"
+msgstr ""
+
+#: templates/home/featured.php:47
+msgid "Featured products"
+msgstr ""
+
+#: templates/home/featured.php:48
+msgid "Hand-picked, special gadgets, category by category"
+msgstr ""
+
+#: templates/home/flash.php:26
+msgid "Ask before you buy"
+msgstr ""
+
+#: templates/home/flash.php:28
+msgid "Prices follow the exchange rate, so we confirm them for you. Message us for a quote and honest advice."
+msgstr ""
+
+#: templates/home/flash.php:58
+msgid "Instant offer"
+msgstr ""
+
+#: templates/home/flash.php:79
+msgctxt "aria-roledescription"
+msgid "offer"
+msgstr ""
+
+#. translators: 1: offer number, 2: number of offers
+#: templates/home/flash.php:81
+#, php-format
+msgid "%1$s of %2$s"
+msgstr ""
+
+#. translators: %s: amount saved with the currency, e.g. 1,240,000 Toman
+#. translators: %s: amount saved with its unit, e.g. «۳۹۰٬۰۰۰ تومان»
+#. translators: %s: amount saved with the currency
+#: templates/home/flash.php:110
+#: templates/product/price.php:58
+#: woocommerce/cart/cart.php:253
+#, php-format
+msgid "You save %s"
+msgstr ""
+
+#: templates/home/flash.php:114
+msgid "Sale ends in"
+msgstr ""
+
+#: templates/home/flash.php:127
+msgid "Choose an offer"
+msgstr ""
+
+#: templates/home/hero.php:20
+#: templates/home/hero.php:21
+msgid "Featured offers"
+msgstr ""
+
+#: templates/home/hero.php:21
+msgctxt "aria-roledescription"
+msgid "carousel"
+msgstr ""
+
+#: templates/home/hero.php:38
+msgid "Choose a slide"
+msgstr ""
+
+#: templates/home/hero.php:41
+msgid "Previous slide"
+msgstr ""
+
+#: templates/home/hero.php:42
+msgid "Next slide"
+msgstr ""
+
+#: templates/home/newest.php:21
+msgid "The latest gadgets to arrive at Gadgetim"
+msgstr ""
+
+#: templates/home/offers.php:84
+msgid "discounted product"
+msgid_plural "discounted products"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/home/offers.php:86
+msgid "deepest discount"
+msgstr ""
+
+#: templates/home/ranked.php:25
+msgid "The favourite picks of Gadgetim shoppers"
+msgstr ""
+
+#: templates/home/ranked.php:25
+msgid "The gadgets shoppers look at most"
+msgstr ""
+
+#: templates/home/services.php:18
+msgid "Why shop at Gadgetim"
+msgstr ""
+
+#: templates/home/slide.php:46
+msgctxt "aria-roledescription"
+msgid "slide"
+msgstr ""
+
+#. translators: %s: number of articles
+#: templates/pages/blog.php:32
+#, php-format
+msgid "%s article"
+msgid_plural "%s articles"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: page number
+#: templates/pages/blog.php:39
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: templates/pages/blog.php:76
+msgid "Article categories"
+msgstr ""
+
+#: templates/pages/blog.php:79
+msgid "All articles"
+msgstr ""
+
+#: templates/pages/blog.php:116
+msgid "No articles here yet"
+msgstr ""
+
+#: templates/pages/blog.php:117
+msgid "New guides are on the way. Meanwhile, have a look at the shop."
+msgstr ""
+
+#: templates/pages/brands.php:17
+msgid "Brands we carry"
+msgstr ""
+
+#: templates/pages/brands.php:18
+msgid "Original products from brands you can trust"
+msgstr ""
+
+#: templates/pages/contact-cards.php:20
+msgid "Ways to reach us"
+msgstr ""
+
+#. translators: %s: what is copied (phone, email, address)
+#: templates/pages/contact-cards.php:35
+msgid "Copied"
+msgstr ""
+
+#. translators: %s: what is copied (phone, email, address)
+#: templates/pages/contact-cards.php:35
+#, php-format
+msgid "Copy: %s"
+msgstr ""
+
+#. translators: 1: characters typed, 2: maximum characters
+#: templates/pages/contact-form.php:57
+#, php-format
+msgid "%1$s of %2$s characters"
+msgstr ""
+
+#: templates/pages/contact-form.php:64
+msgid "Send us a message"
+msgstr ""
+
+#: templates/pages/contact-form.php:65
+msgid "Fill in the form and we will reply by phone or email."
+msgstr ""
+
+#: templates/pages/contact-form.php:71
+msgid "Message sent!"
+msgstr ""
+
+#: templates/pages/contact-form.php:73
+msgid "Send another message"
+msgstr ""
+
+#: templates/pages/contact-form.php:85
+msgid "Your name"
+msgstr ""
+
+#: templates/pages/contact-form.php:90
+msgid "Mobile or phone"
+msgstr ""
+
+#: templates/pages/contact-form.php:99
+msgid "Enter at least one of the two so we can reply."
+msgstr ""
+
+#: templates/pages/contact-form.php:109
+msgid "(optional)"
+msgstr ""
+
+#: templates/pages/contact-form.php:113
+msgid "Your message"
+msgstr ""
+
+#: templates/pages/contact-form.php:121
+msgid "Send message"
+msgstr ""
+
+#. translators: %s: link to the privacy policy
+#: templates/pages/contact-form.php:129
+#, php-format
+msgid "We use your details only to answer you. Read our %s."
+msgstr ""
+
+#: templates/pages/contact-form.php:130
+msgid "privacy policy"
+msgstr ""
+
+#: templates/pages/contact-form.php:134
+msgid "We use your details only to answer you."
+msgstr ""
+
+#: templates/pages/cta.php:16
+msgid "Still have a question?"
+msgstr ""
+
+#: templates/pages/cta.php:17
+msgid "Message us on WhatsApp or send us a note. A real person from our team will answer."
+msgstr ""
+
+#. translators: %s: number of questions
+#: templates/pages/faq-list.php:83
+#, php-format
+msgid "%s question found"
+msgid_plural "%s questions found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/pages/faq-list.php:121
+msgid "Link to this answer"
+msgstr ""
+
+#: templates/pages/faq-list.php:131
+msgid "No question matches your search"
+msgstr ""
+
+#: templates/pages/faq-list.php:132
+msgid "Try other words, or ask us directly. We are happy to help."
+msgstr ""
+
+#: templates/pages/faq-list.php:140
+msgid "Clear the search"
+msgstr ""
+
+#: templates/pages/faq-search.php:17
+msgid "Search the questions"
+msgstr ""
+
+#: templates/pages/faq-search.php:19
+msgid "Search the questions…"
+msgstr ""
+
+#: templates/pages/help.php:16
+msgid "Need help?"
+msgstr ""
+
+#: templates/pages/help.php:17
+msgid "Ask us about products, orders or authenticity. We are happy to help."
+msgstr ""
+
+#. translators: %s: date
+#: templates/pages/page-body.php:29
+#, php-format
+msgid "Updated %s"
+msgstr ""
+
+#: templates/pages/popular.php:25
+msgid "Popular right now"
+msgstr ""
+
+#: templates/pages/popular.php:26
+msgid "The gadgets other shoppers are choosing"
+msgstr ""
+
+#: templates/pages/stories.php:24
+msgid "Jump straight to what you are looking for"
+msgstr ""
+
+#. translators: %s: number of sections
+#: templates/pages/toc.php:22
+#, php-format
+msgid "%s section"
+msgid_plural "%s sections"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/pages/toc.php:28
+#: templates/pages/toc.php:39
+msgid "On this page"
+msgstr ""
+
+#: templates/pages/values.php:18
+msgid "Our promise to you"
+msgstr ""
+
+#: templates/pages/values.php:19
+msgid "What every order from Gadgetim comes with"
+msgstr ""
+
+#: templates/product/head.php:50
+msgid "Original product"
+msgstr ""
+
+#. translators: %s: number of reviews
+#: templates/product/head.php:75
+#, php-format
+msgid "(%s review)"
+msgid_plural "(%s reviews)"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of reviews
+#: templates/product/head.php:78
+#, php-format
+msgid "%s review"
+msgid_plural "%s reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of reviews
+#: templates/product/head.php:78
+msgid "Be the first to review"
+msgstr ""
+
+#. translators: %s: number of views
+#: templates/product/head.php:83
+#, php-format
+msgid "%s views"
+msgstr ""
+
+#: templates/product/head.php:87
+msgid "SKU"
+msgstr ""
+
+#: templates/product/head.php:96
+msgid "Share this product"
+msgstr ""
+
+#: templates/product/head.php:101
+msgid "Copy link"
+msgstr ""
+
+#: templates/product/lightbox.php:59
+#: woocommerce/single-product/product-image.php:145
+msgid "Previous image"
+msgstr ""
+
+#: templates/product/lightbox.php:60
+#: woocommerce/single-product/product-image.php:146
+msgid "Next image"
+msgstr ""
+
+#: templates/product/lightbox.php:62
+msgid "Double-tap or pinch to zoom"
+msgstr ""
+
+#: templates/product/lightbox.php:62
+msgid "Double-click or scroll to zoom"
+msgstr ""
+
+#: templates/product/lightbox.php:66
+#: woocommerce/single-product/product-image.php:162
+msgid "Choose an image"
+msgstr ""
+
+#: templates/product/mini-buy.php:57
+#: templates/product/sticky-bar.php:89
+msgid "Choose options"
+msgstr ""
+
+#: templates/product/nav.php:19
+msgid "Product sections"
+msgstr ""
+
+#: templates/product/perks.php:19
+msgid "Our promises"
+msgstr ""
+
+#: templates/product/price.php:67
+#: templates/product/price.php:70
+msgid "How is this price calculated?"
+msgstr ""
+
+#: templates/product/price.php:67
+msgid "How is it priced?"
+msgstr ""
+
+#: templates/product/price.php:77
+#: templates/product/price.php:83
+msgid "This price ends in"
+msgstr ""
+
+#: templates/product/recent.php:23
+msgid "Recently viewed"
+msgstr ""
+
+#: templates/product/recent.php:24
+msgid "Pick up where you left off"
+msgstr ""
+
+#: templates/product/side.php:31
+msgid "Key features"
+msgstr ""
+
+#: templates/product/side.php:46
+msgid "All specifications"
+msgstr ""
+
+#: templates/product/side.php:72
+msgid "How the guarantee works"
+msgstr ""
+
+#: templates/product/sticky-bar.php:57
+msgid "Ask for price"
+msgstr ""
+
+#: templates/product/sticky-bar.php:66
+msgid "Call"
+msgstr ""
+
+#: templates/product/sticky-bar.php:86
+msgid "Added"
+msgstr ""
+
+#: templates/product/stock.php:24
+msgid "Available to order — ships as soon as it arrives"
+msgstr ""
+
+#. translators: %s: number of items left
+#: templates/product/stock.php:27
+#, php-format
+msgid "Only %s left in stock"
+msgid_plural "Only %s left in stock"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/cart/cart-empty.php:54
+msgid "Original gadgets with an authenticity guarantee are waiting for you. Start with the best sellers below or browse the categories."
+msgstr ""
+
+#: woocommerce/cart/cart-empty.php:73
+msgid "Your wishlist"
+msgstr ""
+
+#: woocommerce/cart/cart-empty.php:114
+msgid "Best sellers right now"
+msgstr ""
+
+#: woocommerce/cart/cart-empty.php:115
+msgid "What other shoppers are buying"
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:75
+msgid "Free"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:115
+#: woocommerce/checkout/review-order.php:172
+msgid "Your saving on this order"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:127
+msgid "Shipping is calculated in the next step, from your address."
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:137
+msgid "Continue"
+msgstr ""
+
+#: woocommerce/cart/cart.php:39
+msgid "Items in your cart"
+msgstr ""
+
+#: woocommerce/cart/cart.php:187
+msgid "Each"
+msgstr ""
+
+#: woocommerce/cart/cart.php:271
+msgid "Have a discount code?"
+msgstr ""
+
+#: woocommerce/cart/cart.php:272
+msgid "Enter it here"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:64
+msgid "Province"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:33
+msgid "Who receives the parcel, and where should it go?"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:83
+msgid "Edit cart"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:93
+msgid "Choose how you would like to pay and place your order."
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:31
+msgid "For a gift, or to deliver to your workplace."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:46
+msgid "You can still order: send us your cart on WhatsApp or call us, and we will confirm the order and the payment with you."
+msgstr ""
+
+#: woocommerce/checkout/review-order.php:129
+msgid "After you enter the address"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:55
+msgid "The payment did not go through"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:77
+msgid "We will check every item, seal your parcel and send it as soon as possible. If anything needs confirming, we will get in touch."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:85
+msgid "Copy the order number"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:122
+msgid "What happens next?"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:125
+msgid "We confirm your order and check every item for authenticity."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:126
+msgid "Your parcel is sealed and handed to the courier."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:127
+msgid "You can follow it any time with the order number and your mobile number."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:133
+msgid "View the order"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:139
+msgid "Questions? WhatsApp us"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:141
+msgid "Continue shopping"
+msgstr ""
+
+#: woocommerce/content-single-product.php:101
+msgid "Buy this product"
+msgstr ""
+
+#: woocommerce/loop/no-products-found.php:29
+msgid "No products were found"
+msgstr ""
+
+#: woocommerce/loop/no-products-found.php:30
+msgid "Try another category or browse every product in the shop."
+msgstr ""
+
+#: woocommerce/myaccount/dashboard.php:62
+msgid "Your orders, addresses and details, all in one place."
+msgstr ""
+
+#. translators: %s: number of orders
+#: woocommerce/myaccount/dashboard.php:71
+#, php-format
+msgid "%s order"
+msgid_plural "%s orders"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/myaccount/dashboard.php:78
+msgid "Address saved"
+msgstr ""
+
+#: woocommerce/myaccount/dashboard.php:78
+msgid "Add an address"
+msgstr ""
+
+#: woocommerce/myaccount/dashboard.php:85
+msgid "Name, email and password"
+msgstr ""
+
+#: woocommerce/myaccount/dashboard.php:91
+msgid "Saved on this device"
+msgstr ""
+
+#: woocommerce/myaccount/dashboard.php:96
+msgid "Track an order"
+msgstr ""
+
+#: woocommerce/myaccount/dashboard.php:97
+msgid "With the order number"
+msgstr ""
+
+#: woocommerce/myaccount/dashboard.php:103
+msgid "Support"
+msgstr ""
+
+#: woocommerce/myaccount/dashboard.php:112
+msgid "Latest orders"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:38
+msgid "Welcome to Gadgetim"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:40
+msgid "Follow every order from checkout to your door"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:41
+msgid "Save your address for a faster checkout"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:42
+msgid "Genuine products with an authenticity guarantee"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:59
+msgid "Use your username or email and your password."
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:100
+msgid "One minute, and your next checkout is faster."
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:149
+msgid "Ordered without an account?"
+msgstr ""
+
+#. translators: %s: registration date
+#: woocommerce/myaccount/my-account.php:37
+#, php-format
+msgid "Member since %s"
+msgstr ""
+
+#: woocommerce/myaccount/orders.php:146
+msgid "When you place an order, it will appear here with its status, so you can follow it from checkout to your door."
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:40
+msgid "The order number is in the confirmation message you received after ordering, and on the order received page."
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:44
+msgid "Mobile number or email"
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:44
+msgid "The one you entered at checkout."
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:61
+msgid "Cannot find it?"
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:61
+msgid "Ask us on WhatsApp"
+msgstr ""
+
+#: woocommerce/order/tracking.php:91
+msgid "Track another order"
+msgstr ""
+
+#. translators: %s: number of reviews
+#: woocommerce/single-product-reviews.php:51
+#, php-format
+msgid "From %s review"
+msgid_plural "From %s reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product-reviews.php:54
+msgid "No reviews yet"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:55
+msgid "Bought it? Tell others how it works for you."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:58
+msgid "Write a review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:58
+msgid "Write the first review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:63
+msgid "Rating breakdown"
+msgstr ""
+
+#. translators: 1: number of stars, 2: number of reviews
+#: woocommerce/single-product-reviews.php:71
+#, php-format
+msgid "%1$s stars: %2$s review"
+msgid_plural "%1$s stars: %2$s reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: reviews count 2: product name
+#: woocommerce/single-product-reviews.php:83
+#, php-format
+msgid "%1$s review for %2$s"
+msgid_plural "%1$s reviews for %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product-reviews.php:99
+msgid "Review pages"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:114
+msgid "There are no reviews yet."
+msgstr ""
+
+#. translators: %s is product title
+#: woocommerce/single-product-reviews.php:125
+msgid "Add a review"
+msgstr ""
+
+#. translators: %s is product title
+#: woocommerce/single-product-reviews.php:125
+#, php-format
+msgid "Be the first to review “%s”"
+msgstr ""
+
+#. translators: %s is product title
+#: woocommerce/single-product-reviews.php:127
+#, php-format
+msgid "Leave a reply to %s"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:131
+msgid "Submit review"
+msgstr ""
+
+#. translators: %s opening and closing link tags respectively
+#: woocommerce/single-product-reviews.php:172
+#, php-format
+msgid "You must be %1$slogged in%2$s to post a review."
+msgstr ""
+
+#. translators: 1: number of stars, 2: rating word
+#: woocommerce/single-product-reviews.php:187
+#, php-format
+msgid "%1$s star — %2$s"
+msgid_plural "%1$s stars — %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product-reviews.php:191
+msgid "Your rating"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:192
+msgid "Tap a star"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:195
+msgid "Your review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:195
+msgid "What did you like? How is the quality? Would you recommend it?"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:202
+msgid "Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/simple.php:90
+msgid "Quick buy"
+msgstr ""
+
+#. translators: %s: product title
+#: woocommerce/single-product/product-image.php:58
+#, php-format
+msgid "Images of %s"
+msgstr ""
+
+#. translators: %s: "Image 1 of 3"
+#: woocommerce/single-product/product-image.php:76
+#, php-format
+msgid "%s — open full screen"
+msgstr ""
+
+#: woocommerce/single-product/product-image.php:113
+msgid "Awaiting product image"
+msgstr ""
+
+#: woocommerce/single-product/product-image.php:122
+msgctxt "discount sticker, under the percentage"
+msgid "off"
+msgstr ""
+
+#: woocommerce/single-product/product-image.php:150
+msgid "View the images full screen"
+msgstr ""
+
+#: woocommerce/single-product/related.php:45
+#: woocommerce/single-product/related.php:52
+msgid "From the same category"
+msgstr ""
+
+#: woocommerce/single-product/related.php:53
+msgid "Other picks shoppers compare with this one"
+msgstr ""
+
+#: woocommerce/single-product/review-meta.php:29
+msgid "Your review is awaiting approval"
+msgstr ""
+
+#: woocommerce/single-product/review-meta.php:38
+msgid "Verified buyer"
+msgstr ""
+
+#. translators: %s: rating out of 5
+#: woocommerce/single-product/review-rating.php:29
+#, php-format
+msgid "Rated %s out of 5"
+msgstr ""
+
+#. translators: %s: product title
+#: woocommerce/single-product/tabs/tabs.php:61
+#, php-format
+msgid "Get to know %s"
+msgstr ""
+
+#. translators: %s: number of rows
+#: woocommerce/single-product/tabs/tabs.php:92
+#, php-format
+msgid "%s detail at a glance"
+msgid_plural "%s details at a glance"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: product title
+#: woocommerce/single-product/tabs/tabs.php:102
+#, php-format
+msgid "Specifications of %s"
+msgstr ""
+
+#. translators: %s: number of reviews
+#: woocommerce/single-product/tabs/tabs.php:131
+#, php-format
+msgid "%s customer shared an opinion"
+msgid_plural "%s customers shared their opinion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product/tabs/tabs.php:132
+msgid "What buyers say about this product"
+msgstr ""
+
+#: woocommerce/single-product/tabs/tabs.php:151
+msgid "Answers about this product"
+msgstr ""
+
+#: woocommerce/single-product/tabs/tabs.php:151
+msgid "Answers to what shoppers ask us most"
+msgstr ""
+
+#. translators: %s: product title
+#: woocommerce/single-product/tabs/tabs.php:173
+#, php-format
+msgid "Hello, I have a question about “%s”."
+msgstr ""
+
+#: woocommerce/single-product/tabs/tabs.php:176
+msgid "Still have a question? We answer on WhatsApp."
+msgstr ""
+
+#: woocommerce/single-product/tabs/tabs.php:177
+msgid "Ask us"
+msgstr ""
+
+#: woocommerce/single-product/up-sells.php:27
+#: woocommerce/single-product/up-sells.php:34
+msgid "We also recommend"
+msgstr ""
+
+#: woocommerce/single-product/up-sells.php:35
+msgid "Hand-picked by the Gadgetim team"
+msgstr ""

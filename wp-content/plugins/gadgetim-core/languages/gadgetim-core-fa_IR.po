@@ -1,0 +1,2669 @@
+# Persian (Iran) translation of Gadgetim Core.
+# Copyright (C) 2026 Gadgetim
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gadgetim Core 0.1.0\n"
+"Report-Msgid-Bugs-To: https://gadgetim.ir/\n"
+"POT-Creation-Date: 2026-11-05T02:28:52+00:00\n"
+"PO-Revision-Date: 2026-11-05 02:55:44+0000\n"
+"Last-Translator: Gadgetim\n"
+"Language-Team: Persian (Iran)\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: gadgetim-core\n"
+
+#. Plugin Name of the plugin
+#: gadgetim-core.php
+msgid "Gadgetim Core"
+msgstr "هسته گجتیم"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: gadgetim-core.php
+msgid "https://gadgetim.ir/"
+msgstr "https://gadgetim.ir/"
+
+#. Description of the plugin
+#: gadgetim-core.php
+msgid "Data and behaviour for the Gadgetim storefront: trilingual routing, multi-currency pricing, settings, catalog extras, importer and SEO. The \"Gadgetim — Timcheh\" theme is presentation only and relies on this plugin."
+msgstr "داده‌ها و رفتار فروشگاه گجتیم: مسیریابی سه‌زبانه، قیمت‌گذاری چندارزی، تنظیمات، اطلاعات تکمیلی کاتالوگ، ابزار درون‌ریزی و سئو. پوسته «گجتیم — تیمچه» فقط ظاهر فروشگاه را می‌سازد و به این افزونه وابسته است."
+
+#. Author of the plugin
+#: gadgetim-core.php
+#: includes/Settings/Admin/SettingsPage.php:33
+#: includes/Settings/Admin/SettingsPage.php:34
+#: templates/admin/notice.php:20
+#: templates/admin/settings-page.php:23
+msgid "Gadgetim"
+msgstr "گجتیم"
+
+#: includes/Catalog/Admin/BrandFields.php:60
+#: includes/Catalog/Admin/BrandFields.php:153
+#: includes/Settings/Admin/SettingsPage.php:78
+#: templates/admin/fields/image.php:23
+msgid "Select image"
+msgstr "انتخاب تصویر"
+
+#: includes/Catalog/Admin/BrandFields.php:61
+#: includes/Settings/Admin/SettingsPage.php:79
+msgid "Use this image"
+msgstr "استفاده از این تصویر"
+
+#: includes/Catalog/Admin/BrandFields.php:62
+#: includes/Catalog/Admin/BrandFields.php:154
+#: includes/Catalog/Admin/ExtrasMetabox.php:254
+#: includes/Catalog/HomeContent.php:478
+#: includes/Settings/Admin/SettingsPage.php:80
+#: templates/admin/fields/image.php:24
+#: templates/admin/fields/repeater.php:25
+msgid "Remove"
+msgstr "حذف"
+
+#: includes/Catalog/Admin/BrandFields.php:63
+#: includes/Settings/Admin/SettingsPage.php:83
+msgid "Are you sure?"
+msgstr "مطمئن هستید؟"
+
+#: includes/Catalog/Admin/BrandFields.php:75
+#: includes/Catalog/Admin/BrandFields.php:88
+msgid "Brand logo"
+msgstr "لوگوی برند"
+
+#: includes/Catalog/Admin/BrandFields.php:77
+#: includes/Catalog/Admin/BrandFields.php:91
+msgid "Monochrome SVG or PNG. Until a logo is set the theme shows a typographic sticker."
+msgstr "SVG یا PNG تک‌رنگ. تا وقتی لوگو تنظیم نشده، پوسته به‌جای آن یک برچسب نوشتاری نشان می‌دهد."
+
+#: includes/Catalog/Admin/BrandFields.php:124
+msgid "Logo"
+msgstr "لوگو"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:48
+msgid "Gadgetim — product extras"
+msgstr "گجتیم — اطلاعات تکمیلی محصول"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:95
+msgid "Short title"
+msgstr "عنوان کوتاه"
+
+#. translators: %s: automatically derived short title
+#: includes/Catalog/Admin/ExtrasMetabox.php:100
+#, php-format
+msgid "Shown on cards and as the H1. Leave empty to use the automatic version: “%s”."
+msgstr "در کارت‌ها و به‌عنوان H1 نمایش داده می‌شود. برای استفاده از نسخه خودکار خالی بگذارید: «%s»."
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:106
+#: includes/I18n/Admin/TranslationMetabox.php:80
+msgid "Subtitle"
+msgstr "زیرعنوان"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:108
+msgid "One sentence under the title. Subtitles shorter than 12 characters or all-caps model codes are hidden on the storefront."
+msgstr "یک جمله زیر عنوان. زیرعنوان‌های کوتاه‌تر از ۱۲ نویسه و کدهای مدلی که تماماً با حروف بزرگ لاتین نوشته شده‌اند، در فروشگاه نمایش داده نمی‌شوند."
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:112
+msgid "Specifications"
+msgstr "مشخصات فنی"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:114
+msgid "Label and value per row; the storefront renders them as the spec table. The importer fills this from the old descriptions."
+msgstr "در هر ردیف یک عنوان و یک مقدار؛ فروشگاه آن‌ها را به‌صورت جدول مشخصات نمایش می‌دهد. ابزار درون‌ریزی این بخش را از توضیحات قدیمی پر می‌کند."
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:118
+msgid "Frequently asked questions"
+msgstr "پرسش‌های متداول"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:123
+msgid "Guarantee text override"
+msgstr "متن ضمانت اختصاصی"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:125
+msgid "Leave empty to show the default guarantee text from Gadgetim → Settings → Trust & policies."
+msgstr "برای نمایش متن ضمانت پیش‌فرض (گجتیم ← تنظیمات ← اعتماد و قوانین) خالی بگذارید."
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:129
+msgid "View counter"
+msgstr "شمارنده بازدید"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:131
+msgid "Sampled views used as the tiebreaker of the “Popular” sort. Set to 0 to reset."
+msgstr "بازدیدهای نمونه‌گیری‌شده؛ در مرتب‌سازی بر اساس محبوبیت، وقتی فروش دو محصول برابر باشد ترتیب را تعیین می‌کنند. برای بازنشانی، ۰ وارد کنید."
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:187
+msgid "Label"
+msgstr "عنوان"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:188
+msgid "Value"
+msgstr "مقدار"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:205
+msgid "Add row"
+msgstr "افزودن ردیف"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:222
+msgid "Question"
+msgstr "پرسش"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:223
+msgid "Answer"
+msgstr "پاسخ"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:240
+msgid "Add question"
+msgstr "افزودن پرسش"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:252
+#: includes/Catalog/HomeContent.php:476
+#: includes/Settings/Admin/SettingsPage.php:81
+#: templates/admin/fields/repeater.php:23
+msgid "Move up"
+msgstr "انتقال به بالا"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:253
+#: includes/Catalog/HomeContent.php:477
+#: includes/Settings/Admin/SettingsPage.php:82
+#: templates/admin/fields/repeater.php:24
+msgid "Move down"
+msgstr "انتقال به پایین"
+
+#: includes/Catalog/Filters.php:879
+msgid "Biggest discount"
+msgstr "بیشترین تخفیف"
+
+#: includes/Catalog/Filters.php:1268
+msgid "Too many requests. Please wait a moment."
+msgstr "تعداد درخواست‌ها زیاد است. لطفاً کمی صبر کنید."
+
+#: includes/Catalog/Filters.php:1285
+msgid "Unknown catalogue section."
+msgstr "بخش ناشناخته کاتالوگ."
+
+#: includes/Catalog/HomeContent.php:132
+msgid "Home page"
+msgstr "صفحه اصلی"
+
+#: includes/Catalog/HomeContent.php:136
+msgid "Hero slider"
+msgstr "اسلایدر سردر"
+
+#: includes/Catalog/HomeContent.php:137
+msgid "Up to six slides beside the instant offer. Each slide links to its first category (or its own link); the \"up to x% off\" sticker and the brand names are computed from the categories. Leave the list empty to use the automatic slides built from the catalogue."
+msgstr "حداکثر شش اسلاید کنار «پیشنهاد لحظه‌ای». هر اسلاید به اولین دسته‌اش (یا لینک اختصاصی خودش) پیوند می‌خورد؛ برچسب «تا x٪ تخفیف» و نام برندها از روی دسته‌ها محاسبه می‌شوند. برای استفاده از اسلایدهای خودکاری که از کاتالوگ ساخته می‌شوند، فهرست را خالی بگذارید."
+
+#: includes/Catalog/HomeContent.php:141
+msgid "Slides"
+msgstr "اسلایدها"
+
+#: includes/Catalog/HomeContent.php:149
+msgid "Promo banners"
+msgstr "بنرهای تبلیغاتی"
+
+#: includes/Catalog/HomeContent.php:150
+msgid "Two or three gradient banners below the newest products. The first one is the large banner on desktop."
+msgstr "دو یا سه بنر گرادیانی زیر «جدیدترین محصولات». در دسکتاپ، اولین بنر بزرگ‌تر نمایش داده می‌شود."
+
+#: includes/Catalog/HomeContent.php:154
+msgid "Banners"
+msgstr "بنرها"
+
+#: includes/Catalog/HomeContent.php:162
+msgid "Strips"
+msgstr "نوارها"
+
+#: includes/Catalog/HomeContent.php:167
+msgid "Promo strip messages"
+msgstr "پیام‌های نوار تبلیغاتی"
+
+#: includes/Catalog/HomeContent.php:168
+msgid "Short lines rotating in the coloured strip above the header (the same list as in the Storefront tab). Empty: the trust badges are used."
+msgstr "جمله‌های کوتاهی که در نوار رنگی بالای سربرگ به‌نوبت نمایش داده می‌شوند (همان فهرست زبانه «ویترین فروشگاه»). اگر خالی باشد، نشان‌های اعتماد نمایش داده می‌شوند."
+
+#: includes/Catalog/HomeContent.php:173
+msgid "Services strip"
+msgstr "نوار خدمات"
+
+#: includes/Catalog/HomeContent.php:181
+msgid "Amazing offers"
+msgstr "پیشنهاد شگفت‌انگیز"
+
+#: includes/Catalog/HomeContent.php:182
+msgid "The band of the deepest discounts. A countdown is shown only while the campaign runs and its end lies in the future; otherwise the band simply lists the biggest discounts."
+msgstr "نوار بیشترین تخفیف‌ها. شمارش معکوس فقط وقتی نمایش داده می‌شود که کمپین در جریان باشد و زمان پایانش هنوز نرسیده باشد؛ در غیر این صورت، نوار فقط بیشترین تخفیف‌ها را فهرست می‌کند."
+
+#: includes/Catalog/HomeContent.php:186
+msgid "The campaign is running"
+msgstr "کمپین در جریان است"
+
+#: includes/Catalog/HomeContent.php:191
+msgid "Campaign end"
+msgstr "پایان کمپین"
+
+#: includes/Catalog/HomeContent.php:192
+msgid "Date and time in site time, Gregorian (2026-11-30 23:59) or Jalali (1405/09/09 23:59). Empty: no countdown. The same value as in the Storefront tab."
+msgstr "تاریخ و ساعت به وقت سایت، میلادی (۲۰۲۶-۱۱-۳۰ ۲۳:۵۹) یا شمسی (۱۴۰۵/۰۹/۰۹ ۲۳:۵۹). اگر خالی باشد، شمارش معکوسی نمایش داده نمی‌شود. همان مقدار زبانه «ویترین فروشگاه» است."
+
+#: includes/Catalog/HomeContent.php:200
+msgid "Band title"
+msgstr "عنوان نوار"
+
+#: includes/Catalog/HomeContent.php:206
+msgid "Band sub-line"
+msgstr "زیرعنوان نوار"
+
+#: includes/Catalog/HomeContent.php:211
+msgid "Campaign products"
+msgstr "کالاهای کمپین"
+
+#: includes/Catalog/HomeContent.php:212
+msgid "Optional product IDs, comma separated, in display order. Empty: the deepest discounts in stock."
+msgstr "شناسه‌های اختیاری کالاها، جداشده با ویرگول و به ترتیب نمایش. اگر خالی باشد، کالاهای موجود با بیشترین تخفیف نمایش داده می‌شوند."
+
+#: includes/Catalog/HomeContent.php:232
+msgid "Indigo dawn"
+msgstr "سپیده نیلی"
+
+#: includes/Catalog/HomeContent.php:233
+msgid "Violet sky"
+msgstr "آسمان بنفش"
+
+#: includes/Catalog/HomeContent.php:234
+msgid "Rose sunrise"
+msgstr "طلوع صورتی"
+
+#: includes/Catalog/HomeContent.php:235
+msgid "Amber glow"
+msgstr "درخشش کهربایی"
+
+#: includes/Catalog/HomeContent.php:236
+msgid "Ocean blue"
+msgstr "آبی اقیانوسی"
+
+#: includes/Catalog/HomeContent.php:237
+msgid "Emerald"
+msgstr "زمردی"
+
+#: includes/Catalog/HomeContent.php:238
+msgid "Sunset"
+msgstr "غروب"
+
+#: includes/Catalog/HomeContent.php:239
+msgid "Midnight"
+msgstr "نیمه‌شب"
+
+#: includes/Catalog/HomeContent.php:240
+msgid "Sky"
+msgstr "آسمانی"
+
+#: includes/Catalog/HomeContent.php:241
+msgid "Green"
+msgstr "سبز"
+
+#: includes/Catalog/HomeContent.php:242
+msgid "Pink"
+msgstr "صورتی"
+
+#: includes/Catalog/HomeContent.php:253
+msgid "Artwork products"
+msgstr "کالاهای تصویر طرح"
+
+#: includes/Catalog/HomeContent.php:254
+msgid "Product IDs, optionally with the image number (0 = main image, 1 = first gallery image): 641:1, 773:1. Add :f for a product standing on the bottom edge. Empty: picked automatically."
+msgstr "شناسه کالاها، در صورت نیاز همراه با شماره تصویر (۰ = تصویر اصلی، ۱ = اولین تصویر گالری): 641:1, 773:1. برای کالایی که روی لبه پایین می‌ایستد، :f اضافه کنید. اگر خالی باشد، خودکار انتخاب می‌شود."
+
+#: includes/Catalog/HomeContent.php:262
+#: includes/Catalog/HomeContent.php:333
+#: includes/Catalog/HomeContent.php:389
+msgid "Colour"
+msgstr "رنگ"
+
+#: includes/Catalog/HomeContent.php:267
+msgid "Background word (Latin)"
+msgstr "کلمه پس‌زمینه (لاتین)"
+
+#: includes/Catalog/HomeContent.php:273
+msgid "Feature chip icon"
+msgstr "آیکون برچسب ویژگی"
+
+#: includes/Catalog/HomeContent.php:279
+msgid "Eyebrow"
+msgstr "خط کوچک بالای تیتر"
+
+#: includes/Catalog/HomeContent.php:284
+#: includes/Catalog/HomeContent.php:345
+msgid "Title, first line"
+msgstr "تیتر، خط اول"
+
+#: includes/Catalog/HomeContent.php:289
+msgid "Title, gradient line"
+msgstr "تیتر، خط گرادیانی"
+
+#: includes/Catalog/HomeContent.php:294
+#: includes/Catalog/HomeContent.php:355
+msgid "Sub-line"
+msgstr "زیرعنوان"
+
+#: includes/Catalog/HomeContent.php:299
+msgid "Sub-line on phones (optional)"
+msgstr "زیرعنوان در موبایل (اختیاری)"
+
+#: includes/Catalog/HomeContent.php:304
+msgid "Button label"
+msgstr "متن دکمه"
+
+#: includes/Catalog/HomeContent.php:309
+msgid "Button label on phones (optional)"
+msgstr "متن دکمه در موبایل (اختیاری)"
+
+#: includes/Catalog/HomeContent.php:314
+msgid "Feature chip (optional)"
+msgstr "برچسب ویژگی (اختیاری)"
+
+#: includes/Catalog/HomeContent.php:320
+#: includes/Catalog/HomeContent.php:366
+msgid "Categories"
+msgstr "دسته‌ها"
+
+#: includes/Catalog/HomeContent.php:324
+#: includes/Catalog/HomeContent.php:376
+#: includes/Catalog/HomeContent.php:404
+msgid "Link (optional)"
+msgstr "لینک (اختیاری)"
+
+#: includes/Catalog/HomeContent.php:338
+msgid "Small label (Latin brand name)"
+msgstr "برچسب کوچک (نام لاتین برند)"
+
+#: includes/Catalog/HomeContent.php:350
+msgid "Title, second line"
+msgstr "تیتر، خط دوم"
+
+#: includes/Catalog/HomeContent.php:360
+msgid "Button label (optional)"
+msgstr "متن دکمه (اختیاری)"
+
+#: includes/Catalog/HomeContent.php:372
+msgid "Brand"
+msgstr "برند"
+
+#: includes/Catalog/HomeContent.php:384
+msgid "Icon"
+msgstr "آیکون"
+
+#: includes/Catalog/HomeContent.php:395
+#: includes/I18n/Admin/TranslationMetabox.php:70
+msgid "Title"
+msgstr "عنوان"
+
+#: includes/Catalog/HomeContent.php:400
+msgid "Second line"
+msgstr "خط دوم"
+
+#: includes/Catalog/HomeContent.php:413
+msgid "Add slide"
+msgstr "افزودن اسلاید"
+
+#: includes/Catalog/HomeContent.php:420
+msgid "Add banner"
+msgstr "افزودن بنر"
+
+#: includes/Catalog/HomeContent.php:427
+msgid "Add item"
+msgstr "افزودن مورد"
+
+#: includes/Catalog/HomeContent.php:452
+msgid "Nothing is saved yet: these rows show the automatic content the home page uses now. Edit and save to make them your own, or save as they are."
+msgstr "هنوز چیزی ذخیره نشده است: این ردیف‌ها محتوای خودکاری را نشان می‌دهند که صفحه اصلی اکنون از آن استفاده می‌کند. برای اختصاصی کردن، آن‌ها را ویرایش و ذخیره کنید یا همین‌طور که هستند ذخیره کنید."
+
+#: includes/Catalog/HomeContent.php:509
+#: includes/Settings/Schema.php:503
+msgid "— None —"
+msgstr "— هیچ‌کدام —"
+
+#: includes/Catalog/Lqip.php:210
+msgid "Regenerate image placeholders (LQIP)"
+msgstr "بازسازی پیش‌نمایش محو تصاویر (LQIP)"
+
+#: includes/Catalog/Lqip.php:214
+msgid "Creates the 16-pixel blur placeholder and the packshot flag for every image attachment that does not have one yet. New uploads get theirs automatically."
+msgstr "برای هر پیوست تصویری که هنوز پیش‌نمایش محو ندارد، پیش‌نمایش محو ۱۶ پیکسلی و نشانگر پک‌شات (عکس روی پس‌زمینه سفید) را می‌سازد. تصاویری که از این پس بارگذاری شوند، این دو را خودکار می‌گیرند."
+
+#: includes/Catalog/Lqip.php:215
+msgid "Generate missing placeholders"
+msgstr "ساخت پیش‌نمایش‌های محو جاافتاده"
+
+#: includes/Catalog/Lqip.php:234
+msgid "Regenerate existing placeholders too"
+msgstr "پیش‌نمایش‌های محو موجود هم بازسازی شوند"
+
+#: includes/Catalog/Lqip.php:237
+msgid "Run now (no JavaScript)"
+msgstr "اجرای فوری (بدون جاوااسکریپت)"
+
+#: includes/Catalog/Lqip.php:253
+#: includes/Catalog/Lqip.php:308
+msgid "Every image already has a placeholder."
+msgstr "همه تصاویر از قبل پیش‌نمایش محو دارند."
+
+#. translators: 1: processed count, 2: total count
+#: includes/Catalog/Lqip.php:266
+#, php-format
+msgid "Generated %1$d of %2$d placeholders; run the tool again to continue."
+msgstr "%1$d از %2$d پیش‌نمایش محو ساخته شد؛ برای ادامه، ابزار را دوباره اجرا کنید."
+
+#. translators: %d: processed count
+#: includes/Catalog/Lqip.php:269
+#, php-format
+msgid "Generated %d placeholders."
+msgstr "%d پیش‌نمایش محو ساخته شد."
+
+#: includes/Catalog/Lqip.php:278
+#: includes/Settings/Admin/Tools.php:128
+msgid "You are not allowed to run this tool."
+msgstr "شما اجازه اجرای این ابزار را ندارید."
+
+#: includes/Catalog/Lqip.php:308
+#: includes/Import/Admin/BatchUi.php:71
+msgid "Starting…"
+msgstr "در حال شروع…"
+
+#: includes/Catalog/Lqip.php:316
+msgid "The job has expired; start again."
+msgstr "این فرایند منقضی شده است؛ دوباره شروع کنید."
+
+#. translators: %d: attachment ID
+#: includes/Catalog/Lqip.php:330
+#, php-format
+msgid "Attachment #%d: placeholder could not be generated."
+msgstr "پیوست #%d: پیش‌نمایش محو ساخته نشد."
+
+#. translators: 1: processed count, 2: total count
+#: includes/Catalog/Lqip.php:350
+#, php-format
+msgid "%1$d of %2$d images processed."
+msgstr "%1$d از %2$d تصویر پردازش شد."
+
+#: includes/Catalog/Views.php:120
+msgid "View counting is switched off."
+msgstr "شمارش بازدید خاموش است."
+
+#: includes/Catalog/Views.php:124
+msgid "Unknown product."
+msgstr "محصول ناشناخته."
+
+#: includes/Catalog/Views.php:127
+msgid "Too many requests."
+msgstr "تعداد درخواست‌ها بیش از حد مجاز است."
+
+#: includes/Checkout/CityScript.php:77
+msgid "Select a city"
+msgstr "شهر را انتخاب کنید"
+
+#: includes/Checkout/CityScript.php:78
+msgid "Another city (type its name)"
+msgstr "شهر دیگر (نام آن را بنویسید)"
+
+#: includes/Checkout/Fields.php:120
+msgid "First name"
+msgstr "نام"
+
+#: includes/Checkout/Fields.php:126
+msgid "Last name"
+msgstr "نام خانوادگی"
+
+#: includes/Checkout/Fields.php:133
+msgid "Mobile number"
+msgstr "شماره موبایل"
+
+#: includes/Checkout/Fields.php:148
+msgid "Email address"
+msgstr "آدرس ایمیل"
+
+#: includes/Checkout/Fields.php:160
+msgid "Province"
+msgstr "استان"
+
+#: includes/Checkout/Fields.php:161
+msgid "Select a province"
+msgstr "استان را انتخاب کنید"
+
+#: includes/Checkout/Fields.php:171
+msgid "City"
+msgstr "شهر"
+
+#: includes/Checkout/Fields.php:179
+#: includes/Settings/Schema.php:359
+msgid "Address"
+msgstr "آدرس"
+
+#: includes/Checkout/Fields.php:180
+msgid "Street, alley, building number and unit"
+msgstr "خیابان، کوچه، پلاک و واحد"
+
+#: includes/Checkout/Fields.php:188
+msgid "Postcode"
+msgstr "کد پستی"
+
+#: includes/Checkout/Fields.php:189
+msgid "10 digits"
+msgstr "۱۰ رقم"
+
+#: includes/Checkout/Fields.php:329
+msgid "Please enter a valid Iranian mobile number (09xx xxx xxxx)."
+msgstr "لطفاً یک شماره موبایل معتبر ایرانی وارد کنید (مانند ۰۹۱۲۳۴۵۶۷۸۹)."
+
+#: includes/Checkout/Fields.php:338
+msgid "The postcode must be exactly 10 digits."
+msgstr "کد پستی باید دقیقاً ۱۰ رقم باشد."
+
+#: includes/Checkout/Fields.php:347
+msgid "Please select a province from the list."
+msgstr "لطفاً استان را از فهرست انتخاب کنید."
+
+#. translators: %s: payment gateway name
+#: includes/Checkout/Gateways.php:58
+#, php-format
+msgid "Offer \"%s\" on the storefront"
+msgstr "ارائه «%s» در فروشگاه"
+
+#: includes/Checkout/Gateways.php:60
+msgid "Enabled in WooCommerce."
+msgstr "در ووکامرس فعال است."
+
+#: includes/Checkout/Gateways.php:61
+msgid "Disabled in WooCommerce → Settings → Payments, so it is not offered regardless of this switch."
+msgstr "در ووکامرس ← تنظیمات ← پرداخت‌ها غیرفعال است؛ بنابراین فارغ از این گزینه ارائه نمی‌شود."
+
+#: includes/Checkout/SettingsTab.php:41
+msgid "Checkout"
+msgstr "تسویه حساب"
+
+#: includes/Checkout/SettingsTab.php:45
+msgid "Checkout fields"
+msgstr "فیلدهای تسویه حساب"
+
+#: includes/Checkout/SettingsTab.php:46
+msgid "The Iranian field set: first and last name, mobile number (required, 09xx xxx xxxx, digits normalised), optional e-mail, province, city, address and a 10-digit postcode. Company, the second address line and the country selector are removed; the country is always Iran."
+msgstr "مجموعه فیلدهای ایرانی: نام و نام خانوادگی، شماره موبایل (الزامی، به شکل ۰۹۱۲۳۴۵۶۷۸۹؛ ارقام خودکار یکسان‌سازی می‌شوند)، ایمیل اختیاری، استان، شهر، آدرس و کد پستی ۱۰ رقمی. فیلدهای شرکت، خط دوم آدرس و انتخاب کشور حذف می‌شوند؛ کشور همیشه ایران است."
+
+#: includes/Checkout/SettingsTab.php:51
+msgid "Use the Iranian checkout fields"
+msgstr "استفاده از فیلدهای تسویه حساب ایرانی"
+
+#: includes/Checkout/SettingsTab.php:56
+msgid "Offer a city list that follows the selected province"
+msgstr "نمایش فهرست شهرهای استان انتخاب‌شده"
+
+#: includes/Checkout/SettingsTab.php:57
+msgid "Progressive enhancement on the checkout page: without JavaScript the city stays a text field, and a city that is not in the list can always be typed."
+msgstr "بهبود تدریجی در برگه تسویه حساب: بدون جاوااسکریپت، شهر یک فیلد متنی می‌ماند و شهری که در فهرست نیست همیشه قابل تایپ است."
+
+#: includes/Checkout/SettingsTab.php:63
+msgid "Payment gateways on the storefront"
+msgstr "درگاه‌های پرداخت در فروشگاه"
+
+#: includes/Checkout/SettingsTab.php:64
+msgid "A gateway switched off here is hidden from shoppers (checkout, pay-for-order links, Store API) but stays available for orders created in the dashboard. Gateways disabled under WooCommerce → Settings → Payments are never offered. Cash on delivery and bank transfer are off by default."
+msgstr "درگاهی که اینجا خاموش شود از دید خریداران پنهان می‌ماند (تسویه حساب، پیوندهای پرداخت سفارش، Store API)، اما برای سفارش‌هایی که در پیشخوان ساخته می‌شوند در دسترس است. درگاه‌هایی که در ووکامرس ← تنظیمات ← پرداخت‌ها غیرفعال‌اند هرگز ارائه نمی‌شوند. پرداخت در محل و انتقال مستقیم بانکی به‌طور پیش‌فرض خاموش‌اند."
+
+#: includes/Checkout/SettingsTab.php:69
+msgid "Gateway round trip"
+msgstr "بازگشت از درگاه"
+
+#: includes/Checkout/SettingsTab.php:70
+msgid "Iranian gateways build their return URLs inside their own callback request, where the language of the shop is not in the URL. The order's language is restored from these parameters so the thank-you and cancel pages open in the language the order was placed in."
+msgstr "درگاه‌های ایرانی نشانی بازگشت را درون درخواست بازگشت (callback) خودشان می‌سازند و در آن درخواست، زبان فروشگاه در نشانی نیست. زبان سفارش از این پارامترها بازیابی می‌شود تا برگه‌های تشکر و انصراف به همان زبانی باز شوند که سفارش با آن ثبت شده است."
+
+#: includes/Checkout/SettingsTab.php:75
+msgid "Order parameters in gateway callbacks"
+msgstr "پارامترهای سفارش در درخواست بازگشت درگاه"
+
+#: includes/Checkout/SettingsTab.php:76
+msgid "Comma-separated names of query or form parameters that carry the order ID or the order key, e.g. \"order_id, wc_order, key\"."
+msgstr "نام پارامترهای کوئری یا فرم که شناسه یا کلید سفارش را در خود دارند، جداشده با ویرگول؛ مثلاً «order_id, wc_order, key»."
+
+#: includes/ContactMode/Admin/ProductMetabox.php:56
+#: includes/ContactMode/Admin/ProductMetabox.php:81
+#: includes/ContactMode/ContactMode.php:48
+msgid "Contact instead of price"
+msgstr "تماس به‌جای قیمت"
+
+#: includes/ContactMode/Admin/ProductMetabox.php:70
+msgid "on"
+msgstr "روشن"
+
+#: includes/ContactMode/Admin/ProductMetabox.php:71
+msgid "off"
+msgstr "خاموش"
+
+#. translators: %s: "on" or "off"
+#: includes/ContactMode/Admin/ProductMetabox.php:75
+#, php-format
+msgid "Follow the global setting (currently %s)"
+msgstr "پیروی از تنظیم سراسری (اکنون: %s)"
+
+#: includes/ContactMode/Admin/ProductMetabox.php:76
+msgid "Contact only: hide the price and disable purchasing"
+msgstr "فقط تماس: پنهان کردن قیمت و غیرفعال کردن خرید"
+
+#: includes/ContactMode/Admin/ProductMetabox.php:77
+msgid "Always sell with a price"
+msgstr "فروش همیشه با قیمت"
+
+#: includes/ContactMode/Admin/ProductMetabox.php:87
+msgid "In contact mode the product shows the call, WhatsApp and Telegram buttons instead of a buy button and cannot be added to the cart."
+msgstr "در حالت تماس، محصول به‌جای دکمه خرید، دکمه‌های تماس، واتساپ و تلگرام را نشان می‌دهد و به سبد خرید اضافه نمی‌شود."
+
+#: includes/ContactMode/ContactMode.php:52
+msgid "Mode"
+msgstr "حالت"
+
+#: includes/ContactMode/ContactMode.php:53
+msgid "When enabled, products show contact buttons instead of a buy button: purchasing is disabled on the whole storefront, the cart and checkout pages redirect to the shop, payment gateways are withdrawn and the price is shown only when \"Still show the price\" is on. A single product can opt in or out from its edit screen."
+msgstr "با فعال شدن این حالت، محصولات به‌جای دکمه خرید دکمه‌های تماس را نشان می‌دهند: خرید در کل فروشگاه غیرفعال می‌شود، برگه‌های سبد خرید و تسویه حساب به فروشگاه هدایت می‌شوند، درگاه‌های پرداخت کنار گذاشته می‌شوند و قیمت فقط وقتی نمایش داده می‌شود که «قیمت همچنان نمایش داده شود» روشن باشد. هر محصول می‌تواند از صفحه ویرایش خودش این حالت را جداگانه روشن یا خاموش کند."
+
+#: includes/ContactMode/ContactMode.php:57
+msgid "Enable \"contact instead of price\""
+msgstr "فعال کردن «تماس به‌جای قیمت»"
+
+#: includes/ContactMode/ContactMode.php:62
+msgid "Still show the price next to the contact buttons"
+msgstr "قیمت همچنان کنار دکمه‌های تماس نمایش داده شود"
+
+#: includes/ContactMode/ContactMode.php:63
+msgid "Also controls whether product JSON-LD keeps its offers while the mode is on."
+msgstr "همچنین تعیین می‌کند که وقتی این حالت روشن است، JSON-LD محصول بخش offers (قیمت) را نگه دارد یا نه."
+
+#: includes/ContactMode/ContactMode.php:68
+msgid "Primary channel"
+msgstr "کانال اصلی"
+
+#: includes/ContactMode/ContactMode.php:69
+msgid "Drawn as the filled button and used as the single button on product cards; the other channels are outlined."
+msgstr "به‌صورت دکمه توپر نمایش داده می‌شود و در کارت‌های محصول تنها دکمه است؛ کانال‌های دیگر دورخط نمایش داده می‌شوند."
+
+#: includes/ContactMode/ContactMode.php:71
+#: includes/ContactMode/Display.php:146
+msgid "WhatsApp"
+msgstr "واتساپ"
+
+#: includes/ContactMode/ContactMode.php:72
+msgid "Phone call"
+msgstr "تماس تلفنی"
+
+#: includes/ContactMode/ContactMode.php:73
+#: includes/ContactMode/Display.php:147
+msgid "Telegram"
+msgstr "تلگرام"
+
+#: includes/ContactMode/ContactMode.php:80
+msgid "Texts"
+msgstr "متن‌ها"
+
+#: includes/ContactMode/ContactMode.php:85
+msgid "Price line"
+msgstr "خط قیمت"
+
+#: includes/ContactMode/ContactMode.php:86
+msgid "Replaces the price, e.g. \"Call for price\"."
+msgstr "به‌جای قیمت نمایش داده می‌شود؛ مثلاً «تماس بگیرید»."
+
+#: includes/ContactMode/ContactMode.php:96
+msgid "Explanation line"
+msgstr "خط توضیح"
+
+#: includes/ContactMode/ContactMode.php:97
+msgid "One honest sentence under the price line; leave empty to hide it."
+msgstr "یک جمله صادقانه زیر خط قیمت؛ برای پنهان کردن، خالی بگذارید."
+
+#: includes/ContactMode/ContactMode.php:107
+msgid "Channels for this mode"
+msgstr "کانال‌های این حالت"
+
+#: includes/ContactMode/ContactMode.php:108
+msgid "Leave a field empty to use the number or username from Brand & contact."
+msgstr "برای استفاده از شماره یا نام کاربری زبانه «برند و تماس»، فیلد را خالی بگذارید."
+
+#: includes/ContactMode/ContactMode.php:112
+msgid "Phone (override)"
+msgstr "تلفن (اختصاصی)"
+
+#: includes/ContactMode/ContactMode.php:117
+msgid "WhatsApp number (override)"
+msgstr "شماره واتساپ (اختصاصی)"
+
+#: includes/ContactMode/ContactMode.php:122
+msgid "Telegram username (override)"
+msgstr "نام کاربری تلگرام (اختصاصی)"
+
+#: includes/ContactMode/ContactMode.php:130
+msgid "Working hours (override)"
+msgstr "ساعات کاری (اختصاصی)"
+
+#: includes/ContactMode/ContactMode.php:131
+msgid "Shown under the buttons so callers know when somebody answers."
+msgstr "زیر دکمه‌ها نمایش داده می‌شود تا تماس‌گیرندگان بدانند چه ساعتی پاسخ می‌گیرند."
+
+#: includes/ContactMode/ContactMode.php:264
+msgid "Ask for price"
+msgstr "استعلام قیمت"
+
+#: includes/ContactMode/Display.php:102
+msgid "Contact us for the price"
+msgstr "برای اطلاع از قیمت تماس بگیرید"
+
+#: includes/ContactMode/Display.php:145
+msgid "Call"
+msgstr "تماس"
+
+#: includes/ContactMode/Enforcement.php:96
+msgid "Online purchase is not available for this product. Please contact us for a price."
+msgstr "خرید اینترنتی این محصول امکان‌پذیر نیست. لطفاً برای استعلام قیمت با ما تماس بگیرید."
+
+#: includes/ContactMode/Migration.php:90
+msgid "Paste the old cfp_options value first."
+msgstr "ابتدا مقدار قدیمی cfp_options را بچسبانید."
+
+#: includes/ContactMode/Migration.php:93
+msgid "The pasted value is too long to be a cfp_options option."
+msgstr "مقدار چسبانده‌شده برای گزینه cfp_options بیش از حد طولانی است."
+
+#: includes/ContactMode/Migration.php:105
+msgid "The value is neither a JSON object nor a serialized PHP array."
+msgstr "این مقدار نه یک شیء JSON است و نه یک آرایه سریالی‌شده PHP."
+
+#: includes/ContactMode/Migration.php:115
+msgid "None of the cfp_options keys (enabled, label, phone, show_price, wa_*, tg_*) were found."
+msgstr "هیچ‌کدام از کلیدهای cfp_options (enabled, label, phone, show_price, wa_*, tg_*) پیدا نشد."
+
+#. translators: 1: settings path, 2: settings path
+#: includes/ContactMode/Migration.php:147
+#, php-format
+msgid "%1$s already had a different value, so the old number was stored as %2$s."
+msgstr "%1$s از قبل مقدار دیگری داشت، بنابراین شماره قدیمی به‌عنوان %2$s ذخیره شد."
+
+#: includes/ContactMode/Migration.php:165
+msgid "tg_number was skipped: Telegram links need a username, not a phone number."
+msgstr "tg_number نادیده گرفته شد: پیوندهای تلگرام به نام کاربری نیاز دارند، نه شماره تلفن."
+
+#: includes/ContactMode/Migration.php:169
+msgid "wa_id was skipped: WhatsApp links are built from the number only."
+msgstr "wa_id نادیده گرفته شد: پیوندهای واتساپ فقط از شماره ساخته می‌شوند."
+
+#: includes/ContactMode/Migration.php:194
+msgid "Migrate call-for-price settings"
+msgstr "انتقال تنظیمات «تماس برای قیمت»"
+
+#: includes/ContactMode/Migration.php:198
+msgid "Copies the old call-for-price plugin's cfp_options (enabled, label, phone, show_price, WhatsApp and Telegram) into the \"Contact instead of price\" settings. Paste the option value from the old database as JSON or as the serialized PHP string from the SQL dump. Existing site-wide numbers are kept; a different old number becomes the mode override."
+msgstr "مقدار cfp_options افزونه قدیمی «تماس برای قیمت» (enabled، label، phone، show_price، واتساپ و تلگرام) را به تنظیمات «تماس به‌جای قیمت» منتقل می‌کند. مقدار این گزینه را از پایگاه داده قدیمی به‌صورت JSON یا رشته سریالی‌شده PHP (از فایل SQL) بچسبانید. شماره‌های سراسری فعلی حفظ می‌شوند؛ اگر شماره قدیمی متفاوت باشد، به‌عنوان شماره اختصاصی این حالت ذخیره می‌شود."
+
+#: includes/ContactMode/Migration.php:199
+#: includes/Pricing/Migration.php:58
+msgid "Migrate"
+msgstr "انتقال"
+
+#: includes/ContactMode/Migration.php:217
+msgid "Old cfp_options value"
+msgstr "مقدار قدیمی cfp_options"
+
+#: includes/ContactMode/Migration.php:244
+msgid "Nothing to migrate: the pasted value carried no usable settings."
+msgstr "چیزی برای انتقال نیست: مقدار چسبانده‌شده تنظیم قابل استفاده‌ای نداشت."
+
+#. translators: %s: comma-separated list of settings paths
+#: includes/ContactMode/Migration.php:250
+#, php-format
+msgid "Call-for-price settings migrated: %s."
+msgstr "تنظیمات «تماس برای قیمت» منتقل شد: %s."
+
+#: includes/ContactMode/Migration.php:257
+msgid "The mode stays off until you enable it on the \"Contact instead of price\" tab."
+msgstr "این حالت تا زمانی که آن را در زبانه «تماس به‌جای قیمت» فعال کنید خاموش می‌ماند."
+
+#: includes/I18n/Admin/Assets.php:64
+msgid "Copied from the Persian field."
+msgstr "از فیلد فارسی کپی شد."
+
+#: includes/I18n/Admin/LanguagesPage.php:52
+msgid "Languages"
+msgstr "زبان‌ها"
+
+#: includes/I18n/Admin/LanguagesPage.php:56
+#: includes/I18n/Admin/LanguagesPage.php:131
+msgid "Options"
+msgstr "گزینه‌ها"
+
+#: includes/I18n/Admin/LanguagesPage.php:60
+#: includes/I18n/Admin/LanguagesPage.php:134
+msgid "Untranslated item under /en/ or /ar/"
+msgstr "مورد ترجمه‌نشده زیر /en/ یا /ar/"
+
+#: includes/I18n/Admin/LanguagesPage.php:62
+#: includes/I18n/Admin/LanguagesPage.php:136
+msgid "Not found (404)"
+msgstr "پیدا نشد (۴۰۴)"
+
+#: includes/I18n/Admin/LanguagesPage.php:63
+#: includes/I18n/Admin/LanguagesPage.php:137
+msgid "Show the Persian content with a note (noindex)"
+msgstr "نمایش محتوای فارسی با یادداشت (noindex)"
+
+#: includes/I18n/Admin/LanguagesPage.php:66
+#: includes/I18n/Admin/LanguagesPage.php:139
+msgid "With \"show\", the page stays unreachable from any listing in that language; only direct links reach it."
+msgstr "با گزینه «نمایش»، مورد ترجمه‌نشده از هیچ فهرستی در آن زبان در دسترس نیست و فقط با پیوند مستقیم باز می‌شود."
+
+#: includes/I18n/Admin/LanguagesPage.php:70
+#: includes/I18n/Admin/LanguagesPage.php:142
+msgid "Collect WooCommerce strings missing from the Arabic language pack while an administrator browses /ar/"
+msgstr "گردآوری رشته‌های ووکامرس که در بسته زبان عربی نیستند، هنگامی که مدیر /ar/ را مرور می‌کند"
+
+#: includes/I18n/Admin/LanguagesPage.php:72
+#: includes/I18n/Admin/LanguagesPage.php:143
+msgid "The collected strings appear on the Strings tab."
+msgstr "رشته‌های گردآوری‌شده در زبانه «رشته‌ها» نمایش داده می‌شوند."
+
+#: includes/I18n/Admin/LanguagesPage.php:79
+msgid "Persian lives at the root; English and Arabic under /en/ and /ar/. A language becomes indexable (robots, sitemap, hreflang, switcher for visitors) only when it is public."
+msgstr "فارسی در ریشه سایت است و انگلیسی و عربی زیر /en/ و /ar/. یک زبان فقط وقتی عمومی شود قابل نمایه‌سازی است (robots، نقشه سایت، hreflang و انتخابگر زبان برای بازدیدکنندگان)."
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+#: includes/I18n/Admin/OrderLanguage.php:48
+#: includes/I18n/Admin/OrderLanguage.php:52
+#: includes/I18n/Admin/OrderLanguage.php:101
+msgid "Language"
+msgstr "زبان"
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+msgid "Locale"
+msgstr "کد زبان"
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+msgid "URL"
+msgstr "نشانی"
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+msgid "Direction"
+msgstr "جهت"
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+msgid "Digits"
+msgstr "ارقام"
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+#: includes/I18n/Admin/LanguagesPage.php:123
+msgid "Public"
+msgstr "عمومی"
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+msgid "Readiness"
+msgstr "آمادگی انتشار"
+
+#: includes/I18n/Admin/LanguagesPage.php:115
+msgid "Persian (۰۱۲)"
+msgstr "فارسی (۰۱۲)"
+
+#: includes/I18n/Admin/LanguagesPage.php:115
+msgid "Arabic-Indic (٠١٢)"
+msgstr "عربی (٠١٢)"
+
+#: includes/I18n/Admin/LanguagesPage.php:115
+msgid "Latin (012)"
+msgstr "لاتین (012)"
+
+#: includes/I18n/Admin/LanguagesPage.php:121
+msgid "Always"
+msgstr "همیشه"
+
+#: includes/I18n/Admin/LanguagesPage.php:141
+msgid "Missing strings"
+msgstr "رشته‌های جاافتاده"
+
+#. translators: %s: link to the Tools tab
+#: includes/I18n/Admin/LanguagesPage.php:150
+#, php-format
+msgid "Language packs (core and WooCommerce) are installed from the %s tab."
+msgstr "بسته‌های زبان (وردپرس و ووکامرس) از زبانه %s نصب می‌شوند."
+
+#: includes/I18n/Admin/LanguagesPage.php:151
+#: includes/Settings/Schema.php:481
+msgid "Tools"
+msgstr "ابزارها"
+
+#: includes/I18n/Admin/LanguagesPage.php:155
+msgid "Save languages"
+msgstr "ذخیره زبان‌ها"
+
+#. translators: 1: translated count, 2: total
+#: includes/I18n/Admin/LanguagesPage.php:183
+#, php-format
+msgid "Top-level categories translated: %1$d / %2$d"
+msgstr "دسته‌های سطح اول ترجمه‌شده: %1$d از %2$d"
+
+#. translators: %d: count
+#: includes/I18n/Admin/LanguagesPage.php:198
+#, php-format
+msgid "Shop, cart, checkout and account pages translated: %1$d / %2$d"
+msgstr "برگه‌های فروشگاه، سبد خرید، تسویه حساب و حساب کاربری ترجمه‌شده: %1$d از %2$d"
+
+#. translators: %d: count
+#: includes/I18n/Admin/LanguagesPage.php:205
+#, php-format
+msgid "%d published product translation"
+msgid_plural "%d published product translations"
+msgstr[0] "%d محصول با ترجمه منتشرشده"
+msgstr[1] "%d محصول با ترجمه منتشرشده"
+
+#. translators: %s: locale
+#: includes/I18n/Admin/LanguagesPage.php:211
+#, php-format
+msgid "WordPress language pack %s"
+msgstr "بسته زبان وردپرس %s"
+
+#. translators: %s: locale
+#: includes/I18n/Admin/LanguagesPage.php:212
+#, php-format
+msgid "WooCommerce language pack %s"
+msgstr "بسته زبان ووکامرس %s"
+
+#: includes/I18n/Admin/LanguagesPage.php:227
+#: includes/I18n/Admin/StringsPage.php:263
+#: includes/Settings/Settings.php:202
+msgid "You are not allowed to change these settings."
+msgstr "شما اجازه تغییر این تنظیمات را ندارید."
+
+#: includes/I18n/Admin/LanguagesPage.php:256
+msgid "Languages saved."
+msgstr "زبان‌ها ذخیره شد."
+
+#: includes/I18n/Admin/OrderLanguage.php:121
+msgid "Customer e-mails and the customer-facing order pages for this order use this language; admin e-mails and this screen stay Persian."
+msgstr "ایمیل‌های مشتری و برگه‌های سفارش در بخش مشتری برای این سفارش به این زبان‌اند؛ ایمیل‌های مدیر و همین صفحه فارسی می‌مانند."
+
+#: includes/I18n/Admin/StringsPage.php:47
+msgid "Strings"
+msgstr "رشته‌ها"
+
+#: includes/I18n/Admin/StringsPage.php:52
+msgid "Translations for texts WooCommerce builds from its settings (gateway and shipping names, attribute labels, account menu) and for strings the Arabic WooCommerce language pack lacks."
+msgstr "ترجمه متن‌هایی که ووکامرس از تنظیماتش می‌سازد (نام درگاه‌ها و روش‌های ارسال، عنوان ویژگی‌ها، منوی حساب کاربری) و رشته‌هایی که در بسته زبان عربی ووکامرس نیستند."
+
+#: includes/I18n/Admin/StringsPage.php:81
+msgid "WooCommerce labels"
+msgstr "متن‌های ووکامرس"
+
+#: includes/I18n/Admin/StringsPage.php:82
+msgid "Texts typed in Persian in the WooCommerce settings. Fill the other languages here; the storefront swaps them through the WooCommerce output filters."
+msgstr "متن‌هایی که در تنظیمات ووکامرس به فارسی تایپ شده‌اند. زبان‌های دیگر را اینجا پر کنید؛ فروشگاه آن‌ها را از طریق فیلترهای خروجی ووکامرس جایگزین می‌کند."
+
+#: includes/I18n/Admin/StringsPage.php:98
+msgid "Seen untranslated on the Arabic storefront"
+msgstr "در فروشگاه عربی بدون ترجمه دیده شده"
+
+#: includes/I18n/Admin/StringsPage.php:102
+msgid "Missing in the WooCommerce language pack"
+msgstr "در بسته زبان ووکامرس وجود ندارد"
+
+#: includes/I18n/Admin/StringsPage.php:103
+msgid "Collected while browsing the Arabic storefront as an administrator (Languages tab). A saved translation is applied through gettext for the woocommerce text domain."
+msgstr "هنگام مرور فروشگاه عربی توسط مدیر گردآوری شده است (زبانه زبان‌ها). ترجمه ذخیره‌شده از طریق gettext برای دامنه متنی woocommerce اعمال می‌شود."
+
+#: includes/I18n/Admin/StringsPage.php:124
+msgid "Custom entries"
+msgstr "موارد سفارشی"
+
+#: includes/I18n/Admin/StringsPage.php:126
+msgid "Add a string"
+msgstr "افزودن رشته"
+
+#: includes/I18n/Admin/StringsPage.php:128
+msgid "Source text"
+msgstr "متن مبدأ"
+
+#: includes/I18n/Admin/StringsPage.php:128
+msgid "Exact source text"
+msgstr "متن دقیق مبدأ"
+
+#: includes/I18n/Admin/StringsPage.php:129
+msgid "Context (optional)"
+msgstr "زمینه (اختیاری)"
+
+#: includes/I18n/Admin/StringsPage.php:136
+msgid "Save strings"
+msgstr "ذخیره رشته‌ها"
+
+#: includes/I18n/Admin/StringsPage.php:155
+msgid "Nothing here yet."
+msgstr "هنوز چیزی اینجا نیست."
+
+#: includes/I18n/Admin/StringsPage.php:159
+msgid "Source (Persian / English)"
+msgstr "مبدأ (فارسی / انگلیسی)"
+
+#: includes/I18n/Admin/StringsPage.php:164
+#: includes/I18n/Admin/StringsPage.php:188
+#: includes/Pricing/Admin/views/currencies-page.php:192
+msgid "Delete"
+msgstr "حذف"
+
+#: includes/I18n/Admin/StringsPage.php:175
+msgid "Context:"
+msgstr "زمینه:"
+
+#: includes/I18n/Admin/StringsPage.php:227
+msgid "Payment gateway title"
+msgstr "عنوان درگاه پرداخت"
+
+#: includes/I18n/Admin/StringsPage.php:228
+msgid "Payment gateway description"
+msgstr "توضیح درگاه پرداخت"
+
+#: includes/I18n/Admin/StringsPage.php:237
+msgid "Shipping method"
+msgstr "روش ارسال"
+
+#: includes/I18n/Admin/StringsPage.php:244
+msgid "Attribute label"
+msgstr "عنوان ویژگی"
+
+#: includes/I18n/Admin/StringsPage.php:250
+msgid "Account menu"
+msgstr "منوی حساب کاربری"
+
+#. translators: 1: saved count, 2: deleted count
+#: includes/I18n/Admin/StringsPage.php:327
+#, php-format
+msgid "%1$d string(s) saved, %2$d deleted."
+msgstr "%1$d رشته ذخیره و %2$d رشته حذف شد."
+
+#: includes/I18n/Admin/TermFields.php:68
+#: includes/I18n/Admin/TermFields.php:84
+#: includes/I18n/Admin/TranslationMetabox.php:53
+msgid "Translations"
+msgstr "ترجمه‌ها"
+
+#: includes/I18n/Admin/TermFields.php:113
+#: includes/Pricing/Admin/views/currencies-page.php:119
+msgid "Name"
+msgstr "نام"
+
+#: includes/I18n/Admin/TermFields.php:114
+#: includes/I18n/Admin/TranslationMetabox.php:75
+msgid "Slug"
+msgstr "نامک"
+
+#: includes/I18n/Admin/TermFields.php:115
+#: includes/I18n/Admin/TranslationMetabox.php:92
+msgid "Description"
+msgstr "توضیحات"
+
+#: includes/I18n/Admin/TermFields.php:117
+#: includes/I18n/Admin/TermFields.php:146
+#: includes/I18n/Admin/TranslationMetabox.php:221
+msgid "Copy from Persian"
+msgstr "کپی از فارسی"
+
+#: includes/I18n/Admin/TermFields.php:119
+msgid "Status"
+msgstr "وضعیت"
+
+#: includes/I18n/Admin/TermFields.php:121
+#: includes/I18n/Admin/TranslationMetabox.php:266
+#: includes/I18n/Admin/TranslationMetabox.php:450
+msgid "Not translated"
+msgstr "ترجمه نشده"
+
+#: includes/I18n/Admin/TermFields.php:121
+#: includes/I18n/Admin/TranslationMetabox.php:449
+msgid "Draft"
+msgstr "پیش‌نویس"
+
+#: includes/I18n/Admin/TermFields.php:121
+#: includes/I18n/Admin/TranslationMetabox.php:266
+#: includes/I18n/Admin/TranslationMetabox.php:448
+msgid "Published"
+msgstr "منتشرشده"
+
+#: includes/I18n/Admin/TermFields.php:125
+msgid "Published terms appear in menus, tiles, filters, sitemaps and hreflang of that language."
+msgstr "ترجمه‌های منتشرشده در منوها، کاشی‌ها، فیلترها، نقشه سایت و hreflang همان زبان نمایش داده می‌شوند."
+
+#. translators: 1: term name, 2: language code, 3: requested slug, 4: slug saved
+#: includes/I18n/Admin/TermFields.php:215
+#, php-format
+msgid "\"%1$s\": the %2$s slug \"%3$s\" was already in use; \"%4$s\" was saved instead."
+msgstr "«%1$s»: نامک %2$s «%3$s» قبلاً استفاده شده بود؛ به‌جای آن «%4$s» ذخیره شد."
+
+#: includes/I18n/Admin/TermFields.php:225
+#: includes/I18n/Admin/TranslationMetabox.php:436
+msgid "Edit"
+msgstr "ویرایش"
+
+#: includes/I18n/Admin/Tools.php:41
+msgid "Install language packs"
+msgstr "نصب بسته‌های زبان"
+
+#: includes/I18n/Admin/Tools.php:45
+msgid "Downloads the Arabic WordPress language pack and the WooCommerce (and other plugin/theme) translations for every configured language from translate.wordpress.org."
+msgstr "بسته زبان عربی وردپرس و ترجمه‌های ووکامرس (و افزونه‌ها/پوسته‌های دیگر) را برای هر زبان پیکربندی‌شده از translate.wordpress.org دانلود می‌کند."
+
+#: includes/I18n/Admin/Tools.php:46
+msgid "Install packs"
+msgstr "نصب بسته‌ها"
+
+#: includes/I18n/Admin/Tools.php:52
+msgid "Rebuild slug map"
+msgstr "بازسازی نقشه نامک‌ها"
+
+#: includes/I18n/Admin/Tools.php:56
+msgid "Regenerates the per-language translated-slug maps (transients) and the published-id lists from the stored meta."
+msgstr "نقشه نامک‌های ترجمه‌شده هر زبان (transient) و فهرست شناسه‌های منتشرشده را از روی متای ذخیره‌شده دوباره می‌سازد."
+
+#: includes/I18n/Admin/Tools.php:57
+#: includes/I18n/Admin/Tools.php:68
+msgid "Rebuild"
+msgstr "بازسازی"
+
+#: includes/I18n/Admin/Tools.php:63
+msgid "Rebuild search index"
+msgstr "بازسازی نمایه جست‌وجو"
+
+#: includes/I18n/Admin/Tools.php:67
+msgid "Rewrites the normalised search blobs (title, subtitle, brand, categories, specs) of every product, page and post for every language."
+msgstr "متن یکسان‌سازی‌شده جست‌وجو (عنوان، زیرعنوان، برند، دسته‌ها، مشخصات) را برای همه محصولات، برگه‌ها و نوشته‌ها در همه زبان‌ها دوباره می‌نویسد."
+
+#: includes/I18n/Admin/Tools.php:74
+msgid "Slug conflicts"
+msgstr "تداخل نامک‌ها"
+
+#: includes/I18n/Admin/Tools.php:78
+msgid "Lists translated slugs that collide with a native slug of the same type, with another translated slug, or with a reserved WooCommerce slug."
+msgstr "نامک‌های ترجمه‌شده‌ای را فهرست می‌کند که با نامک اصلی هم‌نوع، با نامک ترجمه‌شده دیگری یا با نامک رزروشده ووکامرس تداخل دارند."
+
+#: includes/I18n/Admin/Tools.php:79
+msgid "Check"
+msgstr "بررسی"
+
+#: includes/I18n/Admin/Tools.php:92
+msgid "You are not allowed to install languages."
+msgstr "شما اجازه نصب بسته‌های زبان را ندارید."
+
+#: includes/I18n/Admin/Tools.php:100
+msgid "Language packs cannot be installed: the filesystem is not writable or file modifications are disallowed."
+msgstr "بسته‌های زبان نصب نمی‌شوند: سیستم فایل قابل نوشتن نیست یا تغییر فایل‌ها مجاز نیست."
+
+#. translators: %s: locale
+#: includes/I18n/Admin/Tools.php:112
+#, php-format
+msgid "WordPress %s: already installed."
+msgstr "وردپرس %s: از قبل نصب است."
+
+#. translators: %s: locale
+#: includes/I18n/Admin/Tools.php:118
+#, php-format
+msgid "WordPress %s: installed."
+msgstr "وردپرس %s: نصب شد."
+
+#. translators: %s: locale
+#: includes/I18n/Admin/Tools.php:122
+#, php-format
+msgid "WordPress %s: download failed (is translate.wordpress.org reachable from this server?)."
+msgstr "وردپرس %s: دانلود ناموفق بود (آیا translate.wordpress.org از این سرور در دسترس است؟)."
+
+#. translators: 1: installed count, 2: total, 3: list
+#: includes/I18n/Admin/Tools.php:145
+#, php-format
+msgid "Plugin/theme translations: %1$d of %2$d installed: %3$s"
+msgstr "ترجمه افزونه‌ها و پوسته‌ها: %1$d از %2$d نصب شد: %3$s"
+
+#: includes/I18n/Admin/Tools.php:150
+msgid "Plugin/theme translations: nothing to install (all up to date, or the update API was unreachable)."
+msgstr "ترجمه افزونه‌ها و پوسته‌ها: چیزی برای نصب نیست (همه به‌روزند یا API به‌روزرسانی در دسترس نبود)."
+
+#. translators: 1: language code, 2: post slugs, 3: term slugs
+#: includes/I18n/Admin/Tools.php:167
+#, php-format
+msgid "%1$s: %2$d post slugs, %3$d term slugs"
+msgstr "%1$s: %2$d نامک محتوا، %3$d نامک دسته و برچسب"
+
+#. translators: %s: per-language counts
+#: includes/I18n/Admin/Tools.php:170
+#, php-format
+msgid "Slug maps rebuilt (%s)."
+msgstr "نقشه نامک‌ها بازسازی شد (%s)."
+
+#. translators: %s: per-language counts
+#: includes/I18n/Admin/Tools.php:170
+msgid "no secondary languages"
+msgstr "زبان دیگری وجود ندارد"
+
+#. translators: %d: number of posts
+#: includes/I18n/Admin/Tools.php:184
+#, php-format
+msgid "Search index rebuilt for %d item."
+msgid_plural "Search index rebuilt for %d items."
+msgstr[0] "نمایه جست‌وجو برای %d مورد بازسازی شد."
+msgstr[1] "نمایه جست‌وجو برای %d مورد بازسازی شد."
+
+#: includes/I18n/Admin/Tools.php:195
+msgid "No slug conflicts found."
+msgstr "تداخل نامکی پیدا نشد."
+
+#: includes/I18n/Admin/Tools.php:199
+msgid "equals a native slug of the same type"
+msgstr "با نامک اصلی هم‌نوع یکسان است"
+
+#: includes/I18n/Admin/Tools.php:200
+msgid "used by another translated object"
+msgstr "توسط مورد ترجمه‌شده دیگری استفاده شده است"
+
+#: includes/I18n/Admin/Tools.php:201
+msgid "is a reserved slug"
+msgstr "یک نامک رزروشده است"
+
+#. translators: 1: language, 2: object type, 3: object label, 4: slug, 5: reason
+#: includes/I18n/Admin/Tools.php:211
+#, php-format
+msgid "[%1$s] %2$s \"%3$s\": slug \"%4$s\" %5$s"
+msgstr "[%1$s] %2$s «%3$s»: نامک «%4$s» %5$s"
+
+#. translators: %d: hidden count
+#: includes/I18n/Admin/Tools.php:222
+#, php-format
+msgid "... and %d more."
+msgstr "… و %d مورد دیگر."
+
+#: includes/I18n/Admin/TranslationMetabox.php:86
+msgid "Short description"
+msgstr "توضیح کوتاه"
+
+#: includes/I18n/Admin/TranslationMetabox.php:86
+msgid "Excerpt"
+msgstr "چکیده"
+
+#: includes/I18n/Admin/TranslationMetabox.php:92
+msgid "Content"
+msgstr "محتوا"
+
+#: includes/I18n/Admin/TranslationMetabox.php:97
+msgid "SEO title"
+msgstr "عنوان سئو"
+
+#: includes/I18n/Admin/TranslationMetabox.php:102
+msgid "SEO description"
+msgstr "توضیح سئو"
+
+#: includes/I18n/Admin/TranslationMetabox.php:108
+msgid "Translation status"
+msgstr "وضعیت ترجمه"
+
+#: includes/I18n/Admin/TranslationMetabox.php:191
+msgid "Copy everything from Persian"
+msgstr "کپی همه‌چیز از فارسی"
+
+#: includes/I18n/Admin/TranslationMetabox.php:195
+msgid "View translation"
+msgstr "مشاهده ترجمه"
+
+#: includes/I18n/Admin/TranslationMetabox.php:236
+msgid "WooCommerce pages keep their slug in every language (/en/shop/, /en/cart/ ...)."
+msgstr "برگه‌های ووکامرس در همه زبان‌ها نامک خود را نگه می‌دارند (/en/shop/، /en/cart/ …)."
+
+#: includes/I18n/Admin/TranslationMetabox.php:239
+msgid "Left empty, the slug is derived from the translated title. Collisions get a numeric suffix; previous slugs redirect."
+msgstr "اگر خالی بماند، نامک از عنوان ترجمه‌شده ساخته می‌شود. نامک‌های تکراری پسوند عددی می‌گیرند و نامک‌های قبلی به نامک جدید تغییر مسیر داده می‌شوند."
+
+#: includes/I18n/Admin/TranslationMetabox.php:266
+msgid "Draft (editors only)"
+msgstr "پیش‌نویس (فقط برای ویرایشگران)"
+
+#: includes/I18n/Admin/TranslationMetabox.php:270
+msgid "Only published translations are visible under the language prefix: in archives, search, related products, sitemaps and hreflang."
+msgstr "فقط ترجمه‌های منتشرشده زیر پیشوند زبان دیده می‌شوند: در آرشیوها، جست‌وجو، محصولات مرتبط، نقشه سایت و hreflang."
+
+#. translators: 1: language code, 2: requested slug, 3: slug saved
+#: includes/I18n/Admin/TranslationMetabox.php:370
+#, php-format
+msgid "The %1$s slug \"%2$s\" was already in use; \"%3$s\" was saved instead."
+msgstr "نامک %1$s «%2$s» قبلاً استفاده شده بود؛ به‌جای آن «%3$s» ذخیره شد."
+
+#. translators: %s: language code
+#: includes/I18n/Admin/TranslationMetabox.php:392
+#, php-format
+msgid "The %s translation has no title, so it was saved as a draft."
+msgstr "ترجمه %s عنوان ندارد، بنابراین به‌عنوان پیش‌نویس ذخیره شد."
+
+#. translators: 1: post title, 2: message
+#: includes/I18n/Admin/TranslationMetabox.php:431
+#, php-format
+msgid "\"%1$s\": %2$s"
+msgstr "«%1$s»: %2$s"
+
+#: includes/I18n/Menus.php:48
+msgid "Primary menu"
+msgstr "منوی اصلی"
+
+#: includes/I18n/Menus.php:49
+msgid "Footer menu"
+msgstr "منوی پابرگ"
+
+#: includes/I18n/Menus.php:50
+msgid "Legal menu"
+msgstr "منوی قوانین"
+
+#. translators: 1: menu name, 2: language name
+#: includes/I18n/Menus.php:57
+#, php-format
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+#: includes/I18n/Rest/Search.php:109
+msgid "Too many searches. Please wait a moment."
+msgstr "تعداد جست‌وجوها زیاد است. لطفاً کمی صبر کنید."
+
+#: includes/Import/Admin/BatchUi.php:32
+msgid "Start"
+msgstr "شروع"
+
+#: includes/Import/Admin/BatchUi.php:43
+msgid "Stop"
+msgstr "توقف"
+
+#: includes/Import/Admin/BatchUi.php:53
+msgid "Without JavaScript"
+msgstr "بدون جاوااسکریپت"
+
+#: includes/Import/Admin/BatchUi.php:72
+msgid "Stopped."
+msgstr "متوقف شد."
+
+#: includes/Import/Admin/BatchUi.php:73
+msgid "Request failed."
+msgstr "درخواست ناموفق بود."
+
+#: includes/Import/Admin/BatchUi.php:74
+msgid "Finished."
+msgstr "پایان یافت."
+
+#: includes/Import/Admin/BatchUi.php:75
+msgid "Start now?"
+msgstr "همین حالا شروع شود؟"
+
+#: includes/Import/Admin/ImportTool.php:51
+msgid "Import the old site"
+msgstr "درون‌ریزی سایت قدیمی"
+
+#: includes/Import/Admin/ImportTool.php:55
+msgid "Imports categories, brands, tags, the 107 products with their images, the content pages and the redirect list from the extracted backup. Re-running updates what exists (idempotent)."
+msgstr "دسته‌ها، برندها، برچسب‌ها، ۱۰۷ محصول همراه با تصاویرشان، برگه‌های محتوایی و فهرست تغییر مسیرها را از پشتیبان استخراج‌شده درون‌ریزی می‌کند. اجرای دوباره، موارد موجود را به‌روز می‌کند و چیزی تکراری نمی‌سازد."
+
+#: includes/Import/Admin/ImportTool.php:56
+msgid "Run the whole import now"
+msgstr "اجرای کامل درون‌ریزی همین حالا"
+
+#: includes/Import/Admin/ImportTool.php:57
+msgid "Run the import synchronously? This can take several minutes."
+msgstr "درون‌ریزی یک‌جا و در همین درخواست اجرا شود؟ ممکن است چند دقیقه طول بکشد."
+
+#: includes/Import/Admin/ImportTool.php:73
+msgid "Start import"
+msgstr "شروع درون‌ریزی"
+
+#: includes/Import/Admin/ImportTool.php:89
+msgid "Categories, brands, tags"
+msgstr "دسته‌ها، برندها، برچسب‌ها"
+
+#: includes/Import/Admin/ImportTool.php:90
+#: includes/Pricing/Admin/views/currencies-page.php:126
+#: includes/Pricing/Admin/views/currencies-page.php:269
+msgid "Products"
+msgstr "محصولات"
+
+#: includes/Import/Admin/ImportTool.php:91
+msgid "Images"
+msgstr "تصاویر"
+
+#: includes/Import/Admin/ImportTool.php:92
+msgid "Pages (privacy, terms, about, contact, FAQ)"
+msgstr "برگه‌ها (حریم خصوصی، قوانین، درباره ما، تماس با ما، پرسش‌های متداول)"
+
+#: includes/Import/Admin/ImportTool.php:93
+msgid "Redirect list (data/redirects.csv)"
+msgstr "فهرست تغییر مسیرها (data/redirects.csv)"
+
+#: includes/Import/Admin/ImportTool.php:97
+msgid "Export directory"
+msgstr "پوشه خروجی سایت قدیمی"
+
+#. translators: %s: output directory
+#: includes/Import/Admin/ImportTool.php:102
+#, php-format
+msgid "Must contain products.json and images/. The redirect CSV is written to %s."
+msgstr "باید شامل products.json و images/ باشد. فایل CSV تغییر مسیرها در %s نوشته می‌شود."
+
+#: includes/Import/Admin/ImportTool.php:107
+msgid "Steps"
+msgstr "مراحل"
+
+#: includes/Import/Admin/ImportTool.php:112
+msgid "Dry run (report only, nothing is written)"
+msgstr "اجرای آزمایشی (فقط گزارش، چیزی نوشته نمی‌شود)"
+
+#: includes/Import/Admin/ImportTool.php:113
+msgid "Also write the redirects into the gadgetim_redirects option"
+msgstr "تغییر مسیرها در گزینه gadgetim_redirects هم نوشته شوند"
+
+#: includes/Import/Admin/ImportTool.php:115
+msgid "Limit (first N products; 0 = all)"
+msgstr "محدودیت (N محصول اول؛ ۰ = همه)"
+
+#: includes/Import/Admin/ImportTool.php:127
+msgid "You are not allowed to run the import."
+msgstr "شما اجازه اجرای درون‌ریزی را ندارید."
+
+#: includes/Import/Admin/ImportTool.php:154
+msgid "The source must be an existing local directory (no URLs or stream wrappers)."
+msgstr "مبدأ باید یک پوشه محلی موجود باشد (نه نشانی اینترنتی یا stream wrapper)."
+
+#: includes/Import/Admin/ImportTool.php:171
+msgid "Dry run started."
+msgstr "اجرای آزمایشی شروع شد."
+
+#: includes/Import/Admin/ImportTool.php:171
+msgid "Import started."
+msgstr "درون‌ریزی شروع شد."
+
+#: includes/Import/Admin/ImportTool.php:179
+msgid "The import job has expired; start again."
+msgstr "فرایند درون‌ریزی منقضی شده است؛ دوباره شروع کنید."
+
+#. translators: %s: counters summary
+#: includes/Import/Admin/ImportTool.php:205
+#, php-format
+msgid "Finished: %s"
+msgstr "پایان یافت: %s"
+
+#. translators: 1: current step, 2: done, 3: total
+#: includes/Import/Admin/ImportTool.php:207
+#, php-format
+msgid "Step \"%1$s\" — %2$d of %3$d items"
+msgstr "مرحله «%1$s» — %2$d از %3$d مورد"
+
+#. translators: 1: counters summary, 2: error count
+#: includes/Import/Admin/ImportTool.php:234
+#, php-format
+msgid "Import finished with errors: %1$s (%2$d errors; see the log)."
+msgstr "درون‌ریزی با خطا پایان یافت: %1$s (%2$d خطا؛ گزارش را ببینید)."
+
+#. translators: %s: counters summary
+#: includes/Import/Admin/ImportTool.php:238
+#: includes/Import/Importer.php:324
+#, php-format
+msgid "Import finished: %s"
+msgstr "درون‌ریزی پایان یافت: %s"
+
+#: includes/Import/Images.php:50
+msgid "Image entry without a file path."
+msgstr "مورد تصویر بدون مسیر فایل."
+
+#. translators: %s: relative path
+#: includes/Import/Images.php:59
+#, php-format
+msgid "Unexpected image path: %s"
+msgstr "مسیر غیرمنتظره تصویر: %s"
+
+#. translators: %s: file path
+#: includes/Import/Images.php:66
+#, php-format
+msgid "Image file missing: %s"
+msgstr "فایل تصویر موجود نیست: %s"
+
+#. translators: 1: attachment id, 2: file name
+#: includes/Import/Images.php:80
+#, php-format
+msgid "Attachment #%1$d already holds %2$s; adopted."
+msgstr "پیوست #%1$d از قبل %2$s را دارد؛ همان استفاده شد."
+
+#. translators: 1: attachment id, 2: relative path
+#: includes/Import/Images.php:93
+#, php-format
+msgid "Imported image #%1$d (%2$s)."
+msgstr "تصویر #%1$d درون‌ریزی شد (%2$s)."
+
+#: includes/Import/Images.php:225
+msgid "The image could not be copied to a temporary file."
+msgstr "تصویر در فایل موقت کپی نشد."
+
+#: includes/Import/Importer.php:76
+msgid "WooCommerce must be active to import products."
+msgstr "برای درون‌ریزی محصولات، ووکامرس باید فعال باشد."
+
+#: includes/Import/Importer.php:79
+msgid "The product_brand taxonomy is not registered (WooCommerce brands are required)."
+msgstr "طبقه‌بندی product_brand ثبت نشده است (برندهای ووکامرس لازم است)."
+
+#. translators: 1: step name, 2: item count
+#: includes/Import/Importer.php:117
+#, php-format
+msgid "Step \"%1$s\": %2$d items."
+msgstr "مرحله «%1$s»: %2$d مورد."
+
+#. translators: 1: item index, 2: error message
+#: includes/Import/Importer.php:132
+#, php-format
+msgid "Item %1$d failed: %2$s"
+msgstr "مورد %1$d ناموفق بود: %2$s"
+
+#. translators: 1: created, 2: updated, 3: skipped, 4: failed, 5: images
+#: includes/Import/Job.php:198
+#, php-format
+msgid "created %1$d · updated %2$d · skipped %3$d · failed %4$d · images %5$d"
+msgstr "ساخته‌شده %1$d · به‌روزشده %2$d · ردشده %3$d · ناموفق %4$d · تصویر %5$d"
+
+#. translators: %s: page title
+#: includes/Import/Pages.php:91
+#, php-format
+msgid "Page \"%s\": no content in the export or data/pages.json; created empty."
+msgstr "برگه «%s»: محتوایی در خروجی یا data/pages.json نیست؛ خالی ساخته شد."
+
+#. translators: 1: create/update, 2: page title, 3: slug, 4: content length
+#: includes/Import/Pages.php:107
+#, php-format
+msgid "[dry run] would %1$s page \"%2$s\" (/%3$s/), %4$d characters of cleaned content."
+msgstr "[اجرای آزمایشی] برگه «%2$s» (/%3$s/) — عملیات: %1$s؛ %4$d نویسه محتوای پاک‌سازی‌شده."
+
+#. translators: 1: created/updated, 2: page id, 3: page title
+#: includes/Import/Pages.php:151
+#, php-format
+msgid "%1$s page #%2$d \"%3$s\"."
+msgstr "%1$s: برگه #%2$d «%3$s»."
+
+#: includes/Import/Pages.php:152
+#: includes/Import/Products.php:213
+#: includes/Pricing/Admin/views/currencies-page.php:127
+msgid "Updated"
+msgstr "به‌روزرسانی"
+
+#: includes/Import/Pages.php:152
+#: includes/Import/Products.php:213
+msgid "Created"
+msgstr "ایجاد"
+
+#. translators: 1: create/update verb, 2: short title, 3: slug, 4: category count, 5: brand count, 6: spec count, 7: image count, 8: AED regular, 9: AED sale
+#: includes/Import/Products.php:102
+#, php-format
+msgid "[dry run] would %1$s \"%2$s\" (/product/%3$s/) — categories %4$d, brands %5$d, specs %6$d, images %7$d, AED %8$s / %9$s"
+msgstr "[اجرای آزمایشی] «%2$s» (/product/%3$s/) — عملیات: %1$s؛ دسته‌ها %4$d، برندها %5$d، مشخصات %6$d، تصاویر %7$d، درهم %8$s / %9$s"
+
+#. translators: 1: short title, 2: requested slug, 3: stored slug
+#: includes/Import/Products.php:203
+#, php-format
+msgid "\"%1$s\": slug \"%2$s\" was stored as \"%3$s\" (collision); add a redirect."
+msgstr "«%1$s»: نامک «%2$s» به‌صورت «%3$s» ذخیره شد (تداخل)؛ یک تغییر مسیر اضافه کنید."
+
+#. translators: 1: created/updated, 2: product id, 3: short title, 4: spec count
+#: includes/Import/Products.php:212
+#, php-format
+msgid "%1$s product #%2$d \"%3$s\" (%4$d spec rows)."
+msgstr "%1$s: محصول #%2$d «%3$s» (%4$d ردیف مشخصات)."
+
+#: includes/Import/Source.php:62
+msgid "The source must be a local directory; URLs and stream wrappers are not accepted."
+msgstr "مبدأ باید یک پوشه محلی باشد؛ نشانی اینترنتی و stream wrapper پذیرفته نمی‌شود."
+
+#. translators: %s: directory path
+#: includes/Import/Source.php:66
+#, php-format
+msgid "Source directory not found: %s"
+msgstr "پوشه مبدأ پیدا نشد: %s"
+
+#. translators: %s: file path
+#: includes/Import/Source.php:72
+#, php-format
+msgid "Export file missing: %s"
+msgstr "فایل خروجی موجود نیست: %s"
+
+#: includes/Import/Source.php:77
+msgid "products.json is not valid JSON."
+msgstr "products.json یک JSON معتبر نیست."
+
+#: includes/Import/Source.php:80
+msgid "The images/ directory is missing from the export."
+msgstr "پوشه images/ در خروجی وجود ندارد."
+
+#: includes/Import/Steps/ImagesStep.php:36
+msgid "Images are imported together with the products in this run."
+msgstr "در این اجرا، تصاویر همراه محصولات درون‌ریزی می‌شوند."
+
+#. translators: 1: short title, 2: image count
+#: includes/Import/Steps/ImagesStep.php:58
+#, php-format
+msgid "[dry run] would import %2$d images for \"%1$s\"."
+msgstr "[اجرای آزمایشی] %2$d تصویر برای «%1$s» درون‌ریزی می‌شد."
+
+#. translators: %s: short title
+#: includes/Import/Steps/ImagesStep.php:60
+#, php-format
+msgid "[dry run] \"%s\" is not imported yet; its images would be skipped."
+msgstr "[اجرای آزمایشی] «%s» هنوز درون‌ریزی نشده؛ تصاویرش رد می‌شد."
+
+#. translators: %s: short title
+#: includes/Import/Steps/ImagesStep.php:67
+#, php-format
+msgid "\"%s\" is not imported yet; run the products step first."
+msgstr "«%s» هنوز درون‌ریزی نشده؛ ابتدا مرحله محصولات را اجرا کنید."
+
+#. translators: 1: row count, 2: file path
+#: includes/Import/Steps/RedirectsStep.php:40
+#, php-format
+msgid "[dry run] would write %1$d redirect rows to %2$s."
+msgstr "[اجرای آزمایشی] %1$d ردیف تغییر مسیر در %2$s نوشته می‌شد."
+
+#. translators: %s: file path
+#: includes/Import/Steps/RedirectsStep.php:53
+#, php-format
+msgid "Could not write %s."
+msgstr "%s نوشته نشد."
+
+#. translators: 1: row count, 2: file path
+#: includes/Import/Steps/RedirectsStep.php:57
+#, php-format
+msgid "Wrote %1$d redirect rows to %2$s."
+msgstr "%1$d ردیف تغییر مسیر در %2$s نوشته شد."
+
+#. translators: %d: row count
+#: includes/Import/Steps/RedirectsStep.php:63
+#, php-format
+msgid "Applied %d redirects to the gadgetim_redirects option."
+msgstr "%d تغییر مسیر در گزینه gadgetim_redirects اعمال شد."
+
+#. translators: %s: category name
+#: includes/Import/Terms.php:103
+#, php-format
+msgid "Category \"%s\" skipped (mapping)."
+msgstr "دسته «%s» طبق جدول نگاشت کنار گذاشته شد."
+
+#. translators: %s: category name
+#: includes/Import/Terms.php:111
+#, php-format
+msgid "Category \"%s\" mapped to the default WooCommerce category."
+msgstr "دسته «%s» به دسته پیش‌فرض ووکامرس نگاشت شد."
+
+#. translators: 1: category name, 2: target category name
+#: includes/Import/Terms.php:123
+#, php-format
+msgid "Category \"%1$s\" merged into \"%2$s\"."
+msgstr "دسته «%1$s» در «%2$s» ادغام شد."
+
+#. translators: %s: brand name
+#: includes/Import/Terms.php:347
+#, php-format
+msgid "Brand \"%s\" is not in brands.json; created from the product."
+msgstr "برند «%s» در brands.json نیست؛ از روی محصول ساخته شد."
+
+#. translators: 1: taxonomy label, 2: term name, 3: slug
+#: includes/Import/Terms.php:526
+#, php-format
+msgid "[dry run] would create %1$s \"%2$s\" (%3$s)."
+msgstr "[اجرای آزمایشی] %1$s «%2$s» (%3$s) ساخته می‌شد."
+
+#. translators: 1: taxonomy label, 2: term name, 3: error message
+#: includes/Import/Terms.php:538
+#, php-format
+msgid "%1$s \"%2$s\" could not be created: %3$s"
+msgstr "%1$s «%2$s» ساخته نشد: %3$s"
+
+#. translators: 1: taxonomy label, 2: term name, 3: slug
+#: includes/Import/Terms.php:547
+#, php-format
+msgid "Created %1$s \"%2$s\" (%3$s)."
+msgstr "%1$s «%2$s» (%3$s) ساخته شد."
+
+#. translators: 1: taxonomy label, 2: term name, 3: changed fields
+#: includes/Import/Terms.php:579
+#, php-format
+msgid "[dry run] would update %1$s \"%2$s\" (%3$s)."
+msgstr "[اجرای آزمایشی] %1$s «%2$s» (%3$s) به‌روز می‌شد."
+
+#. translators: 1: taxonomy label, 2: term name
+#: includes/Import/Terms.php:581
+#, php-format
+msgid "[dry run] %1$s \"%2$s\" already exists."
+msgstr "[اجرای آزمایشی] %1$s «%2$s» از قبل وجود دارد."
+
+#. translators: 1: taxonomy label, 2: term name, 3: error message
+#: includes/Import/Terms.php:590
+#, php-format
+msgid "%1$s \"%2$s\" could not be updated: %3$s"
+msgstr "%1$s «%2$s» به‌روز نشد: %3$s"
+
+#. translators: 1: taxonomy label, 2: term name
+#: includes/Import/Terms.php:595
+#, php-format
+msgid "Updated %1$s \"%2$s\"."
+msgstr "%1$s «%2$s» به‌روز شد."
+
+#: includes/Import/Terms.php:671
+msgid "category"
+msgstr "دسته"
+
+#: includes/Import/Terms.php:672
+msgid "tag"
+msgstr "برچسب"
+
+#: includes/Import/Terms.php:673
+msgid "brand"
+msgstr "برند"
+
+#. translators: %s: minimum WooCommerce version
+#: includes/Plugin.php:124
+#, php-format
+msgid "Gadgetim Core needs WooCommerce %s or newer. WooCommerce is not active, so pricing, catalog and checkout features are disabled until it is."
+msgstr "هسته گجتیم به ووکامرس %s یا جدیدتر نیاز دارد. ووکامرس فعال نیست، بنابراین امکانات قیمت‌گذاری، کاتالوگ و تسویه حساب تا فعال شدن آن غیرفعال‌اند."
+
+#. translators: 1: minimum WooCommerce version, 2: installed WooCommerce version
+#: includes/Plugin.php:130
+#, php-format
+msgid "Gadgetim Core needs WooCommerce %1$s or newer; version %2$s is active. Please update WooCommerce."
+msgstr "هسته گجتیم به ووکامرس %1$s یا جدیدتر نیاز دارد؛ نسخه %2$s فعال است. لطفاً ووکامرس را به‌روز کنید."
+
+#: includes/Pricing/Admin/CurrenciesPage.php:50
+msgid "Currencies"
+msgstr "ارزها"
+
+#: includes/Pricing/Admin/CurrenciesPage.php:56
+msgid "Base currencies, their Toman rates and rounding. Saving a rate changes no product; \"Apply rates\" re-saves every product priced in that currency (in the background for large sets) and purges the page cache once at the end. Take a backup first."
+msgstr "ارزهای پایه، نرخ تومانی و شیوه گرد کردن هر کدام. ذخیره نرخ هیچ محصولی را تغییر نمی‌دهد؛ «اعمال نرخ‌ها» همه محصولاتی را که با آن ارز قیمت‌گذاری شده‌اند دوباره ذخیره می‌کند (برای تعداد زیاد، در پس‌زمینه) و در پایان یک بار کش صفحه را پاک می‌کند. پیش از آن پشتیبان بگیرید."
+
+#: includes/Pricing/Admin/CurrenciesPage.php:66
+#: includes/Pricing/Admin/CurrenciesPage.php:316
+msgid "You are not allowed to manage currencies."
+msgstr "شما اجازه مدیریت ارزها را ندارید."
+
+#. translators: 1: number of products, 2: currency code
+#: includes/Pricing/Admin/CurrenciesPage.php:116
+#, php-format
+msgid "Recompute the Toman prices of %1$s products priced in %2$s with the saved rate?"
+msgstr "قیمت تومانی %1$s محصولی که با %2$s قیمت‌گذاری شده‌اند با نرخ ذخیره‌شده دوباره محاسبه شود؟"
+
+#: includes/Pricing/Admin/CurrenciesPage.php:117
+msgid "Warning: the last known backup is older than 24 hours (or unknown). The runbook requires a fresh backup before applying rates."
+msgstr "هشدار: آخرین پشتیبان شناخته‌شده قدیمی‌تر از ۲۴ ساعت است (یا زمانش معلوم نیست). طبق دستورالعمل، پیش از اعمال نرخ‌ها یک پشتیبان تازه لازم است."
+
+#: includes/Pricing/Admin/CurrenciesPage.php:118
+msgid "You changed values in the table. Save the currencies first, then apply the rates."
+msgstr "مقادیر جدول را تغییر داده‌اید. ابتدا ارزها را ذخیره کنید و بعد نرخ‌ها را اعمال کنید."
+
+#: includes/Pricing/Admin/CurrenciesPage.php:119
+msgid "Delete this currency? Only currencies without products can be deleted."
+msgstr "این ارز حذف شود؟ فقط ارزهایی که محصولی ندارند قابل حذف‌اند."
+
+#. translators: 1: processed products, 2: total products
+#: includes/Pricing/Admin/CurrenciesPage.php:121
+#: includes/Pricing/Admin/views/currencies-page.php:50
+#, php-format
+msgid "%1$s of %2$s products recomputed…"
+msgstr "%1$s از %2$s محصول دوباره محاسبه شد…"
+
+#. translators: 1: processed products, 2: failed products
+#: includes/Pricing/Admin/CurrenciesPage.php:123
+#, php-format
+msgid "Done: %1$s products recomputed (%2$s failed). Reloading…"
+msgstr "انجام شد: %1$s محصول دوباره محاسبه شد (%2$s ناموفق). در حال بارگذاری دوباره صفحه…"
+
+#: includes/Pricing/Admin/CurrenciesPage.php:124
+msgid "The progress could not be read. The job keeps running in the background; reload the page to check."
+msgstr "پیشرفت کار خوانده نشد. این فرایند در پس‌زمینه ادامه دارد؛ برای بررسی، صفحه را دوباره بارگذاری کنید."
+
+#: includes/Pricing/Admin/CurrenciesPage.php:174
+msgid "The new currency code must be three Latin letters (ISO 4217)."
+msgstr "کد ارز جدید باید سه حرف لاتین باشد (ISO 4217)."
+
+#. translators: %s: currency code
+#: includes/Pricing/Admin/CurrenciesPage.php:177
+#, php-format
+msgid "%s already exists."
+msgstr "%s از قبل وجود دارد."
+
+#: includes/Pricing/Admin/CurrenciesPage.php:202
+msgid "Currencies saved."
+msgstr "ارزها ذخیره شد."
+
+#. translators: 1: currency code, 2: number of products
+#: includes/Pricing/Admin/CurrenciesPage.php:209
+#, php-format
+msgid "%1$s (%2$s products)"
+msgstr "%1$s (%2$s محصول)"
+
+#. translators: %s: list of currencies with product counts
+#: includes/Pricing/Admin/CurrenciesPage.php:212
+#, php-format
+msgid "Rates or rounding changed for %s. No product price changed yet, and product saves keep using the previous values until you use \"Apply rates\"."
+msgstr "نرخ‌ها یا شیوه گرد کردن تغییر کرد: %s. هنوز قیمت هیچ محصولی عوض نشده است و ذخیره محصولات تا وقتی «اعمال نرخ‌ها» را اجرا نکنید با مقادیر قبلی انجام می‌شود."
+
+#. translators: 1: number of products, 2: currency code, 3: number of failures
+#: includes/Pricing/Admin/CurrenciesPage.php:237
+#, php-format
+msgid "Toman prices of %1$s products priced in %2$s were recomputed (%3$s failed). The page cache was purged."
+msgstr "قیمت تومانی %1$s محصولی که با %2$s قیمت‌گذاری شده‌اند دوباره محاسبه شد (%3$s ناموفق). کش صفحه پاک شد."
+
+#. translators: %s: currency code
+#: includes/Pricing/Admin/CurrenciesPage.php:263
+#, php-format
+msgid "Currency %s deleted."
+msgstr "ارز %s حذف شد."
+
+#: includes/Pricing/Admin/views/currencies-page.php:45
+msgid "Applying rates…"
+msgstr "در حال اعمال نرخ‌ها…"
+
+#: includes/Pricing/Admin/views/currencies-page.php:58
+msgid "The job runs in the background (Action Scheduler). You may leave this page; the result appears in the history below."
+msgstr "این فرایند در پس‌زمینه (Action Scheduler) اجرا می‌شود. می‌توانید این صفحه را ترک کنید؛ نتیجه در تاریخچه پایین نمایش داده می‌شود."
+
+#. translators: 1: number of products, 2: number of failures
+#: includes/Pricing/Admin/views/currencies-page.php:66
+#, php-format
+msgid "Done: %1$s products recomputed (%2$s failed). The page cache was purged once."
+msgstr "انجام شد: %1$s محصول دوباره محاسبه شد (%2$s ناموفق). کش صفحه یک بار پاک شد."
+
+#: includes/Pricing/Admin/views/currencies-page.php:74
+msgid "This job is unknown or expired; check the history below."
+msgstr "این فرایند ناشناخته است یا منقضی شده؛ تاریخچه پایین را ببینید."
+
+#. translators: 1: human time difference, 2: date
+#: includes/Pricing/Admin/views/currencies-page.php:83
+#, php-format
+msgid "Last known backup: %1$s ago (%2$s)."
+msgstr "آخرین پشتیبان شناخته‌شده: %1$s پیش (%2$s)."
+
+#: includes/Pricing/Admin/views/currencies-page.php:89
+msgid "Older than 24 hours: take a backup before applying rates."
+msgstr "قدیمی‌تر از ۲۴ ساعت: پیش از اعمال نرخ‌ها پشتیبان بگیرید."
+
+#: includes/Pricing/Admin/views/currencies-page.php:92
+msgid "No backup marker found: take a backup before applying rates."
+msgstr "نشانگر پشتیبان پیدا نشد: پیش از اعمال نرخ‌ها پشتیبان بگیرید."
+
+#. translators: %s: file path
+#: includes/Pricing/Admin/views/currencies-page.php:93
+#, php-format
+msgid "(backup.sh writes the time into %s)"
+msgstr "(backup.sh زمان را در %s می‌نویسد)"
+
+#. translators: %s: number of products
+#: includes/Pricing/Admin/views/currencies-page.php:103
+#, php-format
+msgid "%s product still carries the old plugin's currency meta. Run \"Migrate legacy AED prices\" on the Tools tab."
+msgid_plural "%s products still carry the old plugin's currency meta. Run \"Migrate legacy AED prices\" on the Tools tab."
+msgstr[0] "%s محصول هنوز متای ارز افزونه قدیمی را دارد. ابزار «انتقال قیمت‌های درهمی قدیمی» را در زبانه ابزارها اجرا کنید."
+msgstr[1] "%s محصول هنوز متای ارز افزونه قدیمی را دارند. ابزار «انتقال قیمت‌های درهمی قدیمی» را در زبانه ابزارها اجرا کنید."
+
+#: includes/Pricing/Admin/views/currencies-page.php:118
+msgid "Code"
+msgstr "کد"
+
+#: includes/Pricing/Admin/views/currencies-page.php:120
+msgid "Symbol"
+msgstr "نماد"
+
+#: includes/Pricing/Admin/views/currencies-page.php:121
+msgid "Rate (Toman per unit)"
+msgstr "نرخ (تومان برای هر واحد)"
+
+#: includes/Pricing/Admin/views/currencies-page.php:122
+msgid "Rounding"
+msgstr "گرد کردن"
+
+#: includes/Pricing/Admin/views/currencies-page.php:123
+msgid "Step"
+msgstr "گام"
+
+#: includes/Pricing/Admin/views/currencies-page.php:124
+msgid "Decimals"
+msgstr "رقم اعشار"
+
+#: includes/Pricing/Admin/views/currencies-page.php:125
+#: includes/Pricing/Admin/views/currencies-page.php:175
+#: includes/Pricing/Admin/views/currencies-page.php:209
+msgid "Enabled"
+msgstr "فعال"
+
+#: includes/Pricing/Admin/views/currencies-page.php:128
+msgid "Actions"
+msgstr "عملیات"
+
+#: includes/Pricing/Admin/views/currencies-page.php:145
+msgid "The saved rate was not applied to the products yet."
+msgstr "نرخ ذخیره‌شده هنوز روی محصولات اعمال نشده است."
+
+#: includes/Pricing/Admin/views/currencies-page.php:145
+msgid "rate not applied"
+msgstr "نرخ اعمال نشده"
+
+#. translators: %s: language name
+#: includes/Pricing/Admin/views/currencies-page.php:152
+#, php-format
+msgid "Name (%s)"
+msgstr "نام (%s)"
+
+#: includes/Pricing/Admin/views/currencies-page.php:168
+msgid "Ignored by charm rounding."
+msgstr "در گرد کردن روانی نادیده گرفته می‌شود."
+
+#: includes/Pricing/Admin/views/currencies-page.php:189
+msgid "Apply rates"
+msgstr "اعمال نرخ‌ها"
+
+#: includes/Pricing/Admin/views/currencies-page.php:200
+msgid "New currency code"
+msgstr "کد ارز جدید"
+
+#: includes/Pricing/Admin/views/currencies-page.php:201
+msgid "Name (Persian)"
+msgstr "نام (فارسی)"
+
+#: includes/Pricing/Admin/views/currencies-page.php:201
+msgid "New currency name"
+msgstr "نام ارز جدید"
+
+#: includes/Pricing/Admin/views/currencies-page.php:202
+msgid "New currency symbol"
+msgstr "نماد ارز جدید"
+
+#: includes/Pricing/Admin/views/currencies-page.php:203
+msgid "New currency rate"
+msgstr "نرخ ارز جدید"
+
+#: includes/Pricing/Admin/views/currencies-page.php:204
+msgid "New currencies start with charm rounding; change it after saving."
+msgstr "ارزهای جدید با گرد کردن روانی شروع می‌شوند؛ پس از ذخیره می‌توانید آن را تغییر دهید."
+
+#: includes/Pricing/Admin/views/currencies-page.php:212
+msgid "Add a currency"
+msgstr "افزودن ارز"
+
+#: includes/Pricing/Admin/views/currencies-page.php:218
+msgid "Save currencies"
+msgstr "ذخیره ارزها"
+
+#. translators: %s: number of products
+#: includes/Pricing/Admin/views/currencies-page.php:223
+#, php-format
+msgid "Saving changes no product price. \"Apply rates\" re-saves the products of that currency: up to %s at once, larger sets in background batches of 50."
+msgstr "ذخیره، قیمت هیچ محصولی را تغییر نمی‌دهد. «اعمال نرخ‌ها» محصولات آن ارز را دوباره ذخیره می‌کند: تا %s محصول یک‌جا و تعداد بیشتر در نوبت‌های ۵۰تایی در پس‌زمینه."
+
+#: includes/Pricing/Admin/views/currencies-page.php:244
+msgid "Rate history"
+msgstr "تاریخچه نرخ‌ها"
+
+#. translators: 1: date, 2: currency code, 3: number of products
+#: includes/Pricing/Admin/views/currencies-page.php:250
+#, php-format
+msgid "Last reprice: %1$s — %2$s, %3$s products."
+msgstr "آخرین محاسبه دوباره قیمت‌ها: %1$s — %2$s، %3$s محصول."
+
+#: includes/Pricing/Admin/views/currencies-page.php:252
+msgid "mixed (fix now)"
+msgstr "چند ارز (اصلاح فوری)"
+
+#: includes/Pricing/Admin/views/currencies-page.php:259
+msgid "No rate change recorded yet."
+msgstr "هنوز تغییر نرخی ثبت نشده است."
+
+#: includes/Pricing/Admin/views/currencies-page.php:264
+msgid "When"
+msgstr "زمان"
+
+#: includes/Pricing/Admin/views/currencies-page.php:265
+msgid "Currency"
+msgstr "ارز"
+
+#: includes/Pricing/Admin/views/currencies-page.php:266
+msgid "Old rate"
+msgstr "نرخ قدیم"
+
+#: includes/Pricing/Admin/views/currencies-page.php:267
+msgid "New rate"
+msgstr "نرخ جدید"
+
+#: includes/Pricing/Admin/views/currencies-page.php:268
+msgid "By"
+msgstr "کاربر"
+
+#: includes/Pricing/Admin/views/currencies-page.php:270
+msgid "Applied"
+msgstr "اعمال‌شده"
+
+#: includes/Pricing/Admin/views/currencies-page.php:284
+msgid "yes"
+msgstr "بله"
+
+#: includes/Pricing/Admin/views/currencies-page.php:286
+msgid "pending"
+msgstr "در انتظار"
+
+#: includes/Pricing/Calculator.php:161
+msgid "Nearest step"
+msgstr "نزدیک‌ترین گام"
+
+#: includes/Pricing/Calculator.php:162
+msgid "Round up to the step"
+msgstr "گرد کردن رو به بالا تا گام"
+
+#: includes/Pricing/Calculator.php:163
+msgid "Round down to the step"
+msgstr "گرد کردن رو به پایین تا گام"
+
+#: includes/Pricing/Calculator.php:164
+msgid "Charm (…9,000: nearest 10,000 minus 1,000)"
+msgstr "روانی (…۹٬۰۰۰: نزدیک‌ترین ۱۰٬۰۰۰ منهای ۱٬۰۰۰)"
+
+#: includes/Pricing/Currencies.php:176
+#: includes/Pricing/Rest.php:150
+msgid "A currency code is three Latin letters (ISO 4217), for example AED."
+msgstr "کد ارز سه حرف لاتین است (ISO 4217)، مثلاً AED."
+
+#: includes/Pricing/Currencies.php:221
+#: includes/Pricing/Reprice.php:60
+#: includes/Pricing/Rest.php:135
+#: includes/Pricing/Rest.php:169
+msgid "Unknown currency."
+msgstr "ارز ناشناخته."
+
+#. translators: 1: currency code, 2: number of products
+#: includes/Pricing/Currencies.php:229
+#, php-format
+msgid "%1$s cannot be deleted: %2$s product is priced in it."
+msgid_plural "%1$s cannot be deleted: %2$s products are priced in it."
+msgstr[0] "%1$s حذف نمی‌شود: %2$s محصول با این ارز قیمت‌گذاری شده است."
+msgstr[1] "%1$s حذف نمی‌شود: %2$s محصول با این ارز قیمت‌گذاری شده‌اند."
+
+#: includes/Pricing/Display.php:64
+msgid "Price display"
+msgstr "نمایش قیمت"
+
+#: includes/Pricing/Display.php:65
+msgid "How the theme price partial shows sales and the base-currency hint. Prices are always stored and sold in Toman; the currencies themselves live under Gadgetim → Currencies."
+msgstr "شیوه نمایش تخفیف و معادل ارزی در بخش قیمت پوسته. قیمت‌ها همیشه به تومان ذخیره و فروخته می‌شوند؛ خود ارزها در گجتیم ← ارزها هستند."
+
+#: includes/Pricing/Display.php:74
+msgid "Show the old price from (% off)"
+msgstr "نمایش قیمت قبلی از (درصد تخفیف)"
+
+#: includes/Pricing/Display.php:75
+msgid "The struck-through old price appears only when the discount reaches this percentage."
+msgstr "قیمت قبلی خط‌خورده فقط وقتی نمایش داده می‌شود که تخفیف به این درصد برسد."
+
+#: includes/Pricing/Display.php:88
+msgid "Show the discount sticker from (% off)"
+msgstr "نمایش برچسب تخفیف از (درصد تخفیف)"
+
+#: includes/Pricing/Display.php:89
+msgid "The \"-14%\" sticker appears only when the discount reaches this percentage."
+msgstr "برچسب «۱۴٪ تخفیف» فقط وقتی نمایش داده می‌شود که تخفیف به این درصد برسد."
+
+#: includes/Pricing/Display.php:102
+msgid "Base-currency hint on the product page"
+msgstr "معادل ارزی در صفحه محصول"
+
+#: includes/Pricing/Display.php:103
+msgid "Shows \"≈ AED 30\" next to the Toman price of currency-priced products."
+msgstr "عبارتی مانند «≈ ۳۰ درهم» را کنار قیمت تومانی محصولاتی که با ارز قیمت‌گذاری شده‌اند نمایش می‌دهد."
+
+#: includes/Pricing/Display.php:113
+msgid "Base-currency hint on product cards"
+msgstr "معادل ارزی در کارت‌های محصول"
+
+#. translators: 1: base amount with currency (AED 30), 2: rate in Toman
+#: includes/Pricing/Display.php:343
+#, php-format
+msgid "%1$s × %2$s Toman"
+msgstr "%1$s × %2$s تومان"
+
+#: includes/Pricing/Display.php:376
+msgctxt "prefix of the lowest variation price"
+msgid "from"
+msgstr "از"
+
+#. translators: %s: number of products
+#: includes/Pricing/Guard.php:305
+#, php-format
+msgid "%s product has a stale Toman price (the rate changed or its base price was edited outside WooCommerce). \"Fix now\" recomputes it from the base currency."
+msgid_plural "%s products have stale Toman prices (the rate changed or their base prices were edited outside WooCommerce). \"Fix now\" recomputes them from the base currency."
+msgstr[0] "%s محصول قیمت تومانی کهنه دارد (نرخ تغییر کرده یا قیمت پایه‌اش بیرون از ووکامرس ویرایش شده است). دکمه «اصلاح فوری» آن را از روی ارز پایه دوباره محاسبه می‌کند."
+msgstr[1] "%s محصول قیمت تومانی کهنه دارند (نرخ تغییر کرده یا قیمت پایه‌شان بیرون از ووکامرس ویرایش شده است). دکمه «اصلاح فوری» آن‌ها را از روی ارز پایه دوباره محاسبه می‌کند."
+
+#: includes/Pricing/Guard.php:319
+msgid "Fix now"
+msgstr "اصلاح فوری"
+
+#: includes/Pricing/Guard.php:339
+#: includes/Pricing/Reprice.php:229
+msgid "You are not allowed to do this."
+msgstr "شما اجازه این کار را ندارید."
+
+#. translators: %s: currency code
+#: includes/Pricing/Materializer.php:47
+#, php-format
+msgid "its pricing currency %s does not exist any more; the last Toman prices were kept."
+msgstr "ارز قیمت‌گذاری آن (%s) دیگر وجود ندارد؛ آخرین قیمت‌های تومانی حفظ شد."
+
+#. translators: %s: currency code
+#: includes/Pricing/Materializer.php:52
+#, php-format
+msgid "its pricing currency %s is disabled; the last Toman prices were kept."
+msgstr "ارز قیمت‌گذاری آن (%s) غیرفعال است؛ آخرین قیمت‌های تومانی حفظ شد."
+
+#. translators: %s: currency code
+#: includes/Pricing/Materializer.php:74
+#, php-format
+msgid "its base price or the %s rate is zero; the last Toman prices were kept."
+msgstr "قیمت پایه آن یا نرخ %s صفر است؛ آخرین قیمت‌های تومانی حفظ شد."
+
+#: includes/Pricing/Migration.php:45
+msgid "Converts every product that still carries the old plugin's _gadgetim_currency_* meta: pricing currency AED, base prices copied as entered, Toman prices recomputed, old keys removed."
+msgstr "هر محصولی را که هنوز متای _gadgetim_currency_* افزونه قدیمی را دارد تبدیل می‌کند: ارز قیمت‌گذاری درهم می‌شود، قیمت‌های پایه همان‌طور که وارد شده‌اند کپی می‌شوند، قیمت‌های تومانی دوباره محاسبه و کلیدهای قدیمی حذف می‌شوند."
+
+#. translators: %s: number of products
+#: includes/Pricing/Migration.php:49
+#, php-format
+msgid "%s product is waiting."
+msgid_plural "%s products are waiting."
+msgstr[0] "%s محصول در انتظار است."
+msgstr[1] "%s محصول در انتظارند."
+
+#: includes/Pricing/Migration.php:53
+msgid "Migrate legacy AED prices"
+msgstr "انتقال قیمت‌های درهمی قدیمی"
+
+#: includes/Pricing/Migration.php:59
+msgid "Convert every product with the old currency meta to AED base prices and recompute its Toman prices now?"
+msgstr "همه محصولات دارای متای ارز قدیمی به قیمت پایه درهمی تبدیل شوند و قیمت تومانی‌شان همین حالا دوباره محاسبه شود؟"
+
+#: includes/Pricing/Migration.php:72
+#: includes/Pricing/Reprice.php:69
+#: includes/Pricing/Reprice.php:95
+msgid "WooCommerce is not active."
+msgstr "ووکامرس فعال نیست."
+
+#: includes/Pricing/Migration.php:78
+msgid "No product carries the old currency meta; nothing to migrate."
+msgstr "هیچ محصولی متای ارز قدیمی ندارد؛ چیزی برای انتقال نیست."
+
+#. translators: 1: number of products migrated, 2: currency code, 3: rate
+#: includes/Pricing/Migration.php:83
+#, php-format
+msgid "%1$s products now have AED base prices (rate %3$s Toman per %2$s) and recomputed Toman prices."
+msgstr "%1$s محصول اکنون قیمت پایه درهمی (نرخ %3$s تومان برای هر %2$s) و قیمت تومانی دوباره محاسبه‌شده دارند."
+
+#. translators: %s: list of product IDs
+#: includes/Pricing/Migration.php:91
+#, php-format
+msgid "Skipped (invalid old values, old keys kept): %s."
+msgstr "رد شد (مقادیر قدیمی نامعتبر بود و کلیدهای قدیمی حفظ شد): %s."
+
+#: includes/Pricing/Migration.php:142
+msgid "invalid base price"
+msgstr "قیمت پایه نامعتبر"
+
+#: includes/Pricing/ProductFields.php:52
+#: includes/Pricing/ProductFields.php:125
+msgid "Pricing basis"
+msgstr "مبنای قیمت‌گذاری"
+
+#: includes/Pricing/ProductFields.php:57
+msgid "With a currency, the Toman prices are computed from the base prices at every save and whenever the rate changes. \"Fixed Toman price\" keeps the WooCommerce price fields authoritative. For variable products the basis is set per variation (bulk action: \"Set pricing currency for all variations\")."
+msgstr "با انتخاب ارز، قیمت‌های تومانی در هر ذخیره و با هر تغییر نرخ از قیمت‌های پایه محاسبه می‌شوند. «قیمت ثابت تومانی» فیلدهای قیمت ووکامرس را مرجع نگه می‌دارد. در محصولات متغیر، مبنا برای هر متغیر جداگانه تنظیم می‌شود (عملیات گروهی: «تنظیم ارز قیمت‌گذاری برای همه متغیرها»)."
+
+#: includes/Pricing/ProductFields.php:68
+#: includes/Pricing/ProductFields.php:136
+msgid "Base regular price"
+msgstr "قیمت پایه عادی"
+
+#: includes/Pricing/ProductFields.php:78
+msgid "In the selected currency, for example 30 for 30 AED. Persian digits are accepted."
+msgstr "به ارز انتخاب‌شده، مثلاً ۳۰ برای ۳۰ درهم. ارقام فارسی پذیرفته می‌شوند."
+
+#: includes/Pricing/ProductFields.php:86
+#: includes/Pricing/ProductFields.php:152
+msgid "Base sale price"
+msgstr "قیمت پایه فروش ویژه"
+
+#: includes/Pricing/ProductFields.php:96
+msgid "Leave empty for no sale. Emptying this field is the only way to end a sale on a currency-priced product; the Toman sale field is read-only."
+msgstr "برای نداشتن فروش ویژه خالی بگذارید. در محصولی که با ارز قیمت‌گذاری شده، خالی کردن این فیلد تنها راه پایان دادن به فروش ویژه است؛ فیلد فروش ویژه تومانی فقط‌خواندنی است."
+
+#: includes/Pricing/ProductFields.php:99
+msgid "Computed Toman price"
+msgstr "قیمت تومانی محاسبه‌شده"
+
+#: includes/Pricing/ProductFields.php:235
+msgid "The base regular price is not a valid number and was not saved."
+msgstr "قیمت پایه عادی عدد معتبری نیست و ذخیره نشد."
+
+#: includes/Pricing/ProductFields.php:243
+msgid "The base sale price is not a valid number and was not saved."
+msgstr "قیمت پایه فروش ویژه عدد معتبری نیست و ذخیره نشد."
+
+#: includes/Pricing/ProductFields.php:247
+msgid "The base sale price must be lower than the base regular price; the sale was not saved."
+msgstr "قیمت پایه فروش ویژه باید کمتر از قیمت پایه عادی باشد؛ فروش ویژه ذخیره نشد."
+
+#: includes/Pricing/ProductFields.php:254
+msgid "A base regular price is required when a pricing currency is selected; the product has no computed price yet."
+msgstr "وقتی ارز قیمت‌گذاری انتخاب شده باشد، قیمت پایه عادی لازم است؛ این محصول هنوز قیمت محاسبه‌شده‌ای ندارد."
+
+#: includes/Pricing/ProductFields.php:262
+msgid "Gadgetim pricing"
+msgstr "قیمت‌گذاری گجتیم"
+
+#: includes/Pricing/ProductFields.php:263
+msgid "Set pricing currency for all variations"
+msgstr "تنظیم ارز قیمت‌گذاری برای همه متغیرها"
+
+#. translators: 1: Toman price, 2: unit, 3: base amount with currency, 4: rate, 5: rounding mode
+#: includes/Pricing/ProductFields.php:319
+#: includes/Pricing/ProductFields.php:381
+#, php-format
+msgid "%1$s %2$s = %3$s × %4$s (%5$s)"
+msgstr "%1$s %2$s = %3$s × %4$s (%5$s)"
+
+#: includes/Pricing/ProductFields.php:320
+#: includes/Pricing/ProductFields.php:360
+#: includes/Pricing/ProductFields.php:364
+msgid "Fixed Toman price: the WooCommerce price fields are used as entered."
+msgstr "قیمت ثابت تومانی: فیلدهای قیمت ووکامرس همان‌طور که وارد شده‌اند استفاده می‌شوند."
+
+#: includes/Pricing/ProductFields.php:321
+#: includes/Pricing/ProductFields.php:373
+msgid "Enter a base regular price to compute the Toman price."
+msgstr "برای محاسبه قیمت تومانی، قیمت پایه عادی را وارد کنید."
+
+#: includes/Pricing/ProductFields.php:322
+msgid "The base sale price must be lower than the base regular price."
+msgstr "قیمت پایه فروش ویژه باید کمتر از قیمت پایه عادی باشد."
+
+#: includes/Pricing/ProductFields.php:323
+msgid "Computed from the base price; edit the base fields instead."
+msgstr "از قیمت پایه محاسبه شده است؛ به‌جای این فیلد، فیلدهای پایه را ویرایش کنید."
+
+#: includes/Pricing/ProductFields.php:324
+msgid "Currency code for all variations (empty = fixed Toman price):"
+msgstr "کد ارز برای همه متغیرها (خالی = قیمت ثابت تومانی):"
+
+#: includes/Pricing/ProductFields.php:337
+msgid "Fixed Toman price"
+msgstr "قیمت ثابت تومانی"
+
+#. translators: 1: currency code, 2: currency name, 3: rate
+#: includes/Pricing/ProductFields.php:342
+#, php-format
+msgid "%1$s — %2$s (%3$s Toman)"
+msgstr "%1$s — %2$s (%3$s تومان)"
+
+#. translators: %s: currency code
+#: includes/Pricing/ProductFields.php:350
+#, php-format
+msgid "%s (disabled — last prices kept)"
+msgstr "%s (غیرفعال — آخرین قیمت‌ها حفظ شده)"
+
+#. translators: %s: currency code
+#: includes/Pricing/ProductFields.php:369
+#, php-format
+msgid "Currency %s is disabled: the last computed Toman prices are kept until it is enabled again."
+msgstr "ارز %s غیرفعال است: آخرین قیمت‌های تومانی محاسبه‌شده تا فعال شدن دوباره آن حفظ می‌شوند."
+
+#: includes/Pricing/ProductFields.php:389
+msgid "(A new rate is saved but not applied yet: \"Apply rates\" on the Currencies page recomputes every product.)"
+msgstr "(نرخ جدید ذخیره شده اما هنوز اعمال نشده است: «اعمال نرخ‌ها» در صفحه ارزها همه محصولات را دوباره محاسبه می‌کند.)"
+
+#: includes/Pricing/Reprice.php:63
+msgid "The currency is disabled; its products keep their last Toman prices."
+msgstr "این ارز غیرفعال است؛ محصولات آن آخرین قیمت‌های تومانی خود را نگه می‌دارند."
+
+#: includes/Pricing/Reprice.php:66
+msgid "A reprice of this currency is already running."
+msgstr "محاسبه دوباره قیمت‌های این ارز در حال اجراست."
+
+#: includes/Pricing/Reprice.php:235
+msgid "Unknown or expired job."
+msgstr "فرایند ناشناخته یا منقضی‌شده."
+
+#: includes/Pricing/Rest.php:101
+msgid "You are not allowed to change currencies."
+msgstr "شما اجازه تغییر ارزها را ندارید."
+
+#: includes/Pricing/Rest.php:160
+msgid "Nothing to update."
+msgstr "چیزی برای به‌روزرسانی نیست."
+
+#: includes/Pricing/Rest.php:263
+msgid "gadgetim_pricing.currency must be a three-letter currency code or empty."
+msgstr "gadgetim_pricing.currency باید کد ارز سه‌حرفی یا خالی باشد."
+
+#. translators: %s: currency code
+#: includes/Pricing/Rest.php:268
+#, php-format
+msgid "Currency %s is unknown or disabled."
+msgstr "ارز %s ناشناخته یا غیرفعال است."
+
+#. translators: %s: field name
+#: includes/Pricing/Rest.php:285
+#, php-format
+msgid "gadgetim_pricing.%s must be a non-negative decimal number."
+msgstr "gadgetim_pricing.%s باید عدد اعشاری نامنفی باشد."
+
+#: includes/Pricing/Rest.php:295
+msgid "gadgetim_pricing.base_sale must be lower than base_regular."
+msgstr "gadgetim_pricing.base_sale باید کمتر از base_regular باشد."
+
+#: includes/Pricing/Rest.php:298
+msgid "gadgetim_pricing.base_regular is required when a currency is set."
+msgstr "وقتی ارز تنظیم شده، gadgetim_pricing.base_regular لازم است."
+
+#: includes/Pricing/Rest.php:308
+msgid "Base-currency pricing. With a currency, the Toman prices are computed from the base prices on every save; regular_price/sale_price writes are then ignored."
+msgstr "قیمت‌گذاری با ارز پایه. با انتخاب ارز، قیمت‌های تومانی در هر ذخیره از قیمت‌های پایه محاسبه می‌شوند؛ نوشتن regular_price/sale_price در این حالت نادیده گرفته می‌شود."
+
+#: includes/Pricing/Rest.php:314
+msgid "Three-letter currency code, or empty for a fixed Toman price."
+msgstr "کد ارز سه‌حرفی، یا خالی برای قیمت ثابت تومانی."
+
+#: includes/Pricing/Rest.php:318
+msgid "Regular price in the base currency, as entered."
+msgstr "قیمت عادی به ارز پایه، همان‌طور که وارد شده."
+
+#: includes/Pricing/Rest.php:322
+msgid "Sale price in the base currency, or empty."
+msgstr "قیمت فروش ویژه به ارز پایه، یا خالی."
+
+#: includes/Pricing/Rest.php:327
+msgid "Rate the stored Toman prices were computed with."
+msgstr "نرخی که قیمت‌های تومانی ذخیره‌شده با آن محاسبه شده‌اند."
+
+#: includes/Pricing/Rest.php:332
+msgid "Unix time of the last computation."
+msgstr "زمان آخرین محاسبه (Unix timestamp)."
+
+#: includes/Pricing/Rest.php:390
+msgid "Also recompute the Toman prices of every product in this currency."
+msgstr "قیمت تومانی همه محصولات این ارز را هم دوباره محاسبه کن."
+
+#: includes/Pricing/Rest.php:437
+msgid "Too many requests. Try again in a moment."
+msgstr "تعداد درخواست‌ها بیش از حد مجاز است. چند لحظه دیگر دوباره تلاش کنید."
+
+#: includes/Settings/Admin/Notices.php:45
+msgid "Open"
+msgstr "باز کردن"
+
+#. translators: 1: product name, 2: problem description
+#: includes/Settings/Admin/Notices.php:85
+#, php-format
+msgid "Product \"%1$s\": %2$s"
+msgstr "محصول «%1$s»: %2$s"
+
+#: includes/Settings/Admin/Notices.php:96
+msgid "Edit product"
+msgstr "ویرایش محصول"
+
+#: includes/Settings/Admin/Notices.php:172
+msgid "Missing notice id."
+msgstr "شناسه اعلان ارسال نشده است."
+
+#: includes/Settings/Admin/Notices.php:179
+msgid "You are not allowed to dismiss this notice."
+msgstr "شما اجازه بستن این اعلان را ندارید."
+
+#: includes/Settings/Admin/SettingsPage.php:41
+msgid "Gadgetim settings"
+msgstr "تنظیمات گجتیم"
+
+#: includes/Settings/Admin/SettingsPage.php:41
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: includes/Settings/Admin/SettingsPage.php:95
+msgid "You do not have permission to view this page."
+msgstr "شما اجازه مشاهده این صفحه را ندارید."
+
+#: includes/Settings/Admin/SettingsPage.php:101
+msgid "Settings saved."
+msgstr "تنظیمات ذخیره شد."
+
+#: includes/Settings/Admin/Tools.php:96
+msgid "Run"
+msgstr "اجرا"
+
+#: includes/Settings/Admin/Tools.php:123
+msgid "Unknown tool."
+msgstr "ابزار ناشناخته."
+
+#. translators: %s: tool name
+#: includes/Settings/Admin/Tools.php:164
+#, php-format
+msgid "\"%s\" failed."
+msgstr "«%s» ناموفق بود."
+
+#. translators: %s: tool name
+#: includes/Settings/Admin/Tools.php:166
+#, php-format
+msgid "\"%s\" finished."
+msgstr "«%s» پایان یافت."
+
+#: includes/Settings/Admin/Tools.php:193
+msgid "Purge page cache"
+msgstr "پاک کردن کش صفحه"
+
+#: includes/Settings/Admin/Tools.php:197
+msgid "Clears the whole page cache through the installed cache plugin (LiteSpeed Cache, WP Super Cache, Cache Enabler or WP Fastest Cache) and fires gadgetim_cache_purged_all."
+msgstr "کل کش صفحه را از طریق افزونه کش نصب‌شده (LiteSpeed Cache، WP Super Cache، Cache Enabler یا WP Fastest Cache) پاک می‌کند و رویداد gadgetim_cache_purged_all را اجرا می‌کند."
+
+#: includes/Settings/Admin/Tools.php:198
+msgid "Purge cache"
+msgstr "پاک کردن کش"
+
+#: includes/Settings/Admin/Tools.php:204
+#: includes/Settings/Admin/Tools.php:209
+msgid "Flush permalinks"
+msgstr "بازسازی پیوندهای یکتا"
+
+#: includes/Settings/Admin/Tools.php:208
+msgid "Regenerates the rewrite rules in Persian context (the only safe context for a flush, see architecture 3.2)."
+msgstr "قواعد بازنویسی را در زمینه زبان فارسی بازسازی می‌کند (تنها زمینه امن برای این کار؛ بخش ۳.۲ سند معماری را ببینید)."
+
+#. translators: %s: cache plugin name
+#: includes/Settings/Admin/Tools.php:222
+#, php-format
+msgid "Page cache purged (%s)."
+msgstr "کش صفحه پاک شد (%s)."
+
+#: includes/Settings/Admin/Tools.php:237
+msgid "Rewrite rules regenerated."
+msgstr "قواعد بازنویسی بازسازی شد."
+
+#: includes/Settings/Schema.php:288
+msgid "Brand & contact"
+msgstr "برند و تماس"
+
+#: includes/Settings/Schema.php:293
+msgid "Identity"
+msgstr "هویت"
+
+#: includes/Settings/Schema.php:298
+msgid "Brand name"
+msgstr "نام برند"
+
+#: includes/Settings/Schema.php:308
+msgid "Tagline"
+msgstr "شعار"
+
+#: includes/Settings/Schema.php:309
+msgid "Shown as the eyebrow line in the header and the hero."
+msgstr "به‌صورت خط کوچک بالای تیتر در سربرگ و سردر صفحه اصلی نمایش داده می‌شود."
+
+#: includes/Settings/Schema.php:314
+msgid "Logo (light background)"
+msgstr "لوگو (پس‌زمینه روشن)"
+
+#: includes/Settings/Schema.php:315
+msgid "SVG or PNG. The theme falls back to its built-in wordmark when empty."
+msgstr "SVG یا PNG. اگر خالی باشد، پوسته از لوگوی نوشتاری داخلی خودش استفاده می‌کند."
+
+#: includes/Settings/Schema.php:319
+msgid "Logo (dark background)"
+msgstr "لوگو (پس‌زمینه تیره)"
+
+#: includes/Settings/Schema.php:324
+msgid "Contact channels"
+msgstr "کانال‌های تماس"
+
+#: includes/Settings/Schema.php:325
+msgid "Used in the header, the footer, the contact strip and the call-for-price buttons."
+msgstr "در سربرگ، پابرگ، نوار تماس و دکمه‌های حالت «تماس به‌جای قیمت» استفاده می‌شود."
+
+#: includes/Settings/Schema.php:329
+msgid "Phone"
+msgstr "تلفن"
+
+#: includes/Settings/Schema.php:334
+msgid "WhatsApp number"
+msgstr "شماره واتساپ"
+
+#: includes/Settings/Schema.php:339
+msgid "Telegram username"
+msgstr "نام کاربری تلگرام"
+
+#: includes/Settings/Schema.php:346
+msgid "Instagram username"
+msgstr "نام کاربری اینستاگرام"
+
+#: includes/Settings/Schema.php:353
+msgid "E-mail"
+msgstr "ایمیل"
+
+#: includes/Settings/Schema.php:364
+msgid "Working hours"
+msgstr "ساعات کاری"
+
+#: includes/Settings/Schema.php:365
+msgid "One line, e.g. \"Saturday to Thursday, 9 to 18\"."
+msgstr "یک خط، مثلاً «شنبه تا پنجشنبه، ۹ تا ۱۸»."
+
+#: includes/Settings/Schema.php:372
+msgid "Trust & policies"
+msgstr "اعتماد و قوانین"
+
+#: includes/Settings/Schema.php:377
+msgid "Trust badges"
+msgstr "نشان‌های اعتماد"
+
+#: includes/Settings/Schema.php:378
+msgid "The promises shown in the seal band on the home page and under the buy box. Confirm every claim with the client before launch."
+msgstr "وعده‌هایی که در نوار مهر صفحه اصلی و زیر جعبه خرید نمایش داده می‌شوند. پیش از راه‌اندازی، تک‌تک این ادعاها را با کارفرما تأیید کنید."
+
+#: includes/Settings/Schema.php:383
+msgid "Badges"
+msgstr "نشان‌ها"
+
+#: includes/Settings/Schema.php:402
+msgid "Policy texts"
+msgstr "متن‌های قوانین"
+
+#: includes/Settings/Schema.php:407
+msgid "Return window"
+msgstr "مهلت بازگشت کالا"
+
+#: includes/Settings/Schema.php:416
+msgid "Delivery promise"
+msgstr "وعده ارسال"
+
+#: includes/Settings/Schema.php:426
+msgid "Guarantee text"
+msgstr "متن ضمانت"
+
+#: includes/Settings/Schema.php:427
+msgid "Default text under the buy box; a product can override it in its own guarantee field."
+msgstr "متن پیش‌فرض زیر جعبه خرید؛ هر محصول می‌تواند آن را در فیلد ضمانت خود جایگزین کند."
+
+#: includes/Settings/Schema.php:436
+msgid "Authenticity verification steps"
+msgstr "مراحل تأیید اصالت"
+
+#: includes/Settings/Schema.php:437
+msgid "The three lines of the authenticity receipt on the product page."
+msgstr "سه خط رسید اصالت در صفحه محصول."
+
+#: includes/Settings/Schema.php:445
+msgid "Guarantee page"
+msgstr "برگه ضمانت"
+
+#: includes/Settings/Schema.php:446
+msgid "The page the receipt and the seal band link to."
+msgstr "برگه‌ای که رسید و نوار مهر به آن پیوند می‌دهند."
+
+#: includes/Settings/Schema.php:455
+msgid "Catalog"
+msgstr "کاتالوگ"
+
+#: includes/Settings/Schema.php:460
+msgid "Popularity"
+msgstr "محبوبیت"
+
+#: includes/Settings/Schema.php:461
+msgid "View counting is sampled: one in N page views sends a beacon, the counter grows by N."
+msgstr "شمارش بازدید نمونه‌گیری‌شده است: از هر N بازدید صفحه، یکی سیگنال می‌فرستد و شمارنده N واحد بالا می‌رود."
+
+#: includes/Settings/Schema.php:465
+msgid "Count product views"
+msgstr "شمارش بازدید محصولات"
+
+#: includes/Settings/Schema.php:470
+msgid "Sampling rate (1 in N)"
+msgstr "نرخ نمونه‌گیری (۱ از N)"
+
+#: includes/Settings/Settings.php:177
+msgid "The settings form was incomplete; nothing was saved."
+msgstr "فرم تنظیمات ناقص بود؛ چیزی ذخیره نشد."
+
+#: includes/Settings/Settings.php:198
+msgid "Unknown settings tab; nothing was saved."
+msgstr "زبانه تنظیمات ناشناخته است؛ چیزی ذخیره نشد."
+
+#: includes/Support/Cache.php:234
+msgid "no page-cache plugin detected"
+msgstr "هیچ افزونه کش صفحه‌ای شناسایی نشد"
+
+#: templates/admin/fields/phone.php:33
+msgid "Not recognised as a phone number."
+msgstr "به‌عنوان شماره تلفن شناخته نشد."
+
+#: templates/admin/fields/repeater.php:42
+msgid "Add line"
+msgstr "افزودن خط"
+
+#: templates/admin/notice.php:31
+msgid "Dismiss"
+msgstr "بستن"
+
+#: templates/admin/settings-page.php:29
+msgid "Settings sections"
+msgstr "بخش‌های تنظیمات"
+
+#: templates/admin/tab-form.php:24
+msgid "This tab has no settings yet."
+msgstr "این زبانه هنوز تنظیمی ندارد."
+
+#: templates/admin/tab-form.php:70
+msgid "Save changes"
+msgstr "ذخیره تغییرات"
+
+#: templates/admin/tools-tab.php:26
+msgid "No tools are registered."
+msgstr "ابزاری ثبت نشده است."

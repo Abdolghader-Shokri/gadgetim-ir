@@ -1,0 +1,139 @@
+/* Gadgetim Aurora — design tokens (inlined in <head> by inc/assets.php; keep it small).
+   Light theme only: no dark tokens, no prefers-color-scheme switch.
+   Cascade layers, in order: reset, tokens, base, layout, components, pages, fx, utilities.
+   Page layers (home.css, archive.css, product.css, commerce.css, pages.css) wrap their rules in @layer pages;
+   fx.css (the delight layer, every page) uses @layer fx. */
+
+@layer reset, tokens, base, layout, components, pages, fx, utilities;
+
+@layer tokens {
+	:root {
+		color-scheme: light only;
+
+		/* Ink and surfaces */
+		--ink: #17133b;
+		--ink-2: #3b3863;
+		--muted: #65638a;
+		--muted-2: #8a88a8;
+		--line: rgba(23, 19, 59, .08);
+		--line-2: rgba(23, 19, 59, .13);
+		--bg: #f6f6fc;
+		--card: #ffffff;
+		--soft: #f2f0fb;
+		--soft-2: #f4f1ff;
+		--soft-3: #ece7ff;
+		--sk: #ebe9f6;
+
+		/* Aurora palette */
+		--indigo: #4f46e5;
+		--violet: #7c3aed;
+		--purple: #9333ea;
+		--fuchsia: #c026d3;
+		--pink: #ec4899;
+		--rose: #e11d48;
+		--amber: #f59e0b;
+		--gold: #fbbf24;
+		--sky: #0ea5e9;
+		--teal: #0d9488;
+		--green: #047857;
+		--green-2: #10b981;
+		--warn: #b45309;
+
+		/* Gradients */
+		--grad: linear-gradient(120deg, #4f46e5 0%, #7c3aed 42%, #c026d3 72%, #db2777 100%);
+		--grad-warm: linear-gradient(135deg, #f59e0b, #ec4899);
+		--grad-cool: linear-gradient(135deg, #0ea5e9, #6366f1);
+		--grad-gold: linear-gradient(135deg, #fbbf24, #f97316);
+		--grad-green: linear-gradient(140deg, #22c55e, #059669);
+		--grad-pink: linear-gradient(140deg, #f472b6, #e11d48);
+		--grad-text: linear-gradient(90deg, #4f46e5, #9333ea 55%, #db2777);
+		--grad-band: linear-gradient(125deg, #3730a3 0%, #6d28d9 34%, #a21caf 64%, #be123c 100%);
+		--grad-hot: linear-gradient(135deg, #e11d48, #be185d);
+		--grad-sticker: radial-gradient(circle at 32% 28%, #fef3c7, #fbbf24 55%, #f59e0b);
+		--grad-ring: conic-gradient(from 0deg, #f59e0b, #ec4899, #a855f7, #6366f1, #22d3ee, #f59e0b);
+		--grad-border: linear-gradient(140deg, #6366f1, #a855f7, #ec4899, #f59e0b);
+		--grad-soft: linear-gradient(140deg, #eef0ff, #f7ecff);
+
+		/* Glass (pre-tinted; real backdrop blur only from 768 px with a fine pointer) */
+		--glass: rgba(255, 255, 255, .78);
+		--glass-strong: rgba(255, 255, 255, .94);
+		--glass-line: rgba(255, 255, 255, .95);
+
+		/* Radii */
+		--r-xs: 10px;
+		--r-sm: 14px;
+		--r-md: 18px;
+		--r-lg: 24px;
+		--r-xl: 32px;
+		--r-pill: 999px;
+
+		/* Shadows */
+		--sh-1: 0 1px 2px rgba(23, 19, 59, .05), 0 6px 18px -8px rgba(23, 19, 59, .12);
+		--sh-2: 0 2px 6px rgba(23, 19, 59, .05), 0 22px 44px -22px rgba(67, 56, 202, .34);
+		--sh-3: 0 40px 80px -36px rgba(91, 33, 182, .45);
+		--sh-pop: 0 30px 70px -24px rgba(30, 20, 90, .4), 0 0 0 1px var(--line);
+		--sh-glow: 0 16px 30px -16px rgba(124, 58, 237, .95);
+
+		/* Motion */
+		--ease: cubic-bezier(.2, .75, .2, 1);
+		--ease-io: cubic-bezier(.65, 0, .35, 1);
+		--spring: cubic-bezier(.34, 1.56, .64, 1);
+		--dur-1: .2s;
+		--dur-2: .35s;
+		--dur-3: .6s;
+
+		/* Type */
+		--font: "Vazirmatn", "Vazirmatn-fb", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+		--display: "Estedad", "Estedad-fb", "Vazirmatn", system-ui, sans-serif;
+		--fs-xs: 11.5px;
+		--fs-sm: 12.5px;
+		--fs-base: 15px;
+		--fs-md: 16px;
+		--fs-lg: 18px;
+		--fs-xl: 20px;
+		--fs-2xl: 25px;
+		--fs-3xl: 32px;
+		--fs-4xl: 40px;
+
+		/* Spacing */
+		--s-1: 4px;
+		--s-2: 8px;
+		--s-3: 12px;
+		--s-4: 16px;
+		--s-5: 20px;
+		--s-6: 24px;
+		--s-7: 32px;
+		--s-8: 40px;
+		--s-9: 56px;
+
+		/* Layout */
+		--gutter: 16px;
+		--container: 1360px;
+		--hdr-h: 112px;
+		--bnav-h: 86px;
+		--focus: #4f46e5;
+		--dir: -1;
+
+		/* Z-index scale */
+		--z-hdr: 60;
+		--z-promo: 61;
+		--z-mega: 58;
+		--z-to-top: 65;
+		--z-bnav: 70;
+		--z-sugg: 80;
+		--z-toast: 85;
+		--z-drawer: 95;
+		--z-fly: 200;
+		--z-skip: 300;
+	}
+	:root[dir="ltr"] { --dir: 1; }
+	@media (min-width: 768px) {
+		:root { --gutter: 24px; --hdr-h: 126px; }
+	}
+	@media (min-width: 1000px) {
+		:root { --hdr-h: 166px; }
+	}
+	@media (min-width: 1100px) {
+		:root { --gutter: 32px; }
+	}
+}

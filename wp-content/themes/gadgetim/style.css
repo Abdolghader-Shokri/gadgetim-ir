@@ -1,0 +1,19 @@
+/*
+Theme Name: Gadgetim
+Theme URI: https://gadgetim.ir/
+Author: Gadgetim
+Description: Aurora storefront theme for Gadgetim, an Iranian shop for original gadgets. Light, colourful and animated, RTL-first (Persian and Arabic) with an LTR English view, server-rendered WooCommerce templates and vanilla ES modules. Presentation only: data, pricing, languages and settings come from the gadgetim-core plugin.
+Version: 1.0.0-dev
+Requires at least: 6.7
+Tested up to: 7.1
+Requires PHP: 8.1
+Requires Plugins: gadgetim-core
+WC requires at least: 9.6
+WC tested up to: 11.2
+License: Proprietary
+Text Domain: gadgetim
+Domain Path: /languages
+Tags: e-commerce, rtl-language-support, custom-logo, custom-menu
+*/
+
+/* Styles live in assets/css/ (tokens, base, layout, components + page layers); this file only carries the header. */

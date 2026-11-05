@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<ruleset name="Gadgetim"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpcodesniffer.com/phpcs.xsd">
+
+  <description>WordPress Coding Standards for the Gadgetim theme and the gadgetim-core plugin (architecture 2.6).</description>
+
+  <!--
+    Needs PHP_CodeSniffer with WordPress Coding Standards 3.x installed, e.g.
+      composer global require wp-coding-standards/wpcs phpcompatibility/phpcompatibility-wp:"*" dealerdirect/phpcodesniffer-composer-installer
+    tools/lint.sh runs phpcs only when it is installed and always falls back to php -l plus its own
+    PHP 8.1 syntax scan.
+  -->
+
+  <!-- What to check: the two packages at their real WordPress paths. -->
+  <file>wp-content</file>
+
+  <exclude-pattern>*/vendor/*</exclude-pattern>
+  <exclude-pattern>*/node_modules/*</exclude-pattern>
+  <exclude-pattern>*/languages/*.l10n.php</exclude-pattern>
+  <exclude-pattern>*/release/*</exclude-pattern>
+  <exclude-pattern>*/first-backup/*</exclude-pattern>
+  <exclude-pattern>*/tools/wp-cli/*</exclude-pattern>
+
+  <!-- How to run. -->
+  <arg name="extensions" value="php"/>
+  <arg name="basepath" value="."/>
+  <arg name="parallel" value="8"/>
+  <arg name="colors"/>
+  <arg value="sp"/>
+  <ini name="memory_limit" value="512M"/>
+
+  <!-- Floors (decision D8): WordPress 6.7, PHP 8.1+. -->
+  <config name="minimum_wp_version" value="6.7"/>
+  <config name="minimum_supported_wp_version" value="6.7"/>
+  <config name="testVersion" value="8.1-"/>
+
+  <!-- Production PHP is unknown (architecture 8): flag anything newer than PHP 8.1. -->
+  <rule ref="PHPCompatibilityWP"/>
+
+  <rule ref="WordPress-Extra">
+    <!-- Classes live at includes/<Module>/<Class>.php and are autoloaded by namespace (architecture 2.2),
+         so the WordPress "class-foo.php" file naming does not apply. -->
+    <exclude name="WordPress.Files.FileName"/>
+    <!-- PHP 8.1 code base: short array syntax is allowed. -->
+    <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+  </rule>
+
+  <!-- Text domains: plugin "gadgetim-core", theme "gadgetim". -->
+  <rule ref="WordPress.WP.I18n">
+    <properties>
+      <property name="text_domain" type="array">
+        <element value="gadgetim-core"/>
+        <element value="gadgetim"/>
+      </property>
+    </properties>
+  </rule>
+
+  <!-- Everything global is prefixed: functions/hooks/options "gadgetim_", namespace Gadgetim\Core, meta keys "_gtm_". -->
+  <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+    <properties>
+      <property name="prefixes" type="array">
+        <element value="gadgetim"/>
+        <element value="gtm"/>
+      </property>
+    </properties>
+  </rule>
+
+  <!-- Template helpers that return already-escaped HTML (architecture 4.5). -->
+  <rule ref="WordPress.Security.EscapeOutput">
+    <properties>
+      <property name="customAutoEscapedFunctions" type="array">
+        <element value="gadgetim_price"/>
+        <element value="gadgetim_price_html"/>
+      </property>
+    </properties>
+  </rule>
+
+  <!-- Capabilities used by the plugin's admin screens (decision D11). -->
+  <rule ref="WordPress.WP.Capabilities">
+    <properties>
+      <property name="custom_capabilities" type="array">
+        <element value="manage_woocommerce"/>
+      </property>
+    </properties>
+  </rule>
+
+</ruleset>

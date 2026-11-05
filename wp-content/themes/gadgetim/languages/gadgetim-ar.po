@@ -1,0 +1,3493 @@
+# Arabic translation of the Gadgetim theme.
+# Copyright (C) 2026 Gadgetim
+# This file is distributed under the same license as the Gadgetim theme.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gadgetim 1.0.0-dev\n"
+"Report-Msgid-Bugs-To: https://gadgetim.ir/\n"
+"POT-Creation-Date: 2026-11-05T02:27:20+00:00\n"
+"PO-Revision-Date: 2026-11-05 02:55:44+0000\n"
+"Last-Translator: Gadgetim\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n == 0) ? 0 : ((n == 1) ? 1 : ((n == 2) ? 2 : ((n % 100 >= 3 && n % 100 <= 10) ? 3 : ((n % 100 >= 11 && n % 100 <= 99) ? 4 : 5))));\n"
+"X-Domain: gadgetim\n"
+
+#. Theme Name of the theme
+#. Author of the theme
+#: style.css
+msgid "Gadgetim"
+msgstr "Gadgetim"
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://gadgetim.ir/"
+msgstr "https://gadgetim.ir/"
+
+#. Description of the theme
+#: style.css
+msgid "Aurora storefront theme for Gadgetim, an Iranian shop for original gadgets. Light, colourful and animated, RTL-first (Persian and Arabic) with an LTR English view, server-rendered WooCommerce templates and vanilla ES modules. Presentation only: data, pricing, languages and settings come from the gadgetim-core plugin."
+msgstr "قالب «الشفق» لمتجر Gadgetim، المتجر الإيراني للأجهزة الأصلية. فاتح وملوّن وغني بالحركة، مصمَّم أولًا للكتابة من اليمين إلى اليسار (الفارسية والعربية) مع واجهة إنجليزية من اليسار إلى اليمين، وقوالب WooCommerce تُعرض من الخادم، ووحدات ES خالصة دون مكتبات. للعرض فقط: البيانات والتسعير واللغات والإعدادات تأتي من إضافة gadgetim-core."
+
+#. translators: %s: the error code (404) in local digits
+#: 404.php:65
+#, php-format
+msgid "Error %s · low battery"
+msgstr "خطأ %s · البطارية ضعيفة"
+
+#. translators: %s: the error code (404) in local digits
+#: 404.php:66
+msgid "This page could not be found"
+msgstr "تعذّر العثور على هذه الصفحة"
+
+#: 404.php:67
+msgid "Looks like this page ran out of charge. The link may be old or mistyped. Search for what you need, or start again from the home page."
+msgstr "يبدو أن شحن هذه الصفحة قد نفد. ربما يكون الرابط قديمًا أو مكتوبًا بشكل خاطئ. ابحث عمّا تحتاجه، أو ابدأ من جديد من الصفحة الرئيسية."
+
+#: 404.php:81
+msgid "Back to the home page"
+msgstr "العودة إلى الصفحة الرئيسية"
+
+#: 404.php:89
+#: inc/assets.php:338
+#: page-templates/about.php:60
+#: page-templates/guarantee.php:45
+#: search.php:171
+#: templates/archive/empty.php:45
+#: templates/archive/empty.php:69
+#: templates/footer/drawers.php:97
+#: templates/footer/drawers.php:105
+#: templates/pages/blog.php:121
+#: templates/pages/cta.php:50
+#: woocommerce/loop/no-products-found.php:33
+msgid "Browse the shop"
+msgstr "تصفّح المتجر"
+
+#: archive.php:18
+msgid "Archive"
+msgstr "الأرشيف"
+
+#: archive.php:22
+#: inc/archive.php:433
+msgid "Category"
+msgstr "الفئة"
+
+#: archive.php:26
+#: inc/archive.php:433
+msgid "Tag"
+msgstr "الوسم"
+
+#: archive.php:30
+msgid "Author"
+msgstr "الكاتب"
+
+#: archive.php:42
+#: templates/pages/blog.php:18
+msgid "Articles and guides"
+msgstr "مقالات وأدلة"
+
+#: archive.php:44
+#: templates/pages/blog.php:20
+msgid "Buying guides, comparisons and tips for getting more out of your gadgets."
+msgstr "أدلة شراء ومقارنات ونصائح لتستفيد أكثر من أجهزتك."
+
+#. translators: %s: number of comments
+#: comments.php:27
+#: single.php:38
+#, php-format
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] "لا توجد تعليقات"
+msgstr[1] "تعليق واحد"
+msgstr[2] "تعليقان"
+msgstr[3] "%s تعليقات"
+msgstr[4] "%s تعليقًا"
+msgstr[5] "%s تعليق"
+
+#: comments.php:28
+msgid "Comments"
+msgstr "التعليقات"
+
+#: comments.php:32
+msgid "What readers say about this article"
+msgstr "آراء القرّاء في هذه المقالة"
+
+#: comments.php:32
+msgid "Be the first to share your thoughts"
+msgstr "كن أول من يشارك رأيه"
+
+#: comments.php:52
+msgid "Older comments"
+msgstr "تعليقات أقدم"
+
+#: comments.php:53
+msgid "Newer comments"
+msgstr "تعليقات أحدث"
+
+#: comments.php:61
+msgid "Comments are closed."
+msgstr "التعليقات مغلقة."
+
+#: comments.php:69
+msgid "Leave a comment"
+msgstr "أضف تعليقًا"
+
+#. translators: %s: comment author being replied to
+#: comments.php:71
+#, php-format
+msgid "Reply to %s"
+msgstr "الرد على %s"
+
+#: comments.php:74
+msgid "Cancel reply"
+msgstr "إلغاء الرد"
+
+#: comments.php:75
+msgid "Your email address will not be published. Required fields are marked *"
+msgstr "لن يُنشر بريدك الإلكتروني. الحقول الإلزامية مشار إليها بـ *"
+
+#: comments.php:76
+msgid "Your comment"
+msgstr "تعليقك"
+
+#: comments.php:79
+msgid "Post comment"
+msgstr "نشر التعليق"
+
+#: footer.php:23
+msgid "Back to top"
+msgstr "العودة إلى الأعلى"
+
+#: header.php:19
+msgid "Skip to content"
+msgstr "تخطَّ إلى المحتوى"
+
+#: header.php:21
+msgid "Skip to products"
+msgstr "تخطَّ إلى المنتجات"
+
+#: inc/archive.php:320
+#: inc/woocommerce.php:162
+msgid "Default order"
+msgstr "الترتيب الافتراضي"
+
+#: inc/archive.php:321
+#: inc/woocommerce.php:153
+#: templates/home/ranked.php:18
+msgid "Most viewed"
+msgstr "الأكثر مشاهدة"
+
+#: inc/archive.php:322
+#: inc/menus.php:610
+#: inc/woocommerce.php:154
+msgid "Newest"
+msgstr "الأحدث"
+
+#: inc/archive.php:323
+#: inc/woocommerce.php:155
+msgid "Cheapest first"
+msgstr "الأقل سعرًا"
+
+#: inc/archive.php:324
+#: inc/woocommerce.php:156
+msgid "Most expensive first"
+msgstr "الأعلى سعرًا"
+
+#: inc/archive.php:329
+msgid "Most relevant"
+msgstr "الأكثر صلة"
+
+#: inc/archive.php:397
+#: templates/footer/bnav.php:36
+#: templates/header/search.php:37
+#: templates/pages/faq-search.php:20
+#: templates/pages/search-form.php:34
+msgid "Search"
+msgstr "بحث"
+
+#. translators: %s: search query
+#: inc/archive.php:399
+#: search.php:67
+#, php-format
+msgid "Results for “%s”"
+msgstr "نتائج البحث عن «%s»"
+
+#. translators: %s: number of products
+#: inc/archive.php:415
+#, php-format
+msgid "%s original product matches your search."
+msgid_plural "%s original products match your search."
+msgstr[0] "لا توجد منتجات أصلية تطابق بحثك."
+msgstr[1] "منتج أصلي واحد يطابق بحثك."
+msgstr[2] "منتجان أصليان يطابقان بحثك."
+msgstr[3] "%s منتجات أصلية تطابق بحثك."
+msgstr[4] "%s منتجًا أصليًا يطابق بحثك."
+msgstr[5] "%s منتج أصلي يطابق بحثك."
+
+#: inc/archive.php:416
+msgid "Nothing matches these words yet."
+msgstr "لا يوجد ما يطابق هذه الكلمات حتى الآن."
+
+#. translators: %s: category name
+#: inc/archive.php:419
+#, php-format
+msgid "Showing the results in %s."
+msgstr "عرض النتائج في %s."
+
+#: inc/archive.php:423
+msgid "Brand"
+msgstr "العلامة التجارية"
+
+#. translators: %s: brand name
+#: inc/archive.php:429
+#, php-format
+msgid "Every %s product here is original and comes with an authenticity guarantee."
+msgstr "كل منتجات %s هنا أصلية ومشمولة بضمان الأصالة."
+
+#: inc/archive.php:439
+msgid "Original products with an authenticity guarantee, a 7-day return and fast delivery across Iran."
+msgstr "منتجات أصلية مع ضمان الأصالة، وإمكانية الإرجاع خلال ٧ أيام، وتوصيل سريع إلى جميع أنحاء إيران."
+
+#: inc/archive.php:442
+msgid "Shop"
+msgstr "المتجر"
+
+#: inc/archive.php:444
+#: inc/menus.php:624
+#: inc/menus.php:709
+#: templates/header/mega.php:25
+msgid "All products"
+msgstr "جميع المنتجات"
+
+#. translators: 1: number of products, 2: number of categories
+#: inc/archive.php:448
+#, php-format
+msgid "%1$s original gadgets in %2$s categories, every one with an authenticity guarantee."
+msgstr "%1$s من الأجهزة الأصلية في %2$s من الفئات، جميعها بضمان الأصالة."
+
+#: inc/archive.php:449
+msgid "New original gadgets are on their way."
+msgstr "أجهزة أصلية جديدة في الطريق إليك."
+
+#: inc/archive.php:659
+#: inc/assets.php:364
+#: templates/footer/bnav.php:33
+#: templates/header/search.php:51
+msgid "Categories"
+msgstr "الفئات"
+
+#: inc/archive.php:663
+msgid "Subcategories"
+msgstr "الفئات الفرعية"
+
+#: inc/archive.php:730
+msgid "All results"
+msgstr "جميع النتائج"
+
+#: inc/archive.php:745
+msgid "Categories of this brand"
+msgstr "فئات هذه العلامة التجارية"
+
+#: inc/archive.php:745
+msgid "Refine by category"
+msgstr "تصفية حسب الفئة"
+
+#. translators: %s: category name
+#. translators: %s: category group name
+#: inc/archive.php:785
+#: templates/footer/drawers.php:59
+#, php-format
+msgid "All of %s"
+msgstr "جميع منتجات %s"
+
+#: inc/archive.php:887
+#: templates/product/stock.php:31
+msgid "In stock"
+msgstr "متوفر"
+
+#: inc/archive.php:894
+msgid "Discounted"
+msgstr "مخفّض"
+
+#. translators: %s: amount in millions
+#: inc/archive.php:931
+#, php-format
+msgid "%s million"
+msgstr "%s مليون"
+
+#. translators: %s: amount in thousands
+#: inc/archive.php:935
+#, php-format
+msgid "%s thousand"
+msgstr "%s ألف"
+
+#. translators: 1: lower price, 2: upper price, 3: currency unit
+#: inc/archive.php:947
+#, php-format
+msgid "%1$s to %2$s %3$s"
+msgstr "من %1$s إلى %2$s %3$s"
+
+#. translators: 1: lower price, 2: currency unit
+#: inc/archive.php:951
+#, php-format
+msgid "From %1$s %2$s"
+msgstr "من %1$s %2$s"
+
+#. translators: 1: upper price, 2: currency unit
+#: inc/archive.php:954
+#, php-format
+msgid "Up to %1$s %2$s"
+msgstr "حتى %1$s %2$s"
+
+#. translators: %s: number of products
+#: inc/archive.php:1020
+#: templates/archive/filters.php:51
+#, php-format
+msgid "Show %s product"
+msgid_plural "Show %s products"
+msgstr[0] "عرض منتج واحد"
+msgstr[1] "عرض منتج واحد"
+msgstr[2] "عرض المنتجين"
+msgstr[3] "عرض %s منتجات"
+msgstr[4] "عرض %s منتجًا"
+msgstr[5] "عرض %s منتج"
+
+#. translators: %s: number of products
+#: inc/archive.php:1022
+#, php-format
+msgid "Show %s products"
+msgstr "عرض المنتجات (%s)"
+
+#. translators: %s: number of products
+#: inc/archive.php:1023
+#: templates/archive/filters.php:51
+msgid "No product matches"
+msgstr "لا توجد منتجات مطابقة"
+
+#: inc/archive.php:1024
+msgid "Show the products"
+msgstr "عرض المنتجات"
+
+#. translators: %s: number of products
+#: inc/archive.php:1026
+#, php-format
+msgid "%s product found"
+msgstr "عدد المنتجات المطابقة: %s"
+
+#. translators: %s: number of products
+#: inc/archive.php:1028
+#, php-format
+msgid "%s products found"
+msgstr "عدد المنتجات المطابقة: %s"
+
+#: inc/archive.php:1029
+#: templates/archive/empty.php:29
+msgid "No product matches these filters"
+msgstr "لا توجد منتجات تطابق هذه الفلاتر"
+
+#. translators: 1: first product shown, 2: last product shown, 3: total products
+#. translators: 1: first result, 2: last result, 3: total results
+#: inc/archive.php:1031
+#: templates/archive/more.php:28
+#: woocommerce/loop/result-count.php:35
+#, php-format
+msgid "Showing %1$s–%2$s of %3$s products"
+msgstr "عرض المنتجات %1$s–%2$s من أصل %3$s"
+
+#. translators: %s: page number
+#: inc/archive.php:1033
+#, php-format
+msgid "Page %s added to the list"
+msgstr "أُضيفت الصفحة %s إلى القائمة"
+
+#. translators: 1: price, 2: currency unit
+#: inc/archive.php:1035
+#, php-format
+msgctxt "price and currency unit"
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
+
+#: inc/assets.php:330
+#: templates/product/sticky-bar.php:85
+msgid "Add to cart"
+msgstr "أضف إلى السلة"
+
+#: inc/assets.php:331
+msgid "Adding…"
+msgstr "جارٍ الإضافة…"
+
+#: inc/assets.php:332
+#: templates/product/mini-buy.php:54
+#: woocommerce/single-product/add-to-cart/simple.php:83
+msgid "Added to cart"
+msgstr "أُضيف إلى السلة"
+
+#: inc/assets.php:333
+#: templates/footer/drawers.php:103
+msgid "View cart"
+msgstr "عرض السلة"
+
+#: inc/assets.php:334
+#: templates/footer/drawers.php:102
+msgid "Continue to checkout"
+msgstr "المتابعة لإتمام الطلب"
+
+#: inc/assets.php:335
+#: inc/newsletter.php:36
+#: templates/footer/newsletter.php:18
+msgid "Something went wrong. Please try again."
+msgstr "حدث خطأ ما. يُرجى المحاولة مرة أخرى."
+
+#: inc/assets.php:336
+#: templates/footer/drawers.php:97
+#: templates/footer/drawers.php:105
+msgid "Your cart is empty"
+msgstr "سلة التسوق فارغة"
+
+#: inc/assets.php:337
+#: templates/footer/drawers.php:97
+#: templates/footer/drawers.php:105
+msgid "Add original gadgets with the + button."
+msgstr "أضف الأجهزة الأصلية بالضغط على زر +."
+
+#: inc/assets.php:339
+#: templates/footer/drawers.php:100
+msgid "Cart total"
+msgstr "إجمالي السلة"
+
+#. translators: %s: amount saved, already formatted with the currency
+#: inc/assets.php:341
+#, php-format
+msgid "You save %s on this order"
+msgstr "توفيرك في هذا الطلب: %s"
+
+#. translators: %s: number of items
+#: inc/assets.php:343
+#, php-format
+msgid "%s items"
+msgstr "%s"
+
+#. translators: %s: number of items
+#: inc/assets.php:345
+#, php-format
+msgid "Cart, %s items"
+msgstr "السلة، عدد المنتجات: %s"
+
+#: inc/assets.php:346
+msgid "Cart, empty"
+msgstr "السلة فارغة"
+
+#. translators: %s: number of items
+#: inc/assets.php:348
+#, php-format
+msgid "Wishlist, %s items"
+msgstr "المفضلة، عدد المنتجات: %s"
+
+#: inc/assets.php:349
+#: templates/footer/drawers.php:119
+msgid "Your wishlist is empty"
+msgstr "قائمة المفضلة فارغة"
+
+#: inc/assets.php:350
+#: templates/footer/drawers.php:120
+msgid "Tap the heart on any product to keep it here. The list is saved on this device."
+msgstr "اضغط على القلب في أي منتج لتحتفظ به هنا. تُحفظ القائمة على هذا الجهاز."
+
+#: inc/assets.php:351
+msgid "Saved to your wishlist"
+msgstr "أُضيف إلى المفضلة"
+
+#: inc/assets.php:352
+msgid "Removed from your wishlist"
+msgstr "أُزيل من المفضلة"
+
+#: inc/assets.php:353
+msgid "View list"
+msgstr "عرض القائمة"
+
+#: inc/assets.php:354
+msgid "Remove"
+msgstr "إزالة"
+
+#. translators: %s: product name
+#. translators: %s: product title
+#: inc/assets.php:356
+#: woocommerce/cart/cart.php:221
+#: woocommerce/single-product/add-to-cart/simple.php:56
+#, php-format
+msgid "Increase quantity of %s"
+msgstr "زيادة كمية %s"
+
+#. translators: %s: product name
+#. translators: %s: product title
+#: inc/assets.php:358
+#: woocommerce/cart/cart.php:223
+#: woocommerce/single-product/add-to-cart/simple.php:75
+#, php-format
+msgid "Decrease quantity of %s"
+msgstr "تقليل كمية %s"
+
+#. translators: %s: product name
+#: inc/assets.php:360
+#: woocommerce/cart/cart.php:223
+#, php-format
+msgid "Remove %s from the cart"
+msgstr "إزالة %s من السلة"
+
+#: inc/assets.php:361
+#: inc/template-tags.php:693
+#: inc/template-tags.php:721
+#: inc/template-tags.php:738
+#: inc/template-tags.php:755
+#: templates/product/mini-buy.php:59
+#: templates/product/stock.php:22
+#: woocommerce/single-product/product-image.php:128
+msgid "Out of stock"
+msgstr "غير متوفر"
+
+#: inc/assets.php:362
+msgid "Searching…"
+msgstr "جارٍ البحث…"
+
+#: inc/assets.php:363
+msgid "Products"
+msgstr "المنتجات"
+
+#: inc/assets.php:365
+#: inc/settings.php:43
+#: search.php:185
+#: templates/archive/empty.php:122
+#: templates/header/search.php:41
+#: templates/header/search.php:42
+msgid "Popular searches"
+msgstr "عمليات البحث الشائعة"
+
+#. translators: %s: search query
+#: inc/assets.php:367
+#, php-format
+msgid "See all results for “%s”"
+msgstr "عرض جميع نتائج «%s»"
+
+#. translators: %s: search query
+#: inc/assets.php:369
+#: search.php:166
+#: templates/archive/empty.php:41
+#, php-format
+msgid "Nothing found for “%s”"
+msgstr "لا توجد نتائج لـ «%s»"
+
+#: inc/assets.php:370
+#: templates/archive/empty.php:42
+msgid "Check the spelling or try one of these categories."
+msgstr "تحقّق من الإملاء أو جرّب إحدى هذه الفئات."
+
+#: inc/assets.php:371
+msgid "Too many searches. Please wait a moment."
+msgstr "عمليات بحث كثيرة. يُرجى الانتظار قليلًا."
+
+#: inc/assets.php:372
+#: templates/product/lightbox.php:33
+msgid "Close"
+msgstr "إغلاق"
+
+#: inc/assets.php:373
+#: templates/home/hero.php:40
+msgid "Pause autoplay"
+msgstr "إيقاف التشغيل التلقائي مؤقتًا"
+
+#: inc/assets.php:374
+msgid "Resume autoplay"
+msgstr "استئناف التشغيل التلقائي"
+
+#. translators: 1: slide number, 2: number of slides
+#: inc/assets.php:376
+#: templates/home/slide.php:48
+#, php-format
+msgid "Slide %1$s of %2$s"
+msgstr "الشريحة %1$s من %2$s"
+
+#: inc/assets.php:377
+#: inc/template-tags.php:990
+msgid "hours"
+msgstr "ساعة"
+
+#: inc/assets.php:378
+#: inc/template-tags.php:991
+msgid "minutes"
+msgstr "دقيقة"
+
+#: inc/assets.php:379
+#: inc/template-tags.php:992
+msgid "seconds"
+msgstr "ثانية"
+
+#: inc/assets.php:380
+#: inc/template-tags.php:988
+msgid "days"
+msgstr "يوم"
+
+#. translators: 1: hours, 2: minutes
+#: inc/assets.php:382
+#: inc/template-tags.php:994
+#, php-format
+msgid "%1$s hours and %2$s minutes left"
+msgstr "الوقت المتبقي: %1$s ساعة و%2$s دقيقة"
+
+#: inc/assets.php:383
+msgid "This offer has ended"
+msgstr "انتهى هذا العرض"
+
+#: inc/assets.php:384
+#: inc/newsletter.php:34
+#: templates/footer/newsletter.php:16
+msgid "Thank you! You are on the list."
+msgstr "شكرًا لك! تم اشتراكك في النشرة البريدية."
+
+#: inc/assets.php:385
+#: inc/newsletter.php:35
+#: inc/pages.php:1151
+#: templates/footer/newsletter.php:17
+msgid "Please enter a valid email address."
+msgstr "يُرجى إدخال بريد إلكتروني صحيح."
+
+#: inc/commerce.php:197
+msgid "Removed from your cart"
+msgstr "أُزيل من السلة"
+
+#: inc/commerce.php:198
+msgid "Undo"
+msgstr "تراجع"
+
+#. translators: %s: quantity
+#: inc/commerce.php:200
+#, php-format
+msgid "Quantity: %s"
+msgstr "الكمية: %s"
+
+#: inc/commerce.php:201
+msgid "Updating your cart…"
+msgstr "جارٍ تحديث السلة…"
+
+#: inc/commerce.php:202
+msgid "Your cart has been updated"
+msgstr "تم تحديث السلة"
+
+#: inc/commerce.php:203
+msgid "Show items"
+msgstr "عرض المنتجات"
+
+#: inc/commerce.php:204
+#: woocommerce/checkout/form-checkout.php:72
+msgid "Hide items"
+msgstr "إخفاء المنتجات"
+
+#: inc/commerce.php:205
+msgid "Order number copied"
+msgstr "تم نسخ رقم الطلب"
+
+#. translators: %s: number of items
+#: inc/commerce.php:411
+#, php-format
+msgid "%s item"
+msgid_plural "%s items"
+msgstr[0] "لا توجد منتجات"
+msgstr[1] "منتج واحد"
+msgstr[2] "منتجان"
+msgstr[3] "%s منتجات"
+msgstr[4] "%s منتجًا"
+msgstr[5] "%s منتج"
+
+#: inc/commerce.php:458
+#: templates/footer/bnav.php:40
+#: templates/footer/drawers.php:93
+#: templates/header/bar.php:38
+#: templates/product/sticky-bar.php:94
+msgid "Cart"
+msgstr "السلة"
+
+#: inc/commerce.php:459
+#: woocommerce/checkout/form-billing.php:32
+msgid "Delivery details"
+msgstr "بيانات التوصيل"
+
+#: inc/commerce.php:460
+#: woocommerce/checkout/form-checkout.php:92
+msgid "Payment"
+msgstr "الدفع"
+
+#: inc/commerce.php:464
+msgid "Checkout progress"
+msgstr "مراحل إتمام الطلب"
+
+#. translators: %s: step number
+#: inc/commerce.php:470
+#, php-format
+msgid "Step %s"
+msgstr "الخطوة %s"
+
+#: inc/commerce.php:487
+#: inc/pages.php:770
+#: inc/product.php:470
+msgid "Secure payment"
+msgstr "دفع آمن"
+
+#. Template Name of the theme
+#: inc/commerce.php:488
+#: inc/menus.php:683
+#: inc/pages.php:908
+#: templates/archive/hero.php:57
+#: templates/header/nav.php:30
+#: templates/product/mini-buy.php:67
+#: templates/product/side.php:54
+msgid "Authenticity guarantee"
+msgstr "ضمان الأصالة"
+
+#: inc/commerce.php:489
+#: inc/product.php:342
+#: inc/product.php:464
+#: templates/header/promo.php:20
+#: templates/product/mini-buy.php:69
+msgid "7-day return guarantee"
+msgstr "ضمان الإرجاع خلال ٧ أيام"
+
+#. translators: %s: order number
+#: inc/commerce.php:504
+#, php-format
+msgid "Hello! I have a question about order %s."
+msgstr "مرحبًا! لدي استفسار عن الطلب %s."
+
+#: inc/commerce.php:505
+msgid "Hello! I have a question about my order."
+msgstr "مرحبًا! لدي استفسار عن طلبي."
+
+#. translators: %s: list of products with quantities, one per line
+#: inc/commerce.php:522
+#, php-format
+msgid "Hello! I would like to order:\n%s"
+msgstr "مرحبًا! أرغب في طلب ما يلي:\n%s"
+
+#: inc/commerce.php:593
+msgid "Waiting for payment."
+msgstr "بانتظار الدفع."
+
+#: inc/commerce.php:595
+msgid "Your payment is confirmed."
+msgstr "تم تأكيد دفعتك."
+
+#: inc/commerce.php:597
+msgid "We are confirming your payment."
+msgstr "نعمل على تأكيد دفعتك."
+
+#: inc/commerce.php:603
+msgid "Order placed"
+msgstr "تم تقديم الطلب"
+
+#: inc/commerce.php:604
+msgid "We have received your order."
+msgstr "استلمنا طلبك."
+
+#: inc/commerce.php:611
+msgid "Payment confirmed"
+msgstr "تم تأكيد الدفع"
+
+#: inc/commerce.php:619
+msgid "Preparing your parcel"
+msgstr "تجهيز شحنتك"
+
+#: inc/commerce.php:620
+msgid "Checked, sealed and packed with care."
+msgstr "نفحصها ونختمها ونغلّفها بعناية."
+
+#: inc/commerce.php:627
+msgid "Shipped and completed"
+msgstr "تم الشحن والإكمال"
+
+#: inc/commerce.php:628
+msgid "On its way to you, or already delivered."
+msgstr "في الطريق إليك، أو تم تسليمها بالفعل."
+
+#: inc/commerce.php:640
+msgid "The payment did not go through. You can try again."
+msgstr "لم تتم عملية الدفع. يمكنك المحاولة مرة أخرى."
+
+#: inc/commerce.php:640
+msgid "This order is closed. Contact us if you have a question."
+msgstr "هذا الطلب مغلق. تواصل معنا إن كان لديك أي استفسار."
+
+#: inc/commerce.php:756
+#: templates/commerce/suggestions.php:26
+msgid "Goes well with your cart"
+msgstr "يناسب ما في سلتك"
+
+#: inc/commerce.php:757
+msgid "Picked from the categories in your cart"
+msgstr "مختارة من فئات المنتجات في سلتك"
+
+#: inc/commerce.php:872
+msgid "Too many attempts. Please wait a few minutes and try again."
+msgstr "محاولات كثيرة. يُرجى الانتظار بضع دقائق ثم المحاولة مرة أخرى."
+
+#: inc/commerce.php:876
+msgid "Please enter the mobile number or email you used for the order."
+msgstr "يُرجى إدخال رقم الجوال أو البريد الإلكتروني الذي استخدمته في الطلب."
+
+#: inc/commerce.php:889
+msgid "This form has expired. Please enter the details again and press Track."
+msgstr "انتهت صلاحية هذا النموذج. يُرجى إدخال البيانات مرة أخرى والضغط على «تتبع الطلب»."
+
+#: inc/commerce.php:972
+msgid "Order tracking page"
+msgstr "صفحة تتبّع الطلب"
+
+#: inc/commerce.php:976
+msgid "Creates the «پیگیری سفارش» page with the order tracking form (order number + mobile number or email) when it is missing."
+msgstr "يُنشئ صفحة «پیگیری سفارش» مع نموذج تتبّع الطلب (رقم الطلب + رقم الجوال أو البريد الإلكتروني) إن لم تكن موجودة."
+
+#: inc/commerce.php:977
+msgid "Create the page"
+msgstr "إنشاء الصفحة"
+
+#: inc/compat.php:23
+msgid "The Gadgetim theme needs the gadgetim-core plugin. Prices, languages and settings are running on fallbacks until it is activated."
+msgstr "يحتاج قالب Gadgetim إلى إضافة gadgetim-core. تعمل الأسعار واللغات والإعدادات بقيم احتياطية إلى أن تُفعَّل الإضافة."
+
+#. translators: 1: API generation the theme expects, 2: the plugin's API generation
+#: inc/compat.php:27
+#, php-format
+msgid "The Gadgetim theme expects gadgetim-core API %1$s but the active plugin provides %2$s. Update both packages together."
+msgstr "يتطلّب قالب Gadgetim الإصدار %1$s من الواجهة البرمجية لإضافة gadgetim-core، لكن الإضافة المفعّلة توفّر الإصدار %2$s. حدّث الحزمتين معًا."
+
+#: inc/home.php:57
+msgid "Original gadgets with an authenticity guarantee"
+msgstr "أجهزة أصلية مع ضمان الأصالة"
+
+#. translators: 1: shop name, 2: tagline
+#: inc/home.php:60
+#, php-format
+msgid "%1$s — %2$s"
+msgstr "%1$s — %2$s"
+
+#: inc/home.php:125
+#: inc/home.php:361
+#: inc/home.php:362
+#: inc/menus.php:602
+#: inc/menus.php:714
+#: templates/home/offers.php:29
+msgid "Amazing offers"
+msgstr "عروض مذهلة"
+
+#: inc/home.php:256
+msgid "All"
+msgstr "الكل"
+
+#. translators: %s: discount percentage, e.g. 57%
+#: inc/home.php:474
+#, php-format
+msgid "Up to %s off"
+msgstr "خصم حتى %s"
+
+#: inc/home.php:486
+msgctxt "discount sticker: line above the percentage"
+msgid "up to"
+msgstr "حتى"
+
+#: inc/home.php:487
+msgctxt "discount sticker: line below the percentage"
+msgid "off"
+msgstr "خصم"
+
+#: inc/menus.php:617
+#: inc/menus.php:723
+#: templates/home/ranked.php:18
+#: templates/pages/popular.php:25
+msgid "Best sellers"
+msgstr "الأكثر مبيعًا"
+
+#: inc/menus.php:633
+#: templates/archive/filters.php:136
+msgid "Brands"
+msgstr "العلامات التجارية"
+
+#: inc/menus.php:660
+#: templates/header/promo.php:30
+#: woocommerce/checkout/thankyou.php:135
+#: woocommerce/myaccount/form-login.php:149
+msgid "Track your order"
+msgstr "تتبّع طلبك"
+
+#: inc/menus.php:666
+#: inc/pages.php:907
+msgid "Frequently asked questions"
+msgstr "الأسئلة الشائعة"
+
+#: inc/menus.php:667
+#: inc/pages.php:910
+msgid "Terms and conditions"
+msgstr "الشروط والأحكام"
+
+#: inc/menus.php:668
+#: inc/pages.php:911
+msgid "Privacy policy"
+msgstr "سياسة الخصوصية"
+
+#: inc/menus.php:669
+#: inc/pages.php:909
+#: page-templates/about.php:68
+#: templates/header/promo.php:38
+#: templates/pages/cta.php:43
+#: templates/pages/faq-list.php:138
+msgid "Contact us"
+msgstr "تواصل معنا"
+
+#: inc/menus.php:704
+#: inc/pages.php:912
+msgid "About Gadgetim"
+msgstr "عن Gadgetim"
+
+#: inc/menus.php:719
+#: templates/home/newest.php:20
+#: templates/home/newest.php:29
+msgid "Newest products"
+msgstr "أحدث المنتجات"
+
+#: inc/pages.php:231
+msgid "Your privacy"
+msgstr "خصوصيتك"
+
+#: inc/pages.php:232
+msgid "How we collect, use and protect your information when you shop with us."
+msgstr "كيف نجمع معلوماتك ونستخدمها ونحميها عندما تتسوّق معنا."
+
+#: inc/pages.php:237
+msgid "Rules and policies"
+msgstr "القواعد والسياسات"
+
+#: inc/pages.php:238
+msgid "The rules for using the site, placing orders, delivery and returns."
+msgstr "قواعد استخدام الموقع وتقديم الطلبات والتوصيل والإرجاع."
+
+#. translators: %s: number of minutes
+#: inc/pages.php:379
+#, php-format
+msgid "%s min read"
+msgid_plural "%s min read"
+msgstr[0] "مدة القراءة: أقل من دقيقة"
+msgstr[1] "مدة القراءة: دقيقة واحدة"
+msgstr[2] "مدة القراءة: دقيقتان"
+msgstr[3] "مدة القراءة: %s دقائق"
+msgstr[4] "مدة القراءة: %s دقيقة"
+msgstr[5] "مدة القراءة: %s دقيقة"
+
+#: inc/pages.php:732
+msgid "Every product is checked for authenticity and quality before it ships."
+msgstr "نفحص أصالة كل منتج وجودته قبل شحنه."
+
+#: inc/pages.php:733
+msgid "A clear return process if the product does not match its description."
+msgstr "إجراءات إرجاع واضحة إذا لم يطابق المنتج وصفه."
+
+#: inc/pages.php:734
+msgid "Safe, protective packaging and delivery across Iran."
+msgstr "تغليف آمن ومُحكم وتوصيل إلى جميع أنحاء إيران."
+
+#: inc/pages.php:735
+msgid "Advice before you buy and help after it, on WhatsApp and Telegram."
+msgstr "استشارة قبل الشراء ومساعدة بعده، عبر واتساب وتيليجرام."
+
+#: inc/pages.php:736
+msgid "Secure payment through trusted bank gateways."
+msgstr "دفع آمن عبر بوابات بنكية موثوقة."
+
+#: inc/pages.php:793
+#: page-templates/contact.php:24
+#: templates/pages/cta.php:26
+#: templates/pages/faq-list.php:85
+#: templates/pages/help.php:23
+msgid "Hello! I have a question for Gadgetim."
+msgstr "مرحبًا! لدي سؤال لفريق Gadgetim."
+
+#: inc/pages.php:804
+#: inc/product.php:600
+#: templates/footer/columns.php:45
+#: templates/product/sticky-bar.php:67
+msgid "WhatsApp"
+msgstr "واتساب"
+
+#: inc/pages.php:808
+msgid "Start a chat"
+msgstr "ابدأ المحادثة"
+
+#: inc/pages.php:810
+msgid "The quickest way to reach us"
+msgstr "أسرع طريقة للتواصل معنا"
+
+#: inc/pages.php:817
+#: inc/pages.php:1243
+msgid "Phone"
+msgstr "الهاتف"
+
+#: inc/pages.php:821
+msgid "Call now"
+msgstr "اتصل الآن"
+
+#: inc/pages.php:823
+msgid "Call or send a text message"
+msgstr "اتصل بنا أو أرسل رسالة نصية"
+
+#: inc/pages.php:830
+#: inc/product.php:594
+#: templates/footer/columns.php:48
+#: templates/product/sticky-bar.php:68
+msgid "Telegram"
+msgstr "تيليجرام"
+
+#: inc/pages.php:834
+msgid "Open Telegram"
+msgstr "افتح تيليجرام"
+
+#: inc/pages.php:843
+msgid "Instagram"
+msgstr "إنستغرام"
+
+#: inc/pages.php:847
+msgid "See our page"
+msgstr "زُر صفحتنا"
+
+#: inc/pages.php:856
+#: inc/pages.php:1244
+#: templates/footer/columns.php:51
+#: templates/pages/contact-form.php:95
+#: woocommerce/single-product-reviews.php:146
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: inc/pages.php:860
+msgid "Write an email"
+msgstr "راسلنا بالبريد الإلكتروني"
+
+#: inc/pages.php:869
+#: templates/footer/columns.php:54
+msgid "Address"
+msgstr "العنوان"
+
+#: inc/pages.php:882
+#: templates/footer/columns.php:54
+msgid "Opening hours"
+msgstr "ساعات العمل"
+
+#: inc/pages.php:1112
+msgid "A question about a product"
+msgstr "استفسار عن منتج"
+
+#: inc/pages.php:1113
+msgid "An order I placed"
+msgstr "طلب قدّمته"
+
+#: inc/pages.php:1114
+msgid "Authenticity and guarantee"
+msgstr "الأصالة والضمان"
+
+#: inc/pages.php:1115
+msgid "Returns and exchanges"
+msgstr "الإرجاع والاستبدال"
+
+#: inc/pages.php:1116
+msgid "Wholesale and partnership"
+msgstr "الجملة والشراكة"
+
+#: inc/pages.php:1117
+msgid "Something else"
+msgstr "موضوع آخر"
+
+#: inc/pages.php:1134
+msgid "Thank you! Your message has been sent. We will get back to you soon."
+msgstr "شكرًا لك! تم إرسال رسالتك. سنرد عليك قريبًا."
+
+#: inc/pages.php:1135
+msgid "Please check the highlighted fields."
+msgstr "يُرجى مراجعة الحقول المميّزة."
+
+#: inc/pages.php:1136
+msgid "You have sent several messages in a short time. Please try again later, or message us on WhatsApp."
+msgstr "أرسلت عدة رسائل في وقت قصير. يُرجى المحاولة لاحقًا، أو راسلنا عبر واتساب."
+
+#: inc/pages.php:1137
+msgid "Your message could not be sent. Please try again, or contact us by phone or WhatsApp."
+msgstr "تعذّر إرسال رسالتك. يُرجى المحاولة مرة أخرى، أو التواصل معنا هاتفيًا أو عبر واتساب."
+
+#: inc/pages.php:1138
+msgid "This form has expired. Please reload the page and send it again."
+msgstr "انتهت صلاحية هذا النموذج. يُرجى إعادة تحميل الصفحة وإرساله مرة أخرى."
+
+#: inc/pages.php:1149
+msgid "Please enter your name."
+msgstr "يُرجى إدخال اسمك."
+
+#: inc/pages.php:1150
+msgid "Please enter a valid phone number."
+msgstr "يُرجى إدخال رقم هاتف صحيح."
+
+#: inc/pages.php:1152
+msgid "Enter a phone number or an email address so we can reply."
+msgstr "أدخل رقم هاتف أو بريدًا إلكترونيًا لنتمكّن من الرد."
+
+#: inc/pages.php:1153
+msgid "Please write your message (at least 10 characters)."
+msgstr "يُرجى كتابة رسالتك (١٠ أحرف على الأقل)."
+
+#. translators: %s: shop name
+#: inc/pages.php:1240
+#, php-format
+msgid "A new message from the contact form of %s"
+msgstr "رسالة جديدة من نموذج التواصل في %s"
+
+#: inc/pages.php:1242
+#: woocommerce/single-product-reviews.php:139
+msgid "Name"
+msgstr "الاسم"
+
+#: inc/pages.php:1245
+#: templates/pages/contact-form.php:101
+msgid "Topic"
+msgstr "الموضوع"
+
+#: inc/pages.php:1248
+#: templates/pages/contact-form.php:109
+#: woocommerce/myaccount/view-order.php:32
+#: woocommerce/order/form-tracking.php:43
+#: woocommerce/order/tracking.php:30
+msgid "Order number"
+msgstr "رقم الطلب"
+
+#: inc/pages.php:1250
+msgid "Sent from"
+msgstr "أُرسلت من"
+
+#: inc/pages.php:1251
+msgid "Date"
+msgstr "التاريخ"
+
+#: inc/pages.php:1253
+msgid "Message"
+msgstr "الرسالة"
+
+#. translators: 1: shop name, 2: topic, 3: sender name
+#: inc/pages.php:1256
+#, php-format
+msgid "[%1$s] %2$s — %3$s"
+msgstr "[%1$s] %2$s — %3$s"
+
+#: inc/pages.php:1465
+msgid "Authenticity guarantee page"
+msgstr "صفحة ضمان الأصالة"
+
+#: inc/pages.php:1469
+msgid "Creates the «ضمانت اصالت کالا» page with its template when it is missing, and links it from the trust settings."
+msgstr "يُنشئ صفحة «ضمانت اصالت کالا» بقالبها الخاص إن لم تكن موجودة، ويربطها من إعدادات الثقة."
+
+#: inc/pages.php:1470
+msgid "Create or link the page"
+msgstr "إنشاء الصفحة أو ربطها"
+
+#: inc/pages.php:1586
+msgid "Share on WhatsApp"
+msgstr "مشاركة عبر واتساب"
+
+#: inc/pages.php:1592
+msgid "Share on Telegram"
+msgstr "مشاركة عبر تيليجرام"
+
+#: inc/pages.php:1632
+msgid "Awaiting moderation"
+msgstr "بانتظار المراجعة"
+
+#: inc/pages.php:1643
+msgid "Reply"
+msgstr "رد"
+
+#: inc/product.php:88
+msgid "Product page"
+msgstr "صفحة المنتج"
+
+#: inc/product.php:88
+msgid "Texts shown when a shopper taps the delivery, return or payment card under the buy button. The card titles come from the Trust tab. Leave a text empty to use the built-in sentence."
+msgstr "النصوص التي تظهر عندما يضغط المتسوّق على بطاقة التوصيل أو الإرجاع أو الدفع تحت زر الشراء. عناوين البطاقات مأخوذة من تبويب «الثقة والسياسات». اترك النص فارغًا لاستخدام الجملة الافتراضية."
+
+#: inc/product.php:90
+msgid "Delivery card text"
+msgstr "نص بطاقة التوصيل"
+
+#: inc/product.php:91
+msgid "Return card text"
+msgstr "نص بطاقة الإرجاع"
+
+#: inc/product.php:92
+msgid "Payment card text"
+msgstr "نص بطاقة الدفع"
+
+#: inc/product.php:236
+msgid "Weight"
+msgstr "الوزن"
+
+#: inc/product.php:242
+msgid "Dimensions"
+msgstr "الأبعاد"
+
+#: inc/product.php:341
+#: inc/product.php:458
+#: templates/product/mini-buy.php:68
+msgid "Delivery across Iran"
+msgstr "التوصيل إلى جميع أنحاء إيران"
+
+#: inc/product.php:345
+#: templates/product/side.php:60
+msgid "Every product is genuine, with an authenticity guarantee."
+msgstr "كل المنتجات أصلية ومشمولة بضمان الأصالة."
+
+#. translators: %s: list of verification steps
+#: inc/product.php:348
+#, php-format
+msgid "You can check it yourself: %s."
+msgstr "يمكنك التحقّق بنفسك: %s."
+
+#: inc/product.php:352
+msgid "Is this product original?"
+msgstr "هل هذا المنتج أصلي؟"
+
+#: inc/product.php:356
+msgid "How is my order delivered?"
+msgstr "كيف يتم توصيل طلبي؟"
+
+#. translators: %s: delivery promise from the settings, e.g. "Delivery across Iran"
+#: inc/product.php:358
+#, php-format
+msgid "%s. The shipping cost and the delivery time for your city are shown at checkout, before you pay."
+msgstr "%s. تظهر تكلفة الشحن ومدة التوصيل لمدينتك عند إتمام الطلب، قبل الدفع."
+
+#: inc/product.php:361
+msgid "Can I return it?"
+msgstr "هل يمكنني إرجاعه؟"
+
+#. translators: %s: return promise from the settings, e.g. "7-day return guarantee"
+#: inc/product.php:363
+#, php-format
+msgid "Yes — %s. If the product does not match its description, contact us within that window and we will arrange the return."
+msgstr "نعم — %s. إذا لم يطابق المنتج وصفه، تواصل معنا خلال هذه المدة وسنرتّب عملية الإرجاع."
+
+#: inc/product.php:368
+msgid "Not sure it is the right one for you?"
+msgstr "لست متأكدًا أنه المناسب لك؟"
+
+#: inc/product.php:369
+msgid "Ask us on WhatsApp before you buy: we will check compatibility with your device and suggest the right model."
+msgstr "اسألنا عبر واتساب قبل الشراء: سنتحقّق من توافقه مع جهازك ونقترح عليك الطراز المناسب."
+
+#: inc/product.php:388
+msgid "Overview"
+msgstr "نظرة عامة"
+
+#: inc/product.php:391
+msgid "Specifications"
+msgstr "المواصفات"
+
+#: inc/product.php:394
+#: woocommerce/single-product-reviews.php:87
+msgid "Reviews"
+msgstr "التقييمات"
+
+#. Template Name of the theme
+#: inc/product.php:397
+#: templates/header/promo.php:34
+msgid "FAQ"
+msgstr "الأسئلة الشائعة"
+
+#: inc/product.php:407
+msgid "Related"
+msgstr "منتجات ذات صلة"
+
+#: inc/product.php:459
+msgid "Orders are packed securely and sent to every city in Iran. The shipping cost and delivery time for your address are shown at checkout, before you pay."
+msgstr "تُغلَّف الطلبات بإحكام وتُشحن إلى كل مدن إيران. تظهر تكلفة الشحن ومدة التوصيل لعنوانك عند إتمام الطلب، قبل الدفع."
+
+#: inc/product.php:465
+msgid "If the product does not match its description or arrives faulty, contact us within the return window and we will arrange the return."
+msgstr "إذا لم يطابق المنتج وصفه أو وصلك معيبًا، تواصل معنا خلال مهلة الإرجاع وسنرتّب عملية الإرجاع."
+
+#: inc/product.php:471
+msgid "You pay on the secure page of the bank gateway. Your card details are entered there and are never stored by Gadgetim."
+msgstr "تدفع عبر الصفحة الآمنة لبوابة البنك. تُدخل بيانات بطاقتك هناك، ولا تحفظها Gadgetim أبدًا."
+
+#. translators: 1: base price with its currency (AED 25), 2: rate in Toman, 3: currency name, 4: date of the rate
+#: inc/product.php:523
+#, php-format
+msgid "This product is priced at %1$s. Its Toman price uses a rate of %2$s Toman per %3$s (rate of %4$s)."
+msgstr "السعر الأساسي لهذا المنتج %1$s، ويُحسب سعره بالتومان بسعر صرف %2$s تومان لكل %3$s (سعر صرف يوم %4$s)."
+
+#. translators: 1: base price with its currency (AED 25), 2: rate in Toman, 3: currency name
+#: inc/product.php:525
+#, php-format
+msgid "This product is priced at %1$s. Its Toman price uses a rate of %2$s Toman per %3$s."
+msgstr "السعر الأساسي لهذا المنتج %1$s، ويُحسب سعره بالتومان بسعر صرف %2$s تومان لكل %3$s."
+
+#. translators: %s: rounding step in Toman
+#: inc/product.php:529
+#, php-format
+msgid "The result is rounded to the nearest %s Toman."
+msgstr "تُقرَّب النتيجة إلى أقرب مضاعف لـ %s تومان."
+
+#. translators: %s: rounding step in Toman
+#: inc/product.php:531
+#, php-format
+msgid "The result is rounded up to the next %s Toman."
+msgstr "تُقرَّب النتيجة للأعلى إلى المضاعف التالي لـ %s تومان."
+
+#. translators: %s: rounding step in Toman
+#: inc/product.php:533
+#, php-format
+msgid "The result is rounded down to a whole %s Toman."
+msgstr "تُقرَّب النتيجة للأسفل إلى مضاعف كامل لـ %s تومان."
+
+#: inc/product.php:540
+msgid "You always pay in Toman."
+msgstr "الدفع دائمًا بالتومان."
+
+#. translators: 1: product title, 2: quantity, 3: product URL
+#: inc/product.php:553
+#, php-format
+msgid "Hello, I would like to order “%1$s” (quantity: %2$s). %3$s"
+msgstr "مرحبًا، أرغب في طلب «%1$s» (الكمية: %2$s). %3$s"
+
+#. translators: 1: product title, 2: product URL
+#: inc/product.php:562
+#, php-format
+msgid "Hello, when will “%1$s” be available again? %2$s"
+msgstr "مرحبًا، متى سيتوفر «%1$s» من جديد؟ %2$s"
+
+#: inc/product.php:704
+#: templates/product/mini-buy.php:62
+#: woocommerce/checkout/payment.php:48
+#: woocommerce/single-product/add-to-cart/simple.php:92
+msgid "Order on WhatsApp"
+msgstr "اطلب عبر واتساب"
+
+#: inc/product.php:704
+#: templates/product/mini-buy.php:62
+msgid "Ask about availability on WhatsApp"
+msgstr "اسأل عن التوفر عبر واتساب"
+
+#. translators: 1: image number, 2: number of images
+#: inc/product.php:822
+#: templates/product/lightbox.php:41
+#: templates/product/lightbox.php:69
+#: woocommerce/single-product/product-image.php:65
+#: woocommerce/single-product/product-image.php:185
+#, php-format
+msgid "Image %1$s of %2$s"
+msgstr "الصورة %1$s من %2$s"
+
+#: inc/product.php:823
+#: templates/product/lightbox.php:32
+msgid "Zoom in"
+msgstr "تكبير"
+
+#: inc/product.php:824
+#: templates/product/lightbox.php:31
+msgid "Zoom out"
+msgstr "تصغير"
+
+#: inc/product.php:825
+#: single.php:125
+#: templates/pages/faq-list.php:121
+msgid "Link copied"
+msgstr "تم نسخ الرابط"
+
+#: inc/product.php:826
+msgid "Copying is blocked here. Hold the address bar to copy the link."
+msgstr "النسخ غير متاح هنا. اضغط مطوّلًا على شريط العنوان لنسخ الرابط."
+
+#: inc/product.php:827
+#: templates/archive/description.php:35
+#: templates/product/side.php:42
+#: woocommerce/single-product/tabs/tabs.php:79
+msgid "Read more"
+msgstr "اقرأ المزيد"
+
+#: inc/product.php:828
+#: templates/archive/description.php:36
+msgid "Show less"
+msgstr "عرض أقل"
+
+#: inc/product.php:829
+#: woocommerce/single-product-reviews.php:182
+msgid "Very poor"
+msgstr "سيئ جدًا"
+
+#: inc/product.php:830
+#: woocommerce/single-product-reviews.php:181
+msgid "Not that bad"
+msgstr "ليس سيئًا"
+
+#: inc/product.php:831
+#: woocommerce/single-product-reviews.php:180
+msgid "Average"
+msgstr "متوسط"
+
+#: inc/product.php:832
+#: woocommerce/single-product-reviews.php:179
+msgid "Good"
+msgstr "جيد"
+
+#: inc/product.php:833
+#: woocommerce/single-product-reviews.php:178
+msgid "Perfect"
+msgstr "ممتاز"
+
+#: inc/settings.php:27
+msgid "Storefront"
+msgstr "واجهة المتجر"
+
+#: inc/settings.php:31
+msgid "Header and search"
+msgstr "الترويسة والبحث"
+
+#: inc/settings.php:36
+msgid "Promo strip messages"
+msgstr "رسائل الشريط الترويجي"
+
+#: inc/settings.php:37
+msgid "Short lines rotating in the coloured strip above the header. Empty: the trust badges are used."
+msgstr "أسطر قصيرة تتناوب في الشريط الملوّن أعلى الترويسة. إن تُركت فارغة تُستخدم شارات الثقة."
+
+#: inc/settings.php:44
+msgid "Suggested queries shown when the search box is opened empty."
+msgstr "عبارات بحث مقترحة تظهر عند فتح مربع البحث فارغًا."
+
+#: inc/settings.php:53
+#: templates/home/flash.php:47
+#: templates/home/offers.php:24
+msgid "Amazing offers end"
+msgstr "نهاية العروض المذهلة"
+
+#: inc/settings.php:54
+msgid "Real end of the current campaign, format 2026-11-30 23:59 (site time). Empty: countdowns use each product’s own sale end date, or are hidden."
+msgstr "النهاية الفعلية للحملة الحالية، بالصيغة 2026-11-30 23:59 (بتوقيت الموقع). إن تُرك فارغًا تستخدم العدادات تاريخ انتهاء التخفيض الخاص بكل منتج، أو تُخفى."
+
+#: inc/settings.php:61
+msgid "Footer"
+msgstr "التذييل"
+
+#: inc/settings.php:65
+msgid "Show the newsletter form"
+msgstr "إظهار نموذج النشرة البريدية"
+
+#: inc/settings.php:70
+msgid "eNamad seal link"
+msgstr "رابط ختم eNamad"
+
+#: inc/settings.php:74
+msgid "eNamad seal image URL"
+msgstr "رابط صورة ختم eNamad"
+
+#: inc/settings.php:78
+msgid "Samandehi seal link"
+msgstr "رابط ختم Samandehi"
+
+#: inc/settings.php:82
+msgid "Samandehi seal image URL"
+msgstr "رابط صورة ختم Samandehi"
+
+#. translators: %s: language name
+#: inc/setup.php:60
+#, php-format
+msgid "Primary — %s"
+msgstr "القائمة الرئيسية — %s"
+
+#. translators: %s: language name
+#: inc/setup.php:62
+#, php-format
+msgid "Footer — %s"
+msgstr "قائمة التذييل — %s"
+
+#. translators: %s: language name
+#: inc/setup.php:64
+#, php-format
+msgid "Legal — %s"
+msgstr "قائمة الشروط والسياسات — %s"
+
+#: inc/setup.php:83
+msgid "Persian"
+msgstr "الفارسية"
+
+#: inc/setup.php:84
+msgid "English"
+msgstr "الإنجليزية"
+
+#: inc/setup.php:85
+msgid "Arabic"
+msgstr "العربية"
+
+#: inc/template-tags.php:425
+msgid "Discount"
+msgstr "خصم"
+
+#. translators: 1: average rating, 2: number of reviews
+#: inc/template-tags.php:441
+#: templates/product/head.php:67
+#: woocommerce/single-product-reviews.php:44
+#, php-format
+msgid "Rated %1$s out of 5 from %2$s reviews"
+msgstr "التقييم %1$s من ٥ (عدد التقييمات: %2$s)"
+
+#. translators: %s: product title
+#: inc/template-tags.php:536
+#, php-format
+msgid "Ask about “%s” on WhatsApp"
+msgstr "اسأل عن «%s» عبر واتساب"
+
+#: inc/template-tags.php:537
+msgid "Ask"
+msgstr "اسأل"
+
+#. translators: %s: product title
+#: inc/template-tags.php:544
+#, php-format
+msgid "Add “%s” to cart"
+msgstr "أضف «%s» إلى السلة"
+
+#: inc/template-tags.php:547
+msgid "Buy"
+msgstr "اشترِ"
+
+#. translators: %s: product title
+#: inc/template-tags.php:550
+#, php-format
+msgid "Choose options for “%s”"
+msgstr "اختر خيارات «%s»"
+
+#: inc/template-tags.php:551
+msgid "Options"
+msgstr "الخيارات"
+
+#. translators: %s: product title
+#: inc/template-tags.php:559
+#, php-format
+msgid "Save “%s” to your wishlist"
+msgstr "احفظ «%s» في المفضلة"
+
+#: inc/template-tags.php:676
+#: woocommerce/single-product/product-image.php:125
+msgid "New"
+msgstr "جديد"
+
+#. translators: %s: number of items left
+#: inc/template-tags.php:688
+#: templates/home/flash.php:118
+#: woocommerce/cart/cart.php:181
+#, php-format
+msgid "Only %s left"
+msgstr "بقي %s فقط"
+
+#. translators: %s: rank number
+#: inc/template-tags.php:743
+#, php-format
+msgid "Rank %s:"
+msgstr "المرتبة %s:"
+
+#: inc/template-tags.php:798
+#: templates/header/mega-pane.php:26
+#: templates/home/offers.php:91
+#: woocommerce/myaccount/dashboard.php:113
+#: woocommerce/single-product/related.php:58
+msgid "View all"
+msgstr "عرض الكل"
+
+#: inc/template-tags.php:828
+msgid "Previous items"
+msgstr "العناصر السابقة"
+
+#: inc/template-tags.php:829
+msgid "Next items"
+msgstr "العناصر التالية"
+
+#: inc/template-tags.php:843
+#: inc/template-tags.php:848
+#: inc/woocommerce.php:174
+#: templates/footer/bnav.php:30
+msgid "Home"
+msgstr "الرئيسية"
+
+#: inc/template-tags.php:863
+#: search.php:68
+msgid "Search results"
+msgstr "نتائج البحث"
+
+#: inc/template-tags.php:865
+msgid "Page not found"
+msgstr "الصفحة غير موجودة"
+
+#: inc/template-tags.php:883
+msgid "Breadcrumb"
+msgstr "مسار التنقل"
+
+#: inc/template-tags.php:921
+msgid "Pagination"
+msgstr "التنقل بين الصفحات"
+
+#: inc/template-tags.php:923
+msgid "Previous page"
+msgstr "الصفحة السابقة"
+
+#: inc/template-tags.php:939
+msgid "Next page"
+msgstr "الصفحة التالية"
+
+#. translators: %s: shop name
+#: inc/template-tags.php:1053
+#, php-format
+msgid "%s, home page"
+msgstr "%s، الصفحة الرئيسية"
+
+#: inc/template-tags.php:1204
+msgid "My account"
+msgstr "حسابي"
+
+#: inc/template-tags.php:1207
+#: woocommerce/myaccount/form-login.php:49
+msgid "Log in or sign up"
+msgstr "تسجيل الدخول أو إنشاء حساب"
+
+#: inc/template-tags.php:1207
+msgid "Log in | Sign up"
+msgstr "دخول | تسجيل"
+
+#: inc/template-tags.php:1209
+msgid "Log in"
+msgstr "تسجيل الدخول"
+
+#: inc/woocommerce.php:153
+msgid "Best selling"
+msgstr "الأكثر مبيعًا"
+
+#. translators: %s: number of products
+#: inc/woocommerce.php:183
+#: templates/archive/toolbar.php:35
+#: templates/home/brands.php:38
+#: templates/home/categories.php:66
+#, php-format
+msgid "%s product"
+msgid_plural "%s products"
+msgstr[0] "لا توجد منتجات"
+msgstr[1] "منتج واحد"
+msgstr[2] "منتجان"
+msgstr[3] "%s منتجات"
+msgstr[4] "%s منتجًا"
+msgstr[5] "%s منتج"
+
+#. Template Name of the theme
+msgid "About"
+msgstr "من نحن"
+
+#: page-templates/about.php:54
+msgid "days to return"
+msgstr "أيام للإرجاع"
+
+#: page-templates/about.php:55
+#: page-templates/about.php:168
+msgid "original"
+msgstr "أصلي"
+
+#: page-templates/about.php:95
+msgid "original products"
+msgstr "منتجات أصلية"
+
+#: page-templates/about.php:100
+msgid "trusted brands"
+msgstr "علامات تجارية موثوقة"
+
+#: page-templates/about.php:105
+msgid "categories"
+msgstr "فئات"
+
+#: page-templates/about.php:110
+msgid "day return guarantee"
+msgstr "أيام ضمان الإرجاع"
+
+#: page-templates/about.php:124
+msgid "An online shop for original, special and useful gadgets."
+msgstr "متجر إلكتروني للأجهزة الأصلية والمميزة والعملية."
+
+#: page-templates/about.php:143
+msgid "Our story"
+msgstr "قصتنا"
+
+#: page-templates/about.php:177
+msgid "Gadgetim today"
+msgstr "Gadgetim اليوم"
+
+#: page-templates/about.php:177
+msgid "Gadgetim in numbers"
+msgstr "Gadgetim بالأرقام"
+
+#: page-templates/about.php:178
+msgid "Live from our showcase right now"
+msgstr "مباشرة من واجهة متجرنا الآن"
+
+#: page-templates/about.php:178
+msgid "The trust of our customers is our biggest asset"
+msgstr "ثقة عملائنا أغلى ما نملك"
+
+#: page-templates/about.php:195
+msgid "Ask us for the best"
+msgstr "اطلب منا الأفضل"
+
+#: page-templates/about.php:196
+msgid "Not sure which gadget is right for you? Tell us what you need and we will help you choose."
+msgstr "لست متأكدًا أي جهاز يناسبك؟ أخبرنا بما تحتاجه وسنساعدك في الاختيار."
+
+#. Template Name of the theme
+msgid "Contact"
+msgstr "اتصل بنا"
+
+#: page-templates/contact.php:31
+#: templates/home/contact.php:29
+#: templates/home/flash.php:30
+#: templates/pages/cta.php:29
+#: templates/pages/help.php:38
+msgid "Chat on WhatsApp"
+msgstr "تحدّث معنا عبر واتساب"
+
+#: page-templates/contact.php:44
+msgid "Call us"
+msgstr "اتصل بنا"
+
+#: page-templates/contact.php:53
+msgid "Hello!"
+msgstr "مرحبًا!"
+
+#: page-templates/contact.php:65
+#: templates/footer/columns.php:81
+msgid "Customer service"
+msgstr "خدمة العملاء"
+
+#: page-templates/contact.php:66
+msgid "A question about a product, an order or authenticity? Message us or call: a real person from our team will answer."
+msgstr "لديك سؤال عن منتج أو طلب أو عن الأصالة؟ راسلنا أو اتصل بنا: سيرد عليك شخص حقيقي من فريقنا."
+
+#: page-templates/contact.php:83
+msgid "More about us"
+msgstr "المزيد عنا"
+
+#: page-templates/contact.php:91
+msgid "Quick answers"
+msgstr "إجابات سريعة"
+
+#: page-templates/contact.php:104
+msgid "All frequently asked questions"
+msgstr "جميع الأسئلة الشائعة"
+
+#: page-templates/faq.php:53
+msgid "Help center"
+msgstr "مركز المساعدة"
+
+#: page-templates/faq.php:54
+msgid "Quick answers about authenticity, ordering, delivery and returns."
+msgstr "إجابات سريعة عن الأصالة والطلب والتوصيل والإرجاع."
+
+#. translators: %s: number of questions
+#: page-templates/faq.php:62
+#, php-format
+msgid "%s question"
+msgid_plural "%s questions"
+msgstr[0] "لا توجد أسئلة"
+msgstr[1] "سؤال واحد"
+msgstr[2] "سؤالان"
+msgstr[3] "%s أسئلة"
+msgstr[4] "%s سؤالًا"
+msgstr[5] "%s سؤال"
+
+#: page-templates/faq.php:92
+#: page-templates/guarantee.php:172
+#: single.php:129
+#: templates/pages/page-body.php:79
+msgid "Help and related pages"
+msgstr "المساعدة والصفحات ذات الصلة"
+
+#: page-templates/faq.php:97
+msgid "Did not find your answer?"
+msgstr "لم تجد إجابتك؟"
+
+#: page-templates/faq.php:98
+msgid "Ask us directly. We answer questions about products, orders and authenticity."
+msgstr "اسألنا مباشرة. نجيب عن الأسئلة المتعلقة بالمنتجات والطلبات والأصالة."
+
+#: page-templates/guarantee.php:27
+msgid "Hello! I have a question about the authenticity of a product."
+msgstr "مرحبًا! لدي استفسار عن أصالة أحد المنتجات."
+
+#: page-templates/guarantee.php:53
+msgid "Ask about a product"
+msgstr "اسأل عن منتج"
+
+#: page-templates/guarantee.php:80
+#: page-templates/guarantee.php:81
+msgid "Make sure the box arrives sealed and undamaged before you open it."
+msgstr "تأكّد قبل الفتح أن العلبة وصلت مختومة وسليمة."
+
+#: page-templates/guarantee.php:82
+#: page-templates/guarantee.php:83
+msgid "Compare the warranty or serial number on the box with the one on your invoice."
+msgstr "قارن رقم الضمان أو الرقم التسلسلي على العلبة بالرقم المذكور في فاتورتك."
+
+#: page-templates/guarantee.php:84
+#: page-templates/guarantee.php:85
+msgid "Keep the official invoice: it is your proof of an original purchase."
+msgstr "احتفظ بالفاتورة الرسمية: فهي إثبات شرائك منتجًا أصليًا."
+
+#: page-templates/guarantee.php:102
+msgid "Still unsure? Ask us"
+msgstr "ما زلت مترددًا؟ اسألنا"
+
+#: page-templates/guarantee.php:103
+msgid "Send us a photo of the box, its labels and the invoice on WhatsApp before you use the product."
+msgstr "أرسل لنا صورة العلبة وملصقاتها والفاتورة عبر واتساب قبل استخدام المنتج."
+
+#: page-templates/guarantee.php:115
+msgid "Shop with confidence"
+msgstr "تسوّق بثقة"
+
+#: page-templates/guarantee.php:116
+msgid "Every product at Gadgetim is genuine and original."
+msgstr "كل منتجات Gadgetim أصلية وموثوقة."
+
+#: page-templates/guarantee.php:132
+msgid "What the guarantee means"
+msgstr "ماذا يعني هذا الضمان"
+
+#: page-templates/guarantee.php:133
+msgid "Promises that come with every order"
+msgstr "وعود ترافق كل طلب"
+
+#: page-templates/guarantee.php:143
+msgid "Check it yourself"
+msgstr "تحقّق بنفسك"
+
+#: page-templates/guarantee.php:144
+msgid "A few simple checks when your order arrives"
+msgstr "بعض الفحوصات البسيطة عند وصول طلبك"
+
+#: page-templates/guarantee.php:167
+msgid "The guarantee in detail"
+msgstr "تفاصيل الضمان"
+
+#: page-templates/guarantee.php:177
+msgid "A doubt about a product?"
+msgstr "لديك شك في أحد المنتجات؟"
+
+#: page-templates/guarantee.php:178
+msgid "Ask us before you use it. We check every question about authenticity."
+msgstr "اسألنا قبل استخدامه. نتحقّق من كل سؤال عن الأصالة."
+
+#: page-templates/guarantee.php:193
+msgid "Questions about the guarantee"
+msgstr "أسئلة عن الضمان"
+
+#: page-templates/guarantee.php:198
+msgid "All questions"
+msgstr "جميع الأسئلة"
+
+#: page-templates/guarantee.php:218
+#: templates/archive/empty.php:77
+#: templates/pages/faq-list.php:135
+#: templates/product/sticky-bar.php:91
+msgid "Ask on WhatsApp"
+msgstr "اسأل عبر واتساب"
+
+#: page-templates/guarantee.php:231
+msgid "Send a message"
+msgstr "أرسل رسالة"
+
+#: page-templates/guarantee.php:240
+msgid "Not sure a product is genuine?"
+msgstr "لست متأكدًا من أصالة منتج؟"
+
+#: page-templates/guarantee.php:241
+msgid "Ask us before you buy or before you use it. We will look into it with you."
+msgstr "اسألنا قبل الشراء أو قبل الاستخدام، وسنتحقّق من الأمر معك."
+
+#. translators: %s: number of pages and articles
+#: search.php:41
+#, php-format
+msgid "%s page or article"
+msgid_plural "%s pages and articles"
+msgstr[0] "لا توجد صفحات أو مقالات"
+msgstr[1] "صفحة أو مقالة واحدة"
+msgstr[2] "صفحتان أو مقالتان"
+msgstr[3] "%s صفحات ومقالات"
+msgstr[4] "الصفحات والمقالات: %s"
+msgstr[5] "الصفحات والمقالات: %s"
+
+#. translators: %s: search query
+#: search.php:51
+#: search.php:67
+msgid "Search the site"
+msgstr "البحث في الموقع"
+
+#: search.php:52
+msgid "Search products, guides and help pages…"
+msgstr "ابحث في المنتجات والأدلة وصفحات المساعدة…"
+
+#: search.php:84
+#: search.php:96
+msgid "Matching products"
+msgstr "منتجات مطابقة"
+
+#: search.php:85
+msgid "Original gadgets that match your search"
+msgstr "أجهزة أصلية تطابق بحثك"
+
+#. translators: %s: number of products, e.g. "12 products"
+#: search.php:90
+#, php-format
+msgid "See all %s"
+msgstr "عرض الكل: %s"
+
+#: search.php:120
+msgid "Pages and articles"
+msgstr "الصفحات والمقالات"
+
+#: search.php:133
+#: templates/pages/post-card.php:62
+msgid "Page"
+msgstr "صفحة"
+
+#: search.php:133
+#: single.php:56
+msgid "Article"
+msgstr "مقالة"
+
+#: search.php:167
+msgid "Check the spelling, try a shorter or more general word, or pick one of the suggestions below."
+msgstr "تحقّق من الإملاء، أو جرّب كلمة أقصر أو أعمّ، أو اختر أحد الاقتراحات أدناه."
+
+#: single.php:106
+#: templates/pages/page-body.php:72
+msgid "Page sections"
+msgstr "أقسام الصفحة"
+
+#: single.php:114
+msgid "Tags"
+msgstr "الوسوم"
+
+#: single.php:120
+msgid "Share this article"
+msgstr "شارك هذه المقالة"
+
+#: single.php:121
+#: templates/product/head.php:92
+msgid "Share"
+msgstr "مشاركة"
+
+#: single.php:125
+msgid "Copy the link"
+msgstr "نسخ الرابط"
+
+#: single.php:145
+msgid "Need advice before buying?"
+msgstr "تحتاج إلى استشارة قبل الشراء؟"
+
+#: single.php:146
+msgid "Tell us what you need and we will help you choose the right gadget."
+msgstr "أخبرنا بما تحتاجه وسنساعدك في اختيار الجهاز المناسب."
+
+#: single.php:155
+msgid "More articles"
+msgstr "مقالات أخرى"
+
+#: single.php:158
+msgid "Previous article"
+msgstr "المقالة السابقة"
+
+#: single.php:164
+msgid "Next article"
+msgstr "المقالة التالية"
+
+#: single.php:177
+msgid "Read next"
+msgstr "اقرأ أيضًا"
+
+#: single.php:178
+msgid "More guides from Gadgetim"
+msgstr "المزيد من أدلة Gadgetim"
+
+#: templates/archive/actives.php:21
+msgid "Active filters"
+msgstr "الفلاتر المفعّلة"
+
+#: templates/archive/actives.php:29
+msgid "(remove this filter)"
+msgstr "(إزالة هذا الفلتر)"
+
+#: templates/archive/actives.php:35
+#: templates/archive/filters.php:65
+msgid "Clear all"
+msgstr "مسح الكل"
+
+#. translators: %s: category or brand name
+#: templates/archive/description.php:27
+#, php-format
+msgid "About %s"
+msgstr "عن %s"
+
+#: templates/archive/empty.php:16
+msgid "Hello, I am looking for a product:"
+msgstr "مرحبًا، أبحث عن منتج:"
+
+#: templates/archive/empty.php:30
+msgid "Remove a filter or two, or widen the price range, and the list fills up again."
+msgstr "أزِل فلترًا أو اثنين، أو وسّع نطاق السعر، وستمتلئ القائمة من جديد."
+
+#: templates/archive/empty.php:33
+#: templates/archive/filters.php:194
+msgid "Clear filters"
+msgstr "مسح الفلاتر"
+
+#: templates/archive/empty.php:52
+msgid "This section is not available in your language yet"
+msgstr "هذا القسم غير متاح بلغتك بعد"
+
+#: templates/archive/empty.php:53
+msgid "The products are being translated. Meanwhile you can browse the Persian catalogue."
+msgstr "نعمل على ترجمة المنتجات. وإلى ذلك الحين يمكنك تصفّح الكتالوج الفارسي."
+
+#: templates/archive/empty.php:58
+msgid "View the Persian catalogue"
+msgstr "عرض الكتالوج الفارسي"
+
+#: templates/archive/empty.php:65
+msgid "This category is empty for now"
+msgstr "هذه الفئة فارغة حاليًا"
+
+#: templates/archive/empty.php:66
+msgid "New original gadgets arrive every week. Ask us on WhatsApp and we will find it for you."
+msgstr "تصل أجهزة أصلية جديدة كل أسبوع. اسألنا عبر واتساب وسنجده لك."
+
+#: templates/archive/empty.php:103
+msgid "Best deals of this brand"
+msgstr "أفضل عروض هذه العلامة التجارية"
+
+#: templates/archive/empty.php:103
+#: templates/header/mega-pane.php:61
+msgid "Best deals in this category"
+msgstr "أفضل العروض في هذه الفئة"
+
+#: templates/archive/empty.php:105
+msgid "Best deals right now"
+msgstr "أفضل العروض الآن"
+
+#: templates/archive/filters.php:62
+#: templates/archive/toolbar.php:42
+msgid "Filters"
+msgstr "الفلاتر"
+
+#: templates/archive/filters.php:66
+msgid "Close the filters"
+msgstr "إغلاق الفلاتر"
+
+#: templates/archive/filters.php:72
+#: templates/archive/toolbar.php:66
+#: woocommerce/loop/orderby.php:30
+msgid "Sort by"
+msgstr "ترتيب حسب"
+
+#: templates/archive/filters.php:87
+msgid "Only products in stock"
+msgstr "المنتجات المتوفرة فقط"
+
+#: templates/archive/filters.php:94
+msgid "Only discounted products"
+msgstr "المنتجات المخفّضة فقط"
+
+#: templates/archive/filters.php:110
+msgid "Price range"
+msgstr "نطاق السعر"
+
+#: templates/archive/filters.php:113
+msgid "Lowest price"
+msgstr "أدنى سعر"
+
+#: templates/archive/filters.php:114
+msgid "Highest price"
+msgstr "أعلى سعر"
+
+#: templates/archive/filters.php:118
+msgid "From"
+msgstr "من"
+
+#: templates/archive/filters.php:125
+msgid "To"
+msgstr "إلى"
+
+#. translators: %s: number of brands
+#: templates/archive/filters.php:159
+#, php-format
+msgid "Show all %s brands"
+msgstr "عرض كل العلامات التجارية (%s)"
+
+#: templates/archive/filters.php:162
+msgid "Show fewer brands"
+msgstr "عرض علامات تجارية أقل"
+
+#. translators: %s: lowest price with the currency unit
+#: templates/archive/hero.php:62
+#, php-format
+msgid "From %s"
+msgstr "ابتداءً من %s"
+
+#: templates/archive/hero.php:66
+#: templates/header/promo.php:19
+msgid "Fast delivery across Iran"
+msgstr "توصيل سريع إلى جميع أنحاء إيران"
+
+#: templates/archive/hero.php:91
+msgid "up to"
+msgstr "حتى"
+
+#: templates/archive/hero.php:91
+msgid "off"
+msgstr "خصم"
+
+#: templates/archive/more.php:34
+msgid "Show more products"
+msgstr "عرض المزيد من المنتجات"
+
+#: templates/archive/sheet.php:22
+msgid "Filter and sort"
+msgstr "تصفية وترتيب"
+
+#. translators: %s: number of active filters
+#: templates/archive/toolbar.php:48
+#, php-format
+msgid "%s active"
+msgstr "المفعّلة: %s"
+
+#: templates/archive/toolbar.php:56
+msgid "Sort products"
+msgstr "ترتيب المنتجات"
+
+#: templates/archive/toolbar.php:57
+msgid "Sort:"
+msgstr "الترتيب:"
+
+#: templates/archive/toolbar.php:75
+#: woocommerce/loop/orderby.php:39
+msgid "Sort"
+msgstr "ترتيب"
+
+#: templates/archive/toolbar.php:85
+msgid "Products per row"
+msgstr "عدد المنتجات في كل صف"
+
+#: templates/archive/toolbar.php:86
+msgid "Four products per row"
+msgstr "أربعة منتجات في كل صف"
+
+#: templates/archive/toolbar.php:89
+msgid "Five products per row"
+msgstr "خمسة منتجات في كل صف"
+
+#: templates/commerce/checkout-bar.php:22
+msgid "Continue to payment"
+msgstr "المتابعة إلى الدفع"
+
+#: templates/commerce/checkout-shipping.php:23
+msgid "Shipping method"
+msgstr "طريقة الشحن"
+
+#: templates/commerce/checkout-shipping.php:24
+msgid "How should we send your parcel?"
+msgstr "كيف تفضّل أن نرسل شحنتك؟"
+
+#: templates/commerce/head.php:46
+msgid "See where your parcel is: enter the order number and the mobile number or email you used at checkout."
+msgstr "اعرف أين شحنتك: أدخل رقم الطلب ورقم الجوال أو البريد الإلكتروني الذي استخدمته عند إتمام الطلب."
+
+#: templates/commerce/head.php:53
+msgid "Secure checkout"
+msgstr "إتمام طلب آمن"
+
+#: templates/commerce/head.php:55
+#: templates/footer/bottom.php:24
+msgid "Every product genuine, with an authenticity guarantee"
+msgstr "كل المنتجات أصلية، مع ضمان الأصالة"
+
+#: templates/commerce/timeline.php:21
+msgid "Done"
+msgstr "تم"
+
+#: templates/commerce/timeline.php:22
+msgid "In progress"
+msgstr "قيد التنفيذ"
+
+#: templates/commerce/timeline.php:23
+msgid "Up next"
+msgstr "الخطوة التالية"
+
+#: templates/commerce/timeline.php:24
+msgid "Stopped"
+msgstr "متوقّف"
+
+#: templates/commerce/timeline.php:35
+#: templates/commerce/timeline.php:46
+msgid "Order status"
+msgstr "حالة الطلب"
+
+#. translators: %s: order number
+#: templates/commerce/timeline.php:39
+#: woocommerce/myaccount/dashboard.php:139
+#, php-format
+msgid "Order %s"
+msgstr "الطلب %s"
+
+#: templates/footer/bnav.php:27
+msgid "Quick navigation"
+msgstr "تنقّل سريع"
+
+#: templates/footer/bnav.php:44
+msgid "Account"
+msgstr "حسابي"
+
+#. translators: 1: year (Jalali in Persian), 2: shop name
+#: templates/footer/bottom.php:13
+#, php-format
+msgid "© %1$s %2$s — all rights reserved."
+msgstr "© %1$s %2$s — جميع الحقوق محفوظة."
+
+#: templates/footer/bottom.php:18
+#: templates/footer/drawers.php:81
+msgid "Languages"
+msgstr "اللغات"
+
+#: templates/footer/columns.php:25
+msgid "eNamad trust seal"
+msgstr "ختم الثقة الإلكتروني eNamad"
+
+#: templates/footer/columns.php:26
+msgid "eNamad seal"
+msgstr "ختم eNamad"
+
+#: templates/footer/columns.php:30
+msgid "Samandehi registration seal"
+msgstr "ختم التسجيل الوطني Samandehi"
+
+#: templates/footer/columns.php:31
+msgid "Samandehi seal"
+msgstr "ختم Samandehi"
+
+#: templates/footer/columns.php:39
+msgid "Gadgetim is an online shop for original, special and useful gadgets: chargers, cables and power banks, headphones and speakers, and gadgets for the home and the car. Every product is genuine and comes with an authenticity guarantee."
+msgstr "Gadgetim متجر إلكتروني للأجهزة الأصلية والمميزة والعملية: الشواحن والكابلات وبطاريات الشحن المتنقلة، والسماعات ومكبّرات الصوت، وأجهزة المنزل والسيارة. كل المنتجات أصلية ومشمولة بضمان الأصالة."
+
+#: templates/footer/columns.php:42
+msgid "Support phone"
+msgstr "هاتف الدعم"
+
+#: templates/footer/columns.php:60
+msgid "Quick access"
+msgstr "وصول سريع"
+
+#: templates/footer/columns.php:70
+#: templates/home/stories.php:17
+#: templates/pages/stories.php:23
+#: woocommerce/cart/cart-empty.php:78
+msgid "Popular categories"
+msgstr "الفئات الشائعة"
+
+#: templates/footer/columns.php:91
+msgid "Trust seals"
+msgstr "أختام الثقة"
+
+#: templates/footer/columns.php:108
+msgid "Gadgetim on Instagram"
+msgstr "Gadgetim على إنستغرام"
+
+#: templates/footer/columns.php:111
+msgid "Gadgetim on Telegram"
+msgstr "Gadgetim على تيليجرام"
+
+#: templates/footer/columns.php:114
+msgid "Gadgetim on WhatsApp"
+msgstr "Gadgetim على واتساب"
+
+#: templates/footer/drawers.php:24
+#: templates/header/nav.php:19
+msgid "Product categories"
+msgstr "فئات المنتجات"
+
+#: templates/footer/drawers.php:25
+msgid "Close the menu"
+msgstr "إغلاق القائمة"
+
+#: templates/footer/drawers.php:77
+msgid "Free advice on WhatsApp"
+msgstr "استشارة مجانية عبر واتساب"
+
+#: templates/footer/drawers.php:94
+msgid "Close the cart"
+msgstr "إغلاق السلة"
+
+#: templates/footer/drawers.php:111
+#: templates/header/bar.php:34
+#: woocommerce/myaccount/dashboard.php:90
+msgid "Wishlist"
+msgstr "المفضلة"
+
+#: templates/footer/drawers.php:112
+msgid "Close the wishlist"
+msgstr "إغلاق المفضلة"
+
+#: templates/footer/drawers.php:127
+msgid "See amazing offers"
+msgstr "شاهد العروض المذهلة"
+
+#: templates/footer/drawers.php:133
+#: templates/header/search.php:52
+msgid "Browse categories"
+msgstr "تصفّح الفئات"
+
+#: templates/footer/newsletter.php:26
+msgid "Never miss a deal"
+msgstr "لا تفوّت أي عرض"
+
+#: templates/footer/newsletter.php:27
+msgid "Join the newsletter and be the first to hear about amazing offers and new gadgets."
+msgstr "اشترك في النشرة البريدية وكن أول من يعرف بالعروض المذهلة والأجهزة الجديدة."
+
+#: templates/footer/newsletter.php:33
+msgid "Your email"
+msgstr "بريدك الإلكتروني"
+
+#: templates/footer/newsletter.php:34
+msgid "Enter your email"
+msgstr "أدخل بريدك الإلكتروني"
+
+#: templates/footer/newsletter.php:35
+#: templates/pages/contact-form.php:117
+msgid "Leave this field empty"
+msgstr "اترك هذا الحقل فارغًا"
+
+#: templates/footer/newsletter.php:36
+msgid "Subscribe"
+msgstr "اشترك"
+
+#: templates/header/bar.php:22
+msgid "Open the categories menu"
+msgstr "فتح قائمة الفئات"
+
+#: templates/header/mega-pane.php:51
+msgid "Popular brands in this category"
+msgstr "العلامات التجارية الشائعة في هذه الفئة"
+
+#: templates/header/mega-pane.php:81
+msgid "Featured in this category"
+msgstr "مختارات هذه الفئة"
+
+#: templates/header/nav.php:15
+msgid "Main menu"
+msgstr "القائمة الرئيسية"
+
+#: templates/header/nav.php:32
+msgid "WhatsApp support"
+msgstr "الدعم عبر واتساب"
+
+#: templates/header/promo.php:18
+msgid "Every product is genuine, with an authenticity guarantee"
+msgstr "كل المنتجات أصلية ومشمولة بضمان الأصالة"
+
+#: templates/header/promo.php:21
+#: woocommerce/myaccount/dashboard.php:104
+msgid "Advice and support on WhatsApp"
+msgstr "استشارة ودعم عبر واتساب"
+
+#: templates/header/promo.php:42
+msgid "Shop announcements"
+msgstr "إعلانات المتجر"
+
+#: templates/header/promo.php:50
+msgid "Help links"
+msgstr "روابط المساعدة"
+
+#: templates/header/promo.php:55
+#: templates/home/contact.php:32
+#: templates/home/flash.php:32
+msgid "Call us:"
+msgstr "اتصل بنا:"
+
+#: templates/header/search.php:24
+msgid "Search in category"
+msgstr "البحث في الفئة"
+
+#: templates/header/search.php:26
+#: templates/home/categories.php:27
+msgid "All categories"
+msgstr "جميع الفئات"
+
+#: templates/header/search.php:34
+#: templates/pages/search-form.php:20
+msgid "Search products"
+msgstr "ابحث عن المنتجات"
+
+#: templates/header/search.php:35
+#: templates/pages/search-form.php:21
+msgid "Search original gadgets…"
+msgstr "ابحث بين الأجهزة الأصلية…"
+
+#: templates/header/search.php:38
+msgid "Search suggestions"
+msgstr "اقتراحات البحث"
+
+#: templates/header/search.php:66
+#: templates/header/search.php:67
+msgid "Today’s best deals"
+msgstr "أفضل عروض اليوم"
+
+#: templates/home/banners.php:18
+msgid "Brand and category picks"
+msgstr "مختارات من العلامات التجارية والفئات"
+
+#: templates/home/banners.php:21
+#: templates/home/slide.php:29
+msgid "Shop now"
+msgstr "تسوّق الآن"
+
+#: templates/home/brands.php:56
+msgid "Original brands at Gadgetim"
+msgstr "العلامات التجارية الأصلية في Gadgetim"
+
+#: templates/home/brands.php:57
+msgid "The trusted makers and brands behind our shelves"
+msgstr "الشركات والعلامات التجارية الموثوقة وراء رفوفنا"
+
+#: templates/home/brands.php:93
+msgid "original product"
+msgid_plural "original products"
+msgstr[0] "منتج أصلي"
+msgstr[1] "منتج أصلي"
+msgstr[2] "منتجان أصليان"
+msgstr[3] "منتجات أصلية"
+msgstr[4] "منتجًا أصليًا"
+msgstr[5] "منتج أصلي"
+
+#: templates/home/brands.php:94
+msgid "trusted brand"
+msgid_plural "trusted brands"
+msgstr[0] "علامة تجارية موثوقة"
+msgstr[1] "علامة تجارية موثوقة"
+msgstr[2] "علامتان تجاريتان موثوقتان"
+msgstr[3] "علامات تجارية موثوقة"
+msgstr[4] "علامة تجارية موثوقة"
+msgstr[5] "علامة تجارية موثوقة"
+
+#: templates/home/brands.php:95
+msgid "category"
+msgid_plural "categories"
+msgstr[0] "فئة"
+msgstr[1] "فئة"
+msgstr[2] "فئتان"
+msgstr[3] "فئات"
+msgstr[4] "فئة"
+msgstr[5] "فئة"
+
+#: templates/home/brands.php:96
+msgid "day to return an item"
+msgid_plural "days to return an item"
+msgstr[0] "يوم لإرجاع المنتج"
+msgstr[1] "يوم لإرجاع المنتج"
+msgstr[2] "يومان لإرجاع المنتج"
+msgstr[3] "أيام لإرجاع المنتج"
+msgstr[4] "يومًا لإرجاع المنتج"
+msgstr[5] "يوم لإرجاع المنتج"
+
+#: templates/home/categories.php:21
+msgid "Shop by category"
+msgstr "تسوّق حسب الفئة"
+
+#: templates/home/categories.php:22
+msgid "Every gadget you need, in its own category"
+msgstr "كل جهاز تحتاجه، في فئته الخاصة"
+
+#: templates/home/contact.php:14
+#: templates/home/flash.php:18
+msgid "Hello, I would like advice on a product."
+msgstr "مرحبًا، أرغب في استشارة بخصوص منتج."
+
+#: templates/home/contact.php:24
+msgid "Not sure which one to choose?"
+msgstr "محتار أيّها تختار؟"
+
+#: templates/home/contact.php:25
+msgid "Tell us what you need on WhatsApp and get honest advice before you buy."
+msgstr "أخبرنا بما تحتاجه عبر واتساب واحصل على نصيحة صادقة قبل الشراء."
+
+#: templates/home/featured.php:23
+msgid "Filter featured products"
+msgstr "تصفية المنتجات المميزة"
+
+#: templates/home/featured.php:47
+msgid "Featured products"
+msgstr "منتجات مميزة"
+
+#: templates/home/featured.php:48
+msgid "Hand-picked, special gadgets, category by category"
+msgstr "أجهزة مميزة مختارة بعناية، فئةً فئة"
+
+#: templates/home/flash.php:26
+msgid "Ask before you buy"
+msgstr "اسأل قبل الشراء"
+
+#: templates/home/flash.php:28
+msgid "Prices follow the exchange rate, so we confirm them for you. Message us for a quote and honest advice."
+msgstr "تتبع الأسعار سعر الصرف، لذلك نؤكدها لك. راسلنا لمعرفة السعر والحصول على نصيحة صادقة."
+
+#: templates/home/flash.php:58
+msgid "Instant offer"
+msgstr "عرض اللحظة"
+
+#: templates/home/flash.php:79
+msgctxt "aria-roledescription"
+msgid "offer"
+msgstr "عرض"
+
+#. translators: 1: offer number, 2: number of offers
+#: templates/home/flash.php:81
+#, php-format
+msgid "%1$s of %2$s"
+msgstr "%1$s من %2$s"
+
+#. translators: %s: amount saved with the currency, e.g. 1,240,000 Toman
+#. translators: %s: amount saved with its unit, e.g. «۳۹۰٬۰۰۰ تومان»
+#. translators: %s: amount saved with the currency
+#: templates/home/flash.php:110
+#: templates/product/price.php:58
+#: woocommerce/cart/cart.php:253
+#, php-format
+msgid "You save %s"
+msgstr "توفّر %s"
+
+#: templates/home/flash.php:114
+msgid "Sale ends in"
+msgstr "ينتهي العرض خلال"
+
+#: templates/home/flash.php:127
+msgid "Choose an offer"
+msgstr "اختر عرضًا"
+
+#: templates/home/hero.php:20
+#: templates/home/hero.php:21
+msgid "Featured offers"
+msgstr "عروض مميزة"
+
+#: templates/home/hero.php:21
+msgctxt "aria-roledescription"
+msgid "carousel"
+msgstr "عرض شرائح"
+
+#: templates/home/hero.php:38
+msgid "Choose a slide"
+msgstr "اختر شريحة"
+
+#: templates/home/hero.php:41
+msgid "Previous slide"
+msgstr "الشريحة السابقة"
+
+#: templates/home/hero.php:42
+msgid "Next slide"
+msgstr "الشريحة التالية"
+
+#: templates/home/newest.php:21
+msgid "The latest gadgets to arrive at Gadgetim"
+msgstr "أحدث الأجهزة التي وصلت إلى Gadgetim"
+
+#: templates/home/offers.php:84
+msgid "discounted product"
+msgid_plural "discounted products"
+msgstr[0] "منتج مخفّض"
+msgstr[1] "منتج مخفّض"
+msgstr[2] "منتجان مخفّضان"
+msgstr[3] "منتجات مخفّضة"
+msgstr[4] "منتجًا مخفّضًا"
+msgstr[5] "منتج مخفّض"
+
+#: templates/home/offers.php:86
+msgid "deepest discount"
+msgstr "أعلى خصم"
+
+#: templates/home/ranked.php:25
+msgid "The favourite picks of Gadgetim shoppers"
+msgstr "الاختيارات المفضّلة لدى متسوّقي Gadgetim"
+
+#: templates/home/ranked.php:25
+msgid "The gadgets shoppers look at most"
+msgstr "الأجهزة الأكثر مشاهدة لدى المتسوّقين"
+
+#: templates/home/services.php:18
+msgid "Why shop at Gadgetim"
+msgstr "لماذا تتسوّق من Gadgetim"
+
+#: templates/home/slide.php:46
+msgctxt "aria-roledescription"
+msgid "slide"
+msgstr "شريحة"
+
+#. translators: %s: number of articles
+#: templates/pages/blog.php:32
+#, php-format
+msgid "%s article"
+msgid_plural "%s articles"
+msgstr[0] "لا توجد مقالات"
+msgstr[1] "مقالة واحدة"
+msgstr[2] "مقالتان"
+msgstr[3] "%s مقالات"
+msgstr[4] "%s مقالة"
+msgstr[5] "%s مقالة"
+
+#. translators: %s: page number
+#: templates/pages/blog.php:39
+#, php-format
+msgid "Page %s"
+msgstr "الصفحة %s"
+
+#: templates/pages/blog.php:76
+msgid "Article categories"
+msgstr "فئات المقالات"
+
+#: templates/pages/blog.php:79
+msgid "All articles"
+msgstr "جميع المقالات"
+
+#: templates/pages/blog.php:116
+msgid "No articles here yet"
+msgstr "لا توجد مقالات هنا بعد"
+
+#: templates/pages/blog.php:117
+msgid "New guides are on the way. Meanwhile, have a look at the shop."
+msgstr "أدلة جديدة في الطريق. وإلى ذلك الحين، ألقِ نظرة على المتجر."
+
+#: templates/pages/brands.php:17
+msgid "Brands we carry"
+msgstr "العلامات التجارية التي نوفّرها"
+
+#: templates/pages/brands.php:18
+msgid "Original products from brands you can trust"
+msgstr "منتجات أصلية من علامات تجارية تثق بها"
+
+#: templates/pages/contact-cards.php:20
+msgid "Ways to reach us"
+msgstr "طرق التواصل معنا"
+
+#. translators: %s: what is copied (phone, email, address)
+#: templates/pages/contact-cards.php:35
+msgid "Copied"
+msgstr "تم النسخ"
+
+#. translators: %s: what is copied (phone, email, address)
+#: templates/pages/contact-cards.php:35
+#, php-format
+msgid "Copy: %s"
+msgstr "نسخ: %s"
+
+#. translators: 1: characters typed, 2: maximum characters
+#: templates/pages/contact-form.php:57
+#, php-format
+msgid "%1$s of %2$s characters"
+msgstr "%1$s من %2$s حرف"
+
+#: templates/pages/contact-form.php:64
+msgid "Send us a message"
+msgstr "أرسل لنا رسالة"
+
+#: templates/pages/contact-form.php:65
+msgid "Fill in the form and we will reply by phone or email."
+msgstr "املأ النموذج وسنرد عليك هاتفيًا أو بالبريد الإلكتروني."
+
+#: templates/pages/contact-form.php:71
+msgid "Message sent!"
+msgstr "تم إرسال الرسالة!"
+
+#: templates/pages/contact-form.php:73
+msgid "Send another message"
+msgstr "إرسال رسالة أخرى"
+
+#: templates/pages/contact-form.php:85
+msgid "Your name"
+msgstr "اسمك"
+
+#: templates/pages/contact-form.php:90
+msgid "Mobile or phone"
+msgstr "الجوال أو الهاتف"
+
+#: templates/pages/contact-form.php:99
+msgid "Enter at least one of the two so we can reply."
+msgstr "أدخل واحدًا منهما على الأقل لنتمكّن من الرد."
+
+#: templates/pages/contact-form.php:109
+msgid "(optional)"
+msgstr "(اختياري)"
+
+#: templates/pages/contact-form.php:113
+msgid "Your message"
+msgstr "رسالتك"
+
+#: templates/pages/contact-form.php:121
+msgid "Send message"
+msgstr "إرسال الرسالة"
+
+#. translators: %s: link to the privacy policy
+#: templates/pages/contact-form.php:129
+#, php-format
+msgid "We use your details only to answer you. Read our %s."
+msgstr "نستخدم بياناتك للرد عليك فقط. اطّلع على %s."
+
+#: templates/pages/contact-form.php:130
+msgid "privacy policy"
+msgstr "سياسة الخصوصية"
+
+#: templates/pages/contact-form.php:134
+msgid "We use your details only to answer you."
+msgstr "نستخدم بياناتك للرد عليك فقط."
+
+#: templates/pages/cta.php:16
+msgid "Still have a question?"
+msgstr "هل لديك سؤال آخر؟"
+
+#: templates/pages/cta.php:17
+msgid "Message us on WhatsApp or send us a note. A real person from our team will answer."
+msgstr "راسلنا عبر واتساب أو أرسل لنا رسالة. سيرد عليك شخص حقيقي من فريقنا."
+
+#. translators: %s: number of questions
+#: templates/pages/faq-list.php:83
+#, php-format
+msgid "%s question found"
+msgid_plural "%s questions found"
+msgstr[0] "لم يُعثر على أي سؤال"
+msgstr[1] "تم العثور على سؤال واحد"
+msgstr[2] "تم العثور على سؤالين"
+msgstr[3] "تم العثور على %s أسئلة"
+msgstr[4] "تم العثور على %s سؤالًا"
+msgstr[5] "تم العثور على %s سؤال"
+
+#: templates/pages/faq-list.php:121
+msgid "Link to this answer"
+msgstr "رابط هذه الإجابة"
+
+#: templates/pages/faq-list.php:131
+msgid "No question matches your search"
+msgstr "لا يوجد سؤال يطابق بحثك"
+
+#: templates/pages/faq-list.php:132
+msgid "Try other words, or ask us directly. We are happy to help."
+msgstr "جرّب كلمات أخرى، أو اسألنا مباشرة. يسعدنا مساعدتك."
+
+#: templates/pages/faq-list.php:140
+msgid "Clear the search"
+msgstr "مسح البحث"
+
+#: templates/pages/faq-search.php:17
+msgid "Search the questions"
+msgstr "ابحث في الأسئلة"
+
+#: templates/pages/faq-search.php:19
+msgid "Search the questions…"
+msgstr "ابحث في الأسئلة…"
+
+#: templates/pages/help.php:16
+msgid "Need help?"
+msgstr "تحتاج إلى مساعدة؟"
+
+#: templates/pages/help.php:17
+msgid "Ask us about products, orders or authenticity. We are happy to help."
+msgstr "اسألنا عن المنتجات أو الطلبات أو الأصالة. يسعدنا مساعدتك."
+
+#. translators: %s: date
+#: templates/pages/page-body.php:29
+#, php-format
+msgid "Updated %s"
+msgstr "آخر تحديث: %s"
+
+#: templates/pages/popular.php:25
+msgid "Popular right now"
+msgstr "الأكثر رواجًا الآن"
+
+#: templates/pages/popular.php:26
+msgid "The gadgets other shoppers are choosing"
+msgstr "الأجهزة التي يختارها المتسوّقون الآخرون"
+
+#: templates/pages/stories.php:24
+msgid "Jump straight to what you are looking for"
+msgstr "انتقل مباشرة إلى ما تبحث عنه"
+
+#. translators: %s: number of sections
+#: templates/pages/toc.php:22
+#, php-format
+msgid "%s section"
+msgid_plural "%s sections"
+msgstr[0] "لا توجد أقسام"
+msgstr[1] "قسم واحد"
+msgstr[2] "قسمان"
+msgstr[3] "%s أقسام"
+msgstr[4] "%s قسمًا"
+msgstr[5] "%s قسم"
+
+#: templates/pages/toc.php:28
+#: templates/pages/toc.php:39
+msgid "On this page"
+msgstr "في هذه الصفحة"
+
+#: templates/pages/values.php:18
+msgid "Our promise to you"
+msgstr "وعدنا لك"
+
+#: templates/pages/values.php:19
+msgid "What every order from Gadgetim comes with"
+msgstr "ما يرافق كل طلب من Gadgetim"
+
+#: templates/product/head.php:50
+msgid "Original product"
+msgstr "منتج أصلي"
+
+#. translators: %s: number of reviews
+#: templates/product/head.php:75
+#, php-format
+msgid "(%s review)"
+msgid_plural "(%s reviews)"
+msgstr[0] "(لا توجد تقييمات)"
+msgstr[1] "(تقييم واحد)"
+msgstr[2] "(تقييمان)"
+msgstr[3] "(%s تقييمات)"
+msgstr[4] "(%s تقييمًا)"
+msgstr[5] "(%s تقييم)"
+
+#. translators: %s: number of reviews
+#: templates/product/head.php:78
+#, php-format
+msgid "%s review"
+msgid_plural "%s reviews"
+msgstr[0] "لا توجد تقييمات"
+msgstr[1] "تقييم واحد"
+msgstr[2] "تقييمان"
+msgstr[3] "%s تقييمات"
+msgstr[4] "%s تقييمًا"
+msgstr[5] "%s تقييم"
+
+#. translators: %s: number of reviews
+#: templates/product/head.php:78
+msgid "Be the first to review"
+msgstr "كن أول من يقيّم"
+
+#. translators: %s: number of views
+#: templates/product/head.php:83
+#, php-format
+msgid "%s views"
+msgstr "%s مشاهدة"
+
+#: templates/product/head.php:87
+msgid "SKU"
+msgstr "رمز المنتج"
+
+#: templates/product/head.php:96
+msgid "Share this product"
+msgstr "شارك هذا المنتج"
+
+#: templates/product/head.php:101
+msgid "Copy link"
+msgstr "نسخ الرابط"
+
+#: templates/product/lightbox.php:59
+#: woocommerce/single-product/product-image.php:145
+msgid "Previous image"
+msgstr "الصورة السابقة"
+
+#: templates/product/lightbox.php:60
+#: woocommerce/single-product/product-image.php:146
+msgid "Next image"
+msgstr "الصورة التالية"
+
+#: templates/product/lightbox.php:62
+msgid "Double-tap or pinch to zoom"
+msgstr "انقر مرتين أو باعد بين إصبعيك للتكبير"
+
+#: templates/product/lightbox.php:62
+msgid "Double-click or scroll to zoom"
+msgstr "انقر نقرًا مزدوجًا أو مرّر للتكبير"
+
+#: templates/product/lightbox.php:66
+#: woocommerce/single-product/product-image.php:162
+msgid "Choose an image"
+msgstr "اختر صورة"
+
+#: templates/product/mini-buy.php:57
+#: templates/product/sticky-bar.php:89
+msgid "Choose options"
+msgstr "اختر الخيارات"
+
+#: templates/product/nav.php:19
+msgid "Product sections"
+msgstr "أقسام صفحة المنتج"
+
+#: templates/product/perks.php:19
+msgid "Our promises"
+msgstr "وعودنا"
+
+#: templates/product/price.php:67
+#: templates/product/price.php:70
+msgid "How is this price calculated?"
+msgstr "كيف يُحسب هذا السعر؟"
+
+#: templates/product/price.php:67
+msgid "How is it priced?"
+msgstr "كيف حُدّد السعر؟"
+
+#: templates/product/price.php:77
+#: templates/product/price.php:83
+msgid "This price ends in"
+msgstr "ينتهي هذا السعر خلال"
+
+#: templates/product/recent.php:23
+msgid "Recently viewed"
+msgstr "شاهدتها مؤخرًا"
+
+#: templates/product/recent.php:24
+msgid "Pick up where you left off"
+msgstr "تابع من حيث توقفت"
+
+#: templates/product/side.php:31
+msgid "Key features"
+msgstr "أبرز المزايا"
+
+#: templates/product/side.php:46
+msgid "All specifications"
+msgstr "كل المواصفات"
+
+#: templates/product/side.php:72
+msgid "How the guarantee works"
+msgstr "كيف يعمل الضمان"
+
+#: templates/product/sticky-bar.php:57
+msgid "Ask for price"
+msgstr "اطلب السعر"
+
+#: templates/product/sticky-bar.php:66
+msgid "Call"
+msgstr "اتصال"
+
+#: templates/product/sticky-bar.php:86
+msgid "Added"
+msgstr "تمت الإضافة"
+
+#: templates/product/stock.php:24
+msgid "Available to order — ships as soon as it arrives"
+msgstr "متاح للطلب — يُشحن فور وصوله"
+
+#. translators: %s: number of items left
+#: templates/product/stock.php:27
+#, php-format
+msgid "Only %s left in stock"
+msgid_plural "Only %s left in stock"
+msgstr[0] "نفدت الكمية"
+msgstr[1] "بقيت قطعة واحدة فقط في المخزون"
+msgstr[2] "بقيت قطعتان فقط في المخزون"
+msgstr[3] "بقيت %s قطع فقط في المخزون"
+msgstr[4] "بقيت %s قطعة فقط في المخزون"
+msgstr[5] "بقيت %s قطعة فقط في المخزون"
+
+#: woocommerce/cart/cart-empty.php:54
+msgid "Original gadgets with an authenticity guarantee are waiting for you. Start with the best sellers below or browse the categories."
+msgstr "أجهزة أصلية بضمان الأصالة بانتظارك. ابدأ بالأكثر مبيعًا أدناه أو تصفّح الفئات."
+
+#: woocommerce/cart/cart-empty.php:73
+msgid "Your wishlist"
+msgstr "مفضلتك"
+
+#: woocommerce/cart/cart-empty.php:114
+msgid "Best sellers right now"
+msgstr "الأكثر مبيعًا حاليًا"
+
+#: woocommerce/cart/cart-empty.php:115
+msgid "What other shoppers are buying"
+msgstr "ما يشتريه المتسوّقون الآخرون"
+
+#: woocommerce/cart/cart-shipping.php:75
+msgid "Free"
+msgstr "مجاني"
+
+#: woocommerce/cart/cart-totals.php:115
+#: woocommerce/checkout/review-order.php:172
+msgid "Your saving on this order"
+msgstr "توفيرك في هذا الطلب"
+
+#: woocommerce/cart/cart-totals.php:127
+msgid "Shipping is calculated in the next step, from your address."
+msgstr "تُحسب تكلفة الشحن في الخطوة التالية بناءً على عنوانك."
+
+#: woocommerce/cart/cart-totals.php:137
+msgid "Continue"
+msgstr "متابعة"
+
+#: woocommerce/cart/cart.php:39
+msgid "Items in your cart"
+msgstr "المنتجات في سلتك"
+
+#: woocommerce/cart/cart.php:187
+msgid "Each"
+msgstr "سعر الوحدة"
+
+#: woocommerce/cart/cart.php:271
+msgid "Have a discount code?"
+msgstr "لديك رمز خصم؟"
+
+#: woocommerce/cart/cart.php:272
+msgid "Enter it here"
+msgstr "أدخله هنا"
+
+#: woocommerce/cart/shipping-calculator.php:64
+msgid "Province"
+msgstr "المحافظة"
+
+#: woocommerce/checkout/form-billing.php:33
+msgid "Who receives the parcel, and where should it go?"
+msgstr "من سيستلم الشحنة، وإلى أين نرسلها؟"
+
+#: woocommerce/checkout/form-checkout.php:83
+msgid "Edit cart"
+msgstr "تعديل السلة"
+
+#: woocommerce/checkout/form-checkout.php:93
+msgid "Choose how you would like to pay and place your order."
+msgstr "اختر طريقة الدفع وأكمل طلبك."
+
+#: woocommerce/checkout/form-shipping.php:31
+msgid "For a gift, or to deliver to your workplace."
+msgstr "لإرسال هدية أو للتوصيل إلى مكان عملك."
+
+#: woocommerce/checkout/payment.php:46
+msgid "You can still order: send us your cart on WhatsApp or call us, and we will confirm the order and the payment with you."
+msgstr "لا يزال بإمكانك الطلب: أرسل لنا سلتك عبر واتساب أو اتصل بنا، وسنؤكد معك الطلب وطريقة الدفع."
+
+#: woocommerce/checkout/review-order.php:129
+msgid "After you enter the address"
+msgstr "بعد إدخال العنوان"
+
+#: woocommerce/checkout/thankyou.php:55
+msgid "The payment did not go through"
+msgstr "لم تتم عملية الدفع"
+
+#: woocommerce/checkout/thankyou.php:77
+msgid "We will check every item, seal your parcel and send it as soon as possible. If anything needs confirming, we will get in touch."
+msgstr "سنفحص كل منتج ونختم شحنتك ونرسلها في أقرب وقت. وإذا احتاج أي أمر إلى تأكيد فسنتواصل معك."
+
+#: woocommerce/checkout/thankyou.php:85
+msgid "Copy the order number"
+msgstr "نسخ رقم الطلب"
+
+#: woocommerce/checkout/thankyou.php:122
+msgid "What happens next?"
+msgstr "ماذا بعد؟"
+
+#: woocommerce/checkout/thankyou.php:125
+msgid "We confirm your order and check every item for authenticity."
+msgstr "نؤكد طلبك ونتحقّق من أصالة كل منتج."
+
+#: woocommerce/checkout/thankyou.php:126
+msgid "Your parcel is sealed and handed to the courier."
+msgstr "تُختم شحنتك وتُسلَّم إلى شركة التوصيل."
+
+#: woocommerce/checkout/thankyou.php:127
+msgid "You can follow it any time with the order number and your mobile number."
+msgstr "يمكنك تتبّعها في أي وقت برقم الطلب ورقم جوالك."
+
+#: woocommerce/checkout/thankyou.php:133
+msgid "View the order"
+msgstr "عرض الطلب"
+
+#: woocommerce/checkout/thankyou.php:139
+msgid "Questions? WhatsApp us"
+msgstr "لديك سؤال؟ راسلنا عبر واتساب"
+
+#: woocommerce/checkout/thankyou.php:141
+msgid "Continue shopping"
+msgstr "متابعة التسوق"
+
+#: woocommerce/content-single-product.php:101
+msgid "Buy this product"
+msgstr "شراء هذا المنتج"
+
+#: woocommerce/loop/no-products-found.php:29
+msgid "No products were found"
+msgstr "لم يتم العثور على منتجات"
+
+#: woocommerce/loop/no-products-found.php:30
+msgid "Try another category or browse every product in the shop."
+msgstr "جرّب فئة أخرى أو تصفّح كل منتجات المتجر."
+
+#: woocommerce/myaccount/dashboard.php:62
+msgid "Your orders, addresses and details, all in one place."
+msgstr "طلباتك وعناوينك وبياناتك، كلها في مكان واحد."
+
+#. translators: %s: number of orders
+#: woocommerce/myaccount/dashboard.php:71
+#, php-format
+msgid "%s order"
+msgid_plural "%s orders"
+msgstr[0] "لا توجد طلبات"
+msgstr[1] "طلب واحد"
+msgstr[2] "طلبان"
+msgstr[3] "%s طلبات"
+msgstr[4] "%s طلبًا"
+msgstr[5] "%s طلب"
+
+#: woocommerce/myaccount/dashboard.php:78
+msgid "Address saved"
+msgstr "العنوان محفوظ"
+
+#: woocommerce/myaccount/dashboard.php:78
+msgid "Add an address"
+msgstr "إضافة عنوان"
+
+#: woocommerce/myaccount/dashboard.php:85
+msgid "Name, email and password"
+msgstr "الاسم والبريد الإلكتروني وكلمة المرور"
+
+#: woocommerce/myaccount/dashboard.php:91
+msgid "Saved on this device"
+msgstr "محفوظة على هذا الجهاز"
+
+#: woocommerce/myaccount/dashboard.php:96
+msgid "Track an order"
+msgstr "تتبّع طلب"
+
+#: woocommerce/myaccount/dashboard.php:97
+msgid "With the order number"
+msgstr "برقم الطلب"
+
+#: woocommerce/myaccount/dashboard.php:103
+msgid "Support"
+msgstr "الدعم"
+
+#: woocommerce/myaccount/dashboard.php:112
+msgid "Latest orders"
+msgstr "أحدث الطلبات"
+
+#: woocommerce/myaccount/form-login.php:38
+msgid "Welcome to Gadgetim"
+msgstr "مرحبًا بك في Gadgetim"
+
+#: woocommerce/myaccount/form-login.php:40
+msgid "Follow every order from checkout to your door"
+msgstr "تابع كل طلب من إتمامه حتى باب منزلك"
+
+#: woocommerce/myaccount/form-login.php:41
+msgid "Save your address for a faster checkout"
+msgstr "احفظ عنوانك لإتمام الطلب بشكل أسرع"
+
+#: woocommerce/myaccount/form-login.php:42
+msgid "Genuine products with an authenticity guarantee"
+msgstr "منتجات أصلية مع ضمان الأصالة"
+
+#: woocommerce/myaccount/form-login.php:59
+msgid "Use your username or email and your password."
+msgstr "استخدم اسم المستخدم أو البريد الإلكتروني وكلمة المرور."
+
+#: woocommerce/myaccount/form-login.php:100
+msgid "One minute, and your next checkout is faster."
+msgstr "دقيقة واحدة، ويصبح طلبك القادم أسرع."
+
+#: woocommerce/myaccount/form-login.php:149
+msgid "Ordered without an account?"
+msgstr "طلبت دون حساب؟"
+
+#. translators: %s: registration date
+#: woocommerce/myaccount/my-account.php:37
+#, php-format
+msgid "Member since %s"
+msgstr "عضو منذ %s"
+
+#: woocommerce/myaccount/orders.php:146
+msgid "When you place an order, it will appear here with its status, so you can follow it from checkout to your door."
+msgstr "عندما تقدّم طلبًا سيظهر هنا مع حالته، لتتابعه من إتمامه حتى باب منزلك."
+
+#: woocommerce/order/form-tracking.php:40
+msgid "The order number is in the confirmation message you received after ordering, and on the order received page."
+msgstr "تجد رقم الطلب في رسالة التأكيد التي وصلتك بعد الطلب، وفي صفحة استلام الطلب."
+
+#: woocommerce/order/form-tracking.php:44
+msgid "Mobile number or email"
+msgstr "رقم الجوال أو البريد الإلكتروني"
+
+#: woocommerce/order/form-tracking.php:44
+msgid "The one you entered at checkout."
+msgstr "الذي أدخلته عند إتمام الطلب."
+
+#: woocommerce/order/form-tracking.php:61
+msgid "Cannot find it?"
+msgstr "لا تجده؟"
+
+#: woocommerce/order/form-tracking.php:61
+msgid "Ask us on WhatsApp"
+msgstr "اسألنا عبر واتساب"
+
+#: woocommerce/order/tracking.php:91
+msgid "Track another order"
+msgstr "تتبّع طلب آخر"
+
+#. translators: %s: number of reviews
+#: woocommerce/single-product-reviews.php:51
+#, php-format
+msgid "From %s review"
+msgid_plural "From %s reviews"
+msgstr[0] "لا توجد تقييمات بعد"
+msgstr[1] "بناءً على تقييم واحد"
+msgstr[2] "بناءً على تقييمين"
+msgstr[3] "بناءً على %s تقييمات"
+msgstr[4] "بناءً على %s تقييمًا"
+msgstr[5] "بناءً على %s تقييم"
+
+#: woocommerce/single-product-reviews.php:54
+msgid "No reviews yet"
+msgstr "لا توجد تقييمات بعد"
+
+#: woocommerce/single-product-reviews.php:55
+msgid "Bought it? Tell others how it works for you."
+msgstr "اشتريته؟ أخبر الآخرين كيف كانت تجربتك معه."
+
+#: woocommerce/single-product-reviews.php:58
+msgid "Write a review"
+msgstr "اكتب تقييمًا"
+
+#: woocommerce/single-product-reviews.php:58
+msgid "Write the first review"
+msgstr "اكتب أول تقييم"
+
+#: woocommerce/single-product-reviews.php:63
+msgid "Rating breakdown"
+msgstr "تفاصيل التقييمات"
+
+#. translators: 1: number of stars, 2: number of reviews
+#: woocommerce/single-product-reviews.php:71
+#, php-format
+msgid "%1$s stars: %2$s review"
+msgid_plural "%1$s stars: %2$s reviews"
+msgstr[0] "%1$s من ٥ نجوم: لا توجد تقييمات"
+msgstr[1] "%1$s من ٥ نجوم: تقييم واحد"
+msgstr[2] "%1$s من ٥ نجوم: تقييمان"
+msgstr[3] "%1$s من ٥ نجوم: %2$s تقييمات"
+msgstr[4] "%1$s من ٥ نجوم: %2$s تقييمًا"
+msgstr[5] "%1$s من ٥ نجوم: %2$s تقييم"
+
+#. translators: 1: reviews count 2: product name
+#: woocommerce/single-product-reviews.php:83
+#, php-format
+msgid "%1$s review for %2$s"
+msgid_plural "%1$s reviews for %2$s"
+msgstr[0] "لا توجد تقييمات لـ %2$s"
+msgstr[1] "تقييم واحد لـ %2$s"
+msgstr[2] "تقييمان لـ %2$s"
+msgstr[3] "%1$s تقييمات لـ %2$s"
+msgstr[4] "%1$s تقييمًا لـ %2$s"
+msgstr[5] "%1$s تقييم لـ %2$s"
+
+#: woocommerce/single-product-reviews.php:99
+msgid "Review pages"
+msgstr "صفحات التقييمات"
+
+#: woocommerce/single-product-reviews.php:114
+msgid "There are no reviews yet."
+msgstr "لا توجد تقييمات بعد."
+
+#. translators: %s is product title
+#: woocommerce/single-product-reviews.php:125
+msgid "Add a review"
+msgstr "أضف تقييمًا"
+
+#. translators: %s is product title
+#: woocommerce/single-product-reviews.php:125
+#, php-format
+msgid "Be the first to review “%s”"
+msgstr "كن أول من يقيّم «%s»"
+
+#. translators: %s is product title
+#: woocommerce/single-product-reviews.php:127
+#, php-format
+msgid "Leave a reply to %s"
+msgstr "اكتب ردًا على %s"
+
+#: woocommerce/single-product-reviews.php:131
+msgid "Submit review"
+msgstr "إرسال التقييم"
+
+#. translators: %s opening and closing link tags respectively
+#: woocommerce/single-product-reviews.php:172
+#, php-format
+msgid "You must be %1$slogged in%2$s to post a review."
+msgstr "يجب عليك %1$sتسجيل الدخول%2$s لنشر تقييم."
+
+#. translators: 1: number of stars, 2: rating word
+#: woocommerce/single-product-reviews.php:187
+#, php-format
+msgid "%1$s star — %2$s"
+msgid_plural "%1$s stars — %2$s"
+msgstr[0] "%1$s نجمة — %2$s"
+msgstr[1] "نجمة واحدة — %2$s"
+msgstr[2] "نجمتان — %2$s"
+msgstr[3] "%1$s نجوم — %2$s"
+msgstr[4] "%1$s نجمة — %2$s"
+msgstr[5] "%1$s نجمة — %2$s"
+
+#: woocommerce/single-product-reviews.php:191
+msgid "Your rating"
+msgstr "تقييمك"
+
+#: woocommerce/single-product-reviews.php:192
+msgid "Tap a star"
+msgstr "اضغط على نجمة"
+
+#: woocommerce/single-product-reviews.php:195
+msgid "Your review"
+msgstr "رأيك في المنتج"
+
+#: woocommerce/single-product-reviews.php:195
+msgid "What did you like? How is the quality? Would you recommend it?"
+msgstr "ما الذي أعجبك؟ كيف الجودة؟ هل تنصح به؟"
+
+#: woocommerce/single-product-reviews.php:202
+msgid "Only logged in customers who have purchased this product may leave a review."
+msgstr "لا يمكن كتابة تقييم إلا للعملاء المسجّلين الذين اشتروا هذا المنتج."
+
+#: woocommerce/single-product/add-to-cart/simple.php:90
+msgid "Quick buy"
+msgstr "شراء سريع"
+
+#. translators: %s: product title
+#: woocommerce/single-product/product-image.php:58
+#, php-format
+msgid "Images of %s"
+msgstr "صور %s"
+
+#. translators: %s: "Image 1 of 3"
+#: woocommerce/single-product/product-image.php:76
+#, php-format
+msgid "%s — open full screen"
+msgstr "%s — عرض بملء الشاشة"
+
+#: woocommerce/single-product/product-image.php:113
+msgid "Awaiting product image"
+msgstr "صورة المنتج غير متوفرة بعد"
+
+#: woocommerce/single-product/product-image.php:122
+msgctxt "discount sticker, under the percentage"
+msgid "off"
+msgstr "خصم"
+
+#: woocommerce/single-product/product-image.php:150
+msgid "View the images full screen"
+msgstr "عرض الصور بملء الشاشة"
+
+#: woocommerce/single-product/related.php:45
+#: woocommerce/single-product/related.php:52
+msgid "From the same category"
+msgstr "من نفس الفئة"
+
+#: woocommerce/single-product/related.php:53
+msgid "Other picks shoppers compare with this one"
+msgstr "منتجات أخرى يقارنها المتسوّقون بهذا المنتج"
+
+#: woocommerce/single-product/review-meta.php:29
+msgid "Your review is awaiting approval"
+msgstr "تقييمك بانتظار الموافقة"
+
+#: woocommerce/single-product/review-meta.php:38
+msgid "Verified buyer"
+msgstr "مشترٍ موثّق"
+
+#. translators: %s: rating out of 5
+#: woocommerce/single-product/review-rating.php:29
+#, php-format
+msgid "Rated %s out of 5"
+msgstr "التقييم %s من ٥"
+
+#. translators: %s: product title
+#: woocommerce/single-product/tabs/tabs.php:61
+#, php-format
+msgid "Get to know %s"
+msgstr "تعرّف على %s"
+
+#. translators: %s: number of rows
+#: woocommerce/single-product/tabs/tabs.php:92
+#, php-format
+msgid "%s detail at a glance"
+msgid_plural "%s details at a glance"
+msgstr[0] "لا توجد مواصفات"
+msgstr[1] "مواصفة واحدة في لمحة"
+msgstr[2] "مواصفتان في لمحة"
+msgstr[3] "%s مواصفات في لمحة"
+msgstr[4] "%s مواصفة في لمحة"
+msgstr[5] "%s مواصفة في لمحة"
+
+#. translators: %s: product title
+#: woocommerce/single-product/tabs/tabs.php:102
+#, php-format
+msgid "Specifications of %s"
+msgstr "مواصفات %s"
+
+#. translators: %s: number of reviews
+#: woocommerce/single-product/tabs/tabs.php:131
+#, php-format
+msgid "%s customer shared an opinion"
+msgid_plural "%s customers shared their opinion"
+msgstr[0] "لم يشارك أي عميل رأيه بعد"
+msgstr[1] "شارك عميل واحد رأيه"
+msgstr[2] "شارك عميلان رأيهما"
+msgstr[3] "شارك %s عملاء آراءهم"
+msgstr[4] "شارك %s عميلًا آراءهم"
+msgstr[5] "شارك %s عميل آراءهم"
+
+#: woocommerce/single-product/tabs/tabs.php:132
+msgid "What buyers say about this product"
+msgstr "آراء المشترين في هذا المنتج"
+
+#: woocommerce/single-product/tabs/tabs.php:151
+msgid "Answers about this product"
+msgstr "إجابات عن هذا المنتج"
+
+#: woocommerce/single-product/tabs/tabs.php:151
+msgid "Answers to what shoppers ask us most"
+msgstr "إجابات عن أكثر ما يسألنا عنه المتسوّقون"
+
+#. translators: %s: product title
+#: woocommerce/single-product/tabs/tabs.php:173
+#, php-format
+msgid "Hello, I have a question about “%s”."
+msgstr "مرحبًا، لدي سؤال عن «%s»."
+
+#: woocommerce/single-product/tabs/tabs.php:176
+msgid "Still have a question? We answer on WhatsApp."
+msgstr "هل لديك سؤال آخر؟ نجيبك عبر واتساب."
+
+#: woocommerce/single-product/tabs/tabs.php:177
+msgid "Ask us"
+msgstr "اسألنا"
+
+#: woocommerce/single-product/up-sells.php:27
+#: woocommerce/single-product/up-sells.php:34
+msgid "We also recommend"
+msgstr "نوصي أيضًا بـ"
+
+#: woocommerce/single-product/up-sells.php:35
+msgid "Hand-picked by the Gadgetim team"
+msgstr "اختيار فريق Gadgetim"
+
+#: inc/home.php:362
+msgctxt "story circle label, keep short"
+msgid "Offers"
+msgstr "العروض"

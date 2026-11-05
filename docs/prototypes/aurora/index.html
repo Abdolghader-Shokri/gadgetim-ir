@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>گجتیم | گجت‌های اورجینال با ضمانت اصالت کالا</title>
+<meta name="description" content="گجتیم؛ فروشگاه آنلاین گجت‌های اصل، خاص و کاربردی: شارژر، کابل، پاوربانک، هدفون، اسپیکر، فلش مموری و گجت‌های خانه و خودرو با ضمانت اصالت کالا.">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234f46e5'/%3E%3Cstop offset='.55' stop-color='%239333ea'/%3E%3Cstop offset='1' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='1' y='1' width='42' height='42' rx='13' fill='url(%23g)'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round'%3E%3Cpath d='M14.5 13.8 27.5 9.8M14.5 19.3 27.5 15.3M30.5 15.8V27a5.5 5.5 0 0 1-5.5 5.5H13'/%3E%3C/g%3E%3Ccircle cx='14' cy='26.2' r='2.4' fill='%23fcd34d'/%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/Vazirmatn-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/Estedad-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../data/catalog.json" as="fetch" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
+<script type="module" src="app.js"></script>
+</head>
+<body>
+
+<!-- Icon sprite: hand-drawn 24px stroke icons, inherited stroke from .ic -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.8"/><path d="m20 20-3.9-3.9"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.2" r="3.9"/><path d="M4.6 20.4a7.4 7.4 0 0 1 14.8 0"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.2s-7.6-4.6-7.6-10.4A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.6 2.6c0 5.8-7.6 10.4-7.6 10.4Z"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.2 8.2h13.6l-1.1 10.9a2.2 2.2 0 0 1-2.2 2H8.5a2.2 2.2 0 0 1-2.2-2L5.2 8.2Z"/><path d="M8.8 10.6V7a3.2 3.2 0 0 1 6.4 0v3.6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M10 17h10"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></symbol>
+  <symbol id="i-chev-d" viewBox="0 0 24 24"><path d="m6.5 9.5 5.5 5.5 5.5-5.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5.5"/><path d="m11 6-6 6 6 6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5.5"/><path d="m6 11 6-6 6 6"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.8" height="6.8" rx="2"/><rect x="13.2" y="4" width="6.8" height="6.8" rx="3.4"/><rect x="4" y="13.2" width="6.8" height="6.8" rx="2"/><rect x="13.2" y="13.2" width="6.8" height="6.8" rx="2"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.8 11.2 12 4.6l8.2 6.6"/><path d="M6.2 9.6v9.2a1.2 1.2 0 0 0 1.2 1.2h3v-5h3.2v5h3a1.2 1.2 0 0 0 1.2-1.2V9.6"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 21.2c-3.9 0-6.9-2.7-6.9-6.4 0-3.2 2.1-5.1 3.5-7.2.4 1.8 1.3 2.9 2.4 3.5.4-3.1 1.8-5.8 4.3-7.6-.3 2.9.8 4.8 2.2 6.7 1 1.3 1.4 2.8 1.4 4.6 0 3.7-3 6.4-6.9 6.4Z"/><path d="M12 21.2c-1.6 0-2.8-1.1-2.8-2.7 0-1.8 1.5-2.7 2.3-4.2.9 1.2 3.3 2.2 3.3 4.2 0 1.6-1.2 2.7-2.8 2.7Z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.2 3 5.4 13.4h6.1L10.8 21l7.8-10.4h-6.1L13.2 3Z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.2 5.2 6v5.4c0 4.3 2.9 7.9 6.8 9.4 3.9-1.5 6.8-5.1 6.8-9.4V6L12 3.2Z"/><path d="m9 12.1 2.1 2.1 4-4.2"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.8 6.6h11v9.2h-11z"/><path d="M13.8 9.4h3.7l3.7 3.8v2.6h-7.4"/><circle cx="6.8" cy="17.6" r="1.9"/><circle cx="17" cy="17.6" r="1.9"/></symbol>
+  <symbol id="i-return" viewBox="0 0 24 24"><path d="M4.3 12.4A7.8 7.8 0 1 0 6.6 6.4"/><path d="M4.4 3.8v4.4h4.4"/><path d="M10.2 9.4h3.9l-2.4 5.6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.6 19.6 5.7 16A8.2 8.2 0 1 1 8.5 18.7l-3.9.9Z"/><path d="M9.3 9.2c.3 2.4 2.2 4.6 4.7 5.3l1.2-1.2-1.8-1.1-.9.6a4.2 4.2 0 0 1-1.9-1.9l.6-.9-1.1-1.8-.8 1Z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.4" width="14" height="10.2" rx="2.6"/><path d="M8.2 10.4V8a3.8 3.8 0 0 1 7.6 0v2.4"/><path d="M12 14.3v2.4"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.7 3.6h2.6l1.3 4-2 1.3a11 11 0 0 0 6.5 6.5l1.3-2 4 1.3v2.6a2 2 0 0 1-2.2 2A16.4 16.4 0 0 1 4.7 5.8a2 2 0 0 1 2-2.2Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.2" y="5.4" width="17.6" height="13.2" rx="2.6"/><path d="m4.2 7 7.8 5.9L19.8 7"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5.5v13M5.5 12h13"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5.5 12h13"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5.2 12.6 4.4 4.4 9.2-9.6"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.8 7h14.4M9.6 7V5h4.8v2M6.8 7l1 12.8h8.4l1-12.8"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.9 2.5 5.1 5.6.8-4.1 4 1 5.6-5-2.7-5 2.7 1-5.6-4.1-4 5.6-.8L12 3.9Z"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M11 3.5c.7 4.6 2.7 6.6 7.3 7.3-4.6.7-6.6 2.7-7.3 7.3-.7-4.6-2.7-6.6-7.3-7.3 4.6-.7 6.6-2.7 7.3-7.3Z"/><path d="M18.6 15.2c.3 1.6 1 2.3 2.6 2.6-1.6.3-2.3 1-2.6 2.6-.3-1.6-1-2.3-2.6-2.6 1.6-.3 2.3-1 2.6-2.6Z"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="4" y="9.2" width="16" height="11" rx="2.2"/><path d="M3.2 9.2h17.6M12 9.2v11"/><path d="M12 9.2C10.1 5.6 6 5.6 6.9 8c.5 1.2 5.1 1.2 5.1 1.2Zm0 0c1.9-3.6 6-3.6 5.1-1.2-.5 1.2-5.1 1.2-5.1 1.2Z"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3.5 16.8 9.2 11l4 4 7.3-7.3"/><path d="M15 7.6h5.5v5.5"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><path d="M4.5 19h15"/><path d="M5.4 16 3.8 7.4l4.8 3.6L12 5l3.4 6 4.8-3.6L18.6 16Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4"/><path d="M12 7.6V12l2.9 1.9"/></symbol>
+  <symbol id="i-headphones" viewBox="0 0 24 24"><path d="M4.2 15.2v-3a7.8 7.8 0 0 1 15.6 0v3"/><rect x="3.4" y="13.8" width="4.2" height="6.4" rx="1.7"/><rect x="16.4" y="13.8" width="4.2" height="6.4" rx="1.7"/></symbol>
+  <symbol id="i-mobile" viewBox="0 0 24 24"><rect x="6.8" y="2.6" width="10.4" height="18.8" rx="2.8"/><path d="M10.8 18.2h2.4"/></symbol>
+  <symbol id="i-watch" viewBox="0 0 24 24"><rect x="6.4" y="7" width="11.2" height="10" rx="3.2"/><path d="m9 7 .7-3.4h4.6L15 7M9 17l.7 3.4h4.6L15 17"/><path d="M12 10.2V12l1.3.9"/></symbol>
+  <symbol id="i-usb" viewBox="0 0 24 24"><rect x="7.4" y="9.2" width="9.2" height="11.8" rx="2.4"/><path d="M9.4 9.2V3.6h5.2v5.6"/><path d="M11 6.2h.01M13 6.2h.01"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4.4 12.2 6.3 7.6A2.2 2.2 0 0 1 8.3 6.2h7.4a2.2 2.2 0 0 1 2 1.4l1.9 4.6"/><rect x="3.4" y="12" width="17.2" height="5.2" rx="1.8"/><path d="M6.4 17.2v2M17.6 17.2v2"/><path d="M7 14.6h.01M17 14.6h.01"/></symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24"><path d="M5 9.2h11v4.6a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9.2Z"/><path d="M16 10.8h1.4a2.5 2.5 0 0 1 0 5H16"/><path d="M8.4 3.6c-.6 1 .6 1.7 0 2.7M11.8 3.6c-.6 1 .6 1.7 0 2.7"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3.4s6.2 6.3 6.2 10.8a6.2 6.2 0 0 1-12.4 0C5.8 9.7 12 3.4 12 3.4Z"/><path d="M9.3 14.6A2.7 2.7 0 0 0 12 17.3"/></symbol>
+  <symbol id="i-tent" viewBox="0 0 24 24"><path d="M2.8 20.2h18.4"/><path d="M4.6 20.2 12 5.4l7.4 14.8"/><path d="m9.6 20.2 2.4-5 2.4 5"/><path d="m10.6 3.6 1.4 1.8 1.4-1.8"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3.2v4M15 3.2v4"/><path d="M6.8 7.2h10.4v3.2a5.2 5.2 0 0 1-10.4 0V7.2Z"/><path d="M12 15.6v5.2"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="3.2"/><circle cx="12" cy="14.4" r="3.1"/><path d="M12 7.4h.01"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4.2 16.4a7.8 7.8 0 1 1 15.6 0"/><path d="m12 16.4 3.6-4.6"/><path d="M6.8 16.4h.01M17.2 16.4h.01"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6.5v11M15 6.5v11"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8.4 5.8v12.4l9.6-6.2-9.6-6.2Z"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.7"/><path d="M16.9 7.1h.01"/></symbol>
+  <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M20.6 4.4 3.4 11.1l5.7 2 2 6.1 3.1-3.8 4.5 3.3 1.9-14.3Z"/><path d="m9.1 13.1 8.6-6.4"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="m10.4 9.4 4.4 2.6-4.4 2.6V9.4Z"/></symbol>
+  <symbol id="i-percent" viewBox="0 0 24 24"><path d="M18.6 5.4 5.4 18.6"/><circle cx="7.4" cy="7.4" r="2.3"/><circle cx="16.6" cy="16.6" r="2.3"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.4-5.7-6.4-10.9a6.4 6.4 0 0 1 12.8 0C18.4 15.3 12 21 12 21Z"/><circle cx="12" cy="10.1" r="2.4"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="m12 3.4 7.6 4.2v8.8L12 20.6l-7.6-4.2V7.6L12 3.4Z"/><path d="m4.6 7.8 7.4 4.1 7.4-4.1M12 11.9v8.6"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.6 12.5V5.1a1.5 1.5 0 0 1 1.5-1.5h7.4l7.9 7.9-8.9 8.9-7.9-7.9Z"/><path d="M8 8h.01"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 4 8.4 4.4L12 12.8 3.6 8.4 12 4Z"/><path d="m3.6 12.4 8.4 4.4 8.4-4.4M3.6 16.2l8.4 4.4 8.4-4.4"/></symbol>
+  <symbol id="i-search-x" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.8"/><path d="m20 20-3.9-3.9"/><path d="m8.9 8.9 4.2 4.2M13.1 8.9l-4.2 4.2"/></symbol>
+  <!-- Highlight lift for packshots shown on tinted surfaces: pushes near-white tones (the faint centre logo) to pure white. -->
+  <filter id="wm-lift" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB">
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0 .1 .2 .3 .4 .5 .6 .705 .86 1 1"/>
+      <feFuncG type="table" tableValues="0 .1 .2 .3 .4 .5 .6 .705 .86 1 1"/>
+      <feFuncB type="table" tableValues="0 .1 .2 .3 .4 .5 .6 .705 .86 1 1"/>
+    </feComponentTransfer>
+  </filter>
+</svg>
+
+<a class="skip" href="#main">پرش به محتوای اصلی</a>
+
+<!-- Promo strip -->
+<div class="promo" role="region" aria-label="اطلاعیه‌های فروشگاه">
+  <div class="promo__in container">
+    <ul class="promo__ticker" id="ticker">
+      <li class="is-on"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>همه محصولات اصل و اورجینال، با ضمانت اصالت کالا</li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg>ارسال سریع به سراسر ایران</li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-return"/></svg>۷ روز ضمانت بازگشت کالا</li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg>مشاوره و پشتیبانی در واتساپ</li>
+    </ul>
+    <nav class="promo__links" aria-label="پیوندهای کمکی">
+      <a href="/راهنمای-خرید/">راهنمای خرید</a>
+      <a href="/my-account/orders/">پیگیری سفارش</a>
+      <a href="/contact-us/">تماس با ما</a>
+      <a class="promo__tel" href="tel:+989176388438"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">۰۹۱۷ ۶۳۸ ۸۴۳۸</span></a>
+    </nav>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="hdr" id="hdr">
+  <div class="hdr__bar">
+    <div class="hdr__bar-in container">
+      <button class="icon-btn hdr__menu" type="button" data-open="drawer" aria-controls="drawer" aria-expanded="false" aria-label="باز کردن منوی دسته‌بندی‌ها">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+
+      <a class="logo" href="/" aria-label="گجتیم، صفحه اصلی">
+        <svg class="logo__mark" viewBox="0 0 44 44" aria-hidden="true">
+          <defs>
+            <linearGradient id="lm-g" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4f46e5"/><stop offset=".55" stop-color="#9333ea"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+            <radialGradient id="lm-h" cx="34" cy="6" r="26" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fbbf24" stop-opacity=".85"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect x="1" y="1" width="42" height="42" rx="13" fill="url(#lm-g)"/>
+          <rect x="1" y="1" width="42" height="42" rx="13" fill="url(#lm-h)"/>
+          <path d="M3 15C10 6 24 2.5 41 5V4a3 3 0 0 0-3-3H6a5 5 0 0 0-5 5v9Z" fill="#fff" opacity=".16"/>
+          <g fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+            <path class="logo__k1" d="M14.5 13.8 27.5 9.8"/>
+            <path class="logo__k2" d="M14.5 19.3 27.5 15.3"/>
+            <path d="M30.5 15.8V27a5.5 5.5 0 0 1-5.5 5.5H13"/>
+          </g>
+          <circle class="logo__spark" cx="14" cy="26.2" r="2.4" fill="#fcd34d"/>
+        </svg>
+        <span class="logo__txt"><span class="logo__word">گجتیم</span><span class="logo__latin">GADGETIM</span></span>
+      </a>
+
+      <form class="search" id="search" role="search" action="/" method="get">
+        <div class="search__cat">
+          <label class="sr-only" for="q-cat">جست‌وجو در دسته</label>
+          <select id="q-cat" name="product_cat"><option value="">همه دسته‌ها</option></select>
+          <svg class="ic" aria-hidden="true"><use href="#i-chev-d"/></svg>
+        </div>
+        <label class="sr-only" for="q">جست‌وجو در محصولات</label>
+        <input id="q" name="s" type="search" autocomplete="off" spellcheck="false" placeholder="جست‌وجو در گجت‌های اورجینال…" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sugg" aria-haspopup="listbox">
+        <input type="hidden" name="post_type" value="product">
+        <button class="search__go" type="submit" aria-label="جست‌وجو"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></button>
+        <div class="sugg" id="sugg" role="listbox" aria-label="پیشنهادهای جست‌وجو" hidden></div>
+      </form>
+
+      <div class="hdr__actions">
+        <a class="act act--account" href="/my-account/">
+          <svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span>ورود | ثبت‌نام</span>
+        </a>
+        <a class="act act--wish" href="/wishlist/" aria-label="علاقه‌مندی‌ها">
+          <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg><b class="badge is-empty" data-wish-count aria-hidden="true">۰</b>
+        </a>
+        <button class="act act--cart" id="cartBtn" type="button" data-open="cart" aria-controls="cart" aria-expanded="false" aria-label="سبد خرید">
+          <svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg><b class="badge badge--cart is-empty" data-cart-count aria-hidden="true">۰</b>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="hdr__nav" aria-label="منوی اصلی">
+    <div class="hdr__nav-in container">
+      <div class="mega-wrap" id="megaWrap">
+        <button class="mega-btn" id="megaBtn" type="button" aria-expanded="false" aria-controls="mega">
+          <svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg><span>دسته‌بندی کالاها</span><svg class="ic mega-btn__chev" aria-hidden="true"><use href="#i-chev-d"/></svg>
+        </button>
+        <div class="mega" id="mega" hidden></div>
+      </div>
+      <ul class="nav-links">
+        <li><a class="nav-hot" href="#offers"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg>شگفت‌انگیزها</a></li>
+        <li><a href="#newest">جدیدترین‌ها</a></li>
+        <li><a href="#best">پرفروش‌ترین‌ها</a></li>
+        <li><a href="#cats">دسته‌بندی‌ها</a></li>
+        <li><a href="#brands">برندها</a></li>
+      </ul>
+      <div class="nav-extra">
+        <span><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>ضمانت اصالت کالا</span>
+        <a href="https://wa.me/989176388438" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg>پشتیبانی واتساپ</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="mega-scrim" id="megaScrim" aria-hidden="true"></div>
+
+<main id="main" tabindex="-1">
+  <div class="aurora" aria-hidden="true"><i class="aurora__b a1"></i><i class="aurora__b a2"></i><i class="aurora__b a3"></i><i class="aurora__b a4"></i></div>
+  <h1 class="sr-only">گجتیم؛ فروشگاه آنلاین گجت‌های اصل، خاص و کاربردی با ضمانت اصالت کالا</h1>
+
+  <!-- Category stories -->
+  <section class="stories" aria-label="دسته‌بندی‌های محبوب">
+    <div class="container stories__in">
+      <ul class="rail stories__rail" id="stories"></ul>
+    </div>
+  </section>
+
+  <!-- Hero -->
+  <section class="hero container" aria-label="پیشنهادهای ویژه گجتیم">
+    <div class="slider" id="slider" role="region" aria-roledescription="carousel" aria-label="بنرهای ویژه">
+      <div class="slider__track" id="slides" aria-live="off"></div>
+      <div class="slider__ui">
+        <div class="slider__dots" id="dots" role="group" aria-label="انتخاب اسلاید"></div>
+        <div class="slider__btns">
+          <button class="glass-btn" type="button" id="slPause" aria-label="توقف نمایش خودکار" aria-pressed="false"><svg class="ic ic-pause" aria-hidden="true"><use href="#i-pause"/></svg><svg class="ic ic-play" aria-hidden="true"><use href="#i-play"/></svg></button>
+          <button class="glass-btn" type="button" id="slPrev" aria-label="اسلاید قبلی"><svg class="ic" aria-hidden="true"><use href="#i-chev-r"/></svg></button>
+          <button class="glass-btn" type="button" id="slNext" aria-label="اسلاید بعدی"><svg class="ic" aria-hidden="true"><use href="#i-chev-l"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="flash" id="flash" aria-labelledby="flash-title">
+      <div class="flash__head">
+        <h2 class="flash__title" id="flash-title"><span class="flash__bolt"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>پیشنهاد لحظه‌ای</h2>
+        <div class="timer" id="flashTimer" role="timer" aria-label="زمان باقی‌مانده" dir="ltr"><span>۰۰</span><i>:</i><span>۰۰</span><i>:</i><span>۰۰</span></div>
+      </div>
+      <div class="flash__bar" aria-hidden="true"><i></i></div>
+      <div class="flash__stage" id="flashStage"></div>
+      <div class="flash__dots" id="flashDots" role="group" aria-label="انتخاب پیشنهاد"></div>
+    </aside>
+  </section>
+
+  <!-- Services -->
+  <section class="services container" aria-label="خدمات گجتیم">
+    <ul class="services__list">
+      <li class="svc" data-reveal style="--i:0;--c1:#6366f1;--c2:#9333ea">
+        <span class="svc__ic svc__ic--shield"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 3.2 5.2 6v5.4c0 4.3 2.9 7.9 6.8 9.4 3.9-1.5 6.8-5.1 6.8-9.4V6L12 3.2Z"/><path pathLength="1" d="m9 12.1 2.1 2.1 4-4.2"/></svg></span>
+        <span class="svc__t"><b>اصل و اورجینال</b><span>با ضمانت اصالت کالا</span></span>
+      </li>
+      <li class="svc" data-reveal style="--i:1;--c1:#0ea5e9;--c2:#4f46e5">
+        <span class="svc__ic svc__ic--truck"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M2.8 6.6h11v9.2h-11z"/><path pathLength="1" d="M13.8 9.4h3.7l3.7 3.8v2.6h-7.4"/><circle class="w" pathLength="1" cx="6.8" cy="17.6" r="1.9"/><circle class="w" pathLength="1" cx="17" cy="17.6" r="1.9"/></svg></span>
+        <span class="svc__t"><b>ارسال به سراسر ایران</b><span>بسته‌بندی ایمن و سریع</span></span>
+      </li>
+      <li class="svc" data-reveal style="--i:2;--c1:#10b981;--c2:#0d9488">
+        <span class="svc__ic svc__ic--return"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4.3 12.4A7.8 7.8 0 1 0 6.6 6.4"/><path pathLength="1" d="M4.4 3.8v4.4h4.4"/><path pathLength="1" d="M10.2 9.4h3.9l-2.4 5.6"/></svg></span>
+        <span class="svc__t"><b>۷ روز ضمانت بازگشت</b><span>بی‌دردسر و شفاف</span></span>
+      </li>
+      <li class="svc" data-reveal style="--i:3;--c1:#22c55e;--c2:#059669">
+        <span class="svc__ic svc__ic--chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4.6 19.6 5.7 16A8.2 8.2 0 1 1 8.5 18.7l-3.9.9Z"/><path pathLength="1" d="M9.3 9.2c.3 2.4 2.2 4.6 4.7 5.3l1.2-1.2-1.8-1.1-.9.6a4.2 4.2 0 0 1-1.9-1.9l.6-.9-1.1-1.8-.8 1Z"/></svg></span>
+        <span class="svc__t"><b>پشتیبانی واتساپ</b><span>مشاوره پیش از خرید</span></span>
+      </li>
+      <li class="svc" data-reveal style="--i:4;--c1:#ec4899;--c2:#e11d48">
+        <span class="svc__ic svc__ic--lock"><svg viewBox="0 0 24 24" aria-hidden="true"><rect pathLength="1" x="5" y="10.4" width="14" height="10.2" rx="2.6"/><path class="shackle" pathLength="1" d="M8.2 10.4V8a3.8 3.8 0 0 1 7.6 0v2.4"/><path pathLength="1" d="M12 14.3v2.4"/></svg></span>
+        <span class="svc__t"><b>پرداخت امن</b><span>درگاه بانکی معتبر</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Amazing offers -->
+  <section class="offers" id="offers" aria-labelledby="offers-title">
+    <div class="container">
+      <div class="offers__band">
+        <div class="offers__fx" aria-hidden="true">
+          <i class="ob ob1"></i><i class="ob ob2"></i><i class="ob ob3"></i>
+          <svg class="offers__spark s1" viewBox="0 0 24 24"><path d="M12 1c1 7 4 10 11 11-7 1-10 4-11 11-1-7-4-10-11-11 7-1 10-4 11-11Z"/></svg>
+          <svg class="offers__spark s2" viewBox="0 0 24 24"><path d="M12 1c1 7 4 10 11 11-7 1-10 4-11 11-1-7-4-10-11-11 7-1 10-4 11-11Z"/></svg>
+          <svg class="offers__spark s3" viewBox="0 0 24 24"><path d="M12 1c1 7 4 10 11 11-7 1-10 4-11 11-1-7-4-10-11-11 7-1 10-4 11-11Z"/></svg>
+          <svg class="offers__spark s4" viewBox="0 0 24 24"><path d="M12 1c1 7 4 10 11 11-7 1-10 4-11 11-1-7-4-10-11-11 7-1 10-4 11-11Z"/></svg>
+        </div>
+        <div class="offers__intro">
+          <svg class="offers__art" viewBox="0 0 160 150" aria-hidden="true">
+            <defs>
+              <linearGradient id="gb-front" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#ffe4f1"/></linearGradient>
+              <linearGradient id="gb-side" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5d0fe"/><stop offset="1" stop-color="#e9d5ff"/></linearGradient>
+              <linearGradient id="gb-rib" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fde68a"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+              <linearGradient id="gb-lid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fbcfe8"/></linearGradient>
+            </defs>
+            <ellipse cx="80" cy="140" rx="48" ry="7" fill="#2e1065" opacity=".25"/>
+            <g class="gift__box">
+              <path d="M38 74h84v56a6 6 0 0 1-6 6H44a6 6 0 0 1-6-6V74Z" fill="url(#gb-front)"/>
+              <path d="M38 74h84v10H38z" fill="#fbcfe8" opacity=".7"/>
+              <path d="M72 74h16v62H72z" fill="url(#gb-rib)"/>
+              <text x="80" y="118" text-anchor="middle" font-family="Estedad, sans-serif" font-weight="900" font-size="30" fill="#db2777" opacity=".0">٪</text>
+            </g>
+            <g class="gift__lid">
+              <path d="M32 58a5 5 0 0 1 5-5h86a5 5 0 0 1 5 5v14H32V58Z" fill="url(#gb-lid)"/>
+              <path d="M71 53h18v19H71z" fill="url(#gb-rib)"/>
+              <path d="M80 53c-8-16-30-20-30-8 0 9 18 8 30 8Z" fill="url(#gb-rib)"/>
+              <path d="M80 53c8-16 30-20 30-8 0 9-18 8-30 8Z" fill="url(#gb-rib)"/>
+              <circle cx="80" cy="53" r="6" fill="#f59e0b"/>
+            </g>
+            <g class="gift__pop">
+              <circle cx="34" cy="30" r="4" fill="#fde68a"/>
+              <circle cx="128" cy="24" r="3" fill="#fff"/>
+              <path d="M118 40l4 9-9-3z" fill="#fbcfe8"/>
+              <path d="M44 14c1.4 6 3.6 8 9 9-5.4 1-7.6 3-9 9-1.4-6-3.6-8-9-9 5.4-1 7.6-3 9-9Z" fill="#fff"/>
+              <path d="M140 52c1 4 2.4 5.4 6 6-3.6.6-5 2-6 6-1-4-2.4-5.4-6-6 3.6-.6 5-2 6-6Z" fill="#fde68a"/>
+            </g>
+          </svg>
+          <h2 class="offers__title" id="offers-title"><span>پیشنهاد</span> <span>شگفت‌انگیز</span></h2>
+          <p class="offers__sub">بیشترین تخفیف‌های امروز گجتیم</p>
+          <div class="cd" id="offersCd" role="timer" aria-label="زمان باقی‌مانده تا پایان پیشنهادها" dir="ltr"></div>
+          <div class="offers__ctrl">
+            <a class="btn btn--white btn--sm offers__more" href="/shop/?orderby=discount">مشاهده همه<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <div class="offers__arrows">
+              <button class="rail-arrow" type="button" data-rail="offersRail" data-dir="prev" aria-label="محصولات قبلی"><svg class="ic" aria-hidden="true"><use href="#i-chev-r"/></svg></button>
+              <button class="rail-arrow" type="button" data-rail="offersRail" data-dir="next" aria-label="محصولات بعدی"><svg class="ic" aria-hidden="true"><use href="#i-chev-l"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="offers__rail-wrap">
+          <ul class="rail offers__rail" id="offersRail" aria-label="محصولات پیشنهاد شگفت‌انگیز"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newest -->
+  <section class="sect container" id="newest" aria-labelledby="newest-title">
+    <div class="sect__head" data-reveal>
+      <span class="sect__ic"><svg class="ic" aria-hidden="true"><use href="#i-sparkle"/></svg></span>
+      <div class="sect__titles"><h2 class="sect__title" id="newest-title">جدیدترین محصولات</h2><p class="sect__sub">تازه‌ترین گجت‌هایی که به ویترین گجتیم رسیده‌اند</p></div>
+      <a class="sect__more" href="/shop/?orderby=date">مشاهده همه<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <div class="rail-nav">
+        <button class="rail-btn" type="button" data-rail="newestRail" data-dir="prev" aria-label="محصولات قبلی"><svg class="ic" aria-hidden="true"><use href="#i-chev-r"/></svg></button>
+        <button class="rail-btn" type="button" data-rail="newestRail" data-dir="next" aria-label="محصولات بعدی"><svg class="ic" aria-hidden="true"><use href="#i-chev-l"/></svg></button>
+      </div>
+    </div>
+    <ul class="rail prail" id="newestRail" aria-label="جدیدترین محصولات"></ul>
+  </section>
+
+  <!-- Promo banners -->
+  <section class="banners container" id="banners" aria-label="بنرهای برند و دسته"></section>
+
+  <!-- Best sellers -->
+  <section class="sect container" id="best" aria-labelledby="best-title">
+    <div class="sect__head" data-reveal>
+      <span class="sect__ic sect__ic--warm"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg></span>
+      <div class="sect__titles"><h2 class="sect__title" id="best-title">پرفروش‌ترین‌ها</h2><p class="sect__sub">محبوب‌ترین انتخاب‌های خریداران گجتیم</p></div>
+      <a class="sect__more" href="/shop/?orderby=popularity">مشاهده همه<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <ol class="rank" id="rank" aria-label="فهرست پرفروش‌ترین محصولات"></ol>
+  </section>
+
+  <!-- Shop by category -->
+  <section class="sect container" id="cats" aria-labelledby="cats-title">
+    <div class="sect__head" data-reveal>
+      <span class="sect__ic sect__ic--cool"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>
+      <div class="sect__titles"><h2 class="sect__title" id="cats-title">خرید بر اساس دسته‌بندی</h2><p class="sect__sub">هر گجتی که لازم دارید، در دسته‌ی خودش</p></div>
+      <a class="sect__more" href="/shop/">همه<span class="sect__more-x"> دسته‌ها</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <ul class="cgrid" id="cgrid"></ul>
+  </section>
+
+  <!-- Featured -->
+  <section class="sect container" id="featured" aria-labelledby="featured-title">
+    <div class="sect__head sect__head--tabs" data-reveal>
+      <span class="sect__ic sect__ic--gold"><svg class="ic" aria-hidden="true"><use href="#i-crown"/></svg></span>
+      <div class="sect__titles"><h2 class="sect__title" id="featured-title">محصولات ویژه</h2><p class="sect__sub">گجت‌های منتخب و خاص، دسته به دسته</p></div>
+      <div class="tabs" id="featTabs" role="tablist" aria-label="فیلتر محصولات ویژه"></div>
+    </div>
+    <div id="featPanel" role="tabpanel" aria-labelledby="featured-title"><ul class="pgrid" id="featGrid"></ul></div>
+  </section>
+
+  <!-- Brands -->
+  <section class="brands" id="brands" aria-labelledby="brands-title">
+    <div class="container">
+      <div class="sect__head sect__head--center" data-reveal>
+        <span class="sect__ic"><svg class="ic" aria-hidden="true"><use href="#i-tag"/></svg></span>
+        <div class="sect__titles"><h2 class="sect__title" id="brands-title">برندهای اورجینال گجتیم</h2><p class="sect__sub">نمایندگی‌ها و برندهای معتبری که به آن‌ها اعتماد دارید</p></div>
+      </div>
+    </div>
+    <div class="marquee" id="mq1"></div>
+    <div class="marquee marquee--rev" id="mq2"></div>
+    <div class="container">
+      <ul class="stats" id="stats">
+        <li class="stat" data-reveal style="--i:0"><span class="stat__ic"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span><span><b data-count="0" id="stProducts">۰</b><span>کالای اورجینال</span></span></li>
+        <li class="stat" data-reveal style="--i:1"><span class="stat__ic"><svg class="ic" aria-hidden="true"><use href="#i-tag"/></svg></span><span><b data-count="0" id="stBrands">۰</b><span>برند معتبر</span></span></li>
+        <li class="stat" data-reveal style="--i:2"><span class="stat__ic"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><span><b data-count="0" id="stCats">۰</b><span>دسته‌بندی</span></span></li>
+        <li class="stat" data-reveal style="--i:3"><span class="stat__ic"><svg class="ic" aria-hidden="true"><use href="#i-return"/></svg></span><span><b data-count="7">۰</b><span>روز ضمانت بازگشت</span></span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="ftr">
+  <div class="ftr__fx" aria-hidden="true"><i></i><i></i></div>
+  <div class="container">
+    <div class="news" data-reveal>
+      <div class="news__txt">
+        <span class="news__ic"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span>
+        <div><h2>از تخفیف‌ها جا نمانید</h2><p>با عضویت در خبرنامه، زودتر از همه از پیشنهادهای شگفت‌انگیز و گجت‌های تازه باخبر شوید.</p></div>
+      </div>
+      <form class="news__form" id="newsForm" novalidate>
+        <label class="sr-only" for="newsEmail">ایمیل شما</label>
+        <input id="newsEmail" type="email" inputmode="email" autocomplete="email" placeholder="ایمیل خود را وارد کنید" dir="ltr" required>
+        <button class="btn" type="submit">عضویت</button>
+        <p class="news__msg" id="newsMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="ftr__grid">
+      <div class="ftr__about" data-reveal>
+        <a class="logo logo--ftr" href="/" aria-label="گجتیم، صفحه اصلی">
+          <svg class="logo__mark" viewBox="0 0 44 44" aria-hidden="true"><use href="#ftr-mark"/></svg>
+          <span class="logo__txt"><span class="logo__word">گجتیم</span><span class="logo__latin">GADGETIM</span></span>
+        </a>
+        <p>گجتیم فروشگاه آنلاین گجت‌های اصل، خاص و کاربردی است؛ از شارژر و کابل و پاوربانک تا هدفون، اسپیکر و گجت‌های خانه و خودرو. همه کالاها اصل و اورجینال و با ضمانت اصالت کالا عرضه می‌شوند.</p>
+        <ul class="contact">
+          <li><a href="tel:+989176388438"><span class="contact__ic"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></span><span><small>تلفن پشتیبانی</small><b dir="ltr">۰۹۱۷ ۶۳۸ ۸۴۳۸</b></span></a></li>
+          <li><a href="https://wa.me/989176388438" rel="noopener"><span class="contact__ic contact__ic--wa"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></span><span><small>واتساپ</small><b dir="ltr">۰۹۱۷ ۶۳۸ ۸۴۳۸</b></span></a></li>
+          <li><a href="mailto:info@gadgetim.ir"><span class="contact__ic contact__ic--mail"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span><span><small>ایمیل</small><b dir="ltr">info@gadgetim.ir</b></span></a></li>
+        </ul>
+      </div>
+      <nav class="ftr__col" aria-labelledby="fc1" data-reveal style="--i:1">
+        <h2 id="fc1">دسترسی سریع</h2>
+        <ul>
+          <li><a href="#offers">پیشنهاد شگفت‌انگیز</a></li>
+          <li><a href="#newest">جدیدترین محصولات</a></li>
+          <li><a href="#best">پرفروش‌ترین‌ها</a></li>
+          <li><a href="#brands">برندها</a></li>
+          <li><a href="/shop/">فروشگاه</a></li>
+        </ul>
+      </nav>
+      <nav class="ftr__col" aria-labelledby="fc2" data-reveal style="--i:2">
+        <h2 id="fc2">دسته‌های محبوب</h2>
+        <ul id="ftrCats"></ul>
+      </nav>
+      <nav class="ftr__col" aria-labelledby="fc3" data-reveal style="--i:3">
+        <h2 id="fc3">خدمات مشتریان</h2>
+        <ul>
+          <li><a href="/راهنمای-خرید/">راهنمای خرید</a></li>
+          <li><a href="/my-account/orders/">پیگیری سفارش</a></li>
+          <li><a href="/return-policy/">شرایط بازگشت کالا</a></li>
+          <li><a href="/faq/">پرسش‌های متداول</a></li>
+          <li><a href="/contact-us/">تماس با ما</a></li>
+        </ul>
+      </nav>
+      <div class="ftr__trust" data-reveal style="--i:4">
+        <h2>نمادهای اعتماد</h2>
+        <div class="trust">
+          <div class="trust__slot"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 9 11v11c0 9.3 6.3 17.3 15 20 8.7-2.7 15-10.7 15-20V11L24 5Z"/><path d="m17 24 5 5 9-10"/></svg><span>جای نماد اینماد</span></div>
+          <div class="trust__slot"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="22" r="13"/><path d="m24 14 2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8L24 14Z"/><path d="M17 33.5 14 43l10-4 10 4-3-9.5"/></svg><span>جای نشان ساماندهی</span></div>
+        </div>
+        <div class="social">
+          <a href="#" aria-label="اینستاگرام گجتیم"><svg class="ic" aria-hidden="true"><use href="#i-insta"/></svg></a>
+          <a href="#" aria-label="تلگرام گجتیم"><svg class="ic" aria-hidden="true"><use href="#i-telegram"/></svg></a>
+          <a href="https://wa.me/989176388438" rel="noopener" aria-label="واتساپ گجتیم"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></a>
+          <a href="#" aria-label="کانال ویدیویی گجتیم"><svg class="ic" aria-hidden="true"><use href="#i-video"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ftr__bottom">
+      <p>© ۱۴۰۵ گجتیم — تمامی حقوق این وب‌سایت محفوظ است.</p>
+      <p class="ftr__made"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>همه کالاها اصل و اورجینال با ضمانت اصالت کالا</p>
+    </div>
+  </div>
+  <svg width="0" height="0" class="sprite" aria-hidden="true">
+    <defs>
+      <linearGradient id="fm-g" x1="2" y1="2" x2="42" y2="42" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4f46e5"/><stop offset=".55" stop-color="#9333ea"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+    </defs>
+    <symbol id="ftr-mark" viewBox="0 0 44 44">
+      <rect x="1" y="1" width="42" height="42" rx="13" fill="url(#fm-g)"/>
+      <g fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 13.8 27.5 9.8M14.5 19.3 27.5 15.3M30.5 15.8V27a5.5 5.5 0 0 1-5.5 5.5H13"/></g>
+      <circle cx="14" cy="26.2" r="2.4" fill="#fcd34d"/>
+    </symbol>
+  </svg>
+</footer>
+
+<!-- Mobile bottom navigation -->
+<nav class="bnav" id="bnav" aria-label="ناوبری سریع">
+  <span class="bnav__ind" aria-hidden="true"></span>
+  <a class="bnav__i is-active" href="#main" data-idx="0" aria-current="page"><span class="bnav__icw"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg></span><span>خانه</span></a>
+  <button class="bnav__i" type="button" data-idx="1" data-open="drawer" aria-controls="drawer" aria-expanded="false"><span class="bnav__icw"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span><span>دسته‌ها</span></button>
+  <button class="bnav__i" type="button" data-idx="2" data-act="search"><span class="bnav__icw"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span><span>جست‌وجو</span></button>
+  <button class="bnav__i" type="button" data-idx="3" data-open="cart" aria-controls="cart" aria-expanded="false" id="bnavCart" aria-label="سبد خرید"><span class="bnav__icw"><svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg><b class="badge badge--cart is-empty" data-cart-count aria-hidden="true">۰</b></span><span aria-hidden="true">سبد خرید</span></button>
+  <a class="bnav__i" href="/my-account/" data-idx="4"><span class="bnav__icw"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></span><span>حساب</span></a>
+</nav>
+
+<!-- Category drawer -->
+<div class="drawer drawer--menu" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+  <div class="drawer__head">
+    <h2 id="drawer-title"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>دسته‌بندی کالاها</h2>
+    <button class="icon-btn" type="button" data-close aria-label="بستن منو"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="drawer__body">
+    <ul class="acc" id="drawerCats"></ul>
+    <ul class="drawer__links">
+      <li><a href="#offers" data-close-link><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg>پیشنهاد شگفت‌انگیز</a></li>
+      <li><a href="#newest" data-close-link><svg class="ic" aria-hidden="true"><use href="#i-sparkle"/></svg>جدیدترین محصولات</a></li>
+      <li><a href="#best" data-close-link><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg>پرفروش‌ترین‌ها</a></li>
+      <li><a href="#brands" data-close-link><svg class="ic" aria-hidden="true"><use href="#i-tag"/></svg>برندها</a></li>
+    </ul>
+    <a class="drawer__wa" href="https://wa.me/989176388438" rel="noopener">
+      <span class="contact__ic contact__ic--wa"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></span>
+      <span><b>مشاوره رایگان در واتساپ</b><small dir="ltr">۰۹۱۷ ۶۳۸ ۸۴۳۸</small></span>
+    </a>
+  </div>
+</div>
+
+<!-- Cart drawer -->
+<div class="drawer drawer--cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+  <div class="drawer__head">
+    <h2 id="cart-title"><svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg>سبد خرید <span class="drawer__count" id="cartCount"></span></h2>
+    <button class="icon-btn" type="button" data-close aria-label="بستن سبد خرید"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="drawer__body" id="cartBody"></div>
+  <div class="drawer__foot" id="cartFoot" hidden>
+    <div class="cart-total"><span>جمع سبد خرید</span><b id="cartTotal"></b></div>
+    <div class="cart-save" id="cartSave"></div>
+    <a class="btn btn--block" href="/cart/">ادامه فرایند خرید<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<button class="to-top" id="toTop" type="button" aria-label="بازگشت به بالای صفحه"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></button>
+
+</body>
+</html>
