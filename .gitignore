@@ -2,3 +2,8 @@
 /first-backup/
 # Client report outputs (uploaded to the dashboard, not part of the repo)
 /release/
+
+# Tooling
+tools/wp-cli/
+node_modules/
+*.log

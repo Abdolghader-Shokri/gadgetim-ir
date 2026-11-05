@@ -1,0 +1,39 @@
+# EditorConfig — https://editorconfig.org
+# Code for the Linux production server is written on Windows: LF everywhere
+# (see .gitattributes), tabs for PHP/JS/CSS per the WordPress coding standards.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+indent_size = 4
+
+[*.md]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false
+
+[*.{json,yml,yaml,xml,xml.dist}]
+indent_style = space
+indent_size = 2
+
+[*.{txt,csv,po,pot}]
+indent_style = space
+indent_size = 2
+
+[*.sh]
+indent_style = space
+indent_size = 2
+
+[*.ps1]
+# Windows PowerShell 5.1 reads a BOM-less .ps1 as ANSI; the BOM keeps non-ASCII strings intact.
+charset = utf-8-bom
+indent_style = space
+indent_size = 4
+
+[*.min.{js,css}]
+insert_final_newline = false
+trim_trailing_whitespace = false
