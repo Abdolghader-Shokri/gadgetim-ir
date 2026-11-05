@@ -1,0 +1,163 @@
+{
+  "$comment": "Brands with Latin/Persian duplicates in the old site. The importer creates one product_brand term per entry (name = primary display name, slug) and resolves every alias to it; brands not listed here keep their exported name and slug.",
+  "version": 1,
+  "brands": [
+    {
+      "name": "Samsung",
+      "slug": "samsung",
+      "aliases": [
+        "SamSung",
+        "samsung",
+        "سامسونگ"
+      ],
+      "old_ids": [
+        68,
+        191
+      ]
+    },
+    {
+      "name": "Apple",
+      "slug": "apple",
+      "aliases": [
+        "Apple",
+        "اپل"
+      ],
+      "old_ids": [
+        72,
+        218
+      ]
+    },
+    {
+      "name": "Asus",
+      "slug": "asus",
+      "aliases": [
+        "Asus",
+        "ASUS",
+        "ایسوس"
+      ],
+      "old_ids": [
+        71,
+        270
+      ]
+    },
+    {
+      "name": "Xiaomi",
+      "slug": "xiaomi",
+      "aliases": [
+        "Xiaomi",
+        "شیائومی"
+      ],
+      "old_ids": [
+        298
+      ]
+    },
+    {
+      "name": "Porodo",
+      "slug": "porodo",
+      "aliases": [
+        "Porodo",
+        "PORODO",
+        "پرودو",
+        "پورودو"
+      ],
+      "old_ids": [
+        349
+      ]
+    },
+    {
+      "name": "Green Lion",
+      "slug": "green-lion",
+      "aliases": [
+        "Green Lion",
+        "GREEN LION",
+        "گرین لاین"
+      ],
+      "old_ids": [
+        350
+      ]
+    },
+    {
+      "name": "Koranco",
+      "slug": "koranco",
+      "aliases": [
+        "Koranco",
+        "KORANCO",
+        "Karanco",
+        "کورانکو"
+      ],
+      "old_ids": [
+        351
+      ]
+    },
+    {
+      "name": "Powerology",
+      "slug": "powerology",
+      "aliases": [
+        "Powerology",
+        "POWEROLOGY",
+        "پاورلوژی"
+      ],
+      "old_ids": [
+        342
+      ]
+    },
+    {
+      "name": "E&Z",
+      "slug": "ez",
+      "aliases": [
+        "E&amp;Z",
+        "E&Z",
+        "EZ"
+      ],
+      "old_ids": [
+        391
+      ]
+    },
+    {
+      "name": "Canon",
+      "slug": "canon",
+      "aliases": [
+        "Canon",
+        "کانن",
+        "کنون"
+      ],
+      "old_ids": [
+        193
+      ]
+    },
+    {
+      "name": "Huawei",
+      "slug": "huawei",
+      "aliases": [
+        "Huawei",
+        "هواوی",
+        "هوآوی"
+      ],
+      "old_ids": [
+        194
+      ]
+    },
+    {
+      "name": "Nikon",
+      "slug": "nikon",
+      "aliases": [
+        "Nikon",
+        "نیکون"
+      ],
+      "old_ids": [
+        197
+      ]
+    },
+    {
+      "name": "Microsoft",
+      "slug": "microsoft",
+      "aliases": [
+        "Microsoft",
+        "مایکروسافت"
+      ],
+      "old_ids": [
+        297
+      ]
+    }
+  ]
+}

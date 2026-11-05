@@ -1,0 +1,2667 @@
+# Copyright (C) 2026 Gadgetim
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gadgetim Core 0.1.0\n"
+"Report-Msgid-Bugs-To: https://gadgetim.ir/\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Gadgetim <https://gadgetim.ir/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-05T02:28:52+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: gadgetim-core\n"
+
+#. Plugin Name of the plugin
+#: gadgetim-core.php
+msgid "Gadgetim Core"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: gadgetim-core.php
+msgid "https://gadgetim.ir/"
+msgstr ""
+
+#. Description of the plugin
+#: gadgetim-core.php
+msgid "Data and behaviour for the Gadgetim storefront: trilingual routing, multi-currency pricing, settings, catalog extras, importer and SEO. The \"Gadgetim — Timcheh\" theme is presentation only and relies on this plugin."
+msgstr ""
+
+#. Author of the plugin
+#: gadgetim-core.php
+#: includes/Settings/Admin/SettingsPage.php:33
+#: includes/Settings/Admin/SettingsPage.php:34
+#: templates/admin/notice.php:20
+#: templates/admin/settings-page.php:23
+msgid "Gadgetim"
+msgstr ""
+
+#: includes/Catalog/Admin/BrandFields.php:60
+#: includes/Catalog/Admin/BrandFields.php:153
+#: includes/Settings/Admin/SettingsPage.php:78
+#: templates/admin/fields/image.php:23
+msgid "Select image"
+msgstr ""
+
+#: includes/Catalog/Admin/BrandFields.php:61
+#: includes/Settings/Admin/SettingsPage.php:79
+msgid "Use this image"
+msgstr ""
+
+#: includes/Catalog/Admin/BrandFields.php:62
+#: includes/Catalog/Admin/BrandFields.php:154
+#: includes/Catalog/Admin/ExtrasMetabox.php:254
+#: includes/Catalog/HomeContent.php:478
+#: includes/Settings/Admin/SettingsPage.php:80
+#: templates/admin/fields/image.php:24
+#: templates/admin/fields/repeater.php:25
+msgid "Remove"
+msgstr ""
+
+#: includes/Catalog/Admin/BrandFields.php:63
+#: includes/Settings/Admin/SettingsPage.php:83
+msgid "Are you sure?"
+msgstr ""
+
+#: includes/Catalog/Admin/BrandFields.php:75
+#: includes/Catalog/Admin/BrandFields.php:88
+msgid "Brand logo"
+msgstr ""
+
+#: includes/Catalog/Admin/BrandFields.php:77
+#: includes/Catalog/Admin/BrandFields.php:91
+msgid "Monochrome SVG or PNG. Until a logo is set the theme shows a typographic sticker."
+msgstr ""
+
+#: includes/Catalog/Admin/BrandFields.php:124
+msgid "Logo"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:48
+msgid "Gadgetim — product extras"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:95
+msgid "Short title"
+msgstr ""
+
+#. translators: %s: automatically derived short title
+#: includes/Catalog/Admin/ExtrasMetabox.php:100
+#, php-format
+msgid "Shown on cards and as the H1. Leave empty to use the automatic version: “%s”."
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:106
+#: includes/I18n/Admin/TranslationMetabox.php:80
+msgid "Subtitle"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:108
+msgid "One sentence under the title. Subtitles shorter than 12 characters or all-caps model codes are hidden on the storefront."
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:112
+msgid "Specifications"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:114
+msgid "Label and value per row; the storefront renders them as the spec table. The importer fills this from the old descriptions."
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:118
+msgid "Frequently asked questions"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:123
+msgid "Guarantee text override"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:125
+msgid "Leave empty to show the default guarantee text from Gadgetim → Settings → Trust & policies."
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:129
+msgid "View counter"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:131
+msgid "Sampled views used as the tiebreaker of the “Popular” sort. Set to 0 to reset."
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:187
+msgid "Label"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:188
+msgid "Value"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:205
+msgid "Add row"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:222
+msgid "Question"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:223
+msgid "Answer"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:240
+msgid "Add question"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:252
+#: includes/Catalog/HomeContent.php:476
+#: includes/Settings/Admin/SettingsPage.php:81
+#: templates/admin/fields/repeater.php:23
+msgid "Move up"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:253
+#: includes/Catalog/HomeContent.php:477
+#: includes/Settings/Admin/SettingsPage.php:82
+#: templates/admin/fields/repeater.php:24
+msgid "Move down"
+msgstr ""
+
+#: includes/Catalog/Filters.php:879
+msgid "Biggest discount"
+msgstr ""
+
+#: includes/Catalog/Filters.php:1268
+msgid "Too many requests. Please wait a moment."
+msgstr ""
+
+#: includes/Catalog/Filters.php:1285
+msgid "Unknown catalogue section."
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:132
+msgid "Home page"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:136
+msgid "Hero slider"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:137
+msgid "Up to six slides beside the instant offer. Each slide links to its first category (or its own link); the \"up to x% off\" sticker and the brand names are computed from the categories. Leave the list empty to use the automatic slides built from the catalogue."
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:141
+msgid "Slides"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:149
+msgid "Promo banners"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:150
+msgid "Two or three gradient banners below the newest products. The first one is the large banner on desktop."
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:154
+msgid "Banners"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:162
+msgid "Strips"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:167
+msgid "Promo strip messages"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:168
+msgid "Short lines rotating in the coloured strip above the header (the same list as in the Storefront tab). Empty: the trust badges are used."
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:173
+msgid "Services strip"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:181
+msgid "Amazing offers"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:182
+msgid "The band of the deepest discounts. A countdown is shown only while the campaign runs and its end lies in the future; otherwise the band simply lists the biggest discounts."
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:186
+msgid "The campaign is running"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:191
+msgid "Campaign end"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:192
+msgid "Date and time in site time, Gregorian (2026-11-30 23:59) or Jalali (1405/09/09 23:59). Empty: no countdown. The same value as in the Storefront tab."
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:200
+msgid "Band title"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:206
+msgid "Band sub-line"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:211
+msgid "Campaign products"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:212
+msgid "Optional product IDs, comma separated, in display order. Empty: the deepest discounts in stock."
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:232
+msgid "Indigo dawn"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:233
+msgid "Violet sky"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:234
+msgid "Rose sunrise"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:235
+msgid "Amber glow"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:236
+msgid "Ocean blue"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:237
+msgid "Emerald"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:238
+msgid "Sunset"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:239
+msgid "Midnight"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:240
+msgid "Sky"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:241
+msgid "Green"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:242
+msgid "Pink"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:253
+msgid "Artwork products"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:254
+msgid "Product IDs, optionally with the image number (0 = main image, 1 = first gallery image): 641:1, 773:1. Add :f for a product standing on the bottom edge. Empty: picked automatically."
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:262
+#: includes/Catalog/HomeContent.php:333
+#: includes/Catalog/HomeContent.php:389
+msgid "Colour"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:267
+msgid "Background word (Latin)"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:273
+msgid "Feature chip icon"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:279
+msgid "Eyebrow"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:284
+#: includes/Catalog/HomeContent.php:345
+msgid "Title, first line"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:289
+msgid "Title, gradient line"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:294
+#: includes/Catalog/HomeContent.php:355
+msgid "Sub-line"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:299
+msgid "Sub-line on phones (optional)"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:304
+msgid "Button label"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:309
+msgid "Button label on phones (optional)"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:314
+msgid "Feature chip (optional)"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:320
+#: includes/Catalog/HomeContent.php:366
+msgid "Categories"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:324
+#: includes/Catalog/HomeContent.php:376
+#: includes/Catalog/HomeContent.php:404
+msgid "Link (optional)"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:338
+msgid "Small label (Latin brand name)"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:350
+msgid "Title, second line"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:360
+msgid "Button label (optional)"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:372
+msgid "Brand"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:384
+msgid "Icon"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:395
+#: includes/I18n/Admin/TranslationMetabox.php:70
+msgid "Title"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:400
+msgid "Second line"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:413
+msgid "Add slide"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:420
+msgid "Add banner"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:427
+msgid "Add item"
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:452
+msgid "Nothing is saved yet: these rows show the automatic content the home page uses now. Edit and save to make them your own, or save as they are."
+msgstr ""
+
+#: includes/Catalog/HomeContent.php:509
+#: includes/Settings/Schema.php:503
+msgid "— None —"
+msgstr ""
+
+#: includes/Catalog/Lqip.php:210
+msgid "Regenerate image placeholders (LQIP)"
+msgstr ""
+
+#: includes/Catalog/Lqip.php:214
+msgid "Creates the 16-pixel blur placeholder and the packshot flag for every image attachment that does not have one yet. New uploads get theirs automatically."
+msgstr ""
+
+#: includes/Catalog/Lqip.php:215
+msgid "Generate missing placeholders"
+msgstr ""
+
+#: includes/Catalog/Lqip.php:234
+msgid "Regenerate existing placeholders too"
+msgstr ""
+
+#: includes/Catalog/Lqip.php:237
+msgid "Run now (no JavaScript)"
+msgstr ""
+
+#: includes/Catalog/Lqip.php:253
+#: includes/Catalog/Lqip.php:308
+msgid "Every image already has a placeholder."
+msgstr ""
+
+#. translators: 1: processed count, 2: total count
+#: includes/Catalog/Lqip.php:266
+#, php-format
+msgid "Generated %1$d of %2$d placeholders; run the tool again to continue."
+msgstr ""
+
+#. translators: %d: processed count
+#: includes/Catalog/Lqip.php:269
+#, php-format
+msgid "Generated %d placeholders."
+msgstr ""
+
+#: includes/Catalog/Lqip.php:278
+#: includes/Settings/Admin/Tools.php:128
+msgid "You are not allowed to run this tool."
+msgstr ""
+
+#: includes/Catalog/Lqip.php:308
+#: includes/Import/Admin/BatchUi.php:71
+msgid "Starting…"
+msgstr ""
+
+#: includes/Catalog/Lqip.php:316
+msgid "The job has expired; start again."
+msgstr ""
+
+#. translators: %d: attachment ID
+#: includes/Catalog/Lqip.php:330
+#, php-format
+msgid "Attachment #%d: placeholder could not be generated."
+msgstr ""
+
+#. translators: 1: processed count, 2: total count
+#: includes/Catalog/Lqip.php:350
+#, php-format
+msgid "%1$d of %2$d images processed."
+msgstr ""
+
+#: includes/Catalog/Views.php:120
+msgid "View counting is switched off."
+msgstr ""
+
+#: includes/Catalog/Views.php:124
+msgid "Unknown product."
+msgstr ""
+
+#: includes/Catalog/Views.php:127
+msgid "Too many requests."
+msgstr ""
+
+#: includes/Checkout/CityScript.php:77
+msgid "Select a city"
+msgstr ""
+
+#: includes/Checkout/CityScript.php:78
+msgid "Another city (type its name)"
+msgstr ""
+
+#: includes/Checkout/Fields.php:120
+msgid "First name"
+msgstr ""
+
+#: includes/Checkout/Fields.php:126
+msgid "Last name"
+msgstr ""
+
+#: includes/Checkout/Fields.php:133
+msgid "Mobile number"
+msgstr ""
+
+#: includes/Checkout/Fields.php:148
+msgid "Email address"
+msgstr ""
+
+#: includes/Checkout/Fields.php:160
+msgid "Province"
+msgstr ""
+
+#: includes/Checkout/Fields.php:161
+msgid "Select a province"
+msgstr ""
+
+#: includes/Checkout/Fields.php:171
+msgid "City"
+msgstr ""
+
+#: includes/Checkout/Fields.php:179
+#: includes/Settings/Schema.php:359
+msgid "Address"
+msgstr ""
+
+#: includes/Checkout/Fields.php:180
+msgid "Street, alley, building number and unit"
+msgstr ""
+
+#: includes/Checkout/Fields.php:188
+msgid "Postcode"
+msgstr ""
+
+#: includes/Checkout/Fields.php:189
+msgid "10 digits"
+msgstr ""
+
+#: includes/Checkout/Fields.php:329
+msgid "Please enter a valid Iranian mobile number (09xx xxx xxxx)."
+msgstr ""
+
+#: includes/Checkout/Fields.php:338
+msgid "The postcode must be exactly 10 digits."
+msgstr ""
+
+#: includes/Checkout/Fields.php:347
+msgid "Please select a province from the list."
+msgstr ""
+
+#. translators: %s: payment gateway name
+#: includes/Checkout/Gateways.php:58
+#, php-format
+msgid "Offer \"%s\" on the storefront"
+msgstr ""
+
+#: includes/Checkout/Gateways.php:60
+msgid "Enabled in WooCommerce."
+msgstr ""
+
+#: includes/Checkout/Gateways.php:61
+msgid "Disabled in WooCommerce → Settings → Payments, so it is not offered regardless of this switch."
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:41
+msgid "Checkout"
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:45
+msgid "Checkout fields"
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:46
+msgid "The Iranian field set: first and last name, mobile number (required, 09xx xxx xxxx, digits normalised), optional e-mail, province, city, address and a 10-digit postcode. Company, the second address line and the country selector are removed; the country is always Iran."
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:51
+msgid "Use the Iranian checkout fields"
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:56
+msgid "Offer a city list that follows the selected province"
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:57
+msgid "Progressive enhancement on the checkout page: without JavaScript the city stays a text field, and a city that is not in the list can always be typed."
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:63
+msgid "Payment gateways on the storefront"
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:64
+msgid "A gateway switched off here is hidden from shoppers (checkout, pay-for-order links, Store API) but stays available for orders created in the dashboard. Gateways disabled under WooCommerce → Settings → Payments are never offered. Cash on delivery and bank transfer are off by default."
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:69
+msgid "Gateway round trip"
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:70
+msgid "Iranian gateways build their return URLs inside their own callback request, where the language of the shop is not in the URL. The order's language is restored from these parameters so the thank-you and cancel pages open in the language the order was placed in."
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:75
+msgid "Order parameters in gateway callbacks"
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:76
+msgid "Comma-separated names of query or form parameters that carry the order ID or the order key, e.g. \"order_id, wc_order, key\"."
+msgstr ""
+
+#: includes/ContactMode/Admin/ProductMetabox.php:56
+#: includes/ContactMode/Admin/ProductMetabox.php:81
+#: includes/ContactMode/ContactMode.php:48
+msgid "Contact instead of price"
+msgstr ""
+
+#: includes/ContactMode/Admin/ProductMetabox.php:70
+msgid "on"
+msgstr ""
+
+#: includes/ContactMode/Admin/ProductMetabox.php:71
+msgid "off"
+msgstr ""
+
+#. translators: %s: "on" or "off"
+#: includes/ContactMode/Admin/ProductMetabox.php:75
+#, php-format
+msgid "Follow the global setting (currently %s)"
+msgstr ""
+
+#: includes/ContactMode/Admin/ProductMetabox.php:76
+msgid "Contact only: hide the price and disable purchasing"
+msgstr ""
+
+#: includes/ContactMode/Admin/ProductMetabox.php:77
+msgid "Always sell with a price"
+msgstr ""
+
+#: includes/ContactMode/Admin/ProductMetabox.php:87
+msgid "In contact mode the product shows the call, WhatsApp and Telegram buttons instead of a buy button and cannot be added to the cart."
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:52
+msgid "Mode"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:53
+msgid "When enabled, products show contact buttons instead of a buy button: purchasing is disabled on the whole storefront, the cart and checkout pages redirect to the shop, payment gateways are withdrawn and the price is shown only when \"Still show the price\" is on. A single product can opt in or out from its edit screen."
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:57
+msgid "Enable \"contact instead of price\""
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:62
+msgid "Still show the price next to the contact buttons"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:63
+msgid "Also controls whether product JSON-LD keeps its offers while the mode is on."
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:68
+msgid "Primary channel"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:69
+msgid "Drawn as the filled button and used as the single button on product cards; the other channels are outlined."
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:71
+#: includes/ContactMode/Display.php:146
+msgid "WhatsApp"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:72
+msgid "Phone call"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:73
+#: includes/ContactMode/Display.php:147
+msgid "Telegram"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:80
+msgid "Texts"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:85
+msgid "Price line"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:86
+msgid "Replaces the price, e.g. \"Call for price\"."
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:96
+msgid "Explanation line"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:97
+msgid "One honest sentence under the price line; leave empty to hide it."
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:107
+msgid "Channels for this mode"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:108
+msgid "Leave a field empty to use the number or username from Brand & contact."
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:112
+msgid "Phone (override)"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:117
+msgid "WhatsApp number (override)"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:122
+msgid "Telegram username (override)"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:130
+msgid "Working hours (override)"
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:131
+msgid "Shown under the buttons so callers know when somebody answers."
+msgstr ""
+
+#: includes/ContactMode/ContactMode.php:264
+msgid "Ask for price"
+msgstr ""
+
+#: includes/ContactMode/Display.php:102
+msgid "Contact us for the price"
+msgstr ""
+
+#: includes/ContactMode/Display.php:145
+msgid "Call"
+msgstr ""
+
+#: includes/ContactMode/Enforcement.php:96
+msgid "Online purchase is not available for this product. Please contact us for a price."
+msgstr ""
+
+#: includes/ContactMode/Migration.php:90
+msgid "Paste the old cfp_options value first."
+msgstr ""
+
+#: includes/ContactMode/Migration.php:93
+msgid "The pasted value is too long to be a cfp_options option."
+msgstr ""
+
+#: includes/ContactMode/Migration.php:105
+msgid "The value is neither a JSON object nor a serialized PHP array."
+msgstr ""
+
+#: includes/ContactMode/Migration.php:115
+msgid "None of the cfp_options keys (enabled, label, phone, show_price, wa_*, tg_*) were found."
+msgstr ""
+
+#. translators: 1: settings path, 2: settings path
+#: includes/ContactMode/Migration.php:147
+#, php-format
+msgid "%1$s already had a different value, so the old number was stored as %2$s."
+msgstr ""
+
+#: includes/ContactMode/Migration.php:165
+msgid "tg_number was skipped: Telegram links need a username, not a phone number."
+msgstr ""
+
+#: includes/ContactMode/Migration.php:169
+msgid "wa_id was skipped: WhatsApp links are built from the number only."
+msgstr ""
+
+#: includes/ContactMode/Migration.php:194
+msgid "Migrate call-for-price settings"
+msgstr ""
+
+#: includes/ContactMode/Migration.php:198
+msgid "Copies the old call-for-price plugin's cfp_options (enabled, label, phone, show_price, WhatsApp and Telegram) into the \"Contact instead of price\" settings. Paste the option value from the old database as JSON or as the serialized PHP string from the SQL dump. Existing site-wide numbers are kept; a different old number becomes the mode override."
+msgstr ""
+
+#: includes/ContactMode/Migration.php:199
+#: includes/Pricing/Migration.php:58
+msgid "Migrate"
+msgstr ""
+
+#: includes/ContactMode/Migration.php:217
+msgid "Old cfp_options value"
+msgstr ""
+
+#: includes/ContactMode/Migration.php:244
+msgid "Nothing to migrate: the pasted value carried no usable settings."
+msgstr ""
+
+#. translators: %s: comma-separated list of settings paths
+#: includes/ContactMode/Migration.php:250
+#, php-format
+msgid "Call-for-price settings migrated: %s."
+msgstr ""
+
+#: includes/ContactMode/Migration.php:257
+msgid "The mode stays off until you enable it on the \"Contact instead of price\" tab."
+msgstr ""
+
+#: includes/I18n/Admin/Assets.php:64
+msgid "Copied from the Persian field."
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:52
+msgid "Languages"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:56
+#: includes/I18n/Admin/LanguagesPage.php:131
+msgid "Options"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:60
+#: includes/I18n/Admin/LanguagesPage.php:134
+msgid "Untranslated item under /en/ or /ar/"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:62
+#: includes/I18n/Admin/LanguagesPage.php:136
+msgid "Not found (404)"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:63
+#: includes/I18n/Admin/LanguagesPage.php:137
+msgid "Show the Persian content with a note (noindex)"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:66
+#: includes/I18n/Admin/LanguagesPage.php:139
+msgid "With \"show\", the page stays unreachable from any listing in that language; only direct links reach it."
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:70
+#: includes/I18n/Admin/LanguagesPage.php:142
+msgid "Collect WooCommerce strings missing from the Arabic language pack while an administrator browses /ar/"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:72
+#: includes/I18n/Admin/LanguagesPage.php:143
+msgid "The collected strings appear on the Strings tab."
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:79
+msgid "Persian lives at the root; English and Arabic under /en/ and /ar/. A language becomes indexable (robots, sitemap, hreflang, switcher for visitors) only when it is public."
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+#: includes/I18n/Admin/OrderLanguage.php:48
+#: includes/I18n/Admin/OrderLanguage.php:52
+#: includes/I18n/Admin/OrderLanguage.php:101
+msgid "Language"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+msgid "Locale"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+msgid "URL"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+msgid "Direction"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+msgid "Digits"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+#: includes/I18n/Admin/LanguagesPage.php:123
+msgid "Public"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:102
+msgid "Readiness"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:115
+msgid "Persian (۰۱۲)"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:115
+msgid "Arabic-Indic (٠١٢)"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:115
+msgid "Latin (012)"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:121
+msgid "Always"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:141
+msgid "Missing strings"
+msgstr ""
+
+#. translators: %s: link to the Tools tab
+#: includes/I18n/Admin/LanguagesPage.php:150
+#, php-format
+msgid "Language packs (core and WooCommerce) are installed from the %s tab."
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:151
+#: includes/Settings/Schema.php:481
+msgid "Tools"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:155
+msgid "Save languages"
+msgstr ""
+
+#. translators: 1: translated count, 2: total
+#: includes/I18n/Admin/LanguagesPage.php:183
+#, php-format
+msgid "Top-level categories translated: %1$d / %2$d"
+msgstr ""
+
+#. translators: %d: count
+#: includes/I18n/Admin/LanguagesPage.php:198
+#, php-format
+msgid "Shop, cart, checkout and account pages translated: %1$d / %2$d"
+msgstr ""
+
+#. translators: %d: count
+#: includes/I18n/Admin/LanguagesPage.php:205
+#, php-format
+msgid "%d published product translation"
+msgid_plural "%d published product translations"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: locale
+#: includes/I18n/Admin/LanguagesPage.php:211
+#, php-format
+msgid "WordPress language pack %s"
+msgstr ""
+
+#. translators: %s: locale
+#: includes/I18n/Admin/LanguagesPage.php:212
+#, php-format
+msgid "WooCommerce language pack %s"
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:227
+#: includes/I18n/Admin/StringsPage.php:263
+#: includes/Settings/Settings.php:202
+msgid "You are not allowed to change these settings."
+msgstr ""
+
+#: includes/I18n/Admin/LanguagesPage.php:256
+msgid "Languages saved."
+msgstr ""
+
+#: includes/I18n/Admin/OrderLanguage.php:121
+msgid "Customer e-mails and the customer-facing order pages for this order use this language; admin e-mails and this screen stay Persian."
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:47
+msgid "Strings"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:52
+msgid "Translations for texts WooCommerce builds from its settings (gateway and shipping names, attribute labels, account menu) and for strings the Arabic WooCommerce language pack lacks."
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:81
+msgid "WooCommerce labels"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:82
+msgid "Texts typed in Persian in the WooCommerce settings. Fill the other languages here; the storefront swaps them through the WooCommerce output filters."
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:98
+msgid "Seen untranslated on the Arabic storefront"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:102
+msgid "Missing in the WooCommerce language pack"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:103
+msgid "Collected while browsing the Arabic storefront as an administrator (Languages tab). A saved translation is applied through gettext for the woocommerce text domain."
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:124
+msgid "Custom entries"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:126
+msgid "Add a string"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:128
+msgid "Source text"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:128
+msgid "Exact source text"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:129
+msgid "Context (optional)"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:136
+msgid "Save strings"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:155
+msgid "Nothing here yet."
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:159
+msgid "Source (Persian / English)"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:164
+#: includes/I18n/Admin/StringsPage.php:188
+#: includes/Pricing/Admin/views/currencies-page.php:192
+msgid "Delete"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:175
+msgid "Context:"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:227
+msgid "Payment gateway title"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:228
+msgid "Payment gateway description"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:237
+msgid "Shipping method"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:244
+msgid "Attribute label"
+msgstr ""
+
+#: includes/I18n/Admin/StringsPage.php:250
+msgid "Account menu"
+msgstr ""
+
+#. translators: 1: saved count, 2: deleted count
+#: includes/I18n/Admin/StringsPage.php:327
+#, php-format
+msgid "%1$d string(s) saved, %2$d deleted."
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:68
+#: includes/I18n/Admin/TermFields.php:84
+#: includes/I18n/Admin/TranslationMetabox.php:53
+msgid "Translations"
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:113
+#: includes/Pricing/Admin/views/currencies-page.php:119
+msgid "Name"
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:114
+#: includes/I18n/Admin/TranslationMetabox.php:75
+msgid "Slug"
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:115
+#: includes/I18n/Admin/TranslationMetabox.php:92
+msgid "Description"
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:117
+#: includes/I18n/Admin/TermFields.php:146
+#: includes/I18n/Admin/TranslationMetabox.php:221
+msgid "Copy from Persian"
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:119
+msgid "Status"
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:121
+#: includes/I18n/Admin/TranslationMetabox.php:266
+#: includes/I18n/Admin/TranslationMetabox.php:450
+msgid "Not translated"
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:121
+#: includes/I18n/Admin/TranslationMetabox.php:449
+msgid "Draft"
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:121
+#: includes/I18n/Admin/TranslationMetabox.php:266
+#: includes/I18n/Admin/TranslationMetabox.php:448
+msgid "Published"
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:125
+msgid "Published terms appear in menus, tiles, filters, sitemaps and hreflang of that language."
+msgstr ""
+
+#. translators: 1: term name, 2: language code, 3: requested slug, 4: slug saved
+#: includes/I18n/Admin/TermFields.php:215
+#, php-format
+msgid "\"%1$s\": the %2$s slug \"%3$s\" was already in use; \"%4$s\" was saved instead."
+msgstr ""
+
+#: includes/I18n/Admin/TermFields.php:225
+#: includes/I18n/Admin/TranslationMetabox.php:436
+msgid "Edit"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:41
+msgid "Install language packs"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:45
+msgid "Downloads the Arabic WordPress language pack and the WooCommerce (and other plugin/theme) translations for every configured language from translate.wordpress.org."
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:46
+msgid "Install packs"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:52
+msgid "Rebuild slug map"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:56
+msgid "Regenerates the per-language translated-slug maps (transients) and the published-id lists from the stored meta."
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:57
+#: includes/I18n/Admin/Tools.php:68
+msgid "Rebuild"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:63
+msgid "Rebuild search index"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:67
+msgid "Rewrites the normalised search blobs (title, subtitle, brand, categories, specs) of every product, page and post for every language."
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:74
+msgid "Slug conflicts"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:78
+msgid "Lists translated slugs that collide with a native slug of the same type, with another translated slug, or with a reserved WooCommerce slug."
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:79
+msgid "Check"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:92
+msgid "You are not allowed to install languages."
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:100
+msgid "Language packs cannot be installed: the filesystem is not writable or file modifications are disallowed."
+msgstr ""
+
+#. translators: %s: locale
+#: includes/I18n/Admin/Tools.php:112
+#, php-format
+msgid "WordPress %s: already installed."
+msgstr ""
+
+#. translators: %s: locale
+#: includes/I18n/Admin/Tools.php:118
+#, php-format
+msgid "WordPress %s: installed."
+msgstr ""
+
+#. translators: %s: locale
+#: includes/I18n/Admin/Tools.php:122
+#, php-format
+msgid "WordPress %s: download failed (is translate.wordpress.org reachable from this server?)."
+msgstr ""
+
+#. translators: 1: installed count, 2: total, 3: list
+#: includes/I18n/Admin/Tools.php:145
+#, php-format
+msgid "Plugin/theme translations: %1$d of %2$d installed: %3$s"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:150
+msgid "Plugin/theme translations: nothing to install (all up to date, or the update API was unreachable)."
+msgstr ""
+
+#. translators: 1: language code, 2: post slugs, 3: term slugs
+#: includes/I18n/Admin/Tools.php:167
+#, php-format
+msgid "%1$s: %2$d post slugs, %3$d term slugs"
+msgstr ""
+
+#. translators: %s: per-language counts
+#: includes/I18n/Admin/Tools.php:170
+#, php-format
+msgid "Slug maps rebuilt (%s)."
+msgstr ""
+
+#. translators: %s: per-language counts
+#: includes/I18n/Admin/Tools.php:170
+msgid "no secondary languages"
+msgstr ""
+
+#. translators: %d: number of posts
+#: includes/I18n/Admin/Tools.php:184
+#, php-format
+msgid "Search index rebuilt for %d item."
+msgid_plural "Search index rebuilt for %d items."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/I18n/Admin/Tools.php:195
+msgid "No slug conflicts found."
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:199
+msgid "equals a native slug of the same type"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:200
+msgid "used by another translated object"
+msgstr ""
+
+#: includes/I18n/Admin/Tools.php:201
+msgid "is a reserved slug"
+msgstr ""
+
+#. translators: 1: language, 2: object type, 3: object label, 4: slug, 5: reason
+#: includes/I18n/Admin/Tools.php:211
+#, php-format
+msgid "[%1$s] %2$s \"%3$s\": slug \"%4$s\" %5$s"
+msgstr ""
+
+#. translators: %d: hidden count
+#: includes/I18n/Admin/Tools.php:222
+#, php-format
+msgid "... and %d more."
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:86
+msgid "Short description"
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:86
+msgid "Excerpt"
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:92
+msgid "Content"
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:97
+msgid "SEO title"
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:102
+msgid "SEO description"
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:108
+msgid "Translation status"
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:191
+msgid "Copy everything from Persian"
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:195
+msgid "View translation"
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:236
+msgid "WooCommerce pages keep their slug in every language (/en/shop/, /en/cart/ ...)."
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:239
+msgid "Left empty, the slug is derived from the translated title. Collisions get a numeric suffix; previous slugs redirect."
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:266
+msgid "Draft (editors only)"
+msgstr ""
+
+#: includes/I18n/Admin/TranslationMetabox.php:270
+msgid "Only published translations are visible under the language prefix: in archives, search, related products, sitemaps and hreflang."
+msgstr ""
+
+#. translators: 1: language code, 2: requested slug, 3: slug saved
+#: includes/I18n/Admin/TranslationMetabox.php:370
+#, php-format
+msgid "The %1$s slug \"%2$s\" was already in use; \"%3$s\" was saved instead."
+msgstr ""
+
+#. translators: %s: language code
+#: includes/I18n/Admin/TranslationMetabox.php:392
+#, php-format
+msgid "The %s translation has no title, so it was saved as a draft."
+msgstr ""
+
+#. translators: 1: post title, 2: message
+#: includes/I18n/Admin/TranslationMetabox.php:431
+#, php-format
+msgid "\"%1$s\": %2$s"
+msgstr ""
+
+#: includes/I18n/Menus.php:48
+msgid "Primary menu"
+msgstr ""
+
+#: includes/I18n/Menus.php:49
+msgid "Footer menu"
+msgstr ""
+
+#: includes/I18n/Menus.php:50
+msgid "Legal menu"
+msgstr ""
+
+#. translators: 1: menu name, 2: language name
+#: includes/I18n/Menus.php:57
+#, php-format
+msgid "%1$s (%2$s)"
+msgstr ""
+
+#: includes/I18n/Rest/Search.php:109
+msgid "Too many searches. Please wait a moment."
+msgstr ""
+
+#: includes/Import/Admin/BatchUi.php:32
+msgid "Start"
+msgstr ""
+
+#: includes/Import/Admin/BatchUi.php:43
+msgid "Stop"
+msgstr ""
+
+#: includes/Import/Admin/BatchUi.php:53
+msgid "Without JavaScript"
+msgstr ""
+
+#: includes/Import/Admin/BatchUi.php:72
+msgid "Stopped."
+msgstr ""
+
+#: includes/Import/Admin/BatchUi.php:73
+msgid "Request failed."
+msgstr ""
+
+#: includes/Import/Admin/BatchUi.php:74
+msgid "Finished."
+msgstr ""
+
+#: includes/Import/Admin/BatchUi.php:75
+msgid "Start now?"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:51
+msgid "Import the old site"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:55
+msgid "Imports categories, brands, tags, the 107 products with their images, the content pages and the redirect list from the extracted backup. Re-running updates what exists (idempotent)."
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:56
+msgid "Run the whole import now"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:57
+msgid "Run the import synchronously? This can take several minutes."
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:73
+msgid "Start import"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:89
+msgid "Categories, brands, tags"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:90
+#: includes/Pricing/Admin/views/currencies-page.php:126
+#: includes/Pricing/Admin/views/currencies-page.php:269
+msgid "Products"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:91
+msgid "Images"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:92
+msgid "Pages (privacy, terms, about, contact, FAQ)"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:93
+msgid "Redirect list (data/redirects.csv)"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:97
+msgid "Export directory"
+msgstr ""
+
+#. translators: %s: output directory
+#: includes/Import/Admin/ImportTool.php:102
+#, php-format
+msgid "Must contain products.json and images/. The redirect CSV is written to %s."
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:107
+msgid "Steps"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:112
+msgid "Dry run (report only, nothing is written)"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:113
+msgid "Also write the redirects into the gadgetim_redirects option"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:115
+msgid "Limit (first N products; 0 = all)"
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:127
+msgid "You are not allowed to run the import."
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:154
+msgid "The source must be an existing local directory (no URLs or stream wrappers)."
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:171
+msgid "Dry run started."
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:171
+msgid "Import started."
+msgstr ""
+
+#: includes/Import/Admin/ImportTool.php:179
+msgid "The import job has expired; start again."
+msgstr ""
+
+#. translators: %s: counters summary
+#: includes/Import/Admin/ImportTool.php:205
+#, php-format
+msgid "Finished: %s"
+msgstr ""
+
+#. translators: 1: current step, 2: done, 3: total
+#: includes/Import/Admin/ImportTool.php:207
+#, php-format
+msgid "Step \"%1$s\" — %2$d of %3$d items"
+msgstr ""
+
+#. translators: 1: counters summary, 2: error count
+#: includes/Import/Admin/ImportTool.php:234
+#, php-format
+msgid "Import finished with errors: %1$s (%2$d errors; see the log)."
+msgstr ""
+
+#. translators: %s: counters summary
+#: includes/Import/Admin/ImportTool.php:238
+#: includes/Import/Importer.php:324
+#, php-format
+msgid "Import finished: %s"
+msgstr ""
+
+#: includes/Import/Images.php:50
+msgid "Image entry without a file path."
+msgstr ""
+
+#. translators: %s: relative path
+#: includes/Import/Images.php:59
+#, php-format
+msgid "Unexpected image path: %s"
+msgstr ""
+
+#. translators: %s: file path
+#: includes/Import/Images.php:66
+#, php-format
+msgid "Image file missing: %s"
+msgstr ""
+
+#. translators: 1: attachment id, 2: file name
+#: includes/Import/Images.php:80
+#, php-format
+msgid "Attachment #%1$d already holds %2$s; adopted."
+msgstr ""
+
+#. translators: 1: attachment id, 2: relative path
+#: includes/Import/Images.php:93
+#, php-format
+msgid "Imported image #%1$d (%2$s)."
+msgstr ""
+
+#: includes/Import/Images.php:225
+msgid "The image could not be copied to a temporary file."
+msgstr ""
+
+#: includes/Import/Importer.php:76
+msgid "WooCommerce must be active to import products."
+msgstr ""
+
+#: includes/Import/Importer.php:79
+msgid "The product_brand taxonomy is not registered (WooCommerce brands are required)."
+msgstr ""
+
+#. translators: 1: step name, 2: item count
+#: includes/Import/Importer.php:117
+#, php-format
+msgid "Step \"%1$s\": %2$d items."
+msgstr ""
+
+#. translators: 1: item index, 2: error message
+#: includes/Import/Importer.php:132
+#, php-format
+msgid "Item %1$d failed: %2$s"
+msgstr ""
+
+#. translators: 1: created, 2: updated, 3: skipped, 4: failed, 5: images
+#: includes/Import/Job.php:198
+#, php-format
+msgid "created %1$d · updated %2$d · skipped %3$d · failed %4$d · images %5$d"
+msgstr ""
+
+#. translators: %s: page title
+#: includes/Import/Pages.php:91
+#, php-format
+msgid "Page \"%s\": no content in the export or data/pages.json; created empty."
+msgstr ""
+
+#. translators: 1: create/update, 2: page title, 3: slug, 4: content length
+#: includes/Import/Pages.php:107
+#, php-format
+msgid "[dry run] would %1$s page \"%2$s\" (/%3$s/), %4$d characters of cleaned content."
+msgstr ""
+
+#. translators: 1: created/updated, 2: page id, 3: page title
+#: includes/Import/Pages.php:151
+#, php-format
+msgid "%1$s page #%2$d \"%3$s\"."
+msgstr ""
+
+#: includes/Import/Pages.php:152
+#: includes/Import/Products.php:213
+#: includes/Pricing/Admin/views/currencies-page.php:127
+msgid "Updated"
+msgstr ""
+
+#: includes/Import/Pages.php:152
+#: includes/Import/Products.php:213
+msgid "Created"
+msgstr ""
+
+#. translators: 1: create/update verb, 2: short title, 3: slug, 4: category count, 5: brand count, 6: spec count, 7: image count, 8: AED regular, 9: AED sale
+#: includes/Import/Products.php:102
+#, php-format
+msgid "[dry run] would %1$s \"%2$s\" (/product/%3$s/) — categories %4$d, brands %5$d, specs %6$d, images %7$d, AED %8$s / %9$s"
+msgstr ""
+
+#. translators: 1: short title, 2: requested slug, 3: stored slug
+#: includes/Import/Products.php:203
+#, php-format
+msgid "\"%1$s\": slug \"%2$s\" was stored as \"%3$s\" (collision); add a redirect."
+msgstr ""
+
+#. translators: 1: created/updated, 2: product id, 3: short title, 4: spec count
+#: includes/Import/Products.php:212
+#, php-format
+msgid "%1$s product #%2$d \"%3$s\" (%4$d spec rows)."
+msgstr ""
+
+#: includes/Import/Source.php:62
+msgid "The source must be a local directory; URLs and stream wrappers are not accepted."
+msgstr ""
+
+#. translators: %s: directory path
+#: includes/Import/Source.php:66
+#, php-format
+msgid "Source directory not found: %s"
+msgstr ""
+
+#. translators: %s: file path
+#: includes/Import/Source.php:72
+#, php-format
+msgid "Export file missing: %s"
+msgstr ""
+
+#: includes/Import/Source.php:77
+msgid "products.json is not valid JSON."
+msgstr ""
+
+#: includes/Import/Source.php:80
+msgid "The images/ directory is missing from the export."
+msgstr ""
+
+#: includes/Import/Steps/ImagesStep.php:36
+msgid "Images are imported together with the products in this run."
+msgstr ""
+
+#. translators: 1: short title, 2: image count
+#: includes/Import/Steps/ImagesStep.php:58
+#, php-format
+msgid "[dry run] would import %2$d images for \"%1$s\"."
+msgstr ""
+
+#. translators: %s: short title
+#: includes/Import/Steps/ImagesStep.php:60
+#, php-format
+msgid "[dry run] \"%s\" is not imported yet; its images would be skipped."
+msgstr ""
+
+#. translators: %s: short title
+#: includes/Import/Steps/ImagesStep.php:67
+#, php-format
+msgid "\"%s\" is not imported yet; run the products step first."
+msgstr ""
+
+#. translators: 1: row count, 2: file path
+#: includes/Import/Steps/RedirectsStep.php:40
+#, php-format
+msgid "[dry run] would write %1$d redirect rows to %2$s."
+msgstr ""
+
+#. translators: %s: file path
+#: includes/Import/Steps/RedirectsStep.php:53
+#, php-format
+msgid "Could not write %s."
+msgstr ""
+
+#. translators: 1: row count, 2: file path
+#: includes/Import/Steps/RedirectsStep.php:57
+#, php-format
+msgid "Wrote %1$d redirect rows to %2$s."
+msgstr ""
+
+#. translators: %d: row count
+#: includes/Import/Steps/RedirectsStep.php:63
+#, php-format
+msgid "Applied %d redirects to the gadgetim_redirects option."
+msgstr ""
+
+#. translators: %s: category name
+#: includes/Import/Terms.php:103
+#, php-format
+msgid "Category \"%s\" skipped (mapping)."
+msgstr ""
+
+#. translators: %s: category name
+#: includes/Import/Terms.php:111
+#, php-format
+msgid "Category \"%s\" mapped to the default WooCommerce category."
+msgstr ""
+
+#. translators: 1: category name, 2: target category name
+#: includes/Import/Terms.php:123
+#, php-format
+msgid "Category \"%1$s\" merged into \"%2$s\"."
+msgstr ""
+
+#. translators: %s: brand name
+#: includes/Import/Terms.php:347
+#, php-format
+msgid "Brand \"%s\" is not in brands.json; created from the product."
+msgstr ""
+
+#. translators: 1: taxonomy label, 2: term name, 3: slug
+#: includes/Import/Terms.php:526
+#, php-format
+msgid "[dry run] would create %1$s \"%2$s\" (%3$s)."
+msgstr ""
+
+#. translators: 1: taxonomy label, 2: term name, 3: error message
+#: includes/Import/Terms.php:538
+#, php-format
+msgid "%1$s \"%2$s\" could not be created: %3$s"
+msgstr ""
+
+#. translators: 1: taxonomy label, 2: term name, 3: slug
+#: includes/Import/Terms.php:547
+#, php-format
+msgid "Created %1$s \"%2$s\" (%3$s)."
+msgstr ""
+
+#. translators: 1: taxonomy label, 2: term name, 3: changed fields
+#: includes/Import/Terms.php:579
+#, php-format
+msgid "[dry run] would update %1$s \"%2$s\" (%3$s)."
+msgstr ""
+
+#. translators: 1: taxonomy label, 2: term name
+#: includes/Import/Terms.php:581
+#, php-format
+msgid "[dry run] %1$s \"%2$s\" already exists."
+msgstr ""
+
+#. translators: 1: taxonomy label, 2: term name, 3: error message
+#: includes/Import/Terms.php:590
+#, php-format
+msgid "%1$s \"%2$s\" could not be updated: %3$s"
+msgstr ""
+
+#. translators: 1: taxonomy label, 2: term name
+#: includes/Import/Terms.php:595
+#, php-format
+msgid "Updated %1$s \"%2$s\"."
+msgstr ""
+
+#: includes/Import/Terms.php:671
+msgid "category"
+msgstr ""
+
+#: includes/Import/Terms.php:672
+msgid "tag"
+msgstr ""
+
+#: includes/Import/Terms.php:673
+msgid "brand"
+msgstr ""
+
+#. translators: %s: minimum WooCommerce version
+#: includes/Plugin.php:124
+#, php-format
+msgid "Gadgetim Core needs WooCommerce %s or newer. WooCommerce is not active, so pricing, catalog and checkout features are disabled until it is."
+msgstr ""
+
+#. translators: 1: minimum WooCommerce version, 2: installed WooCommerce version
+#: includes/Plugin.php:130
+#, php-format
+msgid "Gadgetim Core needs WooCommerce %1$s or newer; version %2$s is active. Please update WooCommerce."
+msgstr ""
+
+#: includes/Pricing/Admin/CurrenciesPage.php:50
+msgid "Currencies"
+msgstr ""
+
+#: includes/Pricing/Admin/CurrenciesPage.php:56
+msgid "Base currencies, their Toman rates and rounding. Saving a rate changes no product; \"Apply rates\" re-saves every product priced in that currency (in the background for large sets) and purges the page cache once at the end. Take a backup first."
+msgstr ""
+
+#: includes/Pricing/Admin/CurrenciesPage.php:66
+#: includes/Pricing/Admin/CurrenciesPage.php:316
+msgid "You are not allowed to manage currencies."
+msgstr ""
+
+#. translators: 1: number of products, 2: currency code
+#: includes/Pricing/Admin/CurrenciesPage.php:116
+#, php-format
+msgid "Recompute the Toman prices of %1$s products priced in %2$s with the saved rate?"
+msgstr ""
+
+#: includes/Pricing/Admin/CurrenciesPage.php:117
+msgid "Warning: the last known backup is older than 24 hours (or unknown). The runbook requires a fresh backup before applying rates."
+msgstr ""
+
+#: includes/Pricing/Admin/CurrenciesPage.php:118
+msgid "You changed values in the table. Save the currencies first, then apply the rates."
+msgstr ""
+
+#: includes/Pricing/Admin/CurrenciesPage.php:119
+msgid "Delete this currency? Only currencies without products can be deleted."
+msgstr ""
+
+#. translators: 1: processed products, 2: total products
+#: includes/Pricing/Admin/CurrenciesPage.php:121
+#: includes/Pricing/Admin/views/currencies-page.php:50
+#, php-format
+msgid "%1$s of %2$s products recomputed…"
+msgstr ""
+
+#. translators: 1: processed products, 2: failed products
+#: includes/Pricing/Admin/CurrenciesPage.php:123
+#, php-format
+msgid "Done: %1$s products recomputed (%2$s failed). Reloading…"
+msgstr ""
+
+#: includes/Pricing/Admin/CurrenciesPage.php:124
+msgid "The progress could not be read. The job keeps running in the background; reload the page to check."
+msgstr ""
+
+#: includes/Pricing/Admin/CurrenciesPage.php:174
+msgid "The new currency code must be three Latin letters (ISO 4217)."
+msgstr ""
+
+#. translators: %s: currency code
+#: includes/Pricing/Admin/CurrenciesPage.php:177
+#, php-format
+msgid "%s already exists."
+msgstr ""
+
+#: includes/Pricing/Admin/CurrenciesPage.php:202
+msgid "Currencies saved."
+msgstr ""
+
+#. translators: 1: currency code, 2: number of products
+#: includes/Pricing/Admin/CurrenciesPage.php:209
+#, php-format
+msgid "%1$s (%2$s products)"
+msgstr ""
+
+#. translators: %s: list of currencies with product counts
+#: includes/Pricing/Admin/CurrenciesPage.php:212
+#, php-format
+msgid "Rates or rounding changed for %s. No product price changed yet, and product saves keep using the previous values until you use \"Apply rates\"."
+msgstr ""
+
+#. translators: 1: number of products, 2: currency code, 3: number of failures
+#: includes/Pricing/Admin/CurrenciesPage.php:237
+#, php-format
+msgid "Toman prices of %1$s products priced in %2$s were recomputed (%3$s failed). The page cache was purged."
+msgstr ""
+
+#. translators: %s: currency code
+#: includes/Pricing/Admin/CurrenciesPage.php:263
+#, php-format
+msgid "Currency %s deleted."
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:45
+msgid "Applying rates…"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:58
+msgid "The job runs in the background (Action Scheduler). You may leave this page; the result appears in the history below."
+msgstr ""
+
+#. translators: 1: number of products, 2: number of failures
+#: includes/Pricing/Admin/views/currencies-page.php:66
+#, php-format
+msgid "Done: %1$s products recomputed (%2$s failed). The page cache was purged once."
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:74
+msgid "This job is unknown or expired; check the history below."
+msgstr ""
+
+#. translators: 1: human time difference, 2: date
+#: includes/Pricing/Admin/views/currencies-page.php:83
+#, php-format
+msgid "Last known backup: %1$s ago (%2$s)."
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:89
+msgid "Older than 24 hours: take a backup before applying rates."
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:92
+msgid "No backup marker found: take a backup before applying rates."
+msgstr ""
+
+#. translators: %s: file path
+#: includes/Pricing/Admin/views/currencies-page.php:93
+#, php-format
+msgid "(backup.sh writes the time into %s)"
+msgstr ""
+
+#. translators: %s: number of products
+#: includes/Pricing/Admin/views/currencies-page.php:103
+#, php-format
+msgid "%s product still carries the old plugin's currency meta. Run \"Migrate legacy AED prices\" on the Tools tab."
+msgid_plural "%s products still carry the old plugin's currency meta. Run \"Migrate legacy AED prices\" on the Tools tab."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:118
+msgid "Code"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:120
+msgid "Symbol"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:121
+msgid "Rate (Toman per unit)"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:122
+msgid "Rounding"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:123
+msgid "Step"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:124
+msgid "Decimals"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:125
+#: includes/Pricing/Admin/views/currencies-page.php:175
+#: includes/Pricing/Admin/views/currencies-page.php:209
+msgid "Enabled"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:128
+msgid "Actions"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:145
+msgid "The saved rate was not applied to the products yet."
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:145
+msgid "rate not applied"
+msgstr ""
+
+#. translators: %s: language name
+#: includes/Pricing/Admin/views/currencies-page.php:152
+#, php-format
+msgid "Name (%s)"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:168
+msgid "Ignored by charm rounding."
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:189
+msgid "Apply rates"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:200
+msgid "New currency code"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:201
+msgid "Name (Persian)"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:201
+msgid "New currency name"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:202
+msgid "New currency symbol"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:203
+msgid "New currency rate"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:204
+msgid "New currencies start with charm rounding; change it after saving."
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:212
+msgid "Add a currency"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:218
+msgid "Save currencies"
+msgstr ""
+
+#. translators: %s: number of products
+#: includes/Pricing/Admin/views/currencies-page.php:223
+#, php-format
+msgid "Saving changes no product price. \"Apply rates\" re-saves the products of that currency: up to %s at once, larger sets in background batches of 50."
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:244
+msgid "Rate history"
+msgstr ""
+
+#. translators: 1: date, 2: currency code, 3: number of products
+#: includes/Pricing/Admin/views/currencies-page.php:250
+#, php-format
+msgid "Last reprice: %1$s — %2$s, %3$s products."
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:252
+msgid "mixed (fix now)"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:259
+msgid "No rate change recorded yet."
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:264
+msgid "When"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:265
+msgid "Currency"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:266
+msgid "Old rate"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:267
+msgid "New rate"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:268
+msgid "By"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:270
+msgid "Applied"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:284
+msgid "yes"
+msgstr ""
+
+#: includes/Pricing/Admin/views/currencies-page.php:286
+msgid "pending"
+msgstr ""
+
+#: includes/Pricing/Calculator.php:161
+msgid "Nearest step"
+msgstr ""
+
+#: includes/Pricing/Calculator.php:162
+msgid "Round up to the step"
+msgstr ""
+
+#: includes/Pricing/Calculator.php:163
+msgid "Round down to the step"
+msgstr ""
+
+#: includes/Pricing/Calculator.php:164
+msgid "Charm (…9,000: nearest 10,000 minus 1,000)"
+msgstr ""
+
+#: includes/Pricing/Currencies.php:176
+#: includes/Pricing/Rest.php:150
+msgid "A currency code is three Latin letters (ISO 4217), for example AED."
+msgstr ""
+
+#: includes/Pricing/Currencies.php:221
+#: includes/Pricing/Reprice.php:60
+#: includes/Pricing/Rest.php:135
+#: includes/Pricing/Rest.php:169
+msgid "Unknown currency."
+msgstr ""
+
+#. translators: 1: currency code, 2: number of products
+#: includes/Pricing/Currencies.php:229
+#, php-format
+msgid "%1$s cannot be deleted: %2$s product is priced in it."
+msgid_plural "%1$s cannot be deleted: %2$s products are priced in it."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Pricing/Display.php:64
+msgid "Price display"
+msgstr ""
+
+#: includes/Pricing/Display.php:65
+msgid "How the theme price partial shows sales and the base-currency hint. Prices are always stored and sold in Toman; the currencies themselves live under Gadgetim → Currencies."
+msgstr ""
+
+#: includes/Pricing/Display.php:74
+msgid "Show the old price from (% off)"
+msgstr ""
+
+#: includes/Pricing/Display.php:75
+msgid "The struck-through old price appears only when the discount reaches this percentage."
+msgstr ""
+
+#: includes/Pricing/Display.php:88
+msgid "Show the discount sticker from (% off)"
+msgstr ""
+
+#: includes/Pricing/Display.php:89
+msgid "The \"-14%\" sticker appears only when the discount reaches this percentage."
+msgstr ""
+
+#: includes/Pricing/Display.php:102
+msgid "Base-currency hint on the product page"
+msgstr ""
+
+#: includes/Pricing/Display.php:103
+msgid "Shows \"≈ AED 30\" next to the Toman price of currency-priced products."
+msgstr ""
+
+#: includes/Pricing/Display.php:113
+msgid "Base-currency hint on product cards"
+msgstr ""
+
+#. translators: 1: base amount with currency (AED 30), 2: rate in Toman
+#: includes/Pricing/Display.php:343
+#, php-format
+msgid "%1$s × %2$s Toman"
+msgstr ""
+
+#: includes/Pricing/Display.php:376
+msgctxt "prefix of the lowest variation price"
+msgid "from"
+msgstr ""
+
+#. translators: %s: number of products
+#: includes/Pricing/Guard.php:305
+#, php-format
+msgid "%s product has a stale Toman price (the rate changed or its base price was edited outside WooCommerce). \"Fix now\" recomputes it from the base currency."
+msgid_plural "%s products have stale Toman prices (the rate changed or their base prices were edited outside WooCommerce). \"Fix now\" recomputes them from the base currency."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Pricing/Guard.php:319
+msgid "Fix now"
+msgstr ""
+
+#: includes/Pricing/Guard.php:339
+#: includes/Pricing/Reprice.php:229
+msgid "You are not allowed to do this."
+msgstr ""
+
+#. translators: %s: currency code
+#: includes/Pricing/Materializer.php:47
+#, php-format
+msgid "its pricing currency %s does not exist any more; the last Toman prices were kept."
+msgstr ""
+
+#. translators: %s: currency code
+#: includes/Pricing/Materializer.php:52
+#, php-format
+msgid "its pricing currency %s is disabled; the last Toman prices were kept."
+msgstr ""
+
+#. translators: %s: currency code
+#: includes/Pricing/Materializer.php:74
+#, php-format
+msgid "its base price or the %s rate is zero; the last Toman prices were kept."
+msgstr ""
+
+#: includes/Pricing/Migration.php:45
+msgid "Converts every product that still carries the old plugin's _gadgetim_currency_* meta: pricing currency AED, base prices copied as entered, Toman prices recomputed, old keys removed."
+msgstr ""
+
+#. translators: %s: number of products
+#: includes/Pricing/Migration.php:49
+#, php-format
+msgid "%s product is waiting."
+msgid_plural "%s products are waiting."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Pricing/Migration.php:53
+msgid "Migrate legacy AED prices"
+msgstr ""
+
+#: includes/Pricing/Migration.php:59
+msgid "Convert every product with the old currency meta to AED base prices and recompute its Toman prices now?"
+msgstr ""
+
+#: includes/Pricing/Migration.php:72
+#: includes/Pricing/Reprice.php:69
+#: includes/Pricing/Reprice.php:95
+msgid "WooCommerce is not active."
+msgstr ""
+
+#: includes/Pricing/Migration.php:78
+msgid "No product carries the old currency meta; nothing to migrate."
+msgstr ""
+
+#. translators: 1: number of products migrated, 2: currency code, 3: rate
+#: includes/Pricing/Migration.php:83
+#, php-format
+msgid "%1$s products now have AED base prices (rate %3$s Toman per %2$s) and recomputed Toman prices."
+msgstr ""
+
+#. translators: %s: list of product IDs
+#: includes/Pricing/Migration.php:91
+#, php-format
+msgid "Skipped (invalid old values, old keys kept): %s."
+msgstr ""
+
+#: includes/Pricing/Migration.php:142
+msgid "invalid base price"
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:52
+#: includes/Pricing/ProductFields.php:125
+msgid "Pricing basis"
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:57
+msgid "With a currency, the Toman prices are computed from the base prices at every save and whenever the rate changes. \"Fixed Toman price\" keeps the WooCommerce price fields authoritative. For variable products the basis is set per variation (bulk action: \"Set pricing currency for all variations\")."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:68
+#: includes/Pricing/ProductFields.php:136
+msgid "Base regular price"
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:78
+msgid "In the selected currency, for example 30 for 30 AED. Persian digits are accepted."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:86
+#: includes/Pricing/ProductFields.php:152
+msgid "Base sale price"
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:96
+msgid "Leave empty for no sale. Emptying this field is the only way to end a sale on a currency-priced product; the Toman sale field is read-only."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:99
+msgid "Computed Toman price"
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:235
+msgid "The base regular price is not a valid number and was not saved."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:243
+msgid "The base sale price is not a valid number and was not saved."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:247
+msgid "The base sale price must be lower than the base regular price; the sale was not saved."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:254
+msgid "A base regular price is required when a pricing currency is selected; the product has no computed price yet."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:262
+msgid "Gadgetim pricing"
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:263
+msgid "Set pricing currency for all variations"
+msgstr ""
+
+#. translators: 1: Toman price, 2: unit, 3: base amount with currency, 4: rate, 5: rounding mode
+#: includes/Pricing/ProductFields.php:319
+#: includes/Pricing/ProductFields.php:381
+#, php-format
+msgid "%1$s %2$s = %3$s × %4$s (%5$s)"
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:320
+#: includes/Pricing/ProductFields.php:360
+#: includes/Pricing/ProductFields.php:364
+msgid "Fixed Toman price: the WooCommerce price fields are used as entered."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:321
+#: includes/Pricing/ProductFields.php:373
+msgid "Enter a base regular price to compute the Toman price."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:322
+msgid "The base sale price must be lower than the base regular price."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:323
+msgid "Computed from the base price; edit the base fields instead."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:324
+msgid "Currency code for all variations (empty = fixed Toman price):"
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:337
+msgid "Fixed Toman price"
+msgstr ""
+
+#. translators: 1: currency code, 2: currency name, 3: rate
+#: includes/Pricing/ProductFields.php:342
+#, php-format
+msgid "%1$s — %2$s (%3$s Toman)"
+msgstr ""
+
+#. translators: %s: currency code
+#: includes/Pricing/ProductFields.php:350
+#, php-format
+msgid "%s (disabled — last prices kept)"
+msgstr ""
+
+#. translators: %s: currency code
+#: includes/Pricing/ProductFields.php:369
+#, php-format
+msgid "Currency %s is disabled: the last computed Toman prices are kept until it is enabled again."
+msgstr ""
+
+#: includes/Pricing/ProductFields.php:389
+msgid "(A new rate is saved but not applied yet: \"Apply rates\" on the Currencies page recomputes every product.)"
+msgstr ""
+
+#: includes/Pricing/Reprice.php:63
+msgid "The currency is disabled; its products keep their last Toman prices."
+msgstr ""
+
+#: includes/Pricing/Reprice.php:66
+msgid "A reprice of this currency is already running."
+msgstr ""
+
+#: includes/Pricing/Reprice.php:235
+msgid "Unknown or expired job."
+msgstr ""
+
+#: includes/Pricing/Rest.php:101
+msgid "You are not allowed to change currencies."
+msgstr ""
+
+#: includes/Pricing/Rest.php:160
+msgid "Nothing to update."
+msgstr ""
+
+#: includes/Pricing/Rest.php:263
+msgid "gadgetim_pricing.currency must be a three-letter currency code or empty."
+msgstr ""
+
+#. translators: %s: currency code
+#: includes/Pricing/Rest.php:268
+#, php-format
+msgid "Currency %s is unknown or disabled."
+msgstr ""
+
+#. translators: %s: field name
+#: includes/Pricing/Rest.php:285
+#, php-format
+msgid "gadgetim_pricing.%s must be a non-negative decimal number."
+msgstr ""
+
+#: includes/Pricing/Rest.php:295
+msgid "gadgetim_pricing.base_sale must be lower than base_regular."
+msgstr ""
+
+#: includes/Pricing/Rest.php:298
+msgid "gadgetim_pricing.base_regular is required when a currency is set."
+msgstr ""
+
+#: includes/Pricing/Rest.php:308
+msgid "Base-currency pricing. With a currency, the Toman prices are computed from the base prices on every save; regular_price/sale_price writes are then ignored."
+msgstr ""
+
+#: includes/Pricing/Rest.php:314
+msgid "Three-letter currency code, or empty for a fixed Toman price."
+msgstr ""
+
+#: includes/Pricing/Rest.php:318
+msgid "Regular price in the base currency, as entered."
+msgstr ""
+
+#: includes/Pricing/Rest.php:322
+msgid "Sale price in the base currency, or empty."
+msgstr ""
+
+#: includes/Pricing/Rest.php:327
+msgid "Rate the stored Toman prices were computed with."
+msgstr ""
+
+#: includes/Pricing/Rest.php:332
+msgid "Unix time of the last computation."
+msgstr ""
+
+#: includes/Pricing/Rest.php:390
+msgid "Also recompute the Toman prices of every product in this currency."
+msgstr ""
+
+#: includes/Pricing/Rest.php:437
+msgid "Too many requests. Try again in a moment."
+msgstr ""
+
+#: includes/Settings/Admin/Notices.php:45
+msgid "Open"
+msgstr ""
+
+#. translators: 1: product name, 2: problem description
+#: includes/Settings/Admin/Notices.php:85
+#, php-format
+msgid "Product \"%1$s\": %2$s"
+msgstr ""
+
+#: includes/Settings/Admin/Notices.php:96
+msgid "Edit product"
+msgstr ""
+
+#: includes/Settings/Admin/Notices.php:172
+msgid "Missing notice id."
+msgstr ""
+
+#: includes/Settings/Admin/Notices.php:179
+msgid "You are not allowed to dismiss this notice."
+msgstr ""
+
+#: includes/Settings/Admin/SettingsPage.php:41
+msgid "Gadgetim settings"
+msgstr ""
+
+#: includes/Settings/Admin/SettingsPage.php:41
+msgid "Settings"
+msgstr ""
+
+#: includes/Settings/Admin/SettingsPage.php:95
+msgid "You do not have permission to view this page."
+msgstr ""
+
+#: includes/Settings/Admin/SettingsPage.php:101
+msgid "Settings saved."
+msgstr ""
+
+#: includes/Settings/Admin/Tools.php:96
+msgid "Run"
+msgstr ""
+
+#: includes/Settings/Admin/Tools.php:123
+msgid "Unknown tool."
+msgstr ""
+
+#. translators: %s: tool name
+#: includes/Settings/Admin/Tools.php:164
+#, php-format
+msgid "\"%s\" failed."
+msgstr ""
+
+#. translators: %s: tool name
+#: includes/Settings/Admin/Tools.php:166
+#, php-format
+msgid "\"%s\" finished."
+msgstr ""
+
+#: includes/Settings/Admin/Tools.php:193
+msgid "Purge page cache"
+msgstr ""
+
+#: includes/Settings/Admin/Tools.php:197
+msgid "Clears the whole page cache through the installed cache plugin (LiteSpeed Cache, WP Super Cache, Cache Enabler or WP Fastest Cache) and fires gadgetim_cache_purged_all."
+msgstr ""
+
+#: includes/Settings/Admin/Tools.php:198
+msgid "Purge cache"
+msgstr ""
+
+#: includes/Settings/Admin/Tools.php:204
+#: includes/Settings/Admin/Tools.php:209
+msgid "Flush permalinks"
+msgstr ""
+
+#: includes/Settings/Admin/Tools.php:208
+msgid "Regenerates the rewrite rules in Persian context (the only safe context for a flush, see architecture 3.2)."
+msgstr ""
+
+#. translators: %s: cache plugin name
+#: includes/Settings/Admin/Tools.php:222
+#, php-format
+msgid "Page cache purged (%s)."
+msgstr ""
+
+#: includes/Settings/Admin/Tools.php:237
+msgid "Rewrite rules regenerated."
+msgstr ""
+
+#: includes/Settings/Schema.php:288
+msgid "Brand & contact"
+msgstr ""
+
+#: includes/Settings/Schema.php:293
+msgid "Identity"
+msgstr ""
+
+#: includes/Settings/Schema.php:298
+msgid "Brand name"
+msgstr ""
+
+#: includes/Settings/Schema.php:308
+msgid "Tagline"
+msgstr ""
+
+#: includes/Settings/Schema.php:309
+msgid "Shown as the eyebrow line in the header and the hero."
+msgstr ""
+
+#: includes/Settings/Schema.php:314
+msgid "Logo (light background)"
+msgstr ""
+
+#: includes/Settings/Schema.php:315
+msgid "SVG or PNG. The theme falls back to its built-in wordmark when empty."
+msgstr ""
+
+#: includes/Settings/Schema.php:319
+msgid "Logo (dark background)"
+msgstr ""
+
+#: includes/Settings/Schema.php:324
+msgid "Contact channels"
+msgstr ""
+
+#: includes/Settings/Schema.php:325
+msgid "Used in the header, the footer, the contact strip and the call-for-price buttons."
+msgstr ""
+
+#: includes/Settings/Schema.php:329
+msgid "Phone"
+msgstr ""
+
+#: includes/Settings/Schema.php:334
+msgid "WhatsApp number"
+msgstr ""
+
+#: includes/Settings/Schema.php:339
+msgid "Telegram username"
+msgstr ""
+
+#: includes/Settings/Schema.php:346
+msgid "Instagram username"
+msgstr ""
+
+#: includes/Settings/Schema.php:353
+msgid "E-mail"
+msgstr ""
+
+#: includes/Settings/Schema.php:364
+msgid "Working hours"
+msgstr ""
+
+#: includes/Settings/Schema.php:365
+msgid "One line, e.g. \"Saturday to Thursday, 9 to 18\"."
+msgstr ""
+
+#: includes/Settings/Schema.php:372
+msgid "Trust & policies"
+msgstr ""
+
+#: includes/Settings/Schema.php:377
+msgid "Trust badges"
+msgstr ""
+
+#: includes/Settings/Schema.php:378
+msgid "The promises shown in the seal band on the home page and under the buy box. Confirm every claim with the client before launch."
+msgstr ""
+
+#: includes/Settings/Schema.php:383
+msgid "Badges"
+msgstr ""
+
+#: includes/Settings/Schema.php:402
+msgid "Policy texts"
+msgstr ""
+
+#: includes/Settings/Schema.php:407
+msgid "Return window"
+msgstr ""
+
+#: includes/Settings/Schema.php:416
+msgid "Delivery promise"
+msgstr ""
+
+#: includes/Settings/Schema.php:426
+msgid "Guarantee text"
+msgstr ""
+
+#: includes/Settings/Schema.php:427
+msgid "Default text under the buy box; a product can override it in its own guarantee field."
+msgstr ""
+
+#: includes/Settings/Schema.php:436
+msgid "Authenticity verification steps"
+msgstr ""
+
+#: includes/Settings/Schema.php:437
+msgid "The three lines of the authenticity receipt on the product page."
+msgstr ""
+
+#: includes/Settings/Schema.php:445
+msgid "Guarantee page"
+msgstr ""
+
+#: includes/Settings/Schema.php:446
+msgid "The page the receipt and the seal band link to."
+msgstr ""
+
+#: includes/Settings/Schema.php:455
+msgid "Catalog"
+msgstr ""
+
+#: includes/Settings/Schema.php:460
+msgid "Popularity"
+msgstr ""
+
+#: includes/Settings/Schema.php:461
+msgid "View counting is sampled: one in N page views sends a beacon, the counter grows by N."
+msgstr ""
+
+#: includes/Settings/Schema.php:465
+msgid "Count product views"
+msgstr ""
+
+#: includes/Settings/Schema.php:470
+msgid "Sampling rate (1 in N)"
+msgstr ""
+
+#: includes/Settings/Settings.php:177
+msgid "The settings form was incomplete; nothing was saved."
+msgstr ""
+
+#: includes/Settings/Settings.php:198
+msgid "Unknown settings tab; nothing was saved."
+msgstr ""
+
+#: includes/Support/Cache.php:234
+msgid "no page-cache plugin detected"
+msgstr ""
+
+#: templates/admin/fields/phone.php:33
+msgid "Not recognised as a phone number."
+msgstr ""
+
+#: templates/admin/fields/repeater.php:42
+msgid "Add line"
+msgstr ""
+
+#: templates/admin/notice.php:31
+msgid "Dismiss"
+msgstr ""
+
+#: templates/admin/settings-page.php:29
+msgid "Settings sections"
+msgstr ""
+
+#: templates/admin/tab-form.php:24
+msgid "This tab has no settings yet."
+msgstr ""
+
+#: templates/admin/tab-form.php:70
+msgid "Save changes"
+msgstr ""
+
+#: templates/admin/tools-tab.php:26
+msgid "No tools are registered."
+msgstr ""
