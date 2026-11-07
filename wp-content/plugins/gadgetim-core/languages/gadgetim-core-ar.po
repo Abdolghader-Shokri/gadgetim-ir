@@ -2833,3 +2833,72 @@ msgstr "أُرسل البريد التجريبي إلى %s. تحقّق من صن
 #: includes/Mail/Smtp.php
 msgid "The test e-mail was not sent:"
 msgstr "لم يُرسل البريد التجريبي:"
+
+#: includes/Checkout
+msgid "Full name"
+msgstr "الاسم الكامل"
+
+#: includes/Checkout
+msgid "Province, city, street, alley, building number and unit"
+msgstr "المحافظة، المدينة، الشارع، الزقاق، رقم المبنى والوحدة"
+
+#: includes/Checkout
+msgid "The short Iranian field set: full name in one field, mobile number (required, 09xx xxx xxxx, digits normalised), optional e-mail, a 10-digit postcode, the address and the order notes. Last name, province, city, company, the second address line and the country selector are removed; the country is always Iran."
+msgstr "نموذج إيراني مختصر: الاسم الكامل في حقل واحد، رقم الجوال (إلزامي، 09xx xxx xxxx، مع توحيد الأرقام)، بريد إلكتروني اختياري، رمز بريدي من 10 أرقام، العنوان وملاحظات الطلب. حُذف اسم العائلة المنفصل والمحافظة والمدينة والشركة وسطر العنوان الثاني واختيار الدولة، والدولة دائمًا إيران."
+
+#: includes/Checkout
+msgid "Ask for the warranty choice before the place-order button"
+msgstr "طلب اختيار الضمان قبل زر تأكيد الطلب"
+
+#: includes/Checkout
+msgid "The shopper must choose \"I want the warranty\" or \"I do not want the warranty\" and tick that they have read the warranty and return terms. The choice is shown on the order, in the e-mails and in the dashboard."
+msgstr "يجب على المشتري اختيار «أريد الضمان» أو «لا أريد الضمان» ووضع علامة على قراءة شروط الضمان والإرجاع. يظهر اختياره في الطلب والرسائل ولوحة التحكم."
+
+#: includes/Checkout
+msgid "Warranty"
+msgstr "الضمان"
+
+#: includes/Checkout
+msgid "required"
+msgstr "إلزامي"
+
+#: includes/Checkout
+msgid "I want the warranty"
+msgstr "أريد الضمان"
+
+#: includes/Checkout
+msgid "The product is unboxed and the warranty seal is stamped on it."
+msgstr "يُفتح غلاف المنتج ويُختم عليه ختم الضمان."
+
+#: includes/Checkout
+msgid "I do not want the warranty"
+msgstr "لا أريد الضمان"
+
+#: includes/Checkout
+msgid "The warranty covers the authenticity of the product, and the right to return it is kept for the customer for 7 days only."
+msgstr "الضمان يخص أصالة المنتج، ويبقى حق الإرجاع محفوظًا للعميل لمدة ٧ أيام فقط."
+
+#: includes/Checkout
+msgid "Return conditions: a return is accepted in only two cases — the product is not original, or the product is not in sound condition."
+msgstr "شروط الإرجاع: يُقبل الإرجاع في حالتين فقط؛ إذا لم يكن المنتج أصليًا أو لم يكن سليمًا."
+
+#: includes/Checkout
+msgid "I have read the warranty and return conditions and I accept them"
+msgstr "قرأت شروط الضمان والإرجاع وأوافق عليها"
+
+#: includes/Checkout
+msgid "Please choose whether you want the warranty."
+msgstr "يرجى تحديد ما إذا كنت تريد الضمان."
+
+#: includes/Checkout
+msgid "Please read the warranty and return conditions and tick the box to accept them."
+msgstr "يرجى قراءة شروط الضمان والإرجاع ووضع علامة للموافقة عليها."
+
+#: includes/Checkout
+msgid "Warranty:"
+msgstr "الضمان:"
+
+#: includes/Checkout
+#, php-format
+msgid "Warranty and return conditions accepted on %s"
+msgstr "تمت الموافقة على شروط الضمان والإرجاع في %s"

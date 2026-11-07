@@ -59,6 +59,11 @@ final class CityScript {
 		if ( ! function_exists( 'is_checkout' ) || ! is_checkout() || is_wc_endpoint_url() ) {
 			return;
 		}
+		// The checkout no longer offers a city field (client, 2026-11-08): print nothing then.
+		$billing = function_exists( 'WC' ) && WC()->checkout() ? (array) WC()->checkout()->get_checkout_fields( 'billing' ) : [];
+		if ( ! isset( $billing['billing_city'] ) ) {
+			return;
+		}
 
 		$lang = function_exists( 'gadgetim_lang' ) ? gadgetim_lang() : 'fa';
 

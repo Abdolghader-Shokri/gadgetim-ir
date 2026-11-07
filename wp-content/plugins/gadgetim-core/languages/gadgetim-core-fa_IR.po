@@ -2805,3 +2805,72 @@ msgstr "ایمیل آزمایشی به %s فرستاده شد. صندوق ورو
 #: includes/Mail/Smtp.php
 msgid "The test e-mail was not sent:"
 msgstr "ایمیل آزمایشی فرستاده نشد:"
+
+#: includes/Checkout
+msgid "Full name"
+msgstr "نام و نام خانوادگی"
+
+#: includes/Checkout
+msgid "Province, city, street, alley, building number and unit"
+msgstr "استان، شهر، خیابان، کوچه، پلاک و واحد"
+
+#: includes/Checkout
+msgid "The short Iranian field set: full name in one field, mobile number (required, 09xx xxx xxxx, digits normalised), optional e-mail, a 10-digit postcode, the address and the order notes. Last name, province, city, company, the second address line and the country selector are removed; the country is always Iran."
+msgstr "فرم کوتاه ایرانی: نام و نام خانوادگی در یک فیلد، شماره موبایل (الزامی، ۰۹xx xxx xxxx، با یکسان‌سازی ارقام)، ایمیل اختیاری، کد پستی ۱۰ رقمی، آدرس و توضیحات سفارش. نام خانوادگی جداگانه، استان، شهر، نام شرکت، خط دوم آدرس و انتخاب کشور حذف شده‌اند و کشور همیشه ایران است."
+
+#: includes/Checkout
+msgid "Ask for the warranty choice before the place-order button"
+msgstr "پرسیدن انتخاب گارانتی پیش از دکمه ثبت سفارش"
+
+#: includes/Checkout
+msgid "The shopper must choose \"I want the warranty\" or \"I do not want the warranty\" and tick that they have read the warranty and return terms. The choice is shown on the order, in the e-mails and in the dashboard."
+msgstr "خریدار باید یکی از «گارانتی می‌خواهم» یا «گارانتی نمی‌خواهم» را انتخاب کند و تیک خواندن شرایط گارانتی و مرجوعی را بزند. انتخاب او در سفارش، ایمیل‌ها و پیشخوان نمایش داده می‌شود."
+
+#: includes/Checkout
+msgid "Warranty"
+msgstr "گارانتی"
+
+#: includes/Checkout
+msgid "required"
+msgstr "الزامی"
+
+#: includes/Checkout
+msgid "I want the warranty"
+msgstr "گارانتی می‌خواهم"
+
+#: includes/Checkout
+msgid "The product is unboxed and the warranty seal is stamped on it."
+msgstr "محصول آنباکس می‌شود و روی کالا مهر گارانتی زده می‌شود."
+
+#: includes/Checkout
+msgid "I do not want the warranty"
+msgstr "گارانتی نمی‌خواهم"
+
+#: includes/Checkout
+msgid "The warranty covers the authenticity of the product, and the right to return it is kept for the customer for 7 days only."
+msgstr "گارانتی مربوط به تضمین اصالت کالا است و شرایط مرجوعی فقط تا ۷ روز برای مشتری محفوظ می‌ماند."
+
+#: includes/Checkout
+msgid "Return conditions: a return is accepted in only two cases — the product is not original, or the product is not in sound condition."
+msgstr "شرایط مرجوعی: مرجوعی فقط در دو حالت پذیرفته می‌شود؛ اصل نبودن کالا یا سالم نبودن کالا."
+
+#: includes/Checkout
+msgid "I have read the warranty and return conditions and I accept them"
+msgstr "شرایط گارانتی و مرجوعی را خواندم و می‌پذیرم"
+
+#: includes/Checkout
+msgid "Please choose whether you want the warranty."
+msgstr "لطفاً مشخص کنید گارانتی می‌خواهید یا نه."
+
+#: includes/Checkout
+msgid "Please read the warranty and return conditions and tick the box to accept them."
+msgstr "لطفاً شرایط گارانتی و مرجوعی را بخوانید و تیک پذیرش آن را بزنید."
+
+#: includes/Checkout
+msgid "Warranty:"
+msgstr "گارانتی:"
+
+#: includes/Checkout
+#, php-format
+msgid "Warranty and return conditions accepted on %s"
+msgstr "شرایط گارانتی و مرجوعی در %s پذیرفته شد"

@@ -36,6 +36,8 @@ final class Module {
 		Gateways::register_hooks();
 		OrderStatuses::register_hooks();
 		Fields::register_hooks();
+		ShippingSetup::register_hooks();
+		Warranty::register_hooks();
 		CityScript::register_hooks();
 		ReturnUrls::register_hooks();
 		CartCookie::register_hooks();
