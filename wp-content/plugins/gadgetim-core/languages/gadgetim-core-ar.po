@@ -2691,3 +2691,43 @@ msgstr "حفظ التغييرات"
 #: templates/admin/tools-tab.php:26
 msgid "No tools are registered."
 msgstr "لا توجد أدوات مسجّلة."
+
+#: includes/Checkout/OrderStatuses.php
+msgctxt "Order status"
+msgid "Shipped"
+msgstr "تم الشحن"
+
+#: includes/Checkout/OrderStatuses.php
+msgid "Shipped <span class="count">(%s)</span>"
+msgid_plural "Shipped <span class="count">(%s)</span>"
+msgstr[0] "تم الشحن <span class="count">(%s)</span>"
+msgstr[1] "تم الشحن <span class="count">(%s)</span>"
+msgstr[2] "تم الشحن <span class="count">(%s)</span>"
+msgstr[3] "تم الشحن <span class="count">(%s)</span>"
+msgstr[4] "تم الشحن <span class="count">(%s)</span>"
+msgstr[5] "تم الشحن <span class="count">(%s)</span>"
+
+#: includes/Checkout/OrderStatuses.php
+msgid "Change status to shipped"
+msgstr "تغيير الحالة إلى تم الشحن"
+
+#: includes/Security/LoginSlug.php
+msgid "Admin login address"
+msgstr "عنوان تسجيل دخول الإدارة"
+
+#: includes/Security/LoginSlug.php
+msgid "This address is set in wp-config.php (GADGETIM_LOGIN_SLUG); change it there."
+msgstr "تم تحديد هذا العنوان في wp-config.php (GADGETIM_LOGIN_SLUG)؛ غيّره هناك."
+
+#: includes/Security/LoginSlug.php
+msgid "The dashboard login page opens only at this address; for visitors who are not logged in, wp-login.php and /wp-admin show "page not found". Use lowercase English letters, digits and hyphens. Write the new address down before saving."
+msgstr "تُفتح صفحة تسجيل الدخول إلى لوحة التحكم على هذا العنوان فقط؛ ويعرض wp-login.php و/wp-admin «الصفحة غير موجودة» للزوار غير المسجلين. استخدم أحرفًا إنجليزية صغيرة وأرقامًا وشرطات. دوّن العنوان الجديد قبل الحفظ."
+
+#: includes/Security/LoginSlug.php
+#, php-format
+msgid "Current login address: %s"
+msgstr "عنوان تسجيل الدخول الحالي: %s"
+
+#: includes/Security/LoginSlug.php
+msgid "The admin login address must use lowercase English letters, digits or hyphens and must not be a reserved or existing address. The previous address was kept."
+msgstr "يجب أن يتكون عنوان تسجيل دخول الإدارة من أحرف إنجليزية صغيرة أو أرقام أو شرطات فقط، وألا يكون عنوانًا محجوزًا أو موجودًا. تم الإبقاء على العنوان السابق."

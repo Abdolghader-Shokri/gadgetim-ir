@@ -22,7 +22,7 @@ final class Plugin {
 	 * Boot order. Support has no Module class and is bootstrapped explicitly.
 	 * Missing modules are skipped.
 	 */
-	public const MODULES = [ 'Support', 'Settings', 'I18n', 'Pricing', 'Catalog', 'ContactMode', 'Checkout', 'Seo', 'Rest', 'Import', 'Cli' ];
+	public const MODULES = [ 'Support', 'Settings', 'I18n', 'Pricing', 'Catalog', 'ContactMode', 'Checkout', 'Security', 'Seo', 'Rest', 'Import', 'Cli' ];
 
 	public const OPTION_VERSION = 'gadgetim_core_version';
 

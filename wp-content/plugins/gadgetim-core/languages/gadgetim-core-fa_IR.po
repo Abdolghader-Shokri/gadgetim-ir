@@ -2667,3 +2667,39 @@ msgstr "ذخیره تغییرات"
 #: templates/admin/tools-tab.php:26
 msgid "No tools are registered."
 msgstr "ابزاری ثبت نشده است."
+
+#: includes/Checkout/OrderStatuses.php
+msgctxt "Order status"
+msgid "Shipped"
+msgstr "ارسال شده"
+
+#: includes/Checkout/OrderStatuses.php
+msgid "Shipped <span class="count">(%s)</span>"
+msgid_plural "Shipped <span class="count">(%s)</span>"
+msgstr[0] "ارسال شده <span class="count">(%s)</span>"
+msgstr[1] "ارسال شده <span class="count">(%s)</span>"
+
+#: includes/Checkout/OrderStatuses.php
+msgid "Change status to shipped"
+msgstr "تغییر وضعیت به ارسال شده"
+
+#: includes/Security/LoginSlug.php
+msgid "Admin login address"
+msgstr "نشانی ورود به پیشخوان"
+
+#: includes/Security/LoginSlug.php
+msgid "This address is set in wp-config.php (GADGETIM_LOGIN_SLUG); change it there."
+msgstr "این نشانی در wp-config.php (GADGETIM_LOGIN_SLUG) تعیین شده است؛ برای تغییر، همان‌جا عوضش کنید."
+
+#: includes/Security/LoginSlug.php
+msgid "The dashboard login page opens only at this address; for visitors who are not logged in, wp-login.php and /wp-admin show "page not found". Use lowercase English letters, digits and hyphens. Write the new address down before saving."
+msgstr "صفحه ورود به پیشخوان فقط با این نشانی باز می‌شود؛ برای کسی که وارد نشده، wp-login.php و /wp-admin «برگه پیدا نشد» نشان می‌دهند. فقط حروف کوچک انگلیسی، عدد و خط تیره. پیش از ذخیره، نشانی تازه را یادداشت کنید."
+
+#: includes/Security/LoginSlug.php
+#, php-format
+msgid "Current login address: %s"
+msgstr "نشانی فعلی ورود: %s"
+
+#: includes/Security/LoginSlug.php
+msgid "The admin login address must use lowercase English letters, digits or hyphens and must not be a reserved or existing address. The previous address was kept."
+msgstr "نشانی ورود به پیشخوان باید فقط از حروف کوچک انگلیسی، عدد یا خط تیره ساخته شود و نشانی رزروشده یا موجود در سایت نباشد. نشانی قبلی حفظ شد."
