@@ -84,6 +84,22 @@ if ( '' !== gadgetim_core_requirements_failure() ) {
 	return;
 }
 
+/*
+ * WooCommerce feature compatibility. Orders are only read and written through WC_Order
+ * (get_meta / update_meta_data) and the admin order column supports both list screens, so the
+ * plugin works with High-Performance Order Storage; without this declaration WooCommerce
+ * reports it as incompatible. Cart and checkout blocks are not declared: the store uses the
+ * classic [woocommerce_cart] / [woocommerce_checkout] pages that Checkout\Fields is built for.
+ */
+add_action(
+	'before_woocommerce_init',
+	static function () {
+		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+		}
+	}
+);
+
 require GADGETIM_CORE_DIR . 'includes/Autoloader.php';
 
 Gadgetim\Core\Autoloader::register( GADGETIM_CORE_DIR . 'includes/' );
