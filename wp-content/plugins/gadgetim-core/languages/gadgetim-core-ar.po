@@ -2731,3 +2731,105 @@ msgstr "عنوان تسجيل الدخول الحالي: %s"
 #: includes/Security/LoginSlug.php
 msgid "The admin login address must use lowercase English letters, digits or hyphens and must not be a reserved or existing address. The previous address was kept."
 msgstr "يجب أن يتكون عنوان تسجيل دخول الإدارة من أحرف إنجليزية صغيرة أو أرقام أو شرطات فقط، وألا يكون عنوانًا محجوزًا أو موجودًا. تم الإبقاء على العنوان السابق."
+
+#: includes/Mail/Smtp.php
+msgid "Sending through SMTP"
+msgstr "الإرسال عبر SMTP"
+
+#: includes/Mail/Smtp.php
+msgid "Order e-mails, password resets and site messages are sent through this mailbox. Use the details of an e-mail account created in cPanel (for example info@gadgetim.ir)."
+msgstr "تُرسل رسائل الطلبات واستعادة كلمة المرور ورسائل الموقع من صندوق البريد هذا. أدخل بيانات حساب بريد أُنشئ في cPanel (مثل info@gadgetim.ir)."
+
+#: includes/Mail/Smtp.php
+msgid "PHP mail() is disabled on this server, so no e-mail leaves the site until SMTP is set up here. Use the details of an e-mail account created in cPanel (for example info@gadgetim.ir)."
+msgstr "الدالة mail() في PHP معطّلة على هذا الخادم، لذا لن يُرسل أي بريد من الموقع حتى يُضبط SMTP هنا. أدخل بيانات حساب بريد أُنشئ في cPanel (مثل info@gadgetim.ir)."
+
+#: includes/Mail/Smtp.php
+msgid "Send e-mail through SMTP"
+msgstr "إرسال البريد عبر SMTP"
+
+#: includes/Mail/Smtp.php
+msgid "SMTP server"
+msgstr "خادم SMTP"
+
+#: includes/Mail/Smtp.php
+msgid "Port"
+msgstr "المنفذ"
+
+#: includes/Mail/Smtp.php
+msgid "Encryption"
+msgstr "التشفير"
+
+#: includes/Mail/Smtp.php
+msgid "None (25)"
+msgstr "بدون تشفير (25)"
+
+#: includes/Mail/Smtp.php
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: includes/Mail/Smtp.php
+msgid "Usually the full e-mail address."
+msgstr "عادةً عنوان البريد الكامل."
+
+#: includes/Mail/Smtp.php
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: includes/Mail/Smtp.php
+msgid "Sender address"
+msgstr "عنوان المرسِل"
+
+#: includes/Mail/Smtp.php
+msgid "Leave empty to use the username. Most servers only accept the address of the mailbox you log in with."
+msgstr "اتركه فارغًا لاستخدام اسم المستخدم. معظم الخوادم لا تقبل إلا عنوان الصندوق الذي تسجّل الدخول به."
+
+#: includes/Mail/Smtp.php
+msgid "Sender name"
+msgstr "اسم المرسِل"
+
+#: includes/Mail/Smtp.php
+msgid "Test"
+msgstr "اختبار"
+
+#: includes/Mail/Smtp.php
+msgid "Saved — leave empty to keep it"
+msgstr "محفوظة — اتركها فارغة للإبقاء عليها"
+
+#: includes/Mail/Smtp.php
+msgid "Send a test e-mail"
+msgstr "إرسال بريد تجريبي"
+
+#: includes/Mail/Smtp.php
+#, php-format
+msgid "Save the settings first. The message goes to %s."
+msgstr "احفظ الإعدادات أولًا. تُرسل الرسالة إلى %s."
+
+#: includes/Mail/Smtp.php
+msgid "Sorry, you are not allowed to do that."
+msgstr "عذرًا، غير مسموح لك بذلك."
+
+#: includes/Mail/Smtp.php
+msgid "Gadgetim test e-mail"
+msgstr "بريد تجريبي من Gadgetim"
+
+#: includes/Mail/Smtp.php
+msgid "If you can read this, the site can send e-mail."
+msgstr "إذا كنت تقرأ هذه الرسالة فالموقع يستطيع إرسال البريد."
+
+#: includes/Mail/Smtp.php
+msgid "The message could not be sent."
+msgstr "تعذّر إرسال الرسالة."
+
+#: includes/Mail/Smtp.php
+msgid "PHP mail() is disabled on this server and SMTP is not switched on."
+msgstr "الدالة mail() في PHP معطّلة على هذا الخادم وSMTP غير مفعّل."
+
+#: includes/Mail/Smtp.php
+#, php-format
+msgid "Test e-mail sent to %s. Check the inbox (and the spam folder)."
+msgstr "أُرسل البريد التجريبي إلى %s. تحقّق من صندوق الوارد (ومجلد الرسائل غير المرغوب فيها)."
+
+#: includes/Mail/Smtp.php
+msgid "The test e-mail was not sent:"
+msgstr "لم يُرسل البريد التجريبي:"

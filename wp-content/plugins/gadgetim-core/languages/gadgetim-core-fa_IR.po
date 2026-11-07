@@ -2703,3 +2703,105 @@ msgstr "نشانی فعلی ورود: %s"
 #: includes/Security/LoginSlug.php
 msgid "The admin login address must use lowercase English letters, digits or hyphens and must not be a reserved or existing address. The previous address was kept."
 msgstr "نشانی ورود به پیشخوان باید فقط از حروف کوچک انگلیسی، عدد یا خط تیره ساخته شود و نشانی رزروشده یا موجود در سایت نباشد. نشانی قبلی حفظ شد."
+
+#: includes/Mail/Smtp.php
+msgid "Sending through SMTP"
+msgstr "ارسال از طریق SMTP"
+
+#: includes/Mail/Smtp.php
+msgid "Order e-mails, password resets and site messages are sent through this mailbox. Use the details of an e-mail account created in cPanel (for example info@gadgetim.ir)."
+msgstr "ایمیل‌های سفارش، بازیابی رمز و پیام‌های سایت از این صندوق فرستاده می‌شوند. مشخصات یک حساب ایمیل ساخته‌شده در سی‌پنل را وارد کنید (مثلاً info@gadgetim.ir)."
+
+#: includes/Mail/Smtp.php
+msgid "PHP mail() is disabled on this server, so no e-mail leaves the site until SMTP is set up here. Use the details of an e-mail account created in cPanel (for example info@gadgetim.ir)."
+msgstr "تابع mail() در PHP روی این سرور خاموش است؛ تا SMTP را اینجا تنظیم نکنید، ایمیلی از سایت ارسال نمی‌شود. مشخصات یک حساب ایمیل ساخته‌شده در سی‌پنل را وارد کنید (مثلاً info@gadgetim.ir)."
+
+#: includes/Mail/Smtp.php
+msgid "Send e-mail through SMTP"
+msgstr "ارسال ایمیل از طریق SMTP"
+
+#: includes/Mail/Smtp.php
+msgid "SMTP server"
+msgstr "سرور SMTP"
+
+#: includes/Mail/Smtp.php
+msgid "Port"
+msgstr "پورت"
+
+#: includes/Mail/Smtp.php
+msgid "Encryption"
+msgstr "رمزنگاری"
+
+#: includes/Mail/Smtp.php
+msgid "None (25)"
+msgstr "بدون رمزنگاری (25)"
+
+#: includes/Mail/Smtp.php
+msgid "Username"
+msgstr "نام کاربری"
+
+#: includes/Mail/Smtp.php
+msgid "Usually the full e-mail address."
+msgstr "معمولاً همان نشانی کامل ایمیل."
+
+#: includes/Mail/Smtp.php
+msgid "Password"
+msgstr "رمز عبور"
+
+#: includes/Mail/Smtp.php
+msgid "Sender address"
+msgstr "نشانی فرستنده"
+
+#: includes/Mail/Smtp.php
+msgid "Leave empty to use the username. Most servers only accept the address of the mailbox you log in with."
+msgstr "خالی بگذارید تا نام کاربری استفاده شود. بیشتر سرورها فقط نشانی همان صندوقی را می‌پذیرند که با آن وارد می‌شوید."
+
+#: includes/Mail/Smtp.php
+msgid "Sender name"
+msgstr "نام فرستنده"
+
+#: includes/Mail/Smtp.php
+msgid "Test"
+msgstr "آزمایش"
+
+#: includes/Mail/Smtp.php
+msgid "Saved — leave empty to keep it"
+msgstr "ذخیره شده — برای نگه‌داشتن، خالی بگذارید"
+
+#: includes/Mail/Smtp.php
+msgid "Send a test e-mail"
+msgstr "فرستادن ایمیل آزمایشی"
+
+#: includes/Mail/Smtp.php
+#, php-format
+msgid "Save the settings first. The message goes to %s."
+msgstr "اول تنظیمات را ذخیره کنید. پیام به %s فرستاده می‌شود."
+
+#: includes/Mail/Smtp.php
+msgid "Sorry, you are not allowed to do that."
+msgstr "متأسفانه اجازه این کار را ندارید."
+
+#: includes/Mail/Smtp.php
+msgid "Gadgetim test e-mail"
+msgstr "ایمیل آزمایشی گجتیم"
+
+#: includes/Mail/Smtp.php
+msgid "If you can read this, the site can send e-mail."
+msgstr "اگر این پیام را می‌خوانید، سایت می‌تواند ایمیل بفرستد."
+
+#: includes/Mail/Smtp.php
+msgid "The message could not be sent."
+msgstr "پیام فرستاده نشد."
+
+#: includes/Mail/Smtp.php
+msgid "PHP mail() is disabled on this server and SMTP is not switched on."
+msgstr "تابع mail() در PHP روی این سرور خاموش است و SMTP هم روشن نیست."
+
+#: includes/Mail/Smtp.php
+#, php-format
+msgid "Test e-mail sent to %s. Check the inbox (and the spam folder)."
+msgstr "ایمیل آزمایشی به %s فرستاده شد. صندوق ورودی (و پوشه هرزنامه) را ببینید."
+
+#: includes/Mail/Smtp.php
+msgid "The test e-mail was not sent:"
+msgstr "ایمیل آزمایشی فرستاده نشد:"
