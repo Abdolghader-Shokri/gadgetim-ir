@@ -16,11 +16,11 @@ use Gadgetim\Core\Support\Phone;
 use WP_Error;
 
 /**
- * Billing (and shipping): first name, last name, mobile (required, normalised to 09xxxxxxxxx),
- * e-mail (optional), province (IR states, names from the bundled JSON), city (text; the
- * checkout script turns it into a dependent select), address (textarea), postcode (10 digits).
- * Company, address line 2 and the country selector are removed; the country is fixed to IR
- * through a hidden input. Only woocommerce_checkout_fields is filtered, so the dashboard's
+ * Billing (and shipping), as the client asked (2026-11-08): full name in one input (stored in
+ * first_name), mobile (required, normalised to 09xxxxxxxxx), e-mail (optional), postcode
+ * (10 digits) and address (textarea, the city is written in it); the order notes field stays.
+ * Last name, province, city, company, address line 2 and the country selector are removed; the
+ * country is fixed to IR through a hidden input. Only woocommerce_checkout_fields is filtered, so the dashboard's
  * order screens and the account address form are untouched.
  */
 final class Fields {
@@ -102,7 +102,7 @@ final class Fields {
 	public static function address_set( array $set, string $type ): array {
 		$p = $type . '_';
 
-		unset( $set[ $p . 'company' ], $set[ $p . 'address_2' ] );
+		unset( $set[ $p . 'company' ], $set[ $p . 'address_2' ], $set[ $p . 'last_name' ], $set[ $p . 'state' ], $set[ $p . 'city' ] );
 
 		if ( isset( $set[ $p . 'country' ] ) ) {
 			$set[ $p . 'country' ] = [
@@ -117,16 +117,11 @@ final class Fields {
 
 		$defs = [
 			'first_name' => [
-				'label'    => __( 'First name', 'gadgetim-core' ),
-				'required' => true,
-				'class'    => [ 'form-row-first', 'gtm-field', 'gtm-field--name' ],
-				'priority' => 10,
-			],
-			'last_name'  => [
-				'label'    => __( 'Last name', 'gadgetim-core' ),
-				'required' => true,
-				'class'    => [ 'form-row-last', 'gtm-field', 'gtm-field--name' ],
-				'priority' => 20,
+				'label'             => __( 'Full name', 'gadgetim-core' ),
+				'required'          => true,
+				'class'             => [ 'form-row-wide', 'gtm-field', 'gtm-field--name' ],
+				'priority'          => 10,
+				'custom_attributes' => [ 'autocomplete' => 'name' ],
 			],
 			'phone'      => [
 				'type'              => 'tel',
@@ -135,7 +130,7 @@ final class Fields {
 				'required'          => true,
 				'class'             => [ 'form-row-wide', 'gtm-field', 'gtm-field--mobile' ],
 				'validate'          => [],
-				'priority'          => 30,
+				'priority'          => 20,
 				'custom_attributes' => [
 					'inputmode'       => 'tel',
 					'dir'             => 'ltr',
@@ -149,39 +144,11 @@ final class Fields {
 				'required'          => false,
 				'class'             => [ 'form-row-wide', 'gtm-field', 'gtm-field--email' ],
 				'validate'          => [ 'email' ],
-				'priority'          => 40,
+				'priority'          => 30,
 				'custom_attributes' => [
 					'inputmode' => 'email',
 					'dir'       => 'ltr',
 				],
-			],
-			'state'      => [
-				'type'          => 'state',
-				'label'         => __( 'Province', 'gadgetim-core' ),
-				'placeholder'   => __( 'Select a province', 'gadgetim-core' ),
-				'required'      => true,
-				'class'         => [ 'form-row-wide', 'address-field', 'update_totals_on_change', 'gtm-field', 'gtm-field--province' ],
-				'validate'      => [ 'state' ],
-				'priority'      => 50,
-				'country'       => self::COUNTRY,
-				'country_field' => $p . 'country',
-			],
-			'city'       => [
-				'type'              => 'text',
-				'label'             => __( 'City', 'gadgetim-core' ),
-				'required'          => true,
-				'class'             => [ 'form-row-wide', 'address-field', 'gtm-field', 'gtm-field--city' ],
-				'priority'          => 60,
-				'custom_attributes' => [ 'data-gtm-city' => $type ],
-			],
-			'address_1'  => [
-				'type'              => 'textarea',
-				'label'             => __( 'Address', 'gadgetim-core' ),
-				'placeholder'       => __( 'Street, alley, building number and unit', 'gadgetim-core' ),
-				'required'          => true,
-				'class'             => [ 'form-row-wide', 'address-field', 'gtm-field', 'gtm-field--address' ],
-				'priority'          => 70,
-				'custom_attributes' => [ 'rows' => '3' ],
 			],
 			'postcode'   => [
 				'type'              => 'text',
@@ -190,13 +157,22 @@ final class Fields {
 				'required'          => true,
 				'class'             => [ 'form-row-wide', 'address-field', 'gtm-field', 'gtm-field--postcode' ],
 				'validate'          => [],
-				'priority'          => 80,
+				'priority'          => 40,
 				'custom_attributes' => [
 					'inputmode'         => 'numeric',
 					'dir'               => 'ltr',
 					'maxlength'         => '10',
 					'data-gtm-postcode' => '1',
 				],
+			],
+			'address_1'  => [
+				'type'              => 'textarea',
+				'label'             => __( 'Address', 'gadgetim-core' ),
+				'placeholder'       => __( 'Province, city, street, alley, building number and unit', 'gadgetim-core' ),
+				'required'          => true,
+				'class'             => [ 'form-row-wide', 'address-field', 'gtm-field', 'gtm-field--address' ],
+				'priority'          => 50,
+				'custom_attributes' => [ 'rows' => '3' ],
 			],
 		];
 
@@ -270,7 +246,7 @@ final class Fields {
 			self::rewrite_post( $set . '_phone', [ self::class, 'normalize_mobile' ] );
 			self::rewrite_post( $set . '_postcode', [ self::class, 'normalize_postcode' ] );
 			self::rewrite_post( $set . '_email', [ self::class, 'normalize_email' ] );
-			foreach ( [ 'first_name', 'last_name', 'city', 'address_1' ] as $key ) {
+			foreach ( [ 'first_name', 'address_1' ] as $key ) {
 				self::rewrite_post( $set . '_' . $key, [ self::class, 'normalize_text' ] );
 			}
 		}
@@ -305,7 +281,7 @@ final class Fields {
 
 	/**
 	 * woocommerce_after_checkout_validation: mobile 09xxxxxxxxx, postcode 10 digits, province
-	 * from the list. Errors carry the field id so the theme can show them inline.
+	 * from the list when a province is posted (the field is no longer offered at checkout). Errors carry the field id so the theme can show them inline.
 	 *
 	 * @param array    $data   Posted data.
 	 * @param WP_Error $errors Errors.

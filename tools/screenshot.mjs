@@ -12,7 +12,8 @@
 // Devices: mobile (390x844 @2x, touch), tablet (820x1180 @2x), desktop (1440x900 @1).
 // Example:
 //   node tools/screenshot.mjs --out shots --full home-m=http://gadgetim.local/@mobile home-d=http://gadgetim.local/@desktop
-// Environment: GADGETIM_BROWSER overrides the browser path.
+// Environment: GADGETIM_BROWSER overrides the browser path; GADGETIM_BROWSER_ARGS adds browser flags
+// (space-separated), e.g. --host-resolver-rules="MAP gadgetim.local 127.0.0.1:10077" when Local's router is down.
 
 import { spawn } from 'node:child_process';
 import { mkdirSync, writeFileSync, existsSync, mkdtempSync, rmSync } from 'node:fs';
@@ -66,7 +67,8 @@ const profile = mkdtempSync(join(tmpdir(), 'gtm-shots-'));
 const port = 9300 + Math.floor(Math.random() * 500);
 const proc = spawn(browser, [
 	'--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check',
-	`--remote-debugging-port=${port}`, `--user-data-dir=${profile}`, 'about:blank',
+	`--remote-debugging-port=${port}`, `--user-data-dir=${profile}`,
+	...(process.env.GADGETIM_BROWSER_ARGS || '').split(/\s+(?=--)/).filter(Boolean), 'about:blank',
 ], { stdio: 'ignore' });
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

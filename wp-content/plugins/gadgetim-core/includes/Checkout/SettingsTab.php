@@ -14,8 +14,8 @@ use Gadgetim\Core\Settings\Capabilities;
 use Gadgetim\Core\Settings\Schema;
 
 /**
- * Settings paths: checkout.fields_enabled, checkout.city_select, checkout.gateways.{id},
- * checkout.order_keys.
+ * Settings paths: checkout.fields_enabled, checkout.city_select, checkout.warranty_enabled,
+ * checkout.gateways.{id}, checkout.order_keys.
  */
 final class SettingsTab {
 
@@ -43,13 +43,19 @@ final class SettingsTab {
 			[
 				self::SECTION_FIELDS   => [
 					'label'       => __( 'Checkout fields', 'gadgetim-core' ),
-					'description' => __( 'The Iranian field set: first and last name, mobile number (required, 09xx xxx xxxx, digits normalised), optional e-mail, province, city, address and a 10-digit postcode. Company, the second address line and the country selector are removed; the country is always Iran.', 'gadgetim-core' ),
+					'description' => __( 'The short Iranian field set: full name in one field, mobile number (required, 09xx xxx xxxx, digits normalised), optional e-mail, a 10-digit postcode, the address and the order notes. Last name, province, city, company, the second address line and the country selector are removed; the country is always Iran.', 'gadgetim-core' ),
 					'order'       => 10,
 					'fields'      => [
 						'checkout.fields_enabled' => [
 							'type'    => 'toggle',
 							'label'   => __( 'Use the Iranian checkout fields', 'gadgetim-core' ),
 							'default' => true,
+						],
+						'checkout.warranty_enabled' => [
+							'type'        => 'toggle',
+							'label'       => __( 'Ask for the warranty choice before the place-order button', 'gadgetim-core' ),
+							'description' => __( 'The shopper must choose "I want the warranty" or "I do not want the warranty" and tick that they have read the warranty and return terms. The choice is shown on the order, in the e-mails and in the dashboard.', 'gadgetim-core' ),
+							'default'     => true,
 						],
 						'checkout.city_select'    => [
 							'type'        => 'toggle',
