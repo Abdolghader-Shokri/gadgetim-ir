@@ -34,6 +34,7 @@ final class Module {
 	 */
 	public static function hook_woocommerce(): void {
 		Gateways::register_hooks();
+		OrderStatuses::register_hooks();
 		Fields::register_hooks();
 		CityScript::register_hooks();
 		ReturnUrls::register_hooks();
