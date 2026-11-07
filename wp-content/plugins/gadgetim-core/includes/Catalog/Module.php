@@ -24,6 +24,7 @@ final class Module {
 		Views::register();
 		Brands::register();
 		Lqip::register();
+		Redirects::register();
 		// Storefront features of the Aurora theme rebuild (each file owned by its own feature).
 		foreach ( [ Filters::class, HomeContent::class ] as $feature ) {
 			if ( class_exists( $feature ) ) {
