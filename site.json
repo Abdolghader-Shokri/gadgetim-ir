@@ -1,6 +1,6 @@
 {
   "platform": "WordPress + WooCommerce (classic theme gadgetim, plugin gadgetim-core)",
-  "upload": "Claude publishes through the shop owner's signed-in dashboard in Chrome (REST with the cookie nonce); the owner signs in at /eesa",
+  "upload": "Deliver a package: release/deploy/products-<date>.zip built with tools/build-product-drop.php; the owner uploads it with the host file manager into public_html/wp-content/gadgetim-drop/ and gadgetim-core (ImportDrop) creates or updates the products by SKU on the next dashboard visit or within an hour. Never publish through the browser.",
   "site_name": "گجتیم",
   "site_name_latin": "GADGETIM",
   "domain": "https://gadgetim.ir",
@@ -8,7 +8,11 @@
   "logo": "wordmark text + wp-content/themes/gadgetim/assets/img/favicon.svg",
   "favicon": "wp-content/themes/gadgetim/assets/img/favicon.svg",
   "support_phone": "07152855731",
-  "languages": ["fa", "en", "ar"],
+  "languages": [
+    "fa",
+    "en",
+    "ar"
+  ],
   "translation_meta": "_gtm_{title,slug,excerpt,content,subtitle,seo_title,seo_desc,specs,status}_{lang}",
   "currency": {
     "base": "AED",

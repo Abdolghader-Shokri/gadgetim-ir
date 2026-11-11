@@ -16,11 +16,12 @@ namespace Gadgetim\Core\Import;
 final class Module {
 
 	/**
-	 * Registers the admin tool and its AJAX handler. Nothing runs at load time.
+	 * Registers the admin tool, its AJAX handler and the product package drop folder (Drop).
 	 */
 	public static function register(): void {
 		if ( is_admin() ) {
 			Admin\ImportTool::register();
 		}
+		Drop::register();
 	}
 }
