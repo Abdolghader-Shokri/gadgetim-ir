@@ -12,7 +12,7 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * Gadgetim (Aurora): shipping options as selectable cards (name, cost or a «free» tag, a radio
+ * Gadgetim (Aurora): shipping options as selectable cards (name, cost or a «pay on delivery» tag, a radio
  * indicator; the native radio stays for keyboard and WooCommerce's JS). Two contexts, set with
  * gadgetim_ship_context(): 'table' (default — a <tr> for the cart totals) and 'list' (a block for
  * the checkout's shipping card, templates/commerce/checkout-shipping.php).
@@ -72,7 +72,7 @@ if ( $gadgetim_list ) {
 							<?php if ( '' !== $gadgetim_cost ) : ?>
 								<span class="ship__cost"><?php echo wp_kses_post( $gadgetim_cost ); ?></span>
 							<?php elseif ( $gadgetim_free && $gadgetim_name === $gadgetim_full ) : ?>
-								<span class="tag tag--success ship__free"><?php esc_html_e( 'Free', 'gadgetim' ); ?></span>
+								<span class="tag tag--warn ship__free"><?php esc_html_e( 'Pay on delivery', 'gadgetim' ); ?></span>
 							<?php endif; ?>
 						</label>
 						<?php do_action( 'woocommerce_after_shipping_rate', $method, $index ); ?>

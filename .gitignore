@@ -7,3 +7,7 @@
 tools/wp-cli/
 node_modules/
 *.log
+
+# Product listing inputs and outputs (large, not part of the repo)
+/mahsolat/
+/output/

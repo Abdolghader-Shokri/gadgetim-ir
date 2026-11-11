@@ -54,7 +54,7 @@ final class SettingsTab {
 						'checkout.warranty_enabled' => [
 							'type'        => 'toggle',
 							'label'       => __( 'Ask for the warranty choice before the place-order button', 'gadgetim-core' ),
-							'description' => __( 'The shopper must choose "I want the warranty" or "I do not want the warranty" and tick that they have read the warranty and return terms. The choice is shown on the order, in the e-mails and in the dashboard.', 'gadgetim-core' ),
+							'description' => __( 'The shopper must choose "I want the warranty" or "I do not want the warranty"; wanting it also requires ticking that they have read the warranty and return terms. The choice is shown on the order, in the e-mails and in the dashboard.', 'gadgetim-core' ),
 							'default'     => true,
 						],
 						'checkout.city_select'    => [

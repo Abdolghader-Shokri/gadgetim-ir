@@ -3491,3 +3491,16 @@ msgstr "اختيار فريق Gadgetim"
 msgctxt "story circle label, keep short"
 msgid "Offers"
 msgstr "العروض"
+
+#: inc/product.php
+msgid "Pay on delivery"
+msgstr "أجرة الشحن عند الاستلام"
+
+#: inc/product.php
+#, php-format
+msgid "%s. Shipping is paid on delivery: you pay the courier when the parcel reaches you."
+msgstr "%s. تُدفع أجرة الشحن عند الاستلام: تدفعها لمندوب الشحن عند وصول الطرد إليك."
+
+#: inc/product.php
+msgid "Orders are packed securely and sent to every city in Iran. Shipping is paid on delivery: you pay the courier when the parcel reaches you."
+msgstr "تُغلَّف الطلبات بأمان وتُرسل إلى جميع مدن إيران. تُدفع أجرة الشحن عند الاستلام: تدفعها لمندوب الشحن عند وصول الطرد إليك."

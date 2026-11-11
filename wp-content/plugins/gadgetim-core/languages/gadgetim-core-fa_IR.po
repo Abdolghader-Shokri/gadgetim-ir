@@ -2874,3 +2874,11 @@ msgstr "گارانتی:"
 #, php-format
 msgid "Warranty and return conditions accepted on %s"
 msgstr "شرایط گارانتی و مرجوعی در %s پذیرفته شد"
+
+#: includes/Checkout
+msgid "Pay on delivery"
+msgstr "پس‌کرایه"
+
+#: includes/Checkout
+msgid "The shopper must choose \"I want the warranty\" or \"I do not want the warranty\"; wanting it also requires ticking that they have read the warranty and return terms. The choice is shown on the order, in the e-mails and in the dashboard."
+msgstr "خریدار باید یکی از «گارانتی می‌خواهم» یا «گارانتی نمی‌خواهم» را انتخاب کند؛ برای انتخاب گارانتی باید تیک خواندن شرایط گارانتی و مرجوعی را هم بزند. انتخاب او در سفارش، ایمیل‌ها و پیشخوان نمایش داده می‌شود."

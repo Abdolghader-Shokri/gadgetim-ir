@@ -3387,3 +3387,16 @@ msgstr "دست‌چین تیم گجتیم"
 msgctxt "story circle label, keep short"
 msgid "Offers"
 msgstr "شگفت‌انگیزها"
+
+#: inc/product.php
+msgid "Pay on delivery"
+msgstr "پس‌کرایه"
+
+#: inc/product.php
+#, php-format
+msgid "%s. Shipping is paid on delivery: you pay the courier when the parcel reaches you."
+msgstr "%s. هزینه ارسال به‌صورت پس‌کرایه است و هنگام تحویل مرسوله به مأمور ارسال پرداخت می‌شود."
+
+#: inc/product.php
+msgid "Orders are packed securely and sent to every city in Iran. Shipping is paid on delivery: you pay the courier when the parcel reaches you."
+msgstr "سفارش‌ها با بسته‌بندی ایمن به همه شهرهای ایران ارسال می‌شوند. هزینه ارسال به‌صورت پس‌کرایه است و هنگام تحویل مرسوله به مأمور ارسال پرداخت می‌شود."

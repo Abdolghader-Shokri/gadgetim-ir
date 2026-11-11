@@ -2902,3 +2902,11 @@ msgstr "الضمان:"
 #, php-format
 msgid "Warranty and return conditions accepted on %s"
 msgstr "تمت الموافقة على شروط الضمان والإرجاع في %s"
+
+#: includes/Checkout
+msgid "Pay on delivery"
+msgstr "أجرة الشحن عند الاستلام"
+
+#: includes/Checkout
+msgid "The shopper must choose \"I want the warranty\" or \"I do not want the warranty\"; wanting it also requires ticking that they have read the warranty and return terms. The choice is shown on the order, in the e-mails and in the dashboard."
+msgstr "يجب على المشتري اختيار «أريد الضمان» أو «لا أريد الضمان»؛ ويتطلب اختيار الضمان أيضًا وضع علامة على قراءة شروط الضمان والإرجاع. يظهر اختياره في الطلب والرسائل ولوحة التحكم."
