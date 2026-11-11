@@ -66,6 +66,22 @@
 	color: #b5331d;
 }
 
+.gtm-currencies__scroll {
+	position: relative; /* contains the absolutely positioned screen-reader texts */
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+.gtm-currencies__table select,
+.gtm-currencies__table input[type="number"] {
+	width: auto;
+	max-width: 12em;
+}
+
+.gtm-currencies__pending .button-hero {
+	margin-block: 0.2rem 0.4rem;
+}
+
 .gtm-currencies__table th,
 .gtm-currencies__table td {
 	vertical-align: top;

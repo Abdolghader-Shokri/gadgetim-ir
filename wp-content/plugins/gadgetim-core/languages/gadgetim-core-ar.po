@@ -2947,3 +2947,13 @@ msgstr "أُضيف"
 #: includes/Import/Drop.php
 msgid "updated"
 msgstr "حُدّث"
+
+#: includes/Pricing/Admin/views/currencies-page.php
+#, php-format
+msgid "The new %1$s rate is saved but not applied: the prices of %2$s products still use the previous rate."
+msgstr "تم حفظ السعر الجديد لـ %1$s لكنه لم يُطبَّق بعد: ما زالت أسعار %2$s منتجًا تُحسب بالسعر السابق."
+
+#: includes/Pricing/Admin/views/currencies-page.php
+#, php-format
+msgid "Apply the %s rate to all products"
+msgstr "تطبيق سعر %s على جميع المنتجات"

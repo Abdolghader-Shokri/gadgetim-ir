@@ -2919,3 +2919,13 @@ msgstr "اضافه شد"
 #: includes/Import/Drop.php
 msgid "updated"
 msgstr "به‌روز شد"
+
+#: includes/Pricing/Admin/views/currencies-page.php
+#, php-format
+msgid "The new %1$s rate is saved but not applied: the prices of %2$s products still use the previous rate."
+msgstr "نرخ جدید %1$s ذخیره شده ولی هنوز اعمال نشده است: قیمت %2$s محصول هنوز با نرخ قبلی حساب می‌شود."
+
+#: includes/Pricing/Admin/views/currencies-page.php
+#, php-format
+msgid "Apply the %s rate to all products"
+msgstr "اعمال نرخ %s روی همه محصولات"

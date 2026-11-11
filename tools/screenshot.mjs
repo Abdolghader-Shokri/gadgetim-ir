@@ -5,6 +5,7 @@
 // Usage:
 //   node tools/screenshot.mjs --out <dir> [--scheme light|dark] [--motion reduce] [--full]
 //        [--slice <css px>] [--scale <0.1-1>] [--wait <ms>] [--eval "<page js>"] [--viewport]
+//        [--cookie "name=value; name2=value2"]   (set for each job URL before it loads, e.g. a Local admin session)
 //        <name>=<url>@<device> ...
 // --slice splits a full page into readable parts (name-01.png, name-02.png, ...).
 // --viewport captures exactly what is on screen at the current scroll position (after --eval), with
@@ -39,6 +40,7 @@ for (let i = 0; i < args.length; i++) {
 	else if (a === '--scale') opt.scale = Number(args[++i]) || 1;
 	else if (a === '--wait') opt.wait = Number(args[++i]) || 2500;
 	else if (a === '--eval') opt.eval = args[++i];
+	else if (a === '--cookie') opt.cookie = args[++i];
 	else if (a === '--viewport') opt.viewport = true;
 	else if (a.includes('=')) {
 		const [name, rest] = a.split(/=(.+)/);
@@ -131,6 +133,10 @@ for (const job of opt.jobs) {
 	await cdp.send('Emulation.setDeviceMetricsOverride', { width: d.width, height: d.height, deviceScaleFactor: d.deviceScaleFactor, mobile: d.mobile });
 	await cdp.send('Emulation.setTouchEmulationEnabled', { enabled: d.mobile, maxTouchPoints: d.mobile ? 5 : 1 });
 	await cdp.send('Emulation.setUserAgentOverride', { userAgent: d.mobile ? MOBILE_UA : '' });
+	for (const pair of (opt.cookie || '').split(/;\s*/).filter(Boolean)) {
+		const i = pair.indexOf('=');
+		await cdp.send('Network.setCookie', { name: pair.slice(0, i), value: pair.slice(i + 1), url: job.url });
+	}
 	const loaded = cdp.once('Page.loadEventFired');
 	await cdp.send('Page.navigate', { url: job.url });
 	await Promise.race([loaded, sleep(20000)]);
