@@ -1,0 +1,28 @@
+{
+  "platform": "WordPress + WooCommerce (classic theme gadgetim, plugin gadgetim-core)",
+  "upload": "Claude publishes through the shop owner's signed-in dashboard in Chrome (REST with the cookie nonce); the owner signs in at /eesa",
+  "site_name": "گجتیم",
+  "site_name_latin": "GADGETIM",
+  "domain": "https://gadgetim.ir",
+  "login_path": "/eesa",
+  "logo": "wordmark text + wp-content/themes/gadgetim/assets/img/favicon.svg",
+  "favicon": "wp-content/themes/gadgetim/assets/img/favicon.svg",
+  "support_phone": "07152855731",
+  "languages": ["fa", "en", "ar"],
+  "translation_meta": "_gtm_{title,slug,excerpt,content,subtitle,seo_title,seo_desc,specs,status}_{lang}",
+  "currency": {
+    "base": "AED",
+    "shown_in": "IRT (Toman), materialised by gadgetim-core from the AED base price",
+    "rest_field": "gadgetim_pricing { currency, base_regular, base_sale }"
+  },
+  "default_stock": "in stock without quantity management, unless the product's text file gives a quantity",
+  "shipping": "Tipax, Dakapost, Post Pishtaz; pay on delivery (پس‌کرایه), no free shipping",
+  "warranty": "authenticity guarantee and 7-day condition check (گارانتی اصالت کالا و تست سلامت ۷ روزه)",
+  "image_format": {
+    "size": "800x800",
+    "background": "white",
+    "format": "webp q85",
+    "branding": "bottom band: logo + favicon on one side, support phone on the other; very faint GADGETIM in the middle. Composited locally, not by Gemini (it garbles text and digits)"
+  },
+  "input_layout": "mahsolat/<name>/<name>/ folders (not zips): images, 1.* is the featured image, one .txt"
+}
