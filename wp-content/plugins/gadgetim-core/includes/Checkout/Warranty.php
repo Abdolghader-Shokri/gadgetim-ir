@@ -4,8 +4,8 @@
  *
  * Right before the place-order button the shopper must pick one of two options — "I want the
  * warranty" (the product is unboxed and stamped with the warranty seal) or "I do not want the
- * warranty" — and tick that they have read the warranty and return terms, which are shown in
- * bold red and blink so they are not missed. Both are validated on the server. The choice is
+ * warranty". The first option holds the warranty and return terms, in bold blinking red, and a
+ * consent box that is required only with that option. Both are validated on the server. The choice is
  * saved on the order (meta _gtm_warranty = yes|no, _gtm_warranty_terms = time of consent) and
  * shown on the thank-you page, in the customer's account, in the order e-mails and on the
  * dashboard order screen.
@@ -104,25 +104,36 @@ final class Warranty {
 		echo '<div class="gtm-warranty__opts" role="radiogroup" aria-required="true">';
 		foreach ( self::labels() as $value => [ $title, $note ] ) {
 			$id = self::FIELD . '_' . $value;
-			echo '<label class="gtm-warranty__o" for="' . esc_attr( $id ) . '">';
+			echo '<div class="gtm-warranty__o">';
+			echo '<label class="gtm-warranty__l" for="' . esc_attr( $id ) . '">';
 			echo '<input type="radio" class="input-radio" name="' . esc_attr( self::FIELD ) . '" id="' . esc_attr( $id ) . '" value="' . esc_attr( $value ) . '"' . checked( $choice, $value, false ) . ' />';
 			echo '<span class="gtm-warranty__radio" aria-hidden="true"></span>';
 			echo '<span class="gtm-warranty__txt"><strong>' . esc_html( $title ) . '</strong>' . ( '' !== $note ? '<small>' . esc_html( $note ) . '</small>' : '' ) . '</span>';
 			echo '</label>';
+			if ( 'yes' === $value ) {
+				self::render_terms( $agreed );
+			}
+			echo '</div>';
 		}
 		echo '</div>';
+		echo '</fieldset>';
+	}
 
+	/**
+	 * The blinking terms and the consent box, inside the "I want the warranty" option. Ticking
+	 * the box also selects that option.
+	 */
+	private static function render_terms( bool $agreed ): void {
 		echo '<div class="gtm-warranty__terms" role="note">';
 		echo '<p class="gtm-blink">' . esc_html__( 'The warranty covers the authenticity of the product, and the right to return it is kept for the customer for 7 days only.', 'gadgetim-core' ) . '</p>';
 		echo '<p class="gtm-blink">' . esc_html__( 'Return conditions: a return is accepted in only two cases — the product is not original, or the product is not in sound condition.', 'gadgetim-core' ) . '</p>';
 		echo '</div>';
 
-		echo '<p class="form-row gtm-warranty__agree validate-required" id="' . esc_attr( self::TERMS_FIELD ) . '_field">';
+		echo '<p class="form-row gtm-warranty__agree" id="' . esc_attr( self::TERMS_FIELD ) . '_field">';
 		echo '<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox" for="' . esc_attr( self::TERMS_FIELD ) . '">';
-		echo '<input type="checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="' . esc_attr( self::TERMS_FIELD ) . '" id="' . esc_attr( self::TERMS_FIELD ) . '" value="1"' . checked( $agreed, true, false ) . ' />';
-		echo '<span>' . esc_html__( 'I have read the warranty and return conditions and I accept them', 'gadgetim-core' ) . '</span>&nbsp;<abbr class="required" title="' . esc_attr__( 'required', 'gadgetim-core' ) . '">*</abbr>';
+		echo '<input type="checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="' . esc_attr( self::TERMS_FIELD ) . '" id="' . esc_attr( self::TERMS_FIELD ) . '" value="1"' . checked( $agreed, true, false ) . ' onchange="if(this.checked){document.getElementById(\'' . esc_attr( self::FIELD ) . '_yes\').checked=true;}" />';
+		echo '<span>' . esc_html__( 'I have read the warranty and return conditions and I accept them', 'gadgetim-core' ) . '</span>';
 		echo '</label></p>';
-		echo '</fieldset>';
 	}
 
 	/**
@@ -160,7 +171,7 @@ final class Warranty {
 		if ( '' === $choice ) {
 			$errors->add( self::FIELD . '_required', __( 'Please choose whether you want the warranty.', 'gadgetim-core' ), [ 'id' => self::FIELD . '_yes' ] );
 		}
-		if ( ! $agreed ) {
+		if ( 'yes' === $choice && ! $agreed ) {
 			$errors->add( self::TERMS_FIELD . '_required', __( 'Please read the warranty and return conditions and tick the box to accept them.', 'gadgetim-core' ), [ 'id' => self::TERMS_FIELD ] );
 		}
 	}
@@ -192,7 +203,7 @@ final class Warranty {
 		if ( '' !== $choice ) {
 			$order->update_meta_data( self::META, $choice );
 		}
-		if ( $agreed ) {
+		if ( 'yes' === $choice && $agreed ) {
 			$order->update_meta_data( self::TERMS_META, gmdate( 'Y-m-d H:i:s' ) );
 		}
 	}

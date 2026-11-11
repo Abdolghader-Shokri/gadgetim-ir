@@ -5,8 +5,8 @@
  * Shipping zones live in the database, and the live site is the master copy, so the methods are
  * created there by a one-time step on the first dashboard page load after the plugin update: an
  * "Iran" zone (or the zone that already covers Iran) gets three Flat rate methods with these
- * titles and cost 0. Prices are then set by the shop owner under WooCommerce → Settings →
- * Shipping. Nothing that already exists is changed or removed, and the step never runs twice
+ * titles and cost 0, which the shop shows as "pay on delivery" (the recipient pays the courier).
+ * A price set under WooCommerce → Settings → Shipping would be charged instead. Nothing that already exists is changed or removed, and the step never runs twice
  * (option gadgetim_shipping_setup), so a method the owner deletes stays deleted.
  *
  * The checkout keeps one address (no "ship to a different address"), so the shipping
@@ -56,6 +56,8 @@ final class ShippingSetup {
 	public static function register_hooks(): void {
 		add_action( 'admin_init', [ self::class, 'maybe_setup' ], 30 );
 		add_filter( 'woocommerce_shipping_rate_label', [ self::class, 'translate_label' ], 20 );
+		add_filter( 'woocommerce_cart_shipping_total', [ self::class, 'cart_total_label' ], 20, 2 );
+		add_filter( 'woocommerce_order_shipping_to_display', [ self::class, 'order_label' ], 20, 2 );
 	}
 
 	/**
@@ -135,6 +137,40 @@ final class ShippingSetup {
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * The shop has no free shipping: a method without a price means the recipient pays the
+	 * courier on delivery (client, 2026-11-11).
+	 */
+	public static function collect_label(): string {
+		return __( 'Pay on delivery', 'gadgetim-core' );
+	}
+
+	/**
+	 * woocommerce_cart_shipping_total: replaces WooCommerce's "Free!" in the totals.
+	 *
+	 * @param string $total Rendered total.
+	 * @param mixed  $cart  WC_Cart.
+	 */
+	public static function cart_total_label( $total, $cart = null ) {
+		if ( is_object( $cart ) && method_exists( $cart, 'get_shipping_total' ) && 0 >= (float) $cart->get_shipping_total() ) {
+			return esc_html( self::collect_label() );
+		}
+		return $total;
+	}
+
+	/**
+	 * woocommerce_order_shipping_to_display: "Tipax — Pay on delivery" on order views and e-mails.
+	 *
+	 * @param string $shipping Rendered shipping.
+	 * @param mixed  $order    WC_Order.
+	 */
+	public static function order_label( $shipping, $order = null ) {
+		if ( ! is_object( $order ) || ! method_exists( $order, 'get_shipping_method' ) || '' === (string) $order->get_shipping_method() || 0 < (float) $order->get_shipping_total() ) {
+			return $shipping;
+		}
+		return $shipping . ' — ' . esc_html( self::collect_label() );
 	}
 
 	/**

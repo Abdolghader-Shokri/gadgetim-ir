@@ -355,7 +355,7 @@ function gadgetim_pdp_faq( WC_Product $product ): array {
 		[
 			'q' => __( 'How is my order delivered?', 'gadgetim' ),
 			/* translators: %s: delivery promise from the settings, e.g. "Delivery across Iran" */
-			'a' => sprintf( __( '%s. The shipping cost and the delivery time for your city are shown at checkout, before you pay.', 'gadgetim' ), $delivery ),
+			'a' => sprintf( __( '%s. Shipping is paid on delivery: you pay the courier when the parcel reaches you.', 'gadgetim' ), $delivery ),
 		],
 		[
 			'q' => __( 'Can I return it?', 'gadgetim' ),
@@ -456,7 +456,7 @@ function gadgetim_pdp_perks_data(): array {
 			'icon'  => 'truck',
 			'tone'  => 'cool',
 			'title' => gadgetim_t( 'trust.delivery', __( 'Delivery across Iran', 'gadgetim' ) ),
-			'body'  => gadgetim_t( 'theme.pdp_delivery', __( 'Orders are packed securely and sent to every city in Iran. The shipping cost and delivery time for your address are shown at checkout, before you pay.', 'gadgetim' ) ),
+			'body'  => gadgetim_t( 'theme.pdp_delivery', __( 'Orders are packed securely and sent to every city in Iran. Shipping is paid on delivery: you pay the courier when the parcel reaches you.', 'gadgetim' ) ),
 		],
 		'return' => [
 			'icon'  => 'return',
