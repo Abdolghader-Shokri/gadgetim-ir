@@ -24,6 +24,10 @@ final class Module {
 	 * Registers hooks only; WooCommerce is not loaded yet and nothing is translated here.
 	 */
 	public static function register(): void {
+		if ( Handover::active() ) {
+			self::register_handover();
+			return;
+		}
 		add_action( 'init', [ self::class, 'init' ], 5 );
 		add_action( 'gadgetim_core_activate', [ self::class, 'activate' ] );
 		add_action( 'gadgetim_core_upgrade', [ self::class, 'activate' ], 10, 0 );
@@ -79,6 +83,21 @@ final class Module {
 		add_action( 'admin_post_' . Admin\CurrenciesPage::SAVE_ACTION, [ Admin\CurrenciesPage::class, 'handle_save' ] );
 		add_action( 'admin_post_' . Admin\CurrenciesPage::APPLY_ACTION, [ Admin\CurrenciesPage::class, 'handle_apply' ] );
 		add_action( 'admin_post_' . Admin\CurrenciesPage::DELETE_ACTION, [ Admin\CurrenciesPage::class, 'handle_delete' ] );
+	}
+
+	/**
+	 * The currency pricing plugin (currency-rates-scraper) is active: Gadgetim keeps only its digit
+	 * formatting and copies the currency prices into that plugin (Handover). No rate entry, product
+	 * currency fields, materialiser, guard or reprice job run, so the two never fight over prices.
+	 */
+	private static function register_handover(): void {
+		add_filter( 'woocommerce_get_price_html', [ Display::class, 'filter_price_html' ], 20, 2 );
+		foreach ( Display::AMOUNT_FILTERS as $amount_filter ) {
+			add_filter( $amount_filter, [ Display::class, 'filter_amount_html' ], 20, 1 );
+		}
+		add_action( 'admin_init', [ Guard::class, 'unschedule_cron' ] );
+		add_action( 'gadgetim_core_deactivate', [ self::class, 'deactivate' ] );
+		Handover::register();
 	}
 
 	/**

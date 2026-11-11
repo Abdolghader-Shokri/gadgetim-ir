@@ -2957,3 +2957,13 @@ msgstr "تم حفظ السعر الجديد لـ %1$s لكنه لم يُطبَّ
 #, php-format
 msgid "Apply the %s rate to all products"
 msgstr "تطبيق سعر %s على جميع المنتجات"
+
+#: includes/Pricing/Handover.php
+#, php-format
+msgid "Gadgetim: the currency prices of %1$s products were moved to the currency pricing plugin (%2$s). Their Toman prices now follow its live rate."
+msgstr "Gadgetim: نُقلت الأسعار بالعملة لـ %1$s منتجًا إلى إضافة التسعير بالعملات (%2$s). تتبع أسعارها بالتومان الآن السعر المباشر لتلك الإضافة."
+
+#: includes/Pricing/Handover.php
+#, php-format
+msgid "Gadgetim: waiting for the currency pricing plugin to receive its first rates before the currency prices of these products are moved to it: %s. Activate its license; the move then happens on its own."
+msgstr "Gadgetim: بانتظار أن تتلقى إضافة التسعير بالعملات أول أسعارها لنقل الأسعار بالعملة لهذه المنتجات إليها: %s. فعّل ترخيص الإضافة؛ وسيتم النقل تلقائيًا بعد ذلك."
