@@ -47,6 +47,12 @@ final class Reprice {
 	private const STALE_AFTER = 10 * MINUTE_IN_SECONDS;
 
 	/**
+	 * A running job whose last batch is older than this while the progress bar is open is driven by
+	 * the progress requests themselves (hosts where Action Scheduler's background runner never fires).
+	 */
+	private const DRIVE_AFTER = 45;
+
+	/**
 	 * Applies the current rate of a currency to every product priced in it.
 	 *
 	 * @param string $code Currency code.
@@ -230,11 +236,33 @@ final class Reprice {
 		}
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- check_ajax_referer() above.
 		$job      = isset( $_GET['job'] ) ? sanitize_key( wp_unslash( (string) $_GET['job'] ) ) : '';
+		if ( '' !== $job ) {
+			self::drive_if_stalled( $job );
+		}
 		$progress = '' !== $job ? self::progress( $job ) : null;
 		if ( null === $progress ) {
 			wp_send_json_error( [ 'message' => __( 'Unknown or expired job.', 'gadgetim-core' ) ], 404 );
 		}
 		wp_send_json_success( $progress );
+	}
+
+	/**
+	 * Runs the next batch inside the progress request when the background runner has not touched
+	 * the job for DRIVE_AFTER seconds; its queued actions are dropped so no batch runs twice.
+	 */
+	private static function drive_if_stalled( string $job ): void {
+		$state = self::state( $job );
+		if ( null === $state || time() - (int) $state['beat'] < self::DRIVE_AFTER ) {
+			return;
+		}
+		if ( function_exists( 'as_unschedule_all_actions' ) ) {
+			as_unschedule_all_actions( self::HOOK_BATCH, null, self::GROUP );
+			as_unschedule_all_actions( self::HOOK_FINISH, null, self::GROUP );
+		}
+		$state = self::run_batch( $job, (int) $state['done'], false );
+		if ( null !== $state && $state['done'] >= $state['total'] ) {
+			self::finish( $job );
+		}
 	}
 
 	/**

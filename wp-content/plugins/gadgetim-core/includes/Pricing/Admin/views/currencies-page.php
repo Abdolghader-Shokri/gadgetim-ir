@@ -108,10 +108,44 @@ $gtm_user_name = static function ( int $user_id ): string {
 		</div>
 	<?php endif; ?>
 
+	<?php
+	// A saved rate that is not applied yet: the call to action sits above the table, where it is
+	// always visible (the table's own "Apply rates" column can fall outside narrow screens).
+	foreach ( $gtm_currencies as $gtm_code => $gtm_cur ) :
+		$gtm_count = (int) ( $gtm_counts[ $gtm_code ] ?? 0 );
+		if ( empty( $gtm_cur['enabled'] ) || 0 === $gtm_count || ! Currencies::has_unapplied_change( $gtm_code ) || ( is_array( $gtm_progress ) && ! $gtm_progress['finished'] ) ) {
+			continue;
+		}
+		?>
+		<div class="notice notice-warning inline gtm-currencies__pending">
+			<p>
+				<strong>
+					<?php
+					printf(
+						/* translators: 1: currency code, 2: number of products */
+						esc_html__( 'The new %1$s rate is saved but not applied: the prices of %2$s products still use the previous rate.', 'gadgetim-core' ),
+						'<code>' . esc_html( $gtm_code ) . '</code>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped.
+						esc_html( number_format_i18n( $gtm_count ) )
+					);
+					?>
+				</strong>
+			</p>
+			<p>
+				<button type="submit" form="gtm-apply-<?php echo esc_attr( strtolower( $gtm_code ) ); ?>" class="button button-primary button-hero gtm-currencies__apply" data-code="<?php echo esc_attr( $gtm_code ); ?>" data-count="<?php echo esc_attr( (string) $gtm_count ); ?>">
+					<?php
+					/* translators: %s: currency code */
+					echo esc_html( sprintf( __( 'Apply the %s rate to all products', 'gadgetim-core' ), $gtm_code ) );
+					?>
+				</button>
+			</p>
+		</div>
+	<?php endforeach; ?>
+
 	<form method="post" action="<?php echo esc_url( $gtm_admin_post ); ?>" id="gtm-currencies-form" class="gtm-currencies__form">
 		<input type="hidden" name="action" value="<?php echo esc_attr( CurrenciesPage::SAVE_ACTION ); ?>">
 		<?php wp_nonce_field( CurrenciesPage::SAVE_ACTION ); ?>
 
+		<div class="gtm-currencies__scroll">
 		<table class="widefat striped gtm-currencies__table">
 			<thead>
 				<tr>
@@ -213,6 +247,7 @@ $gtm_user_name = static function ( int $user_id ): string {
 				</tr>
 			</tfoot>
 		</table>
+		</div>
 
 		<p class="submit gtm-currencies__submit">
 			<button type="submit" class="button button-primary"><?php esc_html_e( 'Save currencies', 'gadgetim-core' ); ?></button>
