@@ -2882,3 +2882,40 @@ msgstr "پس‌کرایه"
 #: includes/Checkout
 msgid "The shopper must choose \"I want the warranty\" or \"I do not want the warranty\"; wanting it also requires ticking that they have read the warranty and return terms. The choice is shown on the order, in the e-mails and in the dashboard."
 msgstr "خریدار باید یکی از «گارانتی می‌خواهم» یا «گارانتی نمی‌خواهم» را انتخاب کند؛ برای انتخاب گارانتی باید تیک خواندن شرایط گارانتی و مرجوعی را هم بزند. انتخاب او در سفارش، ایمیل‌ها و پیشخوان نمایش داده می‌شود."
+
+#: includes/Import/Drop.php
+msgid "manifest.json is missing or not a version 1 product package."
+msgstr "فایل manifest.json نیست یا بسته محصول نسخه ۱ نیست."
+
+#: includes/Import/Drop.php
+msgid "PHP zip support is not available on this server: extract the zip into its own folder inside gadgetim-drop instead."
+msgstr "پشتیبانی zip در PHP این سرور فعال نیست؛ فایل zip را در یک پوشه جدا داخل gadgetim-drop از حالت فشرده خارج کنید."
+
+#: includes/Import/Drop.php
+msgid "The zip file could not be opened."
+msgstr "فایل zip باز نشد."
+
+#: includes/Import/Drop.php
+msgid "a product needs a SKU and a Persian title."
+msgstr "هر محصول باید شناسه (SKU) و عنوان فارسی داشته باشد."
+
+#: includes/Import/Drop.php
+msgid "the existing product with this SKU could not be loaded."
+msgstr "محصول موجود با این شناسه بارگذاری نشد."
+
+#: includes/Import/Drop.php
+msgid "WooCommerce did not save the product."
+msgstr "ووکامرس محصول را ذخیره نکرد."
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "Product package %s was imported:"
+msgstr "بسته محصول %s وارد سایت شد:"
+
+#: includes/Import/Drop.php
+msgid "added"
+msgstr "اضافه شد"
+
+#: includes/Import/Drop.php
+msgid "updated"
+msgstr "به‌روز شد"

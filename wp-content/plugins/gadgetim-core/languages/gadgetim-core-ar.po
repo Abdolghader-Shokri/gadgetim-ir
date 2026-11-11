@@ -2910,3 +2910,40 @@ msgstr "أجرة الشحن عند الاستلام"
 #: includes/Checkout
 msgid "The shopper must choose \"I want the warranty\" or \"I do not want the warranty\"; wanting it also requires ticking that they have read the warranty and return terms. The choice is shown on the order, in the e-mails and in the dashboard."
 msgstr "يجب على المشتري اختيار «أريد الضمان» أو «لا أريد الضمان»؛ ويتطلب اختيار الضمان أيضًا وضع علامة على قراءة شروط الضمان والإرجاع. يظهر اختياره في الطلب والرسائل ولوحة التحكم."
+
+#: includes/Import/Drop.php
+msgid "manifest.json is missing or not a version 1 product package."
+msgstr "ملف manifest.json غير موجود أو ليس حزمة منتجات من الإصدار 1."
+
+#: includes/Import/Drop.php
+msgid "PHP zip support is not available on this server: extract the zip into its own folder inside gadgetim-drop instead."
+msgstr "دعم zip في PHP غير متاح على هذا الخادم؛ فك ضغط الملف في مجلد مستقل داخل gadgetim-drop."
+
+#: includes/Import/Drop.php
+msgid "The zip file could not be opened."
+msgstr "تعذّر فتح ملف zip."
+
+#: includes/Import/Drop.php
+msgid "a product needs a SKU and a Persian title."
+msgstr "يحتاج كل منتج إلى رمز SKU وعنوان فارسي."
+
+#: includes/Import/Drop.php
+msgid "the existing product with this SKU could not be loaded."
+msgstr "تعذّر تحميل المنتج الموجود بهذا الرمز."
+
+#: includes/Import/Drop.php
+msgid "WooCommerce did not save the product."
+msgstr "لم يحفظ WooCommerce المنتج."
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "Product package %s was imported:"
+msgstr "تم استيراد حزمة المنتجات %s:"
+
+#: includes/Import/Drop.php
+msgid "added"
+msgstr "أُضيف"
+
+#: includes/Import/Drop.php
+msgid "updated"
+msgstr "حُدّث"
