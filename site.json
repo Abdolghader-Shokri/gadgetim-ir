@@ -16,7 +16,7 @@
   "translation_meta": "_gtm_{title,slug,excerpt,content,subtitle,seo_title,seo_desc,specs,status}_{lang}",
   "currency": {
     "base": "AED",
-    "shown_in": "IRT (Toman), materialised by gadgetim-core from the AED base price",
+    "shown_in": "IRT (Toman), computed by the Currency Pricing for WooCommerce plugin (currency-rates-scraper) from its live rate; gadgetim-core PricingHandover copies the AED base into _crs_* fields",
     "rest_field": "gadgetim_pricing { currency, base_regular, base_sale }"
   },
   "default_stock": "in stock without quantity management, unless the product's text file gives a quantity",
