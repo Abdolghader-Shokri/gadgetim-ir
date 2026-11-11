@@ -25,6 +25,7 @@ use Gadgetim\Core\Catalog\Brands;
 use Gadgetim\Core\Catalog\ProductExtras;
 use Gadgetim\Core\I18n\PostTranslations;
 use Gadgetim\Core\I18n\Slugs;
+use Gadgetim\Core\Pricing\Handover;
 use WC_Product;
 use WC_Product_Simple;
 use ZipArchive;
@@ -367,6 +368,13 @@ final class Drop {
 		$product->update_meta_data( '_gtm_price_currency', $currency );
 		$product->update_meta_data( '_gtm_base_regular_price', $regular );
 		$product->update_meta_data( '_gtm_base_sale_price', $sale );
+
+		// With the currency pricing plugin active, its fields carry the price (Pricing\Handover).
+		if ( Handover::active() && Handover::apply_to_product( $product, $currency, $regular, $sale ) ) {
+			if ( class_exists( 'CRS_Product_Pricing' ) && method_exists( \CRS_Product_Pricing::instance(), 'apply_stored_prices' ) ) {
+				\CRS_Product_Pricing::instance()->apply_stored_prices( $product );
+			}
+		}
 	}
 
 	/**

@@ -320,6 +320,9 @@ final class Display {
 	 * "≈ AED 30" hint for a currency product ('' for fixed-Toman products).
 	 */
 	public static function base_hint( WC_Product $product, string $lang, bool $on_sale = false ): string {
+		if ( Handover::active() ) {
+			return ''; // The currency pricing plugin owns rates now; Gadgetim's stored rate would be stale.
+		}
 		$code = Meta::currency( $product );
 		if ( '' === $code ) {
 			return '';

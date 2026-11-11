@@ -2929,3 +2929,13 @@ msgstr "نرخ جدید %1$s ذخیره شده ولی هنوز اعمال نشد
 #, php-format
 msgid "Apply the %s rate to all products"
 msgstr "اعمال نرخ %s روی همه محصولات"
+
+#: includes/Pricing/Handover.php
+#, php-format
+msgid "Gadgetim: the currency prices of %1$s products were moved to the currency pricing plugin (%2$s). Their Toman prices now follow its live rate."
+msgstr "گجتیم: قیمت ارزی %1$s محصول به افزونه قیمت‌گذاری ارزی منتقل شد (%2$s). قیمت تومانی آن‌ها از این به بعد با نرخ لحظه‌ای همان افزونه حساب می‌شود."
+
+#: includes/Pricing/Handover.php
+#, php-format
+msgid "Gadgetim: waiting for the currency pricing plugin to receive its first rates before the currency prices of these products are moved to it: %s. Activate its license; the move then happens on its own."
+msgstr "گجتیم: منتظر است افزونه قیمت‌گذاری ارزی اولین نرخ‌ها را دریافت کند تا قیمت ارزی این محصولات به آن منتقل شود: %s. لایسنس افزونه را فعال کنید؛ انتقال بعد از آن خودکار انجام می‌شود."
