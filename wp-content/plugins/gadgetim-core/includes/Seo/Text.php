@@ -70,7 +70,10 @@ final class Text {
 		if ( false !== $space && $space > (int) ( $max / 2 ) ) {
 			$cut = mb_substr( $cut, 0, $space, 'UTF-8' );
 		}
-		return rtrim( $cut, " \t,،;؛:-–—" ) . '…';
+		// Trim trailing separators by character, not by byte: rtrim() with multibyte characters in its
+		// list strips single bytes, cut «ی» (DB 8C) in half and left invalid UTF-8, which esc_attr()
+		// prints as an empty description (16 of 375 texts on 2026-11-12).
+		return (string) preg_replace( '/[\s,;:\-\x{060C}\x{061B}\x{2013}\x{2014}]+$/u', '', $cut ) . '…';
 	}
 
 	/**
