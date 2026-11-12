@@ -34,7 +34,7 @@ $gadgetim_best     = gadgetim_home_core() ? Gadgetim\Core\Catalog\HomeContent::m
 foreach ( $gadgetim_products as $gadgetim_p ) {
 	$gadgetim_best = max( $gadgetim_best, gadgetim_product_discount( $gadgetim_p ) );
 }
-$gadgetim_more  = add_query_arg( 'on_sale', '1', gadgetim_shop_url() );
+$gadgetim_more  = add_query_arg( 'sale', '1', gadgetim_shop_url() );
 $gadgetim_spark = '<path d="M12 1c1 7 4 10 11 11-7 1-10 4-11 11-1-7-4-10-11-11 7-1 10-4 11-11Z"/>';
 // Animated flame after the title (fx.css flickers the outer and inner tongues separately).
 $gadgetim_flame = '<svg class="offers__flame" viewBox="0 0 24 32" aria-hidden="true" focusable="false"><defs>'

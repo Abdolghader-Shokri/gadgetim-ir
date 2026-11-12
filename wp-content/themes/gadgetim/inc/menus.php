@@ -618,7 +618,7 @@ function gadgetim_nav_links(): array {
 		if ( ! gadgetim_contact_mode() ) {
 			$items[] = [
 				'label'   => __( 'Amazing offers', 'gadgetim' ),
-				'url'     => add_query_arg( 'on_sale', '1', $shop ),
+				'url'     => add_query_arg( 'sale', '1', $shop ),
 				'current' => false,
 				'icon'    => 'flame',
 				'hot'     => true,
@@ -730,7 +730,7 @@ function gadgetim_footer_about_links(): array {
 	if ( ! gadgetim_contact_mode() ) {
 		$out[] = [
 			'label' => __( 'Amazing offers', 'gadgetim' ),
-			'url'   => add_query_arg( 'on_sale', '1', gadgetim_shop_url() ),
+			'url'   => add_query_arg( 'sale', '1', gadgetim_shop_url() ),
 		];
 	}
 	$out[] = [
@@ -789,7 +789,7 @@ function gadgetim_nav_link_icon( array $link ): string {
 	if ( in_array( $orderby, [ 'popularity', 'rating' ], true ) ) {
 		return 'trend';
 	}
-	if ( ! empty( $query['on_sale'] ) || 'discount' === $orderby ) {
+	if ( ! empty( $query['sale'] ) || ! empty( $query['on_sale'] ) || 'discount' === $orderby ) {
 		return 'flame';
 	}
 	if ( '' !== $url && untrailingslashit( (string) strtok( $url, '?' ) ) === untrailingslashit( gadgetim_shop_url() ) ) {

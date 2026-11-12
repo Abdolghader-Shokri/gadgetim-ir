@@ -1011,7 +1011,7 @@ final class Filters {
 		}
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only parameters.
 		$get = wp_unslash( $_GET );
-		if ( ! array_intersect( array_keys( $get ), array_merge( self::PARAMS, [ 'orderby' ] ) ) ) {
+		if ( ! array_intersect( array_keys( $get ), array_merge( self::PARAMS, [ 'orderby', 'on_sale' ] ) ) ) {
 			return;
 		}
 		$clean = self::clean_params( $get );
@@ -1050,6 +1050,14 @@ final class Filters {
 					} else {
 						$dirty = true;
 					}
+					break;
+				case 'on_sale':
+					// The theme linked the offers as ?on_sale=1, which filtered nothing and showed the
+					// whole shop; older menus and bookmarks may still carry it.
+					if ( self::flag( $value ) ) {
+						$out['sale'] = '1';
+					}
+					$dirty = true;
 					break;
 				case 'brand':
 					$list = self::brand_list( $value );
