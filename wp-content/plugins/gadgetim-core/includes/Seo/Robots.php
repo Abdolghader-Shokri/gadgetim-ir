@@ -60,7 +60,15 @@ final class Robots {
 	}
 
 	/**
-	 * wp_robots: noindex,follow on author and date archives.
+	 * Taxonomies whose archives are never indexed: the two product tags duplicate category
+	 * names and hold one product each (2026-11-12), so they only compete with the categories.
+	 */
+	public const NOINDEX_TAXONOMIES = [ 'product_tag' ];
+
+	/**
+	 * wp_robots: noindex,follow on author and date archives, on product-tag archives and on any
+	 * term or shop archive that lists nothing (eleven empty categories and nine empty brands
+	 * answered 200 with an empty grid: soft 404s).
 	 *
 	 * @param mixed $robots Directives.
 	 * @return mixed
@@ -69,11 +77,34 @@ final class Robots {
 		if ( ! is_array( $robots ) ) {
 			return $robots;
 		}
-		if ( is_author() || is_date() ) {
+		if ( is_author() || is_date() || self::is_noindex_taxonomy() || self::is_empty_listing() ) {
 			unset( $robots['index'] );
 			$robots['noindex'] = true;
 			$robots['follow']  = true;
 		}
 		return $robots;
+	}
+
+	/**
+	 * Whether the request is an archive of a never-indexed taxonomy.
+	 */
+	private static function is_noindex_taxonomy(): bool {
+		foreach ( self::NOINDEX_TAXONOMIES as $taxonomy ) {
+			if ( is_tax( $taxonomy ) ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Whether a term or shop archive (first page) found no products at all.
+	 */
+	private static function is_empty_listing(): bool {
+		if ( ! ( is_tax() || is_category() || is_tag() || ( function_exists( 'is_shop' ) && is_shop() ) ) || is_search() ) {
+			return false;
+		}
+		global $wp_query;
+		return $wp_query instanceof \WP_Query && 0 === (int) $wp_query->found_posts && 0 === (int) $wp_query->post_count;
 	}
 }

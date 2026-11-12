@@ -21,9 +21,25 @@ final class Sitemap {
 	 */
 	public static function register(): void {
 		add_filter( 'wp_sitemaps_add_provider', [ self::class, 'filter_provider' ], 20, 2 );
+		add_filter( 'wp_sitemaps_taxonomies', [ self::class, 'filter_taxonomies' ], 20, 1 );
 		foreach ( [ 'wp_sitemaps_posts_entry', 'wp_sitemaps_taxonomies_entry', 'wp_sitemaps_index_entry' ] as $hook ) {
 			add_filter( $hook, [ self::class, 'encode_entry' ], 20, 1 );
 		}
+	}
+
+	/**
+	 * wp_sitemaps_taxonomies: no sitemap for taxonomies whose archives are noindex.
+	 *
+	 * @param mixed $taxonomies [ name => WP_Taxonomy ].
+	 * @return mixed
+	 */
+	public static function filter_taxonomies( $taxonomies ) {
+		if ( is_array( $taxonomies ) ) {
+			foreach ( Robots::NOINDEX_TAXONOMIES as $taxonomy ) {
+				unset( $taxonomies[ $taxonomy ] );
+			}
+		}
+		return $taxonomies;
 	}
 
 	/**
