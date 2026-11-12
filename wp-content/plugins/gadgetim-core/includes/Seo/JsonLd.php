@@ -32,6 +32,21 @@ final class JsonLd {
 	];
 
 	/**
+	 * Locality and region of the registered address (the eNamad address in the contact settings),
+	 * per language; the settings hold the address as one line. Filter: gadgetim_seo_address_parts.
+	 */
+	private const ADDRESS_PARTS = [
+		'fa' => [ 'گله‌دار', 'فارس' ],
+		'en' => [ 'Galehdar', 'Fars' ],
+		'ar' => [ 'كله دار', 'فارس' ],
+	];
+
+	/**
+	 * Longest product description Google reads in merchant listings.
+	 */
+	private const MAX_PRODUCT_DESCRIPTION = 5000;
+
+	/**
 	 * Other names the store is known by.
 	 */
 	private const ALTERNATE_NAMES = [ 'گجتیم', 'Gadgetim', 'GADGETIM' ];
@@ -122,11 +137,23 @@ final class JsonLd {
 			];
 		}
 		if ( '' !== $address ) {
-			$store['address'] = [
-				'@type'          => 'PostalAddress',
-				'streetAddress'  => $address,
-				'addressCountry' => 'IR',
-			];
+			/**
+			 * Filters the [ locality, region ] of the store address per language.
+			 *
+			 * @param array<string,array{0:string,1:string}> $parts Parts per language.
+			 */
+			$parts            = (array) apply_filters( 'gadgetim_seo_address_parts', self::ADDRESS_PARTS );
+			$part             = (array) ( $parts[ $lang ] ?? $parts['fa'] ?? [] );
+			$store['address'] = array_filter(
+				[
+					'@type'           => 'PostalAddress',
+					'streetAddress'   => $address,
+					'addressLocality' => (string) ( $part[0] ?? '' ),
+					'addressRegion'   => (string) ( $part[1] ?? '' ),
+					'addressCountry'  => 'IR',
+				],
+				static fn( $value ): bool => '' !== $value
+			);
 		}
 		if ( $profiles ) {
 			$store['sameAs'] = array_values( array_unique( $profiles ) );
@@ -203,17 +230,26 @@ final class JsonLd {
 	}
 
 	/**
-	 * woocommerce_structured_data_product (30): Toman → Rial in every offer.
+	 * woocommerce_structured_data_product (30): Toman → Rial in every offer, and a description
+	 * within Google's 5,000-character limit (WooCommerce copies the short description, which on
+	 * the imported products often holds the whole article: "Invalid string length" in the Rich
+	 * Results Test, 2026-11-12).
 	 *
 	 * @param mixed $markup  Product markup.
 	 * @param mixed $product Product.
 	 * @return mixed
 	 */
 	public static function filter_product( $markup, $product = null ) {
-		if ( ! is_array( $markup ) || empty( $markup['offers'] ) || ! is_array( $markup['offers'] ) ) {
+		if ( ! is_array( $markup ) ) {
 			return $markup;
 		}
-		$markup['offers'] = self::to_rial( $markup['offers'] );
+		if ( isset( $markup['description'] ) && is_string( $markup['description'] )
+			&& mb_strlen( $markup['description'], 'UTF-8' ) > self::MAX_PRODUCT_DESCRIPTION ) {
+			$markup['description'] = Text::shorten( Text::plain( $markup['description'] ), self::MAX_PRODUCT_DESCRIPTION - 10 );
+		}
+		if ( ! empty( $markup['offers'] ) && is_array( $markup['offers'] ) ) {
+			$markup['offers'] = self::to_rial( $markup['offers'] );
+		}
 		return $markup;
 	}
 
