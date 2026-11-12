@@ -83,6 +83,18 @@ function gadgetim_shop_url(): string {
 }
 
 /**
+ * Shop URL in a sort order. The default order has no parameter: the shop answers
+ * ?orderby=<default> with a redirect to the clean URL, so linking it cost every click a hop.
+ *
+ * @param string $orderby Sort key (popularity, date, price, …).
+ */
+function gadgetim_shop_sorted_url( string $orderby ): string {
+	$default = (string) apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby', 'menu_order' ) );
+	$shop    = gadgetim_shop_url();
+	return $orderby === $default ? $shop : add_query_arg( 'orderby', $orderby, $shop );
+}
+
+/**
  * URL of the first published page among candidate slugs ('' when none). Persian slugs work as typed.
  *
  * @param string[] $slugs Candidate slugs, in order.
@@ -614,14 +626,14 @@ function gadgetim_nav_links(): array {
 		}
 		$items[] = [
 			'label'   => __( 'Newest', 'gadgetim' ),
-			'url'     => add_query_arg( 'orderby', 'date', $shop ),
+			'url'     => gadgetim_shop_sorted_url( 'date' ),
 			'current' => false,
 			'icon'    => '',
 			'hot'     => false,
 		];
 		$items[] = [
 			'label'   => __( 'Best sellers', 'gadgetim' ),
-			'url'     => add_query_arg( 'orderby', 'popularity', $shop ),
+			'url'     => gadgetim_shop_sorted_url( 'popularity' ),
 			'current' => false,
 			'icon'    => '',
 			'hot'     => false,
@@ -723,11 +735,11 @@ function gadgetim_footer_about_links(): array {
 	}
 	$out[] = [
 		'label' => __( 'Newest products', 'gadgetim' ),
-		'url'   => add_query_arg( 'orderby', 'date', gadgetim_shop_url() ),
+		'url'   => gadgetim_shop_sorted_url( 'date' ),
 	];
 	$out[] = [
 		'label' => __( 'Best sellers', 'gadgetim' ),
-		'url'   => add_query_arg( 'orderby', 'popularity', gadgetim_shop_url() ),
+		'url'   => gadgetim_shop_sorted_url( 'popularity' ),
 	];
 	return (array) apply_filters( 'gadgetim_footer_about_links', $out );
 }

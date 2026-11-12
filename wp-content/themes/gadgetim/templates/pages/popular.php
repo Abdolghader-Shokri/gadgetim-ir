@@ -27,7 +27,7 @@ $gadgetim_id    = (string) ( $args['id'] ?? 'ppop-t' );
 			'id'       => $gadgetim_id,
 			'icon'     => 'trend',
 			'tone'     => 'warm',
-			'more_url' => add_query_arg( 'orderby', 'popularity', gadgetim_shop_url() ),
+			'more_url' => gadgetim_shop_sorted_url( 'popularity' ),
 		]
 	);
 	?>

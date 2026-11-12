@@ -390,7 +390,9 @@ final class Visibility {
 			}
 		}
 
-		if ( is_archive() || is_search() || is_home() || ( function_exists( 'is_shop' ) && is_shop() ) ) {
+		// The front page renders its own sections; with show_on_front=posts its main query is the
+		// blog loop, which is empty under a prefix and made /en/ and /ar/ noindex (2026-11-12).
+		if ( ! is_front_page() && ( is_archive() || is_search() || is_home() || ( function_exists( 'is_shop' ) && is_shop() ) ) ) {
 			global $wp_query;
 			if ( $wp_query instanceof WP_Query && 0 === (int) $wp_query->found_posts && 0 === (int) $wp_query->post_count ) {
 				self::$empty_archive = true;

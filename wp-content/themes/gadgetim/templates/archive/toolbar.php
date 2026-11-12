@@ -1,8 +1,9 @@
 <?php
 /**
  * Toolbar: the result count (the results heading), the filter button with its badge (phones and
- * tablets), sort chips (≥ 768 px; real nofollow links) or a sort select (phones; submits without
- * JS), and the grid density switch (≥ 1100 px; 4 or 5 per row, remembered on the device).
+ * tablets), sort chips (≥ 768 px; real links, kept out of the crawl by robots.txt) or a sort
+ * select (phones; submits without JS), and the grid density switch (≥ 1100 px; 4 or 5 per
+ * row, remembered on the device).
  *
  * @package Gadgetim
  */
@@ -57,7 +58,7 @@ if ( '' !== $gadgetim_qs ) {
 			<span class="sorts__l" aria-hidden="true"><?php gadgetim_the_icon( 'sort' ); ?><?php esc_html_e( 'Sort:', 'gadgetim' ); ?></span>
 			<ul class="sorts__list">
 				<?php foreach ( $gadgetim_sorts as $gadgetim_key => $gadgetim_label ) : ?>
-					<li><a class="sorts__i" href="<?php echo esc_url( gadgetim_archive_url( $gadgetim_f, (string) $gadgetim_key ) ); ?>" rel="nofollow" data-arch-link data-sort="<?php echo esc_attr( (string) $gadgetim_key ); ?>"<?php echo $gadgetim_key === $gadgetim_sort ? ' aria-current="true"' : ''; ?>><?php echo esc_html( $gadgetim_label ); ?></a></li>
+					<li><a class="sorts__i" href="<?php echo esc_url( gadgetim_archive_url( $gadgetim_f, (string) $gadgetim_key ) ); ?>" data-arch-link data-sort="<?php echo esc_attr( (string) $gadgetim_key ); ?>"<?php echo $gadgetim_key === $gadgetim_sort ? ' aria-current="true"' : ''; ?>><?php echo esc_html( $gadgetim_label ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</nav>
