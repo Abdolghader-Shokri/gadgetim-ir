@@ -28,16 +28,24 @@ final class Sitemap {
 	}
 
 	/**
-	 * wp_sitemaps_taxonomies: no sitemap for taxonomies whose archives are noindex.
+	 * wp_sitemaps_taxonomies: no sitemap for taxonomies whose archives are noindex, and none for
+	 * the blog's categories and tags while no post is published. Their stored counts can be stale
+	 * (the live «Uncategorized» kept count 1 after Hello World was set to draft by SQL), so core
+	 * listed an archive that answers with an empty, noindex page (2026-11-12).
 	 *
 	 * @param mixed $taxonomies [ name => WP_Taxonomy ].
 	 * @return mixed
 	 */
 	public static function filter_taxonomies( $taxonomies ) {
-		if ( is_array( $taxonomies ) ) {
-			foreach ( Robots::NOINDEX_TAXONOMIES as $taxonomy ) {
-				unset( $taxonomies[ $taxonomy ] );
-			}
+		if ( ! is_array( $taxonomies ) ) {
+			return $taxonomies;
+		}
+		foreach ( Robots::NOINDEX_TAXONOMIES as $taxonomy ) {
+			unset( $taxonomies[ $taxonomy ] );
+		}
+		$posts = wp_count_posts( 'post' );
+		if ( ! is_object( $posts ) || (int) ( $posts->publish ?? 0 ) <= 0 ) {
+			unset( $taxonomies['category'], $taxonomies['post_tag'] );
 		}
 		return $taxonomies;
 	}
