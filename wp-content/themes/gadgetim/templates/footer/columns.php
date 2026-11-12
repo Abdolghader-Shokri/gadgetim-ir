@@ -102,7 +102,8 @@ $gadgetim_seals   = [
 				?>
 				<?php if ( '' !== $gadgetim_seal_url && '' !== $gadgetim_seal_img ) : ?>
 					<a class="trust__slot" href="<?php echo esc_url( $gadgetim_seal_url ); ?>" target="_blank" rel="noopener" referrerpolicy="origin"><img src="<?php echo esc_url( $gadgetim_seal_img ); ?>" alt="<?php echo esc_attr( $gadgetim_seal['label'] ); ?>" width="88" height="96" loading="lazy" decoding="async" referrerpolicy="origin"></a>
-				<?php else : ?>
+				<?php elseif ( current_user_can( 'manage_options' ) ) : ?>
+					<?php // A seal the shop does not hold yet is a placeholder only the admin sees: shoppers would read it as a certification. ?>
 					<div class="trust__slot"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><?php echo $gadgetim_seal['icon']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?></svg><span><?php echo esc_html( $gadgetim_seal['slot'] ); ?></span></div>
 				<?php endif; ?>
 			<?php endforeach; ?>
