@@ -21,7 +21,7 @@
   },
   "default_stock": "in stock without quantity management, unless the product's text file gives a quantity",
   "shipping": "Tipax, Dakapost, Post Pishtaz; pay on delivery (پس‌کرایه), no free shipping",
-  "warranty": "authenticity guarantee and 7-day condition check (گارانتی اصالت کالا و تست سلامت ۷ روزه)",
+  "warranty": "authenticity guarantee and 7-day condition check (گارانتی اصالت کالا و تست سلامت ۷ روزه); a fake or faulty item can be returned within 7 days on every order, whether or not the shopper picks the warranty option at checkout (owner, 2026-11-12)",
   "image_format": {
     "size": "800x800",
     "background": "white",
