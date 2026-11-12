@@ -158,7 +158,7 @@ while ( have_posts() ) :
 										[
 											'index'   => 1,
 											'sizes'   => '(min-width: 1100px) 260px, 42vw',
-											'loading' => 'lazy',
+											'loading' => ( 0 === $gadgetim_i && 0 === $gadgetim_k ) ? 'eager' : 'lazy',
 										]
 									);
 									?>

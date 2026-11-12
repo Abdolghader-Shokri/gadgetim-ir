@@ -31,16 +31,53 @@ final class Brands {
 
 	public const MERGE_FILE = 'brand-merge.json';
 
+	/**
+	 * URL base of the brand archives in every language (/برند/<slug>/, /en/برند/<slug>/ …).
+	 */
+	public const REWRITE_BASE = 'برند';
+
 	/** @var array<string,array>|null */
 	private static ?array $rules = null;
 
 	/**
-	 * Hooks (admin term fields only; everything else is a pure read API).
+	 * Hooks: the fixed rewrite base, plus the admin term fields; everything else is a pure read API.
 	 */
 	public static function register(): void {
+		add_filter( 'register_taxonomy_args', [ self::class, 'pin_rewrite_base' ], 20, 2 );
 		if ( is_admin() ) {
 			Admin\BrandFields::register();
 		}
+	}
+
+	/**
+	 * register_taxonomy_args: WooCommerce translates the default brand base on every request
+	 * ("brand" under /en/, "العلامة التجارية" under /ar/), but the rewrite rules exist only for
+	 * the base they were flushed with. Every brand link outside Persian therefore led to a 404.
+	 * The base is pinned to one value for all languages and contexts (an English admin locale
+	 * flushing the rules included). A base set under Settings → Permalinks is left alone: it is
+	 * already the same everywhere.
+	 *
+	 * @param mixed  $args     Taxonomy arguments.
+	 * @param string $taxonomy Taxonomy name.
+	 * @return mixed
+	 */
+	public static function pin_rewrite_base( $args, $taxonomy = '' ) {
+		if ( self::TAXONOMY !== $taxonomy || ! is_array( $args ) || ! is_array( $args['rewrite'] ?? null ) ) {
+			return $args;
+		}
+		if ( '' !== trim( (string) get_option( 'woocommerce_brand_permalink', '' ) ) ) {
+			return $args;
+		}
+		/**
+		 * Filters the fixed URL base of the brand archives.
+		 *
+		 * @param string $base Base without slashes.
+		 */
+		$base = trim( (string) apply_filters( 'gadgetim_brand_rewrite_base', self::REWRITE_BASE ), '/' );
+		if ( '' !== $base ) {
+			$args['rewrite']['slug'] = $base;
+		}
+		return $args;
 	}
 
 	/**

@@ -26,7 +26,7 @@ $gadgetim_title = $gadgetim_sales ? __( 'Best sellers', 'gadgetim' ) : __( 'Most
 			'id'       => 'best-title',
 			'icon'     => $gadgetim_sales ? 'trend' : 'eye',
 			'tone'     => 'warm',
-			'more_url' => add_query_arg( 'orderby', 'popularity', gadgetim_shop_url() ),
+			'more_url' => gadgetim_shop_sorted_url( 'popularity' ),
 		]
 	);
 	?>

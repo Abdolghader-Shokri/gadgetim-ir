@@ -2967,3 +2967,59 @@ msgstr "Gadgetim: نُقلت الأسعار بالعملة لـ %1$s منتجً�
 #, php-format
 msgid "Gadgetim: waiting for the currency pricing plugin to receive its first rates before the currency prices of these products are moved to it: %s. Activate its license; the move then happens on its own."
 msgstr "Gadgetim: بانتظار أن تتلقى إضافة التسعير بالعملات أول أسعارها لنقل الأسعار بالعملة لهذه المنتجات إليها: %s. فعّل ترخيص الإضافة؛ وسيتم النقل تلقائيًا بعد ذلك."
+
+#: includes/Seo/SettingsTab.php
+msgid "SEO"
+msgstr "تحسين محركات البحث"
+
+#: includes/Seo/SettingsTab.php
+msgid "Home page in search results"
+msgstr "الصفحة الرئيسية في نتائج البحث"
+
+#: includes/Seo/SettingsTab.php
+msgid "The title and the description Google shows for the home page, per language. Keep the title under about 60 characters and the description under about 155."
+msgstr "العنوان والوصف اللذان يعرضهما Google للصفحة الرئيسية، لكل لغة. اجعل العنوان أقل من 60 حرفًا تقريبًا والوصف أقل من 155 حرفًا تقريبًا."
+
+#: includes/Seo/SettingsTab.php
+msgid "Home page title"
+msgstr "عنوان الصفحة الرئيسية"
+
+#: includes/Seo/SettingsTab.php
+msgid "Home page description"
+msgstr "وصف الصفحة الرئيسية"
+
+#: includes/Seo/SettingsTab.php
+msgid "Categories and brands"
+msgstr "الفئات والعلامات التجارية"
+
+#: includes/Seo/SettingsTab.php
+msgid "Write \"price and buy … original\" into category and brand titles"
+msgstr "إضافة «الأسعار والشراء … الأصلية» إلى عناوين الفئات والعلامات التجارية"
+
+#: includes/Seo/SettingsTab.php
+msgid "For example «قیمت و خرید پاوربانک اصل – گجتیم» instead of «پاوربانک – گجتیم». Categories and brands without their own description also get a generated description."
+msgstr "مثلًا «قیمت و خرید پاوربانک اصل – گجتیم» بدلًا من «پاوربانک – گجتیم». وتحصل الفئات والعلامات التجارية التي ليس لها وصف خاص بها على وصف مُنشأ تلقائيًا."
+
+#: includes/Seo/SettingsTab.php
+msgid "Sharing and profiles"
+msgstr "المشاركة والحسابات الرسمية"
+
+#: includes/Seo/SettingsTab.php
+msgid "Used for link previews in Telegram, WhatsApp and Instagram and in the store information Google reads."
+msgstr "تُستخدم لمعاينة الروابط في Telegram وWhatsApp وInstagram وفي معلومات المتجر التي يقرؤها Google."
+
+#: includes/Seo/SettingsTab.php
+msgid "Default share image"
+msgstr "صورة المشاركة الافتراضية"
+
+#: includes/Seo/SettingsTab.php
+msgid "Shown when a page has no image of its own. 1200 × 630 pixels works best; the site icon is used when empty."
+msgstr "تظهر عندما لا تكون للصفحة صورة خاصة بها. المقاس 1200 × 630 بكسل هو الأفضل؛ وتُستخدم أيقونة الموقع إذا تُرك الحقل فارغًا."
+
+#: includes/Seo/SettingsTab.php
+msgid "Official profile addresses"
+msgstr "عناوين الحسابات الرسمية"
+
+#: includes/Seo/SettingsTab.php
+msgid "One address per line (Instagram, Telegram channel, Aparat, LinkedIn …). Only profiles that belong to the store."
+msgstr "عنوان واحد في كل سطر (Instagram، قناة Telegram، Aparat، LinkedIn …). الحسابات التابعة للمتجر فقط."
