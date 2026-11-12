@@ -259,7 +259,8 @@ final class Meta {
 				$d['canonical'] = Text::encode_url( $url );
 			}
 		}
-		$d['description'] = self::description( $lang );
+		// Invalid UTF-8 would be printed by esc_attr() as content="": no tag at all is better.
+		$d['description'] = wp_check_invalid_utf8( self::description( $lang ) );
 		$d['site_name']   = self::site_name( $lang );
 		$d['title']       = self::social_title();
 		$d['og_type']     = self::og_type();
@@ -380,9 +381,10 @@ final class Meta {
 		}
 		$count = (int) ( $GLOBALS['wp_query']->found_posts ?? 0 );
 		if ( $count <= 0 ) {
-			$count = (int) $term->count;
+			// An empty archive is noindex (Seo\Robots); a template would announce products it does not list.
+			return $own;
 		}
-		return sprintf( self::template( $key, $lang ), $name, Digits::for_lang( (string) max( 1, $count ), $lang ) );
+		return sprintf( self::template( $key, $lang ), $name, Digits::for_lang( (string) $count, $lang ) );
 	}
 
 	/**
