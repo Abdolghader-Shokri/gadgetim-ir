@@ -390,7 +390,39 @@ final class Meta {
 	 */
 	private static function term_name( WP_Term $term, string $lang ): string {
 		$name = Languages::DEFAULT === $lang ? (string) $term->name : TermTranslations::name_or_native( $term, $lang );
-		return trim( html_entity_decode( wp_strip_all_tags( $name ), ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
+		$name = trim( html_entity_decode( wp_strip_all_tags( $name ), ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
+		if ( Languages::DEFAULT === $lang && Brands::TAXONOMY === $term->taxonomy ) {
+			$local = self::brand_local_name( $term, $name );
+			if ( '' !== $local ) {
+				// Shoppers search «گرین لاین» far more than "Green Lion": both spellings in titles.
+				$name = $local . ' ' . $name;
+			}
+		}
+		return $name;
+	}
+
+	/**
+	 * The Persian spelling of a Latin brand name, from the aliases the importer stored
+	 * (_gtm_import_aliases), or '' when the brand has none or its name is already Persian.
+	 */
+	private static function brand_local_name( WP_Term $term, string $name ): string {
+		if ( preg_match( '/\p{Arabic}/u', $name ) ) {
+			return '';
+		}
+		$aliases = get_term_meta( (int) $term->term_id, Brands::META_ALIASES, true );
+		foreach ( is_array( $aliases ) ? $aliases : [] as $alias ) {
+			$alias = trim( (string) $alias );
+			if ( '' !== $alias && preg_match( '/^[\p{Arabic}\s\x{200C}]+$/u', $alias ) ) {
+				/**
+				 * Filters the Persian spelling shown next to a brand name in titles.
+				 *
+				 * @param string  $alias Persian spelling.
+				 * @param WP_Term $term  Brand term.
+				 */
+				return trim( (string) apply_filters( 'gadgetim_brand_local_name', $alias, $term ) );
+			}
+		}
+		return '';
 	}
 
 	/**
