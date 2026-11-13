@@ -517,7 +517,7 @@ final class Meta {
 
 	/**
 	 * Share image: the product or page image, the category image or brand logo, else the
-	 * default from the settings, else the site icon.
+	 * default from the settings, else the store's share card, else the site icon.
 	 *
 	 * @return array{url:string,width:int,height:int,alt:string}|null
 	 */
@@ -549,6 +549,10 @@ final class Meta {
 				];
 			}
 		}
+		$card = self::share_card( $lang );
+		if ( null !== $card ) {
+			return $card;
+		}
 		$icon = get_theme_file_uri( 'assets/img/icon-512.png' );
 		if ( ! file_exists( get_theme_file_path( 'assets/img/icon-512.png' ) ) ) {
 			return null;
@@ -559,6 +563,30 @@ final class Meta {
 			'height' => 512,
 			'alt'    => self::site_name( $lang ),
 		];
+	}
+
+	/**
+	 * The store's share card in $lang (else Persian): a 1200×630 theme file, assets/img/share-<lang>.jpg.
+	 * Links to the home page and to pages without an image of their own showed the 512-pixel icon,
+	 * which Telegram and WhatsApp draw as a small thumbnail instead of a large preview (2026-11-13).
+	 *
+	 * @return array{url:string,width:int,height:int,alt:string}|null
+	 */
+	private static function share_card( string $lang ): ?array {
+		foreach ( array_unique( [ $lang, Languages::DEFAULT ] ) as $code ) {
+			$file = 'assets/img/share-' . $code . '.jpg';
+			if ( ! file_exists( get_theme_file_path( $file ) ) ) {
+				continue;
+			}
+			$alt = Settings::get_lang( 'seo.home_title', $code, (string) ( SettingsTab::HOME_TITLE[ $code ] ?? '' ) );
+			return [
+				'url'    => get_theme_file_uri( $file ),
+				'width'  => 1200,
+				'height' => 630,
+				'alt'    => '' !== $alt ? $alt : self::site_name( $code ),
+			];
+		}
+		return null;
 	}
 
 	/**
