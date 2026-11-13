@@ -397,9 +397,31 @@ final class Meta {
 	}
 
 	/**
+	 * Names used in titles and descriptions instead of the stored term name, per taxonomy, decoded
+	 * slug and language. Only where the shorter stored name hides the phrase shoppers type: every
+	 * product in «ایرپاد» is a Bluetooth earbud, and the keyword bank sends «هندزفری بلوتوثی»
+	 * (buy, price, original) to that category (2026-11-13). Filter: gadgetim_seo_term_names.
+	 */
+	private const TERM_NAMES = [
+		'product_cat' => [
+			'ایرپاد' => [ 'fa' => 'ایرپاد و هندزفری بلوتوثی' ],
+		],
+	];
+
+	/**
 	 * Term name in $lang (published translation, else the stored name for Persian).
 	 */
 	private static function term_name( WP_Term $term, string $lang ): string {
+		/**
+		 * Filters the names used in archive titles and descriptions.
+		 *
+		 * @param array<string,array<string,array<string,string>>> $names [ taxonomy => [ slug => [ lang => name ] ] ].
+		 */
+		$names    = (array) apply_filters( 'gadgetim_seo_term_names', self::TERM_NAMES );
+		$override = (string) ( $names[ $term->taxonomy ][ rawurldecode( (string) $term->slug ) ][ $lang ] ?? '' );
+		if ( '' !== $override ) {
+			return $override;
+		}
 		$name = Languages::DEFAULT === $lang ? (string) $term->name : TermTranslations::name_or_native( $term, $lang );
 		$name = trim( html_entity_decode( wp_strip_all_tags( $name ), ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
 		if ( Languages::DEFAULT === $lang && Brands::TAXONOMY === $term->taxonomy ) {
