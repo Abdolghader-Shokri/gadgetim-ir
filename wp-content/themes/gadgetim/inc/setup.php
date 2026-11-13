@@ -182,6 +182,11 @@ function gadgetim_clean_head(): void {
 	remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 	remove_action( 'template_redirect', 'rest_output_link_header', 11 );
 	add_filter( 'emoji_svg_url', '__return_false' );
+	// No blog yet: the head advertised the posts and comments feeds, both empty on the live site
+	// (2026-11-13). The posts feed link returns with the first published post; comments are only
+	// product reviews. Product and category feeds (feed_links_extra) stay.
+	add_filter( 'feed_links_show_comments_feed', '__return_false' );
+	add_filter( 'feed_links_show_posts_feed', static fn(): bool => (int) ( wp_count_posts( 'post' )->publish ?? 0 ) > 0 );
 	// Classic theme: no block-library CSS, no global styles, no SVG duotone filters.
 	remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 	remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
