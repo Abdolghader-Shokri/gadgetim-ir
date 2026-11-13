@@ -1,15 +1,20 @@
 <?php
 /**
- * Product packages dropped on the host (client, 2026-11-11): the shop owner uploads a
- * products-*.zip built by tools/build-product-drop.php into wp-content/gadgetim-drop/ with the
- * host's file manager, and the products appear on the site by themselves.
+ * Packages dropped on the host (client, 2026-11-11): the shop owner uploads a zip built by
+ * tools/build-product-drop.php or tools/build-page-drop.php into wp-content/gadgetim-drop/ with
+ * the host's file manager, and the content appears on the site by itself.
  *
- * A package holds manifest.json (version 1, products[]) and images/. Each product is matched by
- * SKU: a new SKU creates a published simple product, a known one is updated (texts, prices,
- * specs, translations; images only when the product has none). The scan runs on the next
- * dashboard page load of a shop manager and hourly through WP-Cron. A processed package moves to
- * done/ (or failed/ when no product could be imported), a line per product goes to log.txt, and
- * the dashboard shows a notice with links to the new products.
+ * A package holds manifest.json (version 1) and images/, with either list or both:
+ * - products[]: each product is matched by SKU. A new SKU creates a published simple product, a
+ *   known one is updated (texts, prices, specs, translations; images only when the product has none).
+ * - pages[]: a branded featured image for an existing published page, found by its path; the
+ *   expected ID guards against a different page at that address. A page that already has a
+ *   featured image keeps it unless the entry says "replace" (image program, 2026-11-14: the site
+ *   database cannot be shipped, so the images travel this way).
+ *
+ * The scan runs on the next dashboard page load of a shop manager and hourly through WP-Cron. A
+ * processed package moves to done/ (or failed/ when nothing could be imported), a line per item
+ * goes to log.txt, and the dashboard shows a notice with links.
  *
  * Without PHP's zip extension an extracted package folder (gadgetim-drop/<name>/manifest.json)
  * is read the same way.
@@ -26,12 +31,14 @@ use Gadgetim\Core\Catalog\ProductExtras;
 use Gadgetim\Core\I18n\PostTranslations;
 use Gadgetim\Core\I18n\Slugs;
 use Gadgetim\Core\Pricing\Handover;
+use Gadgetim\Core\Seo\Meta;
 use WC_Product;
 use WC_Product_Simple;
+use WP_Post;
 use ZipArchive;
 
 /**
- * Scanner and importer for dropped product packages.
+ * Scanner and importer for dropped product and page-image packages.
  */
 final class Drop {
 
@@ -142,20 +149,22 @@ final class Drop {
 			'seen'    => false,
 		];
 
-		$read = self::reader( $path, $is_zip, $result['errors'] );
-		$data = $read ? json_decode( (string) $read( 'manifest.json' ), true ) : null;
-		if ( ! is_array( $data ) || (int) ( $data['version'] ?? 0 ) !== self::VERSION || empty( $data['products'] ) || ! is_array( $data['products'] ) ) {
+		$read     = self::reader( $path, $is_zip, $result['errors'] );
+		$data     = $read ? json_decode( (string) $read( 'manifest.json' ), true ) : null;
+		$products = is_array( $data ) && is_array( $data['products'] ?? null ) ? $data['products'] : [];
+		$pages    = is_array( $data ) && is_array( $data['pages'] ?? null ) ? $data['pages'] : [];
+		if ( ! is_array( $data ) || (int) ( $data['version'] ?? 0 ) !== self::VERSION || ( ! $products && ! $pages ) ) {
 			if ( $read ) {
-				$result['errors'][] = __( 'manifest.json is missing or not a version 1 product package.', 'gadgetim-core' );
+				$result['errors'][] = __( 'manifest.json is missing or not a version 1 package.', 'gadgetim-core' );
 			}
 		} else {
-			foreach ( $data['products'] as $p ) {
+			foreach ( $products as $p ) {
 				$item = is_array( $p ) ? self::import_product( $p, $read, $name ) : [ 'error' => 'invalid entry' ];
-				if ( isset( $item['error'] ) ) {
-					$result['errors'][] = ( is_array( $p ) && ! empty( $p['sku'] ) ? $p['sku'] . ': ' : '' ) . $item['error'];
-				} else {
-					$result['items'][] = $item;
-				}
+				self::collect( $result, $item, is_array( $p ) ? (string) ( $p['sku'] ?? '' ) : '' );
+			}
+			foreach ( $pages as $p ) {
+				$item = is_array( $p ) ? self::import_page( $p, $read, $name ) : [ 'error' => 'invalid entry' ];
+				self::collect( $result, $item, is_array( $p ) ? rawurldecode( (string) ( $p['path'] ?? '' ) ) : '' );
 			}
 		}
 
@@ -166,6 +175,21 @@ final class Drop {
 		self::archive( $path, $is_zip, $result['items'] ? 'done' : 'failed' );
 		self::log( $result );
 		return $result;
+	}
+
+	/**
+	 * Adds one entry's outcome to the package result.
+	 *
+	 * @param array  $result Package result.
+	 * @param array  $item   Outcome, or [ 'error' => … ].
+	 * @param string $label  SKU or page path, put in front of an error.
+	 */
+	private static function collect( array &$result, array $item, string $label ): void {
+		if ( isset( $item['error'] ) ) {
+			$result['errors'][] = ( '' !== $label ? $label . ': ' : '' ) . $item['error'];
+			return;
+		}
+		$result['items'][] = $item;
 	}
 
 	/**
@@ -291,6 +315,67 @@ final class Drop {
 			'action' => $created ? 'created' : 'updated',
 			'url'    => (string) get_permalink( $id ),
 		];
+	}
+
+	/**
+	 * Gives an existing page its featured image.
+	 *
+	 * @param array    $p       Manifest entry: path, id (expected), image { file, title, alt,
+	 *                          caption, description, text_lang }, replace.
+	 * @param callable $read    Package reader.
+	 * @param string   $package Package name.
+	 */
+	public static function import_page( array $p, callable $read, string $package ): array {
+		$page = self::find_page( (string) ( $p['path'] ?? '' ) );
+		if ( ! $page ) {
+			return [ 'error' => __( 'the page was not found on this site.', 'gadgetim-core' ) ];
+		}
+		$expected = (int) ( $p['id'] ?? 0 );
+		if ( $expected > 0 && $expected !== (int) $page->ID ) {
+			return [ 'error' => __( 'the page at this address has a different ID than expected.', 'gadgetim-core' ) ];
+		}
+		$image = is_array( $p['image'] ?? null ) ? $p['image'] : [];
+		if ( empty( $image['file'] ) ) {
+			return [ 'error' => __( 'a page entry needs an image file.', 'gadgetim-core' ) ];
+		}
+
+		$item = [
+			'id'     => (int) $page->ID,
+			'sku'    => '',
+			'title'  => (string) $page->post_title,
+			'action' => 'kept',
+			'url'    => (string) get_permalink( $page ),
+		];
+		if ( has_post_thumbnail( $page ) && empty( $p['replace'] ) ) {
+			return $item;
+		}
+
+		$aid = self::import_image( $image, $read, (int) $page->ID );
+		if ( $aid <= 0 ) {
+			return [ 'error' => __( 'the image could not be added to the media library.', 'gadgetim-core' ) ];
+		}
+		$lang = sanitize_key( (string) ( $image['text_lang'] ?? '' ) );
+		if ( '' !== $lang ) {
+			update_post_meta( $aid, Meta::META_TEXT_LANG, $lang );
+		}
+		update_post_meta( $aid, self::META_PACKAGE, $package );
+		set_post_thumbnail( $page, $aid );
+		clean_post_cache( (int) $page->ID );
+
+		$item['action'] = 'image';
+		return $item;
+	}
+
+	/**
+	 * A published page by its path (Persian slugs as written or percent-encoded), or null.
+	 */
+	private static function find_page( string $path ): ?WP_Post {
+		$path = trim( rawurldecode( $path ), '/' );
+		if ( '' === $path ) {
+			return null;
+		}
+		$page = get_page_by_path( $path, OBJECT, 'page' );
+		return $page instanceof WP_Post && 'publish' === $page->post_status ? $page : null;
 	}
 
 	/**
@@ -470,7 +555,8 @@ final class Drop {
 	private static function log( array $result ): void {
 		$lines = [ gmdate( 'c' ) . ' ' . $result['package'] ];
 		foreach ( $result['items'] as $i ) {
-			$lines[] = '  ' . $i['action'] . ' #' . $i['id'] . ' ' . $i['sku'] . ' ' . $i['url'];
+			$sku     = (string) ( $i['sku'] ?? '' );
+			$lines[] = '  ' . $i['action'] . ' #' . $i['id'] . ( '' !== $sku ? ' ' . $sku : '' ) . ' ' . $i['url'];
 		}
 		foreach ( $result['errors'] as $e ) {
 			$lines[] = '  ERROR ' . $e;
@@ -479,7 +565,19 @@ final class Drop {
 	}
 
 	/**
-	 * admin_notices: results not shown yet, with links to the products.
+	 * What happened to an item, for the notice.
+	 */
+	private static function action_label( string $action ): string {
+		return match ( $action ) {
+			'created' => __( 'added', 'gadgetim-core' ),
+			'image'   => __( 'featured image added', 'gadgetim-core' ),
+			'kept'    => __( 'kept: the page already has a featured image', 'gadgetim-core' ),
+			default   => __( 'updated', 'gadgetim-core' ),
+		};
+	}
+
+	/**
+	 * admin_notices: results not shown yet, with links to the products and pages.
 	 */
 	public static function notice(): void {
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
@@ -494,10 +592,10 @@ final class Drop {
 			$class = empty( $r['errors'] ) ? 'notice-success' : ( empty( $r['items'] ) ? 'notice-error' : 'notice-warning' );
 			echo '<div class="notice ' . esc_attr( $class ) . ' is-dismissible"><p><strong>';
 			/* translators: %s: package file name */
-			echo esc_html( sprintf( __( 'Product package %s was imported:', 'gadgetim-core' ), (string) $r['package'] ) );
+			echo esc_html( sprintf( __( 'Package %s was imported:', 'gadgetim-core' ), (string) $r['package'] ) );
 			echo '</strong></p><ul style="list-style:disc;padding-inline-start:20px">';
 			foreach ( (array) $r['items'] as $i ) {
-				$label = 'created' === $i['action'] ? __( 'added', 'gadgetim-core' ) : __( 'updated', 'gadgetim-core' );
+				$label = self::action_label( (string) ( $i['action'] ?? '' ) );
 				echo '<li><a href="' . esc_url( (string) $i['url'] ) . '" target="_blank">' . esc_html( (string) $i['title'] ) . '</a> (' . esc_html( $label ) . ')</li>';
 			}
 			foreach ( (array) $r['errors'] as $e ) {

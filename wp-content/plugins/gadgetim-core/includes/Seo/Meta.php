@@ -28,6 +28,12 @@ use WP_Term;
 final class Meta {
 
 	/**
+	 * Attachment meta: the language of the words drawn on a branded image (title box of a page's
+	 * featured image), e.g. 'fa'. Empty for photos without words.
+	 */
+	public const META_TEXT_LANG = '_gtm_text_lang';
+
+	/**
 	 * Title and description templates of term archives, per language. %1$s = name,
 	 * %2$s = number of products (locale digits).
 	 */
@@ -519,12 +525,19 @@ final class Meta {
 	 * Share image: the product or page image, the category image or brand logo, else the
 	 * default from the settings, else the store's share card, else the site icon.
 	 *
+	 * A featured image with words in another language (the Persian title box on the English
+	 * page) gives way to the share card in the page's own language.
+	 *
 	 * @return array{url:string,width:int,height:int,alt:string}|null
 	 */
 	private static function image( string $lang ): ?array {
 		$id = 0;
 		if ( is_singular() ) {
-			$id = (int) get_post_thumbnail_id( (int) get_queried_object_id() );
+			$id   = (int) get_post_thumbnail_id( (int) get_queried_object_id() );
+			$text = $id > 0 ? (string) get_post_meta( $id, self::META_TEXT_LANG, true ) : '';
+			if ( '' !== $text && $text !== $lang ) {
+				$id = 0;
+			}
 		} elseif ( is_tax() ) {
 			$term = get_queried_object();
 			if ( $term instanceof WP_Term ) {
