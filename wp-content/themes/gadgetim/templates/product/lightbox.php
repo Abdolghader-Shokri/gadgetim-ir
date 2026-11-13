@@ -22,11 +22,13 @@ if ( ! $gadgetim_items ) {
 }
 $gadgetim_count = count( $gadgetim_items );
 $gadgetim_title = gadgetim_short_title( $gadgetim_product );
+// The title below is a paragraph, not a heading: aria-labelledby already names the dialog, and an
+// H2 here repeated the page's H1 on every product page (seo-engineer audit, 2026-11-13).
 ?>
 <dialog class="lb" id="pdp-lb" aria-labelledby="pdp-lb-t" data-drawer data-lb data-count="<?php echo esc_attr( (string) $gadgetim_count ); ?>">
 	<div class="lb__bar">
 		<p class="lb__count" aria-hidden="true"><bdi data-lb-count><?php echo esc_html( gadgetim_number( 1 ) . ' / ' . gadgetim_number( $gadgetim_count ) ); ?></bdi></p>
-		<h2 class="lb__t" id="pdp-lb-t"><?php echo gadgetim_pdp_text( $gadgetim_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped by gadgetim_bidi(). ?></h2>
+		<p class="lb__t" id="pdp-lb-t"><?php echo gadgetim_pdp_text( $gadgetim_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped by gadgetim_bidi(). ?></p>
 		<div class="lb__tools">
 			<button class="lb__btn lb__btn--zoom" type="button" data-lb-zoom="-1" aria-label="<?php esc_attr_e( 'Zoom out', 'gadgetim' ); ?>" disabled><?php gadgetim_the_icon( 'minus' ); ?></button>
 			<button class="lb__btn lb__btn--zoom" type="button" data-lb-zoom="1" aria-label="<?php esc_attr_e( 'Zoom in', 'gadgetim' ); ?>"><?php gadgetim_the_icon( 'plus' ); ?></button>

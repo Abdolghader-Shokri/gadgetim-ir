@@ -77,6 +77,11 @@ final class Meta {
 			'en' => '(page %1$s)',
 			'ar' => '(الصفحة %1$s)',
 		],
+		'tracking_desc'    => [
+			'fa' => 'پیگیری سفارش در گجتیم: شماره سفارش و شماره موبایل یا ایمیلی را که هنگام خرید وارد کردید بنویسید و وضعیت آماده‌سازی و ارسال سفارش را ببینید.',
+			'en' => 'Track your Gadgetim order: enter the order number and the mobile number or email you used at checkout to see its preparation and shipping status.',
+			'ar' => 'تتبع طلبك في Gadgetim: أدخل رقم الطلب ورقم الجوال أو البريد الإلكتروني الذي استخدمته عند الشراء لمعرفة حالة تجهيز الطلب وشحنه.',
+		],
 	];
 
 	/**
@@ -335,6 +340,10 @@ final class Meta {
 				return $plain;
 			}
 		}
+		// A page that is only a shortcode (the order-tracking form) has no text of its own.
+		if ( has_shortcode( (string) get_post_field( 'post_content', $post_id, 'raw' ), 'woocommerce_order_tracking' ) ) {
+			return self::template( 'tracking_desc', $lang );
+		}
 		return '';
 	}
 
@@ -388,9 +397,31 @@ final class Meta {
 	}
 
 	/**
+	 * Names used in titles and descriptions instead of the stored term name, per taxonomy, decoded
+	 * slug and language. Only where the shorter stored name hides the phrase shoppers type: every
+	 * product in «ایرپاد» is a Bluetooth earbud, and the keyword bank sends «هندزفری بلوتوثی»
+	 * (buy, price, original) to that category (2026-11-13). Filter: gadgetim_seo_term_names.
+	 */
+	private const TERM_NAMES = [
+		'product_cat' => [
+			'ایرپاد' => [ 'fa' => 'ایرپاد و هندزفری بلوتوثی' ],
+		],
+	];
+
+	/**
 	 * Term name in $lang (published translation, else the stored name for Persian).
 	 */
 	private static function term_name( WP_Term $term, string $lang ): string {
+		/**
+		 * Filters the names used in archive titles and descriptions.
+		 *
+		 * @param array<string,array<string,array<string,string>>> $names [ taxonomy => [ slug => [ lang => name ] ] ].
+		 */
+		$names    = (array) apply_filters( 'gadgetim_seo_term_names', self::TERM_NAMES );
+		$override = (string) ( $names[ $term->taxonomy ][ rawurldecode( (string) $term->slug ) ][ $lang ] ?? '' );
+		if ( '' !== $override ) {
+			return $override;
+		}
 		$name = Languages::DEFAULT === $lang ? (string) $term->name : TermTranslations::name_or_native( $term, $lang );
 		$name = trim( html_entity_decode( wp_strip_all_tags( $name ), ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
 		if ( Languages::DEFAULT === $lang && Brands::TAXONOMY === $term->taxonomy ) {
@@ -486,7 +517,7 @@ final class Meta {
 
 	/**
 	 * Share image: the product or page image, the category image or brand logo, else the
-	 * default from the settings, else the site icon.
+	 * default from the settings, else the store's share card, else the site icon.
 	 *
 	 * @return array{url:string,width:int,height:int,alt:string}|null
 	 */
@@ -518,6 +549,10 @@ final class Meta {
 				];
 			}
 		}
+		$card = self::share_card( $lang );
+		if ( null !== $card ) {
+			return $card;
+		}
 		$icon = get_theme_file_uri( 'assets/img/icon-512.png' );
 		if ( ! file_exists( get_theme_file_path( 'assets/img/icon-512.png' ) ) ) {
 			return null;
@@ -528,6 +563,30 @@ final class Meta {
 			'height' => 512,
 			'alt'    => self::site_name( $lang ),
 		];
+	}
+
+	/**
+	 * The store's share card in $lang (else Persian): a 1200×630 theme file, assets/img/share-<lang>.jpg.
+	 * Links to the home page and to pages without an image of their own showed the 512-pixel icon,
+	 * which Telegram and WhatsApp draw as a small thumbnail instead of a large preview (2026-11-13).
+	 *
+	 * @return array{url:string,width:int,height:int,alt:string}|null
+	 */
+	private static function share_card( string $lang ): ?array {
+		foreach ( array_unique( [ $lang, Languages::DEFAULT ] ) as $code ) {
+			$file = 'assets/img/share-' . $code . '.jpg';
+			if ( ! file_exists( get_theme_file_path( $file ) ) ) {
+				continue;
+			}
+			$alt = Settings::get_lang( 'seo.home_title', $code, (string) ( SettingsTab::HOME_TITLE[ $code ] ?? '' ) );
+			return [
+				'url'    => get_theme_file_uri( $file ),
+				'width'  => 1200,
+				'height' => 630,
+				'alt'    => '' !== $alt ? $alt : self::site_name( $code ),
+			];
+		}
+		return null;
 	}
 
 	/**

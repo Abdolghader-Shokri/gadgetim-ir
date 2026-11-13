@@ -142,7 +142,10 @@ function gadgetim_product_image( $subject, string $size = 'gtm-card', array $arg
 	}
 
 	if ( $attachment_id > 0 && wp_attachment_is_image( $attachment_id ) ) {
-		if ( false !== ( $args['lqip'] ?? true ) ) {
+		// The blurred preview only for images in the first screen: lazy images are fetched well
+		// before they scroll into view, so their base64 previews were ~1 kB of HTML each that no
+		// one saw (46 on the home page, 11% of its compressed size, 2026-11-13).
+		if ( false !== ( $args['lqip'] ?? true ) && 'lazy' !== $loading ) {
 			$lqip = gadgetim_lqip( $attachment_id );
 			if ( '' !== $lqip ) {
 				$attrs['style'] = 'background:url(' . $lqip . ') center/contain no-repeat';
@@ -335,7 +338,7 @@ function gadgetim_attachment_attributes( array $attr, WP_Post $attachment ): arr
 		$attr['decoding'] = 'async';
 	}
 	if ( ! isset( $attr['style'] ) ) {
-		$lqip = gadgetim_lqip( (int) $attachment->ID );
+		$lqip = 'lazy' === ( $attr['loading'] ?? '' ) ? '' : gadgetim_lqip( (int) $attachment->ID );
 		if ( '' !== $lqip ) {
 			$attr['style'] = 'background:url(' . $lqip . ') center/contain no-repeat';
 		}
