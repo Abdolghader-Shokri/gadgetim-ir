@@ -22,6 +22,7 @@ final class Sitemap {
 	public static function register(): void {
 		add_filter( 'wp_sitemaps_add_provider', [ self::class, 'filter_provider' ], 20, 2 );
 		add_filter( 'wp_sitemaps_taxonomies', [ self::class, 'filter_taxonomies' ], 20, 1 );
+		add_filter( 'wp_sitemaps_taxonomies_query_args', [ self::class, 'add_parent_categories' ], 30, 2 );
 		foreach ( [ 'wp_sitemaps_posts_entry', 'wp_sitemaps_taxonomies_entry', 'wp_sitemaps_index_entry' ] as $hook ) {
 			add_filter( $hook, [ self::class, 'encode_entry' ], 20, 1 );
 		}
@@ -48,6 +49,43 @@ final class Sitemap {
 			unset( $taxonomies['category'], $taxonomies['post_tag'] );
 		}
 		return $taxonomies;
+	}
+
+	/**
+	 * wp_sitemaps_taxonomies_query_args (30, after I18n\Sitemaps): product categories whose products
+	 * all sit in subcategories. Core lists only terms with products of their own (hide_empty), and
+	 * I18n\Sitemaps only terms assigned to the language's published products, so «لوازم جانبی
+	 * کامپیوتر» (18 products in 4 subcategories, none of its own) was indexable in three languages
+	 * but in no sitemap (audit TEC.7-11, 2026-11-13). The list becomes the categories those queries
+	 * find plus all their ancestors; the language's other conditions (meta_query) still apply.
+	 *
+	 * @param mixed  $args     get_terms args.
+	 * @param string $taxonomy Taxonomy.
+	 * @return mixed
+	 */
+	public static function add_parent_categories( $args, $taxonomy = '' ) {
+		if ( ! is_array( $args ) || 'product_cat' !== $taxonomy ) {
+			return $args;
+		}
+		$query           = $args;
+		$query['fields'] = 'ids';
+		$query['number'] = 0;
+		unset( $query['offset'] );
+		$ids = get_terms( $query );
+		if ( ! is_array( $ids ) || ! $ids ) {
+			return $args;
+		}
+		$all = [];
+		foreach ( $ids as $id ) {
+			$all[] = (int) $id;
+			foreach ( get_ancestors( (int) $id, 'product_cat', 'taxonomy' ) as $ancestor ) {
+				$all[] = (int) $ancestor;
+			}
+		}
+		unset( $args['object_ids'] );
+		$args['include']    = array_values( array_unique( $all ) );
+		$args['hide_empty'] = false;
+		return $args;
 	}
 
 	/**
