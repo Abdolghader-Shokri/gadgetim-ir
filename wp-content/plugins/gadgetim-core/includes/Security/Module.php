@@ -1,6 +1,7 @@
 <?php
 /**
- * Security module: the custom admin login address and the HTTPS redirect of the storefront.
+ * Security module: the custom admin login address, the HTTPS redirect of the storefront and the
+ * hardening of docs/architecture.md (XML-RPC, user enumeration, comments, login errors).
  *
  * @package Gadgetim\Core
  */
@@ -20,5 +21,6 @@ final class Module {
 	public static function register(): void {
 		LoginSlug::register();
 		HttpsRedirect::register();
+		Hardening::register();
 	}
 }
