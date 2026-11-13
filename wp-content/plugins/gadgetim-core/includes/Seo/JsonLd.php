@@ -59,6 +59,7 @@ final class JsonLd {
 	 */
 	public static function register(): void {
 		add_action( 'wp_head', [ self::class, 'print_site' ], 25 );
+		add_action( 'wp_head', [ self::class, 'print_page_type' ], 26 );
 		add_filter( 'gadgetim_breadcrumbs', [ self::class, 'capture_crumbs' ], 999, 1 );
 		add_action( 'wp_footer', [ self::class, 'print_breadcrumbs' ], 20 );
 		add_filter( 'woocommerce_structured_data_product', [ self::class, 'filter_product' ], 30, 2 );
@@ -72,6 +73,48 @@ final class JsonLd {
 			return;
 		}
 		self::print_json( self::site_graph( Languages::current() ) );
+	}
+
+	/**
+	 * Schema type of a page by its role (the importer's _gtm_page_role): the about and contact
+	 * pages say what they are and point at the store entity of the home page.
+	 */
+	private const PAGE_TYPES = [
+		'about'   => 'AboutPage',
+		'contact' => 'ContactPage',
+	];
+
+	/**
+	 * wp_head (26): AboutPage / ContactPage on the indexable about and contact pages.
+	 */
+	public static function print_page_type(): void {
+		if ( ! is_page() ) {
+			return;
+		}
+		$data = Meta::data();
+		if ( ! $data['enabled'] || $data['noindex'] || '' === $data['canonical'] ) {
+			return;
+		}
+		$role = (string) get_post_meta( (int) get_queried_object_id(), '_gtm_page_role', true );
+		$type = self::PAGE_TYPES[ $role ] ?? '';
+		if ( '' === $type ) {
+			return;
+		}
+		$root = (string) Languages::with_lang( Languages::DEFAULT, static fn(): string => home_url( '/' ) );
+		$page = [
+			'@context'   => 'https://schema.org',
+			'@type'      => $type,
+			'@id'        => $data['canonical'] . '#webpage',
+			'url'        => $data['canonical'],
+			'name'       => $data['title'],
+			'inLanguage' => Languages::hreflang( $data['lang'] ),
+			'isPartOf'   => [ '@id' => $root . '#website' ],
+			'about'      => [ '@id' => $root . '#organization' ],
+		];
+		if ( '' !== $data['description'] ) {
+			$page['description'] = $data['description'];
+		}
+		self::print_json( $page );
 	}
 
 	/**

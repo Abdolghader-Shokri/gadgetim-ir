@@ -77,6 +77,11 @@ final class Meta {
 			'en' => '(page %1$s)',
 			'ar' => '(الصفحة %1$s)',
 		],
+		'tracking_desc'    => [
+			'fa' => 'پیگیری سفارش در گجتیم: شماره سفارش و شماره موبایل یا ایمیلی را که هنگام خرید وارد کردید بنویسید و وضعیت آماده‌سازی و ارسال سفارش را ببینید.',
+			'en' => 'Track your Gadgetim order: enter the order number and the mobile number or email you used at checkout to see its preparation and shipping status.',
+			'ar' => 'تتبع طلبك في Gadgetim: أدخل رقم الطلب ورقم الجوال أو البريد الإلكتروني الذي استخدمته عند الشراء لمعرفة حالة تجهيز الطلب وشحنه.',
+		],
 	];
 
 	/**
@@ -334,6 +339,10 @@ final class Meta {
 			if ( '' !== $plain && ! Text::is_placeholder( $plain ) ) {
 				return $plain;
 			}
+		}
+		// A page that is only a shortcode (the order-tracking form) has no text of its own.
+		if ( has_shortcode( (string) get_post_field( 'post_content', $post_id, 'raw' ), 'woocommerce_order_tracking' ) ) {
+			return self::template( 'tracking_desc', $lang );
 		}
 		return '';
 	}
