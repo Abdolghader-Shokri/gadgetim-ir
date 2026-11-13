@@ -2884,8 +2884,8 @@ msgid "The shopper must choose \"I want the warranty\" or \"I do not want the wa
 msgstr "خریدار باید یکی از «گارانتی می‌خواهم» یا «گارانتی نمی‌خواهم» را انتخاب کند؛ برای انتخاب گارانتی باید تیک خواندن شرایط گارانتی و مرجوعی را هم بزند. انتخاب او در سفارش، ایمیل‌ها و پیشخوان نمایش داده می‌شود."
 
 #: includes/Import/Drop.php
-msgid "manifest.json is missing or not a version 1 product package."
-msgstr "فایل manifest.json نیست یا بسته محصول نسخه ۱ نیست."
+msgid "manifest.json is missing or not a version 1 package."
+msgstr "فایل manifest.json نیست یا بسته نسخه ۱ نیست."
 
 #: includes/Import/Drop.php
 msgid "PHP zip support is not available on this server: extract the zip into its own folder inside gadgetim-drop instead."
@@ -2909,8 +2909,8 @@ msgstr "ووکامرس محصول را ذخیره نکرد."
 
 #: includes/Import/Drop.php
 #, php-format
-msgid "Product package %s was imported:"
-msgstr "بسته محصول %s وارد سایت شد:"
+msgid "Package %s was imported:"
+msgstr "بسته %s وارد سایت شد:"
 
 #: includes/Import/Drop.php
 msgid "added"
@@ -2919,6 +2919,30 @@ msgstr "اضافه شد"
 #: includes/Import/Drop.php
 msgid "updated"
 msgstr "به‌روز شد"
+
+#: includes/Import/Drop.php
+msgid "the page was not found on this site."
+msgstr "این برگه در سایت پیدا نشد."
+
+#: includes/Import/Drop.php
+msgid "the page at this address has a different ID than expected."
+msgstr "شناسه برگه این نشانی با شناسه مورد انتظار فرق دارد."
+
+#: includes/Import/Drop.php
+msgid "a page entry needs an image file."
+msgstr "برای هر برگه باید فایل تصویر داده شود."
+
+#: includes/Import/Drop.php
+msgid "the image could not be added to the media library."
+msgstr "تصویر به کتابخانه رسانه اضافه نشد."
+
+#: includes/Import/Drop.php
+msgid "featured image added"
+msgstr "تصویر شاخص گذاشته شد"
+
+#: includes/Import/Drop.php
+msgid "kept: the page already has a featured image"
+msgstr "بدون تغییر: برگه از قبل تصویر شاخص دارد"
 
 #: includes/Pricing/Admin/views/currencies-page.php
 #, php-format
