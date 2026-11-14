@@ -1,7 +1,7 @@
 <?php
 /**
- * JSON-LD: the store (OnlineStore + WebSite) on the home page, BreadcrumbList on inner pages,
- * and corrections to WooCommerce's product markup.
+ * JSON-LD: the store (OnlineStore + WebSite) on the home page, a page node on every indexable
+ * page, BreadcrumbList on inner pages, and corrections to WooCommerce's product markup.
  *
  * @package Gadgetim\Core
  */
@@ -13,6 +13,7 @@ namespace Gadgetim\Core\Seo;
 use Gadgetim\Core\I18n\Languages;
 use Gadgetim\Core\Settings\Settings;
 use Gadgetim\Core\Support\Phone;
+use WP_Post;
 
 /**
  * Prices in the product markup: schema.org wants an ISO 4217 code, and the store currency
@@ -76,16 +77,25 @@ final class JsonLd {
 	}
 
 	/**
-	 * Schema type of a page by its role (the importer's _gtm_page_role): the about and contact
-	 * pages say what they are and point at the store entity of the home page.
+	 * Schema type of a page by its role (the importer's _gtm_page_role); any other indexable page
+	 * is a WebPage. The about and contact pages also say the store entity is their subject.
 	 */
 	private const PAGE_TYPES = [
 		'about'   => 'AboutPage',
 		'contact' => 'ContactPage',
+		'faq'     => 'FAQPage',
 	];
 
 	/**
-	 * wp_head (26): AboutPage / ContactPage on the indexable about and contact pages.
+	 * Page types whose subject is the store itself.
+	 */
+	private const ABOUT_STORE = [ 'AboutPage', 'ContactPage' ];
+
+	/**
+	 * wp_head (26): the page node of an indexable page: its type, the website it belongs to, its
+	 * own featured image (primaryImageOfPage) and, on the FAQ page, its questions. The theme
+	 * reads the questions out of the page content (filter gadgetim_seo_faq_entities); without
+	 * them the FAQ page is a plain WebPage, since an FAQPage needs at least one question.
 	 */
 	public static function print_page_type(): void {
 		if ( ! is_page() ) {
@@ -95,11 +105,12 @@ final class JsonLd {
 		if ( ! $data['enabled'] || $data['noindex'] || '' === $data['canonical'] ) {
 			return;
 		}
-		$role = (string) get_post_meta( (int) get_queried_object_id(), '_gtm_page_role', true );
-		$type = self::PAGE_TYPES[ $role ] ?? '';
-		if ( '' === $type ) {
+		$post = get_queried_object();
+		if ( ! $post instanceof WP_Post || post_password_required( $post ) ) {
 			return;
 		}
+		$role = (string) get_post_meta( $post->ID, '_gtm_page_role', true );
+		$type = self::PAGE_TYPES[ $role ] ?? 'WebPage';
 		$root = (string) Languages::with_lang( Languages::DEFAULT, static fn(): string => home_url( '/' ) );
 		$page = [
 			'@context'   => 'https://schema.org',
@@ -109,12 +120,54 @@ final class JsonLd {
 			'name'       => $data['title'],
 			'inLanguage' => Languages::hreflang( $data['lang'] ),
 			'isPartOf'   => [ '@id' => $root . '#website' ],
-			'about'      => [ '@id' => $root . '#organization' ],
 		];
+		if ( in_array( $type, self::ABOUT_STORE, true ) ) {
+			$page['about'] = [ '@id' => $root . '#organization' ];
+		}
 		if ( '' !== $data['description'] ) {
 			$page['description'] = $data['description'];
 		}
+		$image = self::page_image( $post, $data['lang'] );
+		if ( null !== $image ) {
+			$page['primaryImageOfPage'] = $image;
+		}
+		if ( 'FAQPage' === $type ) {
+			$questions = array_values( array_filter( (array) apply_filters( 'gadgetim_seo_faq_entities', [], $post ), 'is_array' ) );
+			if ( $questions ) {
+				$page['mainEntity'] = $questions;
+			} else {
+				$page['@type'] = 'WebPage';
+			}
+		}
 		self::print_json( $page );
+	}
+
+	/**
+	 * The page's own featured image as an ImageObject; null without one, or when its words are
+	 * in another language (that page shares the store card of its language instead).
+	 *
+	 * @return array<string,mixed>|null
+	 */
+	private static function page_image( WP_Post $post, string $lang ): ?array {
+		$id = (int) get_post_thumbnail_id( $post );
+		if ( $id <= 0 || ! Meta::image_speaks( $id, $lang ) ) {
+			return null;
+		}
+		$src = wp_get_attachment_image_src( $id, 'full' );
+		if ( ! is_array( $src ) || empty( $src[0] ) ) {
+			return null;
+		}
+		$node = [
+			'@type'  => 'ImageObject',
+			'url'    => Text::encode_url( (string) $src[0] ),
+			'width'  => (int) ( $src[1] ?? 0 ),
+			'height' => (int) ( $src[2] ?? 0 ),
+		];
+		$alt = trim( (string) get_post_meta( $id, '_wp_attachment_image_alt', true ) );
+		if ( '' !== $alt ) {
+			$node['caption'] = $alt;
+		}
+		return $node;
 	}
 
 	/**

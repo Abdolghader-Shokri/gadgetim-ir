@@ -533,9 +533,8 @@ final class Meta {
 	private static function image( string $lang ): ?array {
 		$id = 0;
 		if ( is_singular() ) {
-			$id   = (int) get_post_thumbnail_id( (int) get_queried_object_id() );
-			$text = $id > 0 ? (string) get_post_meta( $id, self::META_TEXT_LANG, true ) : '';
-			if ( '' !== $text && $text !== $lang ) {
+			$id = (int) get_post_thumbnail_id( (int) get_queried_object_id() );
+			if ( $id > 0 && ! self::image_speaks( $id, $lang ) ) {
 				$id = 0;
 			}
 		} elseif ( is_tax() ) {
@@ -576,6 +575,15 @@ final class Meta {
 			'height' => 512,
 			'alt'    => self::site_name( $lang ),
 		];
+	}
+
+	/**
+	 * Whether an image can stand for a page in $lang: true for images without words, and for
+	 * branded images whose drawn words (META_TEXT_LANG) are in $lang.
+	 */
+	public static function image_speaks( int $id, string $lang ): bool {
+		$text = (string) get_post_meta( $id, self::META_TEXT_LANG, true );
+		return '' === $text || $text === $lang;
 	}
 
 	/**
