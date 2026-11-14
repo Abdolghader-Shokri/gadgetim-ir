@@ -404,13 +404,21 @@ final class Meta {
 
 	/**
 	 * Names used in titles and descriptions instead of the stored term name, per taxonomy, decoded
-	 * slug and language. Only where the shorter stored name hides the phrase shoppers type: every
-	 * product in «ایرپاد» is a Bluetooth earbud, and the keyword bank sends «هندزفری بلوتوثی»
-	 * (buy, price, original) to that category (2026-11-13). Filter: gadgetim_seo_term_names.
+	 * slug and language. Only where the shorter stored name hides the phrase shoppers type, and
+	 * only when every product in the category fits the longer name:
+	 * - «ایرپاد»: every product is a Bluetooth earbud; «هندزفری بلوتوثی» (2026-11-13).
+	 * - «شارژر فندکی»: both products are super-fast car chargers; «شارژر فندکی ماشین» and
+	 *   «شارژر فندکی فست شارژ» (2026-11-14).
+	 * - «اسپیکر» and «هدفون»: all Bluetooth but one gaming model each; «اسپیکر بلوتوثی» and
+	 *   «هدفون بلوتوثی» (2026-11-14).
+	 * Filter: gadgetim_seo_term_names.
 	 */
 	private const TERM_NAMES = [
 		'product_cat' => [
-			'ایرپاد' => [ 'fa' => 'ایرپاد و هندزفری بلوتوثی' ],
+			'ایرپاد'                       => [ 'fa' => 'ایرپاد و هندزفری بلوتوثی' ],
+			'شارژر-فندکی'                  => [ 'fa' => 'شارژر فندکی ماشین فست شارژ' ],
+			'اسپیکر-کالای-دیجیتیال-و-برقی' => [ 'fa' => 'اسپیکر بلوتوثی و گیمینگ' ],
+			'هدفون'                        => [ 'fa' => 'هدفون بلوتوثی و گیمینگ' ],
 		],
 	];
 
