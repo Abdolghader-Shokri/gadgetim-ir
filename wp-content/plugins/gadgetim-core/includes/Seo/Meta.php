@@ -34,6 +34,11 @@ final class Meta {
 	public const META_TEXT_LANG = '_gtm_text_lang';
 
 	/**
+	 * Longest archive document title (store name included) before the short template is used.
+	 */
+	private const TITLE_MAX = 60;
+
+	/**
 	 * Title and description templates of term archives, per language. %1$s = name,
 	 * %2$s = number of products (locale digits).
 	 */
@@ -52,6 +57,23 @@ final class Meta {
 			'fa' => 'محصولات اصل %1$s: قیمت و خرید',
 			'en' => 'Original %1$s products and prices',
 			'ar' => 'منتجات %1$s الأصلية وأسعارها',
+		],
+		// Short forms, used when the full title and the store name would pass TITLE_MAX. They keep
+		// the buyer's words (buy, prices, original); an English name starts lower-case after "Buy".
+		'cat_title_short'        => [
+			'fa' => 'خرید %1$s اصل',
+			'en' => 'Buy original %1$s',
+			'ar' => 'أسعار %1$s الأصلية',
+		],
+		'cat_parent_title_short' => [
+			'fa' => 'خرید %1$s اصل',
+			'en' => 'Buy original %1$s',
+			'ar' => 'أسعار %1$s الأصلية',
+		],
+		'brand_title_short'      => [
+			'fa' => 'محصولات اصل %1$s',
+			'en' => 'Original %1$s products',
+			'ar' => 'منتجات %1$s الأصلية',
 		],
 		'cat_desc'         => [
 			'fa' => 'قیمت و خرید %1$s اصل از گجتیم: %2$s مدل با ضمانت اصالت کالا و تست سلامت ۷ روزه؛ ارسال با تیپاکس، دکاپست و پست پیشتاز به سراسر ایران.',
@@ -230,7 +252,17 @@ final class Meta {
 			$key = 'brand_title';
 		}
 		if ( '' !== $key ) {
-			$parts['title'] = sprintf( self::template( $key, $lang ), $name );
+			$title = sprintf( self::template( $key, $lang ), $name );
+			// The document title adds « – store name». A long category name pushed three English
+			// titles past 70 characters (2026-11-14), where search results cut them off.
+			if ( mb_strlen( $title . ' – ' . self::site_name( $lang ) ) > self::TITLE_MAX ) {
+				$short = self::template( $key . '_short', $lang );
+				if ( '' !== $short ) {
+					$word  = 'en' === $lang && 'brand_title' !== $key && preg_match( '/^[A-Z][a-z]/', $name ) ? lcfirst( $name ) : $name;
+					$title = sprintf( $short, $word );
+				}
+			}
+			$parts['title'] = $title;
 		}
 		return $parts;
 	}
