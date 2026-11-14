@@ -24,9 +24,12 @@ defined( 'ABSPATH' ) || exit;
 global $post;
 
 $gadgetim_help = gadgetim_order_help_url();
+// The form posts back to its own page. Rendered outside a page (WP-Cron on Local, 2026-11-14:
+// "Attempt to read property ID on null"), the form has no action attribute and posts to the current address.
+$gadgetim_action = $post instanceof WP_Post ? (string) get_permalink( $post ) : '';
 ?>
 
-<form action="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" method="post" class="woocommerce-form woocommerce-form-track-order track_order cm-card trk">
+<form<?php echo '' !== $gadgetim_action ? ' action="' . esc_url( $gadgetim_action ) . '"' : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- esc_url() inside. ?> method="post" class="woocommerce-form woocommerce-form-track-order track_order cm-card trk">
 
 	<?php
 	/**
