@@ -9,6 +9,7 @@
 #   2. shellcheck on every *.sh in the repository, when shellcheck is installed
 #   3. phpcs with phpcs.xml.dist, when phpcs is installed (vendor/bin or PATH)
 #   4. hygiene: LF-only text files, no UTF-8 BOM in PHP files, executable bit on *.sh in the index
+#   5. the theme's .min.css copies match their sources (tools/minify-css.php --check)
 #
 # Exit code: 0 when every check that ran passed, 1 otherwise. Checks that could not run say so.
 # Output for the user is Persian; technical tokens stay Latin.
@@ -25,7 +26,7 @@ for arg in "$@"; do
     --no-phpcs) run_phpcs=0 ;;
     --no-shellcheck) run_shellcheck=0 ;;
     -h|--help)
-      sed -n '2,12p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
+      sed -n '2,13p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
       exit 0
       ;;
     *)
@@ -240,6 +241,19 @@ while IFS= read -r line; do
   fi
 done < <(git ls-files -s -- '*.sh' ':!first-backup' ':!release' 2>/dev/null)
 [ "$exec_missing" -eq 0 ] && echo "  ✔ بیت اجرای اسکریپت‌های .sh در ایندکس ثبت است (یا اسکریپتی ردیابی نشده)"
+
+# ---------------------------------------------------------------------------
+# 5. minified theme stylesheets match their sources (tools/minify-css.php)
+# ---------------------------------------------------------------------------
+head1 "CSS فشرده قالب"
+if ! { [ -x "$php_bin" ] || command -v "$php_bin" >/dev/null 2>&1; }; then
+  echo "  اجرا نشد: مفسر PHP پیدا نشد."
+elif css_out=$("$php_bin" -n tools/minify-css.php --check 2>&1); then
+  echo "  ✔ فایل‌های .min.css با منبعشان یکی‌اند"
+else
+  fail "فایل .min.css کهنه یا گم است؛ اجرا کنید: php tools/minify-css.php"
+  printf '    %s\n' "$css_out"
+fi
 
 # ---------------------------------------------------------------------------
 echo

@@ -154,8 +154,8 @@ function gadgetim_commerce_assets(): void {
 	if ( '' === gadgetim_commerce_view() ) {
 		return;
 	}
-	$css = 'assets/css/commerce.css';
-	if ( ! wp_style_is( 'gadgetim-commerce', 'enqueued' ) && gadgetim_css_has_rules( $css ) ) {
+	if ( ! wp_style_is( 'gadgetim-commerce', 'enqueued' ) && gadgetim_css_has_rules( 'assets/css/commerce.css' ) ) {
+		$css = gadgetim_css_file( 'commerce' );
 		wp_enqueue_style( 'gadgetim-commerce', gadgetim_asset_url( $css ), [ 'gadgetim-layout' ], gadgetim_asset_version( $css ) );
 	}
 	$js = 'templates/commerce/commerce.js';
