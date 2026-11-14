@@ -156,7 +156,10 @@ final class ProductExtras {
 
 	/**
 	 * Short title: the `_gtm_short_title` override, else the title with the boilerplate stripped.
-	 * For a non-Persian language the translated title (`_gtm_title_{lang}`) wins when present.
+	 * For a non-Persian language the translated title (`_gtm_title_{lang}`) wins when present,
+	 * as written: the boilerplate is Persian, and TitleCleaner folds Arabic letters into Persian
+	 * ones to find it, so Arabic titles went out as «سماعات سلکیه» instead of «سماعات سلكية»
+	 * (H1, product cards and image alt text on the Arabic pages, until 2026-11-14).
 	 *
 	 * @param WC_Product|WP_Post|int $product Product.
 	 * @param string|null            $lang    Language code; current language by default.
@@ -170,7 +173,7 @@ final class ProductExtras {
 		if ( '' !== $suffix ) {
 			$translated = (string) get_post_meta( $id, '_gtm_title' . $suffix, true );
 			if ( '' !== trim( $translated ) ) {
-				return TitleCleaner::short( $translated );
+				return trim( (string) preg_replace( '/\s+/u', ' ', $translated ) );
 			}
 		}
 		$override = (string) get_post_meta( $id, self::META_SHORT_TITLE, true );
