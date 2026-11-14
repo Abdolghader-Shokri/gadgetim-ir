@@ -568,13 +568,23 @@ function gadgetim_archive_initials( string $name ): string {
 }
 
 /**
- * Translated term description (raw HTML, kses on output).
+ * Translated term description (raw HTML, kses on output), or '' when it is demo filler.
+ *
+ * Legacy descriptions can hold the old theme's «لورم ایپسوم» filler (the smart-watch category
+ * did until 2026-11-14). The plugin kept it out of the meta description through the
+ * term_description filter, but this path reads the description directly, so shoppers still saw
+ * it under «درباره ساعت هوشمند». The same placeholder test (gadgetim-core Seo\Text) now applies here.
  */
 function gadgetim_archive_term_description( WP_Term $term ): string {
 	if ( class_exists( 'Gadgetim\Core\I18n\TermTranslations' ) && method_exists( 'Gadgetim\Core\I18n\TermTranslations', 'description_or_native' ) ) {
-		return (string) Gadgetim\Core\I18n\TermTranslations::description_or_native( $term );
+		$description = (string) Gadgetim\Core\I18n\TermTranslations::description_or_native( $term );
+	} else {
+		$description = (string) $term->description;
 	}
-	return (string) $term->description;
+	if ( '' !== $description && class_exists( 'Gadgetim\Core\Seo\Text' ) && Gadgetim\Core\Seo\Text::is_placeholder( Gadgetim\Core\Seo\Text::plain( $description ) ) ) {
+		return '';
+	}
+	return $description;
 }
 
 /**
