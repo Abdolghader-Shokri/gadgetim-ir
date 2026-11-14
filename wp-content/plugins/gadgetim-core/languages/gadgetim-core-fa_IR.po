@@ -2944,6 +2944,33 @@ msgstr "تصویر شاخص گذاشته شد"
 msgid "kept: the page already has a featured image"
 msgstr "بدون تغییر: برگه از قبل تصویر شاخص دارد"
 
+#: includes/Import/Drop.php
+msgid "the image was not found in the media library."
+msgstr "این تصویر در کتابخانه رسانه پیدا نشد."
+
+#: includes/Import/Drop.php
+msgid "the image in the media library has a different file name."
+msgstr "نام فایل این تصویر در کتابخانه رسانه فرق دارد."
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "the copy of %s in the package is damaged."
+msgstr "نسخه %s در بسته خراب است."
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "%s could not be written to the uploads folder."
+msgstr "%s در پوشه uploads نوشته نشد."
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "image files put back: %d"
+msgstr "فایل‌های تصویر برگردانده شد: %d"
+
+#: includes/Import/Drop.php
+msgid "nothing to put back: the files are in place"
+msgstr "چیزی برای برگرداندن نبود: فایل‌ها سر جایشان هستند"
+
 #: includes/Pricing/Admin/views/currencies-page.php
 #, php-format
 msgid "The new %1$s rate is saved but not applied: the prices of %2$s products still use the previous rate."

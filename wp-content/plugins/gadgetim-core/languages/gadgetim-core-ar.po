@@ -2972,6 +2972,33 @@ msgstr "أُضيفت الصورة البارزة"
 msgid "kept: the page already has a featured image"
 msgstr "دون تغيير: للصفحة صورة بارزة من قبل"
 
+#: includes/Import/Drop.php
+msgid "the image was not found in the media library."
+msgstr "لم يتم العثور على هذه الصورة في مكتبة الوسائط."
+
+#: includes/Import/Drop.php
+msgid "the image in the media library has a different file name."
+msgstr "اسم ملف هذه الصورة في مكتبة الوسائط مختلف."
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "the copy of %s in the package is damaged."
+msgstr "نسخة %s في الحزمة تالفة."
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "%s could not be written to the uploads folder."
+msgstr "تعذّرت كتابة %s في مجلد uploads."
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "image files put back: %d"
+msgstr "ملفات الصور المُعادة: %d"
+
+#: includes/Import/Drop.php
+msgid "nothing to put back: the files are in place"
+msgstr "لا شيء لإعادته: الملفات في مكانها"
+
 #: includes/Pricing/Admin/views/currencies-page.php
 #, php-format
 msgid "The new %1$s rate is saved but not applied: the prices of %2$s products still use the previous rate."

@@ -1,16 +1,22 @@
 <?php
 /**
  * Packages dropped on the host (client, 2026-11-11): the shop owner uploads a zip built by
- * tools/build-product-drop.php or tools/build-page-drop.php into wp-content/gadgetim-drop/ with
- * the host's file manager, and the content appears on the site by itself.
+ * tools/build-product-drop.php, tools/build-page-drop.php or tools/build-media-drop.php into
+ * wp-content/gadgetim-drop/ with the host's file manager, and the content appears on the site by
+ * itself.
  *
- * A package holds manifest.json (version 1) and images/, with either list or both:
+ * A package holds manifest.json (version 1) with one or more of these lists, and the files they name:
  * - products[]: each product is matched by SKU. A new SKU creates a published simple product, a
  *   known one is updated (texts, prices, specs, translations; images only when the product has none).
  * - pages[]: a branded featured image for an existing published page, found by its path; the
  *   expected ID guards against a different page at that address. A page that already has a
  *   featured image keeps it unless the entry says "replace" (image program, 2026-11-14: the site
  *   database cannot be shipped, so the images travel this way).
+ * - media[]: files of existing media-library images that are missing from the uploads folder, put
+ *   back under the names the library already has. The move to the live host lost every upload
+ *   with a Persian file name (2026-11-14: 25 product photos answered 404). Only files that the
+ *   image's own record names can be written, a file that is there is never replaced, and no
+ *   database row changes.
  *
  * The scan runs on the next dashboard page load of a shop manager and hourly through WP-Cron. A
  * processed package moves to done/ (or failed/ when nothing could be imported), a line per item
@@ -38,7 +44,7 @@ use WP_Post;
 use ZipArchive;
 
 /**
- * Scanner and importer for dropped product and page-image packages.
+ * Scanner and importer for dropped product, page-image and media packages.
  */
 final class Drop {
 
@@ -153,7 +159,8 @@ final class Drop {
 		$data     = $read ? json_decode( (string) $read( 'manifest.json' ), true ) : null;
 		$products = is_array( $data ) && is_array( $data['products'] ?? null ) ? $data['products'] : [];
 		$pages    = is_array( $data ) && is_array( $data['pages'] ?? null ) ? $data['pages'] : [];
-		if ( ! is_array( $data ) || (int) ( $data['version'] ?? 0 ) !== self::VERSION || ( ! $products && ! $pages ) ) {
+		$media    = is_array( $data ) && is_array( $data['media'] ?? null ) ? $data['media'] : [];
+		if ( ! is_array( $data ) || (int) ( $data['version'] ?? 0 ) !== self::VERSION || ( ! $products && ! $pages && ! $media ) ) {
 			if ( $read ) {
 				$result['errors'][] = __( 'manifest.json is missing or not a version 1 package.', 'gadgetim-core' );
 			}
@@ -165,6 +172,10 @@ final class Drop {
 			foreach ( $pages as $p ) {
 				$item = is_array( $p ) ? self::import_page( $p, $read, $name ) : [ 'error' => 'invalid entry' ];
 				self::collect( $result, $item, is_array( $p ) ? rawurldecode( (string) ( $p['path'] ?? '' ) ) : '' );
+			}
+			foreach ( $media as $m ) {
+				$item = is_array( $m ) ? self::restore_media( $m, $read ) : [ 'error' => 'invalid entry' ];
+				self::collect( $result, $item, is_array( $m ) ? (string) ( $m['file'] ?? '' ) : '' );
 			}
 		}
 
@@ -379,6 +390,109 @@ final class Drop {
 	}
 
 	/**
+	 * Puts back the missing files of one media-library image.
+	 *
+	 * @param array    $m    Manifest entry: id (expected), file (uploads-relative path as the
+	 *                       library stores it), files[] { path (uploads-relative), zip (entry in
+	 *                       the package), sha1 }.
+	 * @param callable $read Package reader.
+	 */
+	public static function restore_media( array $m, callable $read ): array {
+		$file = ltrim( str_replace( '\\', '/', (string) ( $m['file'] ?? '' ) ), '/' );
+		$aid  = '' !== $file ? self::find_attachment( (int) ( $m['id'] ?? 0 ), $file ) : 0;
+		if ( $aid <= 0 ) {
+			return [ 'error' => __( 'the image was not found in the media library.', 'gadgetim-core' ) ];
+		}
+		if ( (string) get_post_meta( $aid, '_wp_attached_file', true ) !== $file ) {
+			return [ 'error' => __( 'the image in the media library has a different file name.', 'gadgetim-core' ) ];
+		}
+		$uploads = wp_get_upload_dir();
+		if ( ! empty( $uploads['error'] ) ) {
+			return [ 'error' => (string) $uploads['error'] ];
+		}
+
+		$own      = self::attachment_files( $aid, $file );
+		$restored = 0;
+		foreach ( (array) ( $m['files'] ?? [] ) as $f ) {
+			$path = is_array( $f ) ? ltrim( str_replace( '\\', '/', (string) ( $f['path'] ?? '' ) ), '/' ) : '';
+			if ( ! isset( $own[ $path ] ) ) {
+				continue; // Not a file of this image: never written.
+			}
+			$target = trailingslashit( $uploads['basedir'] ) . $path;
+			if ( file_exists( $target ) ) {
+				continue;
+			}
+			$bytes = $read( (string) ( $f['zip'] ?? '' ) );
+			if ( null === $bytes || ( isset( $f['sha1'] ) && sha1( $bytes ) !== (string) $f['sha1'] )
+				|| false === @getimagesizefromstring( $bytes ) ) { // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- damaged bytes are reported below.
+				/* translators: %s: file name */
+				return [ 'error' => sprintf( __( 'the copy of %s in the package is damaged.', 'gadgetim-core' ), wp_basename( $path ) ) ];
+			}
+			if ( ! wp_mkdir_p( dirname( $target ) )
+				|| false === @file_put_contents( $target, $bytes ) ) { // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged, WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents -- result checked.
+				/* translators: %s: file name */
+				return [ 'error' => sprintf( __( '%s could not be written to the uploads folder.', 'gadgetim-core' ), wp_basename( $path ) ) ];
+			}
+			@chmod( $target, fileperms( dirname( $target ) ) & 0000666 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged, WordPress.WP.AlternativeFunctions.file_system_operations_chmod -- the mode WordPress gives uploads.
+			++$restored;
+		}
+
+		$owner = get_post( (int) wp_get_post_parent_id( $aid ) );
+		$shown = $owner instanceof WP_Post && 'publish' === $owner->post_status;
+		return [
+			'id'     => $aid,
+			'sku'    => '',
+			'title'  => $shown ? get_the_title( $owner ) : get_the_title( $aid ),
+			'action' => $restored > 0 ? 'restored' : 'present',
+			'url'    => $shown ? (string) get_permalink( $owner ) : (string) wp_get_attachment_url( $aid ),
+			'files'  => $restored,
+		];
+	}
+
+	/**
+	 * The image whose stored file is $file: the expected ID when it matches, else the one this
+	 * site has for that path; 0 when there is none.
+	 */
+	private static function find_attachment( int $expected, string $file ): int {
+		if ( $expected > 0 && 'attachment' === get_post_type( $expected )
+			&& (string) get_post_meta( $expected, '_wp_attached_file', true ) === $file ) {
+			return $expected;
+		}
+		return (int) attachment_url_to_postid( trailingslashit( wp_get_upload_dir()['baseurl'] ) . $file );
+	}
+
+	/**
+	 * Uploads-relative paths of an image's own files (the map's keys): the stored file, its
+	 * sizes and the original of a scaled image.
+	 *
+	 * @return array<string,true>
+	 */
+	private static function attachment_files( int $aid, string $file ): array {
+		$dir   = dirname( $file );
+		$dir   = '.' === $dir ? '' : $dir . '/';
+		$names = [ wp_basename( $file ) ];
+		$meta  = wp_get_attachment_metadata( $aid );
+		if ( is_array( $meta ) ) {
+			foreach ( (array) ( $meta['sizes'] ?? [] ) as $size ) {
+				if ( is_array( $size ) && ! empty( $size['file'] ) ) {
+					$names[] = wp_basename( (string) $size['file'] );
+				}
+			}
+			if ( ! empty( $meta['original_image'] ) ) {
+				$names[] = wp_basename( (string) $meta['original_image'] );
+			}
+		}
+		$own = [];
+		foreach ( $names as $name ) {
+			$ext = strtolower( (string) substr( (string) strrchr( $name, '.' ), 1 ) );
+			if ( in_array( $ext, self::IMAGE_TYPES, true ) ) {
+				$own[ $dir . $name ] = true;
+			}
+		}
+		return $own;
+	}
+
+	/**
 	 * Category ids from ids, slugs or names (existing terms only).
 	 *
 	 * @param array $refs References.
@@ -556,7 +670,8 @@ final class Drop {
 		$lines = [ gmdate( 'c' ) . ' ' . $result['package'] ];
 		foreach ( $result['items'] as $i ) {
 			$sku     = (string) ( $i['sku'] ?? '' );
-			$lines[] = '  ' . $i['action'] . ' #' . $i['id'] . ( '' !== $sku ? ' ' . $sku : '' ) . ' ' . $i['url'];
+			$lines[] = '  ' . $i['action'] . ' #' . $i['id'] . ( '' !== $sku ? ' ' . $sku : '' )
+				. ( isset( $i['files'] ) ? ' files=' . (int) $i['files'] : '' ) . ' ' . $i['url'];
 		}
 		foreach ( $result['errors'] as $e ) {
 			$lines[] = '  ERROR ' . $e;
@@ -567,12 +682,15 @@ final class Drop {
 	/**
 	 * What happened to an item, for the notice.
 	 */
-	private static function action_label( string $action ): string {
+	private static function action_label( string $action, int $files = 0 ): string {
 		return match ( $action ) {
-			'created' => __( 'added', 'gadgetim-core' ),
-			'image'   => __( 'featured image added', 'gadgetim-core' ),
-			'kept'    => __( 'kept: the page already has a featured image', 'gadgetim-core' ),
-			default   => __( 'updated', 'gadgetim-core' ),
+			'created'  => __( 'added', 'gadgetim-core' ),
+			'image'    => __( 'featured image added', 'gadgetim-core' ),
+			'kept'     => __( 'kept: the page already has a featured image', 'gadgetim-core' ),
+			/* translators: %d: number of files */
+			'restored' => sprintf( __( 'image files put back: %d', 'gadgetim-core' ), $files ),
+			'present'  => __( 'nothing to put back: the files are in place', 'gadgetim-core' ),
+			default    => __( 'updated', 'gadgetim-core' ),
 		};
 	}
 
@@ -595,7 +713,7 @@ final class Drop {
 			echo esc_html( sprintf( __( 'Package %s was imported:', 'gadgetim-core' ), (string) $r['package'] ) );
 			echo '</strong></p><ul style="list-style:disc;padding-inline-start:20px">';
 			foreach ( (array) $r['items'] as $i ) {
-				$label = self::action_label( (string) ( $i['action'] ?? '' ) );
+				$label = self::action_label( (string) ( $i['action'] ?? '' ), (int) ( $i['files'] ?? 0 ) );
 				echo '<li><a href="' . esc_url( (string) $i['url'] ) . '" target="_blank">' . esc_html( (string) $i['title'] ) . '</a> (' . esc_html( $label ) . ')</li>';
 			}
 			foreach ( (array) $r['errors'] as $e ) {
