@@ -315,17 +315,21 @@ function gadgetim_pages_slug( string $text, array $used, string $prefix = '' ): 
 
 /**
  * Prepares editor HTML for reading: headings h1 demoted to h2 (one H1 per page: the hero), a
- * text without h2 promoted so its top heading is an h2, a first heading that repeats the page
- * title dropped, ids on every h2/h3, and the table of contents (the h2s when there are at least
- * three, else the h3s; none below three).
+ * first heading that repeats the page title dropped, a text left without h2 promoted so its top
+ * heading is an h2, ids on every h2/h3, and the table of contents (the h2s when there are at
+ * least three, else the h3s; none below three).
  *
  * @return array{html:string,toc:array<int,array{id:string,text:string,level:int}>,minutes:int}
  */
 function gadgetim_pages_prepare( string $html, string $title = '' ): array {
 	$html = (string) preg_replace( '#<h1(\s[^>]*)?>(.*?)</h1>#is', '<h2$1>$2</h2>', $html );
-	// The legacy privacy text starts its sections at h3, so the outline jumped from the page's H1
-	// to h3 in all three languages (audit, 2026-11-14). Every heading moves up by the gap; the
-	// table of contents lists the same sections.
+	if ( '' !== $title && preg_match( '#^\s*<h([23])\b[^>]*>(.*?)</h\1>\s*#is', $html, $m ) && gadgetim_pages_norm( $m[2] ) === gadgetim_pages_norm( $title ) ) {
+		$html = substr( $html, strlen( $m[0] ) );
+	}
+	// The legacy privacy text starts its sections at h3 under an h2 that repeats the title
+	// (dropped just above), so the outline jumped from the page's H1 to h3 in all three languages
+	// (audit, 2026-11-14). Every heading moves up by the gap; the table of contents lists the
+	// same sections.
 	if ( ! preg_match( '#<h2\b#i', $html ) && preg_match_all( '#<h([3-6])\b#i', $html, $levels ) ) {
 		$shift = min( array_map( 'intval', $levels[1] ) ) - 2;
 		$html  = (string) preg_replace_callback(
@@ -333,9 +337,6 @@ function gadgetim_pages_prepare( string $html, string $title = '' ): array {
 			static fn( array $m ): string => '<' . $m[1] . 'h' . ( (int) $m[2] - $shift ),
 			$html
 		);
-	}
-	if ( '' !== $title && preg_match( '#^\s*<h([23])\b[^>]*>(.*?)</h\1>\s*#is', $html, $m ) && gadgetim_pages_norm( $m[2] ) === gadgetim_pages_norm( $title ) ) {
-		$html = substr( $html, strlen( $m[0] ) );
 	}
 	$used  = [];
 	$found = [
