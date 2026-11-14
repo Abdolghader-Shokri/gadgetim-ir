@@ -1475,11 +1475,53 @@ function gadgetim_pages_register_tool(): void {
 add_action( 'admin_init', 'gadgetim_pages_register_tool' );
 
 /* ---------------------------------------------------------------------------
- * FAQ structured data (until the plugin's Seo module emits it)
+ * FAQ structured data: the questions go into the plugin's page node (gadgetim-core Seo\JsonLd);
+ * the theme prints its own FAQPage only when the plugin is not active.
  * ------------------------------------------------------------------------- */
 
 /**
- * wp_head 30: FAQPage JSON-LD on the FAQ page.
+ * Question nodes of the FAQ page, read from its <details> items.
+ *
+ * @return array<int,array<string,mixed>>
+ */
+function gadgetim_pages_faq_questions( WP_Post $post ): array {
+	$faq      = gadgetim_pages_faq( gadgetim_pages_post_html( $post ) );
+	$entities = [];
+	foreach ( $faq['groups'] as $group ) {
+		foreach ( $group['items'] as $item ) {
+			$entities[] = [
+				'@type'          => 'Question',
+				'name'           => $item['q'],
+				'acceptedAnswer' => [
+					'@type' => 'Answer',
+					'text'  => trim( (string) preg_replace( '/\s+/u', ' ', wp_strip_all_tags( $item['a'] ) ) ),
+				],
+			];
+		}
+	}
+	return $entities;
+}
+
+/**
+ * gadgetim_seo_faq_entities: the FAQ page's questions for the plugin's FAQPage node.
+ *
+ * Until 2026-11-14 the theme stepped aside whenever the plugin was active, expecting the plugin
+ * to print the questions, and the plugin did not: the FAQ page had no FAQPage markup at all.
+ *
+ * @param array        $entities Question nodes so far.
+ * @param WP_Post|null $post     The page.
+ * @return array
+ */
+function gadgetim_pages_faq_entities( $entities, $post = null ) {
+	if ( ! $post instanceof WP_Post || 'faq' !== gadgetim_page_role( $post ) ) {
+		return $entities;
+	}
+	return array_merge( (array) $entities, gadgetim_pages_faq_questions( $post ) );
+}
+add_filter( 'gadgetim_seo_faq_entities', 'gadgetim_pages_faq_entities', 10, 2 );
+
+/**
+ * wp_head 30: FAQPage JSON-LD on the FAQ page, when the plugin does not print the page node.
  */
 function gadgetim_pages_faq_jsonld(): void {
 	if ( ! is_page() || class_exists( 'Gadgetim\Core\Seo\JsonLd' ) ) {
@@ -1497,20 +1539,7 @@ function gadgetim_pages_faq_jsonld(): void {
 	if ( ! apply_filters( 'gadgetim_pages_faq_jsonld', true ) ) {
 		return;
 	}
-	$faq      = gadgetim_pages_faq( gadgetim_pages_post_html( $post ) );
-	$entities = [];
-	foreach ( $faq['groups'] as $group ) {
-		foreach ( $group['items'] as $item ) {
-			$entities[] = [
-				'@type'          => 'Question',
-				'name'           => $item['q'],
-				'acceptedAnswer' => [
-					'@type' => 'Answer',
-					'text'  => trim( (string) preg_replace( '/\s+/u', ' ', wp_strip_all_tags( $item['a'] ) ) ),
-				],
-			];
-		}
-	}
+	$entities = gadgetim_pages_faq_questions( $post );
 	if ( ! $entities ) {
 		return;
 	}
