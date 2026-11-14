@@ -36,6 +36,26 @@ function gadgetim_asset_url( string $relative ): string {
 }
 
 /**
+ * The stylesheet file to link for $sheet: the minified copy (tools/minify-css.php, 15-20%
+ * fewer bytes after compression) when it is at least as new as its source, else the source.
+ * An edited source is therefore never shadowed by an older copy, and
+ * define( 'GADGETIM_CSS_SOURCE', true ) always links the sources.
+ */
+function gadgetim_css_file( string $sheet ): string {
+	$source = 'assets/css/' . $sheet . '.css';
+	$min    = 'assets/css/' . $sheet . '.min.css';
+	if ( defined( 'GADGETIM_CSS_SOURCE' ) && GADGETIM_CSS_SOURCE ) {
+		return $source;
+	}
+	$min_file = GADGETIM_THEME_DIR . $min;
+	if ( ! is_readable( $min_file ) ) {
+		return $source;
+	}
+	$source_time = (int) @filemtime( GADGETIM_THEME_DIR . $source ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- a missing source just means "use the copy".
+	return (int) filemtime( $min_file ) >= $source_time ? $min : $source;
+}
+
+/**
  * Pages where WooCommerce's own (jQuery) scripts must stay: cart, checkout, account, and
  * variable/grouped product pages until the theme ships a variations module.
  */
@@ -104,21 +124,20 @@ function gadgetim_js_modules(): array {
 function gadgetim_enqueue(): void {
 	$prev = [];
 	foreach ( [ 'base', 'components', 'layout' ] as $sheet ) {
-		$path = 'assets/css/' . $sheet . '.css';
+		$path = gadgetim_css_file( $sheet );
 		wp_enqueue_style( 'gadgetim-' . $sheet, gadgetim_asset_url( $path ), $prev, gadgetim_asset_version( $path ) );
 		$prev = [ 'gadgetim-' . $sheet ];
 	}
 	$page = gadgetim_page_css();
-	if ( '' !== $page ) {
-		$path = 'assets/css/' . $page . '.css';
-		if ( gadgetim_css_has_rules( $path ) ) {
-			wp_enqueue_style( 'gadgetim-' . $page, gadgetim_asset_url( $path ), $prev, gadgetim_asset_version( $path ) );
-			$prev = [ 'gadgetim-' . $page ];
-		}
+	if ( '' !== $page && gadgetim_css_has_rules( 'assets/css/' . $page . '.css' ) ) {
+		$path = gadgetim_css_file( $page );
+		wp_enqueue_style( 'gadgetim-' . $page, gadgetim_asset_url( $path ), $prev, gadgetim_asset_version( $path ) );
+		$prev = [ 'gadgetim-' . $page ];
 	}
 	// The delight layer (@layer fx, between pages and utilities): every page, last.
 	if ( is_readable( GADGETIM_THEME_DIR . 'assets/css/fx.css' ) ) {
-		wp_enqueue_style( 'gadgetim-fx', gadgetim_asset_url( 'assets/css/fx.css' ), $prev, gadgetim_asset_version( 'assets/css/fx.css' ) );
+		$path = gadgetim_css_file( 'fx' );
+		wp_enqueue_style( 'gadgetim-fx', gadgetim_asset_url( $path ), $prev, gadgetim_asset_version( $path ) );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
