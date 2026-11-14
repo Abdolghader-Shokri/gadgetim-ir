@@ -33,10 +33,15 @@ for (const e of j.entries) {
 // Report date ranges must be contiguous: every day from project start is covered.
 const sorted = [...j.reports].sort((a, b) => a.no - b.no);
 const nextDay = d => new Date(Date.parse(d + 'T12:00:00Z') + 864e5).toISOString().slice(0, 10);
+// A second report on the day the previous one ended (work finished after it went out) covers
+// that one day again; the seo-engineer skill's client_report.py publishes such follow-ups.
 let expect = j.project.started;
+let last = null;
 for (const r of sorted) {
-  if (r.from !== expect) errors.push(`report ${r.no}: starts ${r.from}, expected ${expect} (gap or overlap)`);
+  const sameDay = last !== null && r.from === last.to && r.to === last.to;
+  if (r.from !== expect && !sameDay) errors.push(`report ${r.no}: starts ${r.from}, expected ${expect} (gap or overlap)`);
   expect = nextDay(r.to);
+  last = r;
 }
 if (errors.length) { console.error('Report invalid:\n- ' + errors.join('\n- ')); process.exit(1); }
 
