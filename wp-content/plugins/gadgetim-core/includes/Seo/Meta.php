@@ -553,6 +553,7 @@ final class Meta {
 		if ( $id > 0 ) {
 			$src = wp_get_attachment_image_src( $id, 'full' );
 			if ( is_array( $src ) && ! empty( $src[0] ) ) {
+				$src = ShareJpeg::for_attachment( $id, $src );
 				$alt = trim( (string) get_post_meta( $id, '_wp_attachment_image_alt', true ) );
 				return [
 					'url'    => Text::encode_url( (string) $src[0] ),

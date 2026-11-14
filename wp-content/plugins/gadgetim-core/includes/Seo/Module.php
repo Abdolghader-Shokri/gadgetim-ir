@@ -16,7 +16,8 @@ namespace Gadgetim\Core\Seo;
  * Classes: Text (clean/shorten/encode helpers), SettingsTab (Gadgetim → Settings → SEO),
  * Meta (<head> tags and archive titles), JsonLd (Organization/WebSite, BreadcrumbList,
  * WooCommerce product markup), Robots (robots.txt rules for parameter URLs, low-value
- * archives), Sitemap (encoded <loc>, no author sitemap).
+ * archives), Sitemap (encoded <loc>, no author sitemap), ShareJpeg (JPEG copies of WebP
+ * share images for link previews).
  */
 final class Module {
 
@@ -29,5 +30,6 @@ final class Module {
 		JsonLd::register();
 		Robots::register();
 		Sitemap::register();
+		ShareJpeg::register();
 	}
 }
