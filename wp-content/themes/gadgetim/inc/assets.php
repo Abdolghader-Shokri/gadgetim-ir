@@ -246,8 +246,19 @@ function gadgetim_font_faces(): string {
 		}
 		$css .= '@font-face{font-family:"' . $font['family'] . '";src:url("' . esc_url( gadgetim_font_url( $font['file'] ) ) . '") format("woff2");font-weight:' . $font['weight'] . ';font-style:normal;font-display:swap}';
 	}
-	$css .= '@font-face{font-family:"Vazirmatn-fb";src:local("Tahoma"),local("Segoe UI"),local("Noto Naskh Arabic"),local("Roboto");size-adjust:96%;ascent-override:105%;descent-override:40%;line-gap-override:0%}';
-	$css .= '@font-face{font-family:"Estedad-fb";src:local("Tahoma Bold"),local("Tahoma"),local("Segoe UI Bold"),local("Roboto");font-weight:700 900;size-adjust:97%;ascent-override:108%;descent-override:38%;line-gap-override:0%}';
+	// size-adjust from the median width ratio of real text, fallback over web font (Tahoma on
+	// Windows, 2026-11-15), measured apart for Persian (50 headings and labels) and Latin (17
+	// brand and model names): Tahoma Bold drew Persian Estedad 900 text 11% wider, so the 24px
+	// heading «استند موبایل و تبلت» wrapped to two lines until Estedad arrived and the product
+	// grid jumped up 25px (CLS 0.13 in Lighthouse). The two scripts need different factors, so
+	// each fallback is a Latin face for everything plus a Persian face for the Arabic-script
+	// ranges, defined last so it wins there. Ascent and descent overrides are rescaled to keep
+	// the earlier vertical metrics; every text style sets its own line-height anyway.
+	$fa_range = 'U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200F,U+FB50-FDFF,U+FE70-FEFF';
+	$css     .= '@font-face{font-family:"Vazirmatn-fb";src:local("Tahoma"),local("Segoe UI"),local("Noto Naskh Arabic"),local("Roboto");size-adjust:102%;ascent-override:98.8%;descent-override:37.6%;line-gap-override:0%}';
+	$css     .= '@font-face{font-family:"Vazirmatn-fb";src:local("Tahoma"),local("Segoe UI"),local("Noto Naskh Arabic"),local("Roboto");size-adjust:94%;ascent-override:107.2%;descent-override:40.9%;line-gap-override:0%;unicode-range:' . $fa_range . '}';
+	$css     .= '@font-face{font-family:"Estedad-fb";src:local("Tahoma Bold"),local("Tahoma"),local("Segoe UI Bold"),local("Roboto");font-weight:700 900;size-adjust:92%;ascent-override:113.9%;descent-override:40.1%;line-gap-override:0%}';
+	$css     .= '@font-face{font-family:"Estedad-fb";src:local("Tahoma Bold"),local("Tahoma"),local("Segoe UI Bold"),local("Roboto");font-weight:700 900;size-adjust:87%;ascent-override:120.4%;descent-override:42.4%;line-gap-override:0%;unicode-range:' . $fa_range . '}';
 	return $css;
 }
 
