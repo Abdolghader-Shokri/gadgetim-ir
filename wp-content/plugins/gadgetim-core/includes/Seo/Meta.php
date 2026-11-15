@@ -10,6 +10,7 @@ declare( strict_types=1 );
 namespace Gadgetim\Core\Seo;
 
 use Gadgetim\Core\Catalog\Brands;
+use Gadgetim\Core\Catalog\ProductExtras;
 use Gadgetim\Core\I18n\Hreflang;
 use Gadgetim\Core\I18n\Languages;
 use Gadgetim\Core\I18n\PostTranslations;
@@ -218,8 +219,8 @@ final class Meta {
 	}
 
 	/**
-	 * document_title_parts: the home title from the settings; "price and buy … original" on
-	 * category and brand archives.
+	 * document_title_parts: the home title from the settings; the stored SEO title of singular
+	 * pages; "price and buy … original" on category and brand archives.
 	 *
 	 * @param mixed $parts Title parts.
 	 * @return mixed
@@ -236,6 +237,9 @@ final class Meta {
 				return [ 'title' => $title ];
 			}
 			return $parts;
+		}
+		if ( is_singular() ) {
+			return self::singular_title_parts( $parts, $lang );
 		}
 		$term = get_queried_object();
 		if ( ! $term instanceof WP_Term || ! ( is_tax() || is_category() || is_tag() ) || ! (bool) Settings::get( 'seo.archive_titles', true ) ) {
@@ -265,6 +269,52 @@ final class Meta {
 			$parts['title'] = $title;
 		}
 		return $parts;
+	}
+
+	/**
+	 * Singular pages: the Persian SEO title of posts made on this site, and the store name once.
+	 *
+	 * @param array<string,mixed> $parts Title parts.
+	 * @param string              $lang  Current language.
+	 * @return array<string,mixed>
+	 */
+	private static function singular_title_parts( array $parts, string $lang ): array {
+		$post_id = (int) get_queried_object_id();
+		if ( $post_id > 0 && Languages::DEFAULT === $lang && '' === (string) get_post_meta( $post_id, ProductExtras::META_IMPORT_ID, true ) ) {
+			// Only English and Arabic used the stored SEO title (PostTranslations). A product
+			// listed on this site has a short keyword title there while its name, the H1, is the
+			// long supplier title, so its Persian <title> passed 100 characters (2026-11-15).
+			// Titles imported from the old site keep their current form until Search Console
+			// data is in (docs: playbook decision of 2026-11-12).
+			$seo = trim( (string) get_post_meta( $post_id, ProductExtras::META_SEO_TITLE, true ) );
+			if ( '' !== $seo ) {
+				$parts['title'] = $seo;
+			}
+		}
+		if ( isset( $parts['title'] ) && is_string( $parts['title'] ) ) {
+			$parts['title'] = self::strip_site_name( $parts['title'] );
+		}
+		return $parts;
+	}
+
+	/**
+	 * Removes a store name typed at the end of a stored title ("… | Gadgetim"). The document
+	 * title adds its own, and the English title of Barcelona 2 showed it twice (2026-11-15).
+	 *
+	 * @param string $title Title part.
+	 */
+	public static function strip_site_name( string $title ): string {
+		$names = [];
+		foreach ( Languages::codes() as $code ) {
+			$names[] = self::site_name( $code );
+		}
+		foreach ( array_unique( array_filter( $names ) ) as $name ) {
+			$stripped = preg_replace( '/\s*[|\-–—:،]\s*' . preg_quote( $name, '/' ) . '\s*$/iu', '', $title );
+			if ( is_string( $stripped ) && $stripped !== $title && '' !== trim( $stripped ) ) {
+				return trim( $stripped );
+			}
+		}
+		return $title;
 	}
 
 	/**
@@ -538,12 +588,10 @@ final class Meta {
 	 */
 	private static function social_title(): string {
 		$title = html_entity_decode( wp_get_document_title(), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
-		$sep   = html_entity_decode( (string) apply_filters( 'document_title_separator', '-' ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+		// wptexturize() turns the " - " separator into an en dash, so a suffix built from the
+		// separator filter never matched and every og:title kept « – گجتیم» (2026-11-15).
 		if ( ! is_front_page() ) {
-			$suffix = ' ' . $sep . ' ' . self::site_name( Languages::current() );
-			if ( str_ends_with( $title, $suffix ) ) {
-				$title = substr( $title, 0, -strlen( $suffix ) );
-			}
+			$title = self::strip_site_name( $title );
 		}
 		return trim( $title );
 	}
