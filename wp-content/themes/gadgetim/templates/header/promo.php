@@ -26,8 +26,18 @@ $gadgetim_icons    = [ 'shield', 'truck', 'return', 'chat', 'gift', 'bolt' ];
 
 $gadgetim_links   = [];
 $gadgetim_account = function_exists( 'wc_get_page_permalink' ) ? (string) wc_get_page_permalink( 'myaccount' ) : '';
-if ( '' !== $gadgetim_account && ! gadgetim_contact_mode() ) {
-	$gadgetim_links[] = [ __( 'Track your order', 'gadgetim' ), wc_get_endpoint_url( 'orders', '', $gadgetim_account ) ];
+if ( ! gadgetim_contact_mode() ) {
+	// The public tracking page (order number + mobile or e-mail) serves guests as well; the
+	// account's order list needs a login and is noindex. Until 2026-11-15 this link went to the
+	// account, so the tracking page had no inbound link in any language.
+	$gadgetim_tracking = gadgetim_order_tracking_page_id();
+	$gadgetim_track    = $gadgetim_tracking > 0 ? (string) get_permalink( $gadgetim_tracking ) : '';
+	if ( '' === $gadgetim_track && '' !== $gadgetim_account ) {
+		$gadgetim_track = wc_get_endpoint_url( 'orders', '', $gadgetim_account );
+	}
+	if ( '' !== $gadgetim_track ) {
+		$gadgetim_links[] = [ __( 'Track your order', 'gadgetim' ), $gadgetim_track ];
+	}
 }
 $gadgetim_faq = gadgetim_page_url( [ 'سوالات-متداول', 'faq' ] );
 if ( '' !== $gadgetim_faq ) {
