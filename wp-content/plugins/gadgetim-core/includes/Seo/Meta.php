@@ -588,12 +588,10 @@ final class Meta {
 	 */
 	private static function social_title(): string {
 		$title = html_entity_decode( wp_get_document_title(), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
-		$sep   = html_entity_decode( (string) apply_filters( 'document_title_separator', '-' ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+		// wptexturize() turns the " - " separator into an en dash, so a suffix built from the
+		// separator filter never matched and every og:title kept « – گجتیم» (2026-11-15).
 		if ( ! is_front_page() ) {
-			$suffix = ' ' . $sep . ' ' . self::site_name( Languages::current() );
-			if ( str_ends_with( $title, $suffix ) ) {
-				$title = substr( $title, 0, -strlen( $suffix ) );
-			}
+			$title = self::strip_site_name( $title );
 		}
 		return trim( $title );
 	}
