@@ -324,13 +324,15 @@ function gadgetim_wm_probe( int $attachment_id ): string {
 }
 
 /**
- * Attachment image filter: async decoding everywhere, LQIP background for attachments that carry one.
+ * Attachment image filter: async decoding everywhere, LQIP background for attachments that carry
+ * one, and only the srcset candidates a screen can use.
  *
- * @param array   $attr       Attributes.
- * @param WP_Post $attachment Attachment.
+ * @param array        $attr       Attributes.
+ * @param WP_Post      $attachment Attachment.
+ * @param string|int[] $size       Requested size.
  * @return array
  */
-function gadgetim_attachment_attributes( array $attr, WP_Post $attachment ): array {
+function gadgetim_attachment_attributes( array $attr, WP_Post $attachment, $size = 'thumbnail' ): array {
 	if ( is_admin() ) {
 		return $attr;
 	}
@@ -345,9 +347,95 @@ function gadgetim_attachment_attributes( array $attr, WP_Post $attachment ): arr
 	} elseif ( 'background:none' === $attr['style'] ) {
 		unset( $attr['style'] );
 	}
+	if ( ! empty( $attr['srcset'] ) && ! empty( $attr['sizes'] ) ) {
+		$src    = wp_get_attachment_image_src( (int) $attachment->ID, $size );
+		$srcset = gadgetim_trim_srcset( (string) $attr['srcset'], (string) $attr['sizes'], $src ? (int) $src[1] : 0 );
+		if ( '' === $srcset ) {
+			unset( $attr['srcset'], $attr['sizes'] );
+		} else {
+			$attr['srcset'] = $srcset;
+		}
+	}
 	return $attr;
 }
-add_filter( 'wp_get_attachment_image_attributes', 'gadgetim_attachment_attributes', 10, 2 );
+add_filter( 'wp_get_attachment_image_attributes', 'gadgetim_attachment_attributes', 10, 3 );
+
+/**
+ * The widest an image can be drawn under a `sizes` value, in CSS pixels; 0 when a length is not
+ * px or vw (calc() and the like), so the caller leaves the srcset alone. 'auto' is skipped. A vw
+ * length is taken at the widest min-width the value names, and at least 1100px (the desktop
+ * layout), which over-states the phone widths: never too small.
+ */
+function gadgetim_sizes_max_px( string $sizes ): int {
+	$viewport = 1100;
+	if ( preg_match_all( '/min-width:\s*(\d+)px/', $sizes, $m ) ) {
+		$viewport = max( $viewport, ...array_map( 'intval', $m[1] ) );
+	}
+	$max = 0;
+	foreach ( explode( ',', $sizes ) as $entry ) {
+		$entry = trim( $entry );
+		if ( '' === $entry || 'auto' === $entry ) {
+			continue;
+		}
+		if ( preg_match( '/(\d+(?:\.\d+)?)px$/', $entry, $px ) ) {
+			$max = max( $max, (int) ceil( (float) $px[1] ) );
+		} elseif ( preg_match( '/(\d+(?:\.\d+)?)vw$/', $entry, $vw ) ) {
+			$max = max( $max, (int) ceil( (float) $vw[1] * $viewport / 100 ) );
+		} else {
+			return 0;
+		}
+	}
+	return $max;
+}
+
+/**
+ * The srcset candidates a screen can use under $sizes, '' when the src file ($src_width wide)
+ * serves every screen alone, or $srcset unchanged when it cannot be read. The 174 images of the
+ * home page carried the same five widths from 150 to 800 pixels, 32-pixel icons included: 67 kB
+ * of the HTML (2026-11-15).
+ *
+ * Kept: every candidate up to 2.5 times the widest drawing (3x phones on the small images) and
+ * the first one past it; of two candidates less than 10% apart, only the wider.
+ *
+ * @param string $srcset    Candidates ("url 300w, …").
+ * @param string $sizes     The img's sizes attribute.
+ * @param int    $src_width Width of the src file, 0 when unknown.
+ */
+function gadgetim_trim_srcset( string $srcset, string $sizes, int $src_width = 0 ): string {
+	$max = gadgetim_sizes_max_px( $sizes );
+	if ( $max <= 0 ) {
+		return $srcset;
+	}
+	$need = (int) ceil( $max * 2.5 );
+	if ( $src_width >= $need ) {
+		return '';
+	}
+	$candidates = [];
+	foreach ( explode( ',', $srcset ) as $candidate ) {
+		if ( ! preg_match( '/^\s*(\S+)\s+(\d+)w\s*$/', $candidate, $m ) ) {
+			return $srcset;
+		}
+		$candidates[ (int) $m[2] ] = $m[1];
+	}
+	ksort( $candidates );
+	$keep = [];
+	foreach ( $candidates as $width => $url ) {
+		$keep[ $width ] = $url;
+		if ( $width >= $need ) {
+			break;
+		}
+	}
+	$widths = array_keys( $keep );
+	$out    = [];
+	foreach ( $widths as $i => $width ) {
+		$next = $widths[ $i + 1 ] ?? null;
+		if ( null !== $next && $next < $width * 1.1 ) {
+			continue;
+		}
+		$out[] = $keep[ $width ] . ' ' . $width . 'w';
+	}
+	return implode( ', ', $out );
+}
 
 /**
  * The page's LCP image: [ attachment id, size, sizes context ], or null.
@@ -389,9 +477,14 @@ function gadgetim_preload_lcp_image(): void {
 	if ( ! $src ) {
 		return;
 	}
+	$sizes  = gadgetim_image_sizes_attr( $context );
 	$srcset = (string) wp_get_attachment_image_srcset( $id, $size );
+	// The same candidates as the <img>, or the browser may preload one file and draw another.
+	if ( '' !== $srcset ) {
+		$srcset = gadgetim_trim_srcset( $srcset, $sizes, (int) $src[1] );
+	}
 	echo '<link rel="preload" as="image" href="' . esc_url( $src[0] ) . '"'
-		. ( '' !== $srcset ? ' imagesrcset="' . esc_attr( $srcset ) . '" imagesizes="' . esc_attr( gadgetim_image_sizes_attr( $context ) ) . '"' : '' )
+		. ( '' !== $srcset ? ' imagesrcset="' . esc_attr( $srcset ) . '" imagesizes="' . esc_attr( $sizes ) . '"' : '' )
 		. ' fetchpriority="high">' . "\n";
 }
 add_action( 'wp_head', 'gadgetim_preload_lcp_image', 4 );
