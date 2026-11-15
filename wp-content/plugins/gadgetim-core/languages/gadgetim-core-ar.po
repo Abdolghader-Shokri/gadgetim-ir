@@ -3074,3 +3074,29 @@ msgstr "عناوين الحسابات الرسمية"
 #: includes/Seo/SettingsTab.php
 msgid "One address per line (Instagram, Telegram channel, Aparat, LinkedIn …). Only profiles that belong to the store."
 msgstr "عنوان واحد في كل سطر (Instagram، قناة Telegram، Aparat، LinkedIn …). الحسابات التابعة للمتجر فقط."
+
+#: includes/Seo/SettingsTab.php
+msgid "Bing and other search engines"
+msgstr "Bing ومحركات البحث الأخرى"
+
+#: includes/Seo/SettingsTab.php
+msgid "Tell Bing and the other IndexNow engines about new and changed pages"
+msgstr "إبلاغ Bing ومحركات IndexNow الأخرى بالصفحات الجديدة والمعدّلة"
+
+#: includes/Seo/SettingsTab.php
+msgid "Sends the address of every product, page and post you publish or update, so Bing (and through it ChatGPT search and Copilot) and Yandex visit it soon. Only the live site sends."
+msgstr "يُرسَل عنوان كل منتج أو صفحة أو مقالة تنشرها أو تحدّثها، ليزورها Bing (ومن خلاله بحث ChatGPT وCopilot) وYandex قريبًا. الموقع الأصلي وحده يرسل."
+
+#: includes/Seo/SettingsTab.php
+msgid "Nothing sent yet. The first product or page you publish or update is sent a minute later."
+msgstr "لم يُرسَل شيء بعد. أول منتج أو صفحة تنشرها أو تحدّثها يُرسَل بعد دقيقة."
+
+#. translators: 1: date and time, 2: number of addresses, 3: HTTP status code or "no answer".
+#: includes/Seo/SettingsTab.php
+#, php-format
+msgid "Last sent %1$s: %2$s addresses, answer %3$s."
+msgstr "آخر إرسال %1$s: %2$s عنوان، الرد %3$s."
+
+#: includes/Seo/SettingsTab.php
+msgid "no answer"
+msgstr "بلا رد"
