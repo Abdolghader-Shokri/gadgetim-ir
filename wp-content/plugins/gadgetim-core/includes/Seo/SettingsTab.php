@@ -14,7 +14,7 @@ use Gadgetim\Core\Settings\Schema;
 
 /**
  * Settings paths: seo.home_title, seo.home_description (per language), seo.archive_titles,
- * seo.share_image_id, seo.same_as.
+ * seo.share_image_id, seo.same_as, seo.indexnow.
  */
 final class SettingsTab {
 
@@ -99,8 +99,42 @@ final class SettingsTab {
 						],
 					],
 				],
+				'indexing' => [
+					'label'  => __( 'Bing and other search engines', 'gadgetim-core' ),
+					'order'  => 40,
+					'fields' => [
+						'seo.indexnow' => [
+							'type'        => 'toggle',
+							'label'       => __( 'Tell Bing and the other IndexNow engines about new and changed pages', 'gadgetim-core' ),
+							'description' => self::indexnow_description(),
+							'default'     => true,
+						],
+					],
+				],
 			],
 			[ 'order' => 45 ]
+		);
+	}
+
+	/**
+	 * What IndexNow does, and in the admin its last submission.
+	 */
+	private static function indexnow_description(): string {
+		$text = __( 'Sends the address of every product, page and post you publish or update, so Bing (and through it ChatGPT search and Copilot) and Yandex visit it soon. Only the live site sends.', 'gadgetim-core' );
+		if ( ! is_admin() ) {
+			return $text;
+		}
+		$rows = IndexNow::log_rows();
+		if ( [] === $rows ) {
+			return $text . ' ' . __( 'Nothing sent yet. The first product or page you publish or update is sent a minute later.', 'gadgetim-core' );
+		}
+		$row = $rows[0];
+		return $text . ' ' . sprintf(
+			/* translators: 1: date and time, 2: number of addresses, 3: HTTP status code or "no answer". */
+			__( 'Last sent %1$s: %2$s addresses, answer %3$s.', 'gadgetim-core' ),
+			wp_date( 'Y-m-d H:i', (int) $row['time'] ),
+			number_format_i18n( (int) $row['count'] ),
+			(int) $row['code'] > 0 ? (string) (int) $row['code'] : __( 'no answer', 'gadgetim-core' )
 		);
 	}
 
