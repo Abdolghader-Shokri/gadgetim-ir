@@ -3,6 +3,10 @@
  * Builds a product package for the site's drop folder (gadgetim-core Import\Drop) from prepared
  * listings: output/<slug>/listing.json + its webp images -> release/deploy/products-<stamp>.zip.
  *
+ * A listing names its category with "category" (one name, slug or id) or "categories" (a list,
+ * e.g. the client's category plus the more specific one the site already has for that kind of
+ * product). Only existing categories are used by the importer.
+ *
  * Usage: php tools/build-product-drop.php <out.zip> <listing-dir> [<listing-dir> ...]
  * Needs the zip extension (Local's PHP has it).
  */
@@ -63,7 +67,7 @@ foreach ( array_slice( $argv, 2 ) as $dir ) {
 			'regular'  => $l['price']['base_regular'] ?? ( $l['price']['regular'] ?? '' ),
 			'sale'     => $l['price']['base_sale'] ?? ( $l['price']['sale'] ?? '' ),
 		],
-		'categories'   => array_values( array_filter( [ (string) ( $l['category'] ?? '' ) ] ) ),
+		'categories'   => array_values( array_unique( array_filter( array_map( 'strval', array_merge( (array) ( $l['categories'] ?? [] ), [ $l['category'] ?? '' ] ) ) ) ) ),
 		'brand'        => (string) ( $l['brand'] ?? '' ),
 		'stock'        => isset( $l['stock_quantity'] ) ? [ 'quantity' => (int) $l['stock_quantity'] ] : [ 'status' => 'instock' ],
 		'images'       => $images,

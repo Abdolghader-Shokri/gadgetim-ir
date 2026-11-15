@@ -644,7 +644,9 @@ final class Drop {
 				}
 			}
 			if ( isset( $t['specs'] ) ) {
-				update_post_meta( $id, ProductExtras::META_SPECS . '_' . $lang, ProductExtras::sanitize_specs( wp_json_encode( $t['specs'] ) ) );
+				// update_post_meta() unslashes its value: unprotected, a quote inside a row (\") broke
+				// the JSON and the whole English table of a product was saved empty (2026-11-15).
+				update_post_meta( $id, ProductExtras::META_SPECS . '_' . $lang, wp_slash( ProductExtras::sanitize_specs( wp_json_encode( $t['specs'] ) ) ) );
 			}
 			PostTranslations::set( $id, 'status', $lang, 'published' );
 		}
