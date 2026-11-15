@@ -246,8 +246,14 @@ function gadgetim_font_faces(): string {
 		}
 		$css .= '@font-face{font-family:"' . $font['family'] . '";src:url("' . esc_url( gadgetim_font_url( $font['file'] ) ) . '") format("woff2");font-weight:' . $font['weight'] . ';font-style:normal;font-display:swap}';
 	}
-	$css .= '@font-face{font-family:"Vazirmatn-fb";src:local("Tahoma"),local("Segoe UI"),local("Noto Naskh Arabic"),local("Roboto");size-adjust:96%;ascent-override:105%;descent-override:40%;line-gap-override:0%}';
-	$css .= '@font-face{font-family:"Estedad-fb";src:local("Tahoma Bold"),local("Tahoma"),local("Segoe UI Bold"),local("Roboto");font-weight:700 900;size-adjust:97%;ascent-override:108%;descent-override:38%;line-gap-override:0%}';
+	// size-adjust from the median width of 50 real headings and labels, fallback over web font
+	// (Tahoma on Windows, 2026-11-15): Tahoma Bold drew Estedad 900 text 11% wider, so the
+	// 24px heading «استند موبایل و تبلت» wrapped to two lines until Estedad arrived and the
+	// product grid jumped up 25px (CLS 0.13 in Lighthouse). Now within 0.1% for both fonts. The
+	// ascent and descent overrides are rescaled so the fallback's vertical metrics stay as before;
+	// every text style sets its own line-height anyway.
+	$css .= '@font-face{font-family:"Vazirmatn-fb";src:local("Tahoma"),local("Segoe UI"),local("Noto Naskh Arabic"),local("Roboto");size-adjust:94%;ascent-override:107.2%;descent-override:40.9%;line-gap-override:0%}';
+	$css .= '@font-face{font-family:"Estedad-fb";src:local("Tahoma Bold"),local("Tahoma"),local("Segoe UI Bold"),local("Roboto");font-weight:700 900;size-adjust:87%;ascent-override:120.4%;descent-override:42.4%;line-gap-override:0%}';
 	return $css;
 }
 
