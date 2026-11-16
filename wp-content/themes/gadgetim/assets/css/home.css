@@ -787,9 +787,11 @@
 	   they come near the viewport; the size they had last time holds their place. Only on these
 	   boxes: they clip their own content already (scroll containers, overflow hidden), so the paint
 	   containment that content-visibility brings cuts nothing. The sections themselves are left
-	   alone, because their glows reach far outside them. carousel.js and fx.js measure a rail only
-	   once it is rendered. */
-	.rail, .rank, .marquee { content-visibility: auto; contain-intrinsic-size: auto 360px; }
+	   alone, because their glows reach far outside them, and so are the stories rail and the offers
+	   band: they can be in the first screen, where Chrome first lays the rule out at the placeholder
+	   size, so the stories rail pushed the hero down (CLS 0.22, 2026-11-16). carousel.js and fx.js
+	   measure a rail only once it is rendered. */
+	.sect .rail, .rank, .marquee { content-visibility: auto; contain-intrinsic-size: auto 360px; }
 	.marquee { contain-intrinsic-size: auto 72px; }
 
 }
