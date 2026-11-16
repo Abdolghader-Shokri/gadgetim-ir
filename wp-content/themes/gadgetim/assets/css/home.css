@@ -779,4 +779,17 @@
 		.marquee .brand { min-inline-size: 0; padding-inline: 8px; }
 		.marquee .brand__name { font-size: 15.5px; }
 	}
+
+	/* ---------- Rendering on approach ----------
+	   The home page holds about 3,800 elements, most of them product cards in rails, and Lighthouse
+	   counted 2.7 s of style and layout plus 1 s of rendering on it (mobile, 2026-11-16). Rails, the
+	   ranked board and the brand marquee below the first screen are laid out and painted only when
+	   they come near the viewport; the size they had last time holds their place. Only on these
+	   boxes: they clip their own content already (scroll containers, overflow hidden), so the paint
+	   containment that content-visibility brings cuts nothing. The sections themselves are left
+	   alone, because their glows reach far outside them. carousel.js and fx.js measure a rail only
+	   once it is rendered. */
+	.rail, .rank, .marquee { content-visibility: auto; contain-intrinsic-size: auto 360px; }
+	.marquee { contain-intrinsic-size: auto 72px; }
+
 }

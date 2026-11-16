@@ -249,7 +249,21 @@ function rail(el) {
 		if (t) return;
 		t = requestAnimationFrame(() => { t = 0; railState(el); });
 	}, { passive: true });
-	railState(el);
+	// Home rails below the first screen are not rendered until they come near (content-visibility:
+	// auto in home.css). Measuring one now would force that layout, and a rail that is still
+	// skipped reports no overflow, which hides its arrows and stops its autoplay. A rail is
+	// measured when the browser starts rendering it, and again whenever it comes near (one frame
+	// later, once the browser has rendered it); the first observation covers a rail already in view.
+	el.addEventListener('contentvisibilityautostatechange', (e) => {
+		if (!e.skipped) railState(el);
+	});
+	if ('IntersectionObserver' in window) {
+		new IntersectionObserver((entries) => {
+			if (entries.some((en) => en.isIntersecting)) requestAnimationFrame(() => railState(el));
+		}, { rootMargin: '50% 0px' }).observe(el);
+	} else {
+		railState(el);
+	}
 
 	// Desktop: drag with the mouse; a drag never triggers the link under the pointer.
 	let down = false;

@@ -93,6 +93,12 @@ function reveals() {
 			if (el.dataset.fx) return;
 			el.dataset.fx = kind;
 			el.style.setProperty('--fx-i', String(Math.min(i, 8)));
+			// Inside a rail the browser has not rendered yet (content-visibility: auto below the
+			// first screen): not in view, and measuring it would force the layout that rule skips.
+			if (typeof el.checkVisibility === 'function' && !el.checkVisibility({ contentVisibilityAuto: true })) {
+				later.push(el);
+				return;
+			}
 			const r = el.getBoundingClientRect();
 			if (r.bottom > 0 && r.top < vh && r.height > 0) el.classList.add('fx-in', 'fx-done');
 			else later.push(el);
