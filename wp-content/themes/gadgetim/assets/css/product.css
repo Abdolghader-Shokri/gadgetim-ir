@@ -428,7 +428,7 @@
 	.pdp-card { position: relative; padding: 18px 16px; border-radius: 24px; background: #fff; border: 1px solid var(--line); box-shadow: var(--sh-1); }
 
 	.pdp-desc { --clamp: 440px; }
-	.pdp-desc__body { max-inline-size: 78ch; font-size: 15px; }
+	.pdp-desc__body { max-inline-size: 78ch; font-size: 16px; }
 	.pdp-desc__body > :first-child { margin-block-start: 0; }
 	.pdp-desc__body h2, .pdp-desc__body h3 { color: var(--ink); line-height: 1.6; }
 	.pdp-desc__body h2 { font-size: 18px; }
