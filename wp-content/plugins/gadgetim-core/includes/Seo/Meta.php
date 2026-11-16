@@ -493,6 +493,8 @@ final class Meta {
 	 *   «شارژر فندکی فست شارژ» (2026-11-14).
 	 * - «اسپیکر» and «هدفون»: all Bluetooth but one gaming model each; «اسپیکر بلوتوثی» and
 	 *   «هدفون بلوتوثی» (2026-11-14).
+	 * - «ماساژور»: all five products are electric (motor or heating); «ماساژور برقی» and «خرید
+	 *   ماساژور برقی», where «ماساژور» alone also means a masseur (2026-11-16).
 	 * Filter: gadgetim_seo_term_names.
 	 */
 	private const TERM_NAMES = [
@@ -501,6 +503,7 @@ final class Meta {
 			'شارژر-فندکی'                  => [ 'fa' => 'شارژر فندکی ماشین فست شارژ' ],
 			'اسپیکر-کالای-دیجیتیال-و-برقی' => [ 'fa' => 'اسپیکر بلوتوثی و گیمینگ' ],
 			'هدفون'                        => [ 'fa' => 'هدفون بلوتوثی و گیمینگ' ],
+			'ماساژور'                      => [ 'fa' => 'ماساژور برقی' ],
 		],
 	];
 
