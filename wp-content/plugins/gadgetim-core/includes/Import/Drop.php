@@ -17,6 +17,13 @@
  *   with a Persian file name (2026-11-14: 25 product photos answered 404). Only files that the
  *   image's own record names can be written, a file that is there is never replaced, and no
  *   database row changes.
+ * - posts[]: a page created at its path, or the texts of an existing page replaced (SEO engineer,
+ *   2026-11-16: new guides and rewritten pages cannot travel in a database copy). A new page is
+ *   made only where no page answers yet; an existing one changes only when the entry names its
+ *   ID and says "replace", and WordPress keeps the previous texts as a revision.
+ * - terms[]: the introduction text of an existing product category or brand, in every language.
+ *   A term that already has a text keeps it unless the entry says "replace"; the replaced text
+ *   is kept in the term's _gtm_drop_prev_desc meta.
  *
  * The scan runs on the next dashboard page load of a shop manager and hourly through WP-Cron. A
  * processed package moves to done/ (or failed/ when nothing could be imported), a line per item
@@ -36,11 +43,13 @@ use Gadgetim\Core\Catalog\Brands;
 use Gadgetim\Core\Catalog\ProductExtras;
 use Gadgetim\Core\I18n\PostTranslations;
 use Gadgetim\Core\I18n\Slugs;
+use Gadgetim\Core\I18n\TermTranslations;
 use Gadgetim\Core\Pricing\Handover;
 use Gadgetim\Core\Seo\Meta;
 use WC_Product;
 use WC_Product_Simple;
 use WP_Post;
+use WP_Term;
 use ZipArchive;
 
 /**
@@ -160,7 +169,9 @@ final class Drop {
 		$products = is_array( $data ) && is_array( $data['products'] ?? null ) ? $data['products'] : [];
 		$pages    = is_array( $data ) && is_array( $data['pages'] ?? null ) ? $data['pages'] : [];
 		$media    = is_array( $data ) && is_array( $data['media'] ?? null ) ? $data['media'] : [];
-		if ( ! is_array( $data ) || (int) ( $data['version'] ?? 0 ) !== self::VERSION || ( ! $products && ! $pages && ! $media ) ) {
+		$posts    = is_array( $data ) && is_array( $data['posts'] ?? null ) ? $data['posts'] : [];
+		$terms    = is_array( $data ) && is_array( $data['terms'] ?? null ) ? $data['terms'] : [];
+		if ( ! is_array( $data ) || (int) ( $data['version'] ?? 0 ) !== self::VERSION || ( ! $products && ! $pages && ! $media && ! $posts && ! $terms ) ) {
 			if ( $read ) {
 				$result['errors'][] = __( 'manifest.json is missing or not a version 1 package.', 'gadgetim-core' );
 			}
@@ -176,6 +187,15 @@ final class Drop {
 			foreach ( $media as $m ) {
 				$item = is_array( $m ) ? self::restore_media( $m, $read ) : [ 'error' => 'invalid entry' ];
 				self::collect( $result, $item, is_array( $m ) ? (string) ( $m['file'] ?? '' ) : '' );
+			}
+			// Pages before terms: a category text may link to a guide that arrives in the same package.
+			foreach ( $posts as $p ) {
+				$item = is_array( $p ) ? self::import_post( $p, $read, $name ) : [ 'error' => 'invalid entry' ];
+				self::collect( $result, $item, is_array( $p ) ? rawurldecode( (string) ( $p['path'] ?? '' ) ) : '' );
+			}
+			foreach ( $terms as $t ) {
+				$item = is_array( $t ) ? self::import_term( $t, $name ) : [ 'error' => 'invalid entry' ];
+				self::collect( $result, $item, is_array( $t ) ? rawurldecode( (string) ( $t['slug'] ?? '' ) ) : '' );
 			}
 		}
 
@@ -375,6 +395,207 @@ final class Drop {
 
 		$item['action'] = 'image';
 		return $item;
+	}
+
+	/**
+	 * Creates a page at its path, or replaces the texts of an existing one.
+	 *
+	 * @param array    $p       Manifest entry: path (after the domain, Persian as written), id (the
+	 *                          ID this site has at that path, only for an existing page), fa { title,
+	 *                          content, excerpt, seo_title, seo_desc }, translations (lang => fields,
+	 *                          as for products), template, menu_order, image (as for pages[]),
+	 *                          replace.
+	 * @param callable $read    Package reader.
+	 * @param string   $package Package name.
+	 */
+	public static function import_post( array $p, callable $read, string $package ): array {
+		$path = trim( rawurldecode( (string) ( $p['path'] ?? '' ) ), '/' );
+		$fa   = is_array( $p['fa'] ?? null ) ? $p['fa'] : [];
+		if ( '' === $path || empty( $fa['title'] ) || empty( $fa['content'] ) ) {
+			return [ 'error' => __( 'a page needs an address, a Persian title and a text.', 'gadgetim-core' ) ];
+		}
+		$expected = (int) ( $p['id'] ?? 0 );
+		$found    = get_page_by_path( $path, OBJECT, 'page' );
+		$found    = $found instanceof WP_Post && 'trash' !== $found->post_status ? $found : null;
+		$fields   = [
+			'post_title'   => sanitize_text_field( (string) $fa['title'] ),
+			'post_content' => wp_kses_post( (string) $fa['content'] ),
+			'post_excerpt' => wp_kses_post( (string) ( $fa['excerpt'] ?? '' ) ),
+		];
+
+		if ( $found ) {
+			// Never write over a page the package does not know by its ID.
+			if ( $expected <= 0 || $expected !== (int) $found->ID ) {
+				return [ 'error' => __( 'another page already answers at this address: nothing was changed.', 'gadgetim-core' ) ];
+			}
+			if ( empty( $p['replace'] ) ) {
+				return self::page_result( $found, 'kept_text' );
+			}
+			$id     = wp_update_post( wp_slash( [ 'ID' => (int) $found->ID ] + $fields ), true );
+			$action = 'updated';
+		} else {
+			if ( $expected > 0 ) {
+				return [ 'error' => __( 'the page was not found on this site.', 'gadgetim-core' ) ];
+			}
+			$parent = 0;
+			$slash  = strrpos( $path, '/' );
+			if ( false !== $slash ) {
+				$up = self::find_page( substr( $path, 0, $slash ) );
+				if ( ! $up ) {
+					return [ 'error' => __( 'the parent page of this address was not found.', 'gadgetim-core' ) ];
+				}
+				$parent = (int) $up->ID;
+			}
+			$id     = wp_insert_post(
+				wp_slash(
+					[
+						'post_type'   => 'page',
+						'post_status' => 'publish',
+						'post_name'   => sanitize_title( false === $slash ? $path : substr( $path, $slash + 1 ) ),
+						'post_parent' => $parent,
+						'menu_order'  => (int) ( $p['menu_order'] ?? 0 ),
+						'post_author' => self::author(),
+					] + $fields
+				),
+				true
+			);
+			$action = 'created';
+		}
+		if ( is_wp_error( $id ) || (int) $id <= 0 ) {
+			return [ 'error' => __( 'WordPress did not save the page.', 'gadgetim-core' ) ];
+		}
+		$id = (int) $id;
+
+		foreach ( [
+			'seo_title' => ProductExtras::META_SEO_TITLE,
+			'seo_desc'  => ProductExtras::META_SEO_DESC,
+		] as $field => $key ) {
+			if ( isset( $fa[ $field ] ) ) {
+				update_post_meta( $id, $key, wp_slash( sanitize_text_field( (string) $fa[ $field ] ) ) );
+			}
+		}
+		$template = sanitize_text_field( (string) ( $p['template'] ?? '' ) );
+		if ( '' !== $template && ( 'default' === $template || isset( wp_get_theme()->get_page_templates()[ $template ] ) ) ) {
+			update_post_meta( $id, '_wp_page_template', $template );
+		}
+		self::apply_translations( $id, (array) ( $p['translations'] ?? [] ), 'page' );
+		update_post_meta( $id, self::META_PACKAGE, $package );
+
+		$image = is_array( $p['image'] ?? null ) ? $p['image'] : [];
+		if ( ! empty( $image['file'] ) && ( 'created' === $action || ! has_post_thumbnail( $id ) ) ) {
+			$aid = self::import_image( $image, $read, $id );
+			if ( $aid > 0 ) {
+				$lang = sanitize_key( (string) ( $image['text_lang'] ?? '' ) );
+				if ( '' !== $lang ) {
+					update_post_meta( $aid, Meta::META_TEXT_LANG, $lang );
+				}
+				update_post_meta( $aid, self::META_PACKAGE, $package );
+				set_post_thumbnail( $id, $aid );
+			}
+		}
+		clean_post_cache( $id );
+		return self::page_result( get_post( $id ), $action );
+	}
+
+	/**
+	 * Gives an existing product category or brand its introduction text, in every language.
+	 *
+	 * @param array  $t       Manifest entry: taxonomy (product_cat or the brand taxonomy), slug, id
+	 *                        (expected), fa { desc }, translations { lang: { desc, name, status } },
+	 *                        replace.
+	 * @param string $package Package name.
+	 */
+	public static function import_term( array $t, string $package ): array {
+		$taxonomy = sanitize_key( (string) ( $t['taxonomy'] ?? 'product_cat' ) );
+		if ( ! in_array( $taxonomy, [ 'product_cat', Brands::TAXONOMY ], true ) || ! taxonomy_exists( $taxonomy ) ) {
+			return [ 'error' => __( 'only product categories and brands can get a text.', 'gadgetim-core' ) ];
+		}
+		$slug = sanitize_title( rawurldecode( (string) ( $t['slug'] ?? '' ) ) );
+		$term = '' !== $slug ? get_term_by( 'slug', $slug, $taxonomy ) : false;
+		if ( ! $term instanceof WP_Term ) {
+			return [ 'error' => __( 'the category was not found on this site.', 'gadgetim-core' ) ];
+		}
+		$expected = (int) ( $t['id'] ?? 0 );
+		if ( $expected > 0 && $expected !== (int) $term->term_id ) {
+			return [ 'error' => __( 'the category at this address has a different ID than expected.', 'gadgetim-core' ) ];
+		}
+		$fa  = is_array( $t['fa'] ?? null ) ? $t['fa'] : [];
+		$new = trim( wp_kses_post( (string) ( $fa['desc'] ?? '' ) ) );
+		if ( '' === $new ) {
+			return [ 'error' => __( 'a category entry needs a Persian text.', 'gadgetim-core' ) ];
+		}
+		$link = get_term_link( $term );
+		$item = [
+			'id'     => (int) $term->term_id,
+			'sku'    => '',
+			'title'  => (string) $term->name,
+			'action' => 'term',
+			'url'    => is_wp_error( $link ) ? '' : (string) $link,
+		];
+		$old = trim( (string) $term->description );
+		if ( '' !== $old && empty( $t['replace'] ) ) {
+			$item['action'] = 'term_kept';
+			return $item;
+		}
+		if ( '' !== $old && $old !== $new ) {
+			update_term_meta( (int) $term->term_id, '_gtm_drop_prev_desc', wp_slash( $old ) );
+		}
+		$saved = wp_update_term( (int) $term->term_id, $taxonomy, [ 'description' => wp_slash( $new ) ] );
+		if ( is_wp_error( $saved ) ) {
+			return [ 'error' => $saved->get_error_message() ];
+		}
+		foreach ( (array) ( $t['translations'] ?? [] ) as $lang => $tr ) {
+			$lang = sanitize_key( (string) $lang );
+			if ( ! is_array( $tr ) ) {
+				continue;
+			}
+			foreach ( [ 'name', 'desc' ] as $field ) {
+				if ( isset( $tr[ $field ] ) && '' !== trim( (string) $tr[ $field ] ) ) {
+					TermTranslations::set( (int) $term->term_id, $field, $lang, (string) $tr[ $field ] );
+				}
+			}
+			if ( 'published' === ( $tr['status'] ?? '' ) ) {
+				TermTranslations::set( (int) $term->term_id, 'status', $lang, 'published' );
+			}
+		}
+		update_term_meta( (int) $term->term_id, self::META_PACKAGE, $package );
+		clean_term_cache( (int) $term->term_id, $taxonomy );
+		return $item;
+	}
+
+	/**
+	 * The result line of a page.
+	 */
+	private static function page_result( ?WP_Post $page, string $action ): array {
+		if ( ! $page instanceof WP_Post ) {
+			return [ 'error' => __( 'WordPress did not save the page.', 'gadgetim-core' ) ];
+		}
+		return [
+			'id'     => (int) $page->ID,
+			'sku'    => '',
+			'title'  => (string) $page->post_title,
+			'action' => $action,
+			'url'    => (string) get_permalink( $page ),
+		];
+	}
+
+	/**
+	 * Author of a new page: the user running the import, else the first administrator.
+	 */
+	private static function author(): int {
+		$user = get_current_user_id();
+		if ( $user > 0 ) {
+			return $user;
+		}
+		$admins = get_users(
+			[
+				'role'    => 'administrator',
+				'number'  => 1,
+				'orderby' => 'ID',
+				'fields'  => 'ID',
+			]
+		);
+		return $admins ? (int) $admins[0] : 0;
 	}
 
 	/**
@@ -624,9 +845,10 @@ final class Drop {
 	/**
 	 * en/ar texts, slugs and specs; a language with a title is published.
 	 *
-	 * @param array $translations lang => fields.
+	 * @param array  $translations lang => fields.
+	 * @param string $type         Post type, for slug conflicts (specs are product only).
 	 */
-	private static function apply_translations( int $id, array $translations ): void {
+	private static function apply_translations( int $id, array $translations, string $type = 'product' ): void {
 		foreach ( $translations as $lang => $t ) {
 			$lang = sanitize_key( (string) $lang );
 			if ( ! is_array( $t ) || empty( $t['title'] ) ) {
@@ -638,12 +860,12 @@ final class Drop {
 				}
 			}
 			if ( ! empty( $t['slug'] ) ) {
-				$slug = Slugs::validate( (string) $t['slug'], $lang, 'product', $id );
+				$slug = Slugs::validate( (string) $t['slug'], $lang, $type, $id );
 				if ( '' !== $slug ) {
 					PostTranslations::set( $id, 'slug', $lang, $slug );
 				}
 			}
-			if ( isset( $t['specs'] ) ) {
+			if ( 'product' === $type && isset( $t['specs'] ) ) {
 				// update_post_meta() unslashes its value: unprotected, a quote inside a row (\") broke
 				// the JSON and the whole English table of a product was saved empty (2026-11-15).
 				update_post_meta( $id, ProductExtras::META_SPECS . '_' . $lang, wp_slash( ProductExtras::sanitize_specs( wp_json_encode( $t['specs'] ) ) ) );
@@ -691,8 +913,11 @@ final class Drop {
 			'kept'     => __( 'kept: the page already has a featured image', 'gadgetim-core' ),
 			/* translators: %d: number of files */
 			'restored' => sprintf( __( 'image files put back: %d', 'gadgetim-core' ), $files ),
-			'present'  => __( 'nothing to put back: the files are in place', 'gadgetim-core' ),
-			default    => __( 'updated', 'gadgetim-core' ),
+			'present'   => __( 'nothing to put back: the files are in place', 'gadgetim-core' ),
+			'kept_text' => __( 'kept: the page exists and the package does not replace it', 'gadgetim-core' ),
+			'term'      => __( 'introduction text added', 'gadgetim-core' ),
+			'term_kept' => __( 'kept: the category already has a text', 'gadgetim-core' ),
+			default     => __( 'updated', 'gadgetim-core' ),
 		};
 	}
 
