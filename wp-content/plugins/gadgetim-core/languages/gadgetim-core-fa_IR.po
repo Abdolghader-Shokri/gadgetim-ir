@@ -3072,3 +3072,47 @@ msgstr "آخرین ارسال %1$s: %2$s نشانی، پاسخ %3$s."
 #: includes/Seo/SettingsTab.php
 msgid "no answer"
 msgstr "بی‌پاسخ"
+
+#: includes/Import/Drop.php
+msgid "a page needs an address, a Persian title and a text."
+msgstr "برای هر برگه نشانی، عنوان فارسی و متن لازم است."
+
+#: includes/Import/Drop.php
+msgid "another page already answers at this address: nothing was changed."
+msgstr "برگهٔ دیگری از قبل در این نشانی است؛ چیزی تغییر نکرد."
+
+#: includes/Import/Drop.php
+msgid "the parent page of this address was not found."
+msgstr "برگهٔ مادرِ این نشانی پیدا نشد."
+
+#: includes/Import/Drop.php
+msgid "WordPress did not save the page."
+msgstr "وردپرس برگه را ذخیره نکرد."
+
+#: includes/Import/Drop.php
+msgid "only product categories and brands can get a text."
+msgstr "فقط دسته‌های محصول و برندها متن معرفی می‌گیرند."
+
+#: includes/Import/Drop.php
+msgid "the category was not found on this site."
+msgstr "این دسته در سایت پیدا نشد."
+
+#: includes/Import/Drop.php
+msgid "the category at this address has a different ID than expected."
+msgstr "شناسهٔ دستهٔ این نشانی با شناسهٔ مورد انتظار فرق دارد."
+
+#: includes/Import/Drop.php
+msgid "a category entry needs a Persian text."
+msgstr "برای هر دسته متن فارسی لازم است."
+
+#: includes/Import/Drop.php
+msgid "kept: the page exists and the package does not replace it"
+msgstr "بدون تغییر: برگه وجود دارد و بسته جایگزینش نمی‌کند"
+
+#: includes/Import/Drop.php
+msgid "introduction text added"
+msgstr "متن معرفی اضافه شد"
+
+#: includes/Import/Drop.php
+msgid "kept: the category already has a text"
+msgstr "بدون تغییر: دسته از قبل متن دارد"

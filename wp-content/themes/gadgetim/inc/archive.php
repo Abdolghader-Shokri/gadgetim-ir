@@ -432,7 +432,11 @@ function gadgetim_archive_info(): array {
 		case 'tag':
 			$eyebrow = 'category' === $kind ? __( 'Category', 'gadgetim' ) : __( 'Tag', 'gadgetim' );
 			$icon    = 'category' === $kind && $term ? gadgetim_archive_term_icon( $term ) : 'tag';
-			$words   = preg_split( '/\s+/u', trim( $name ) ) ?: [ $name ];
+			// The heading carries the phrase shoppers type when the plugin names one (Seo\Meta).
+			$heading = 'category' === $kind && $term && is_callable( [ 'Gadgetim\Core\Seo\Meta', 'heading_name' ] )
+				? (string) Gadgetim\Core\Seo\Meta::heading_name( $term )
+				: '';
+			$words   = preg_split( '/\s+/u', trim( '' !== $heading ? $heading : $name ) ) ?: [ $name ];
 			$grad    = (string) array_pop( $words );
 			$lead    = implode( ' ', $words );
 			$word    = gadgetim_archive_word( $icon );

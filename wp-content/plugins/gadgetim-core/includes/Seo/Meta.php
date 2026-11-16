@@ -35,6 +35,12 @@ final class Meta {
 	public const META_TEXT_LANG = '_gtm_text_lang';
 
 	/**
+	 * Longest own term description (plain characters) used as the meta description; the theme's
+	 * archive header uses the same limit to tell a summary from an introduction.
+	 */
+	private const OWN_SUMMARY_MAX = 220;
+
+	/**
 	 * Longest archive document title (store name included) before the short template is used.
 	 */
 	private const TITLE_MAX = 60;
@@ -456,12 +462,18 @@ final class Meta {
 	}
 
 	/**
-	 * Own description of a term, else the template of its taxonomy.
+	 * Own description of a term when it is a summary, else the template of its taxonomy.
+	 *
+	 * A long description is an introduction shown in the block at the bottom of the archive (the
+	 * theme moves anything over OWN_SUMMARY_MAX there). Its opening heading and first sentences
+	 * make a worse snippet than the template, which names the product count and the guarantee
+	 * (category introductions, 2026-11-16).
 	 */
 	private static function term_description( WP_Term $term, string $lang ): string {
 		$own = Languages::DEFAULT === $lang ? (string) $term->description : TermTranslations::description( $term, $lang );
 		$own = Text::plain( $own );
-		if ( '' !== $own && ! Text::is_placeholder( $own ) && mb_strlen( $own, 'UTF-8' ) >= 50 ) {
+		$len = mb_strlen( $own, 'UTF-8' );
+		if ( '' !== $own && ! Text::is_placeholder( $own ) && $len >= 50 && $len <= self::OWN_SUMMARY_MAX ) {
 			return $own;
 		}
 		if ( ! (bool) Settings::get( 'seo.archive_titles', true ) ) {
@@ -506,6 +518,32 @@ final class Meta {
 			'ماساژور'                      => [ 'fa' => 'ماساژور برقی' ],
 		],
 	];
+
+	/**
+	 * Archive headings (H1) that carry the phrase shoppers type, per taxonomy, decoded slug and
+	 * language; the stored name stays everywhere else. A heading reads as one natural name, so it
+	 * can be shorter than the title above (rival analysis, 2026-11-16: the H1 of the earbuds
+	 * category was «ایرپاد» while every rival's heading carried «هندزفری بلوتوثی»).
+	 */
+	private const HEADING_NAMES = [
+		'product_cat' => [
+			'ایرپاد'                       => [ 'fa' => 'ایرپاد و هندزفری بلوتوثی' ],
+			'شارژر-فندکی'                  => [ 'fa' => 'شارژر فندکی ماشین' ],
+			'اسپیکر-کالای-دیجیتیال-و-برقی' => [ 'fa' => 'اسپیکر بلوتوثی و گیمینگ' ],
+			'هدفون'                        => [ 'fa' => 'هدفون بلوتوثی و گیمینگ' ],
+			'ماساژور'                      => [ 'fa' => 'ماساژور برقی' ],
+		],
+	];
+
+	/**
+	 * The archive heading of a term in $lang (default: the current language), or '' to keep the
+	 * stored name. Filter: gadgetim_seo_heading_names, same shape as gadgetim_seo_term_names.
+	 */
+	public static function heading_name( WP_Term $term, ?string $lang = null ): string {
+		$lang ??= Languages::current();
+		$names = (array) apply_filters( 'gadgetim_seo_heading_names', self::HEADING_NAMES );
+		return (string) ( $names[ $term->taxonomy ][ rawurldecode( (string) $term->slug ) ][ $lang ] ?? '' );
+	}
 
 	/**
 	 * Term name in $lang (published translation, else the stored name for Persian).

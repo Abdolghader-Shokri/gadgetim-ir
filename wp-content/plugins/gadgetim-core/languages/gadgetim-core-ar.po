@@ -3100,3 +3100,47 @@ msgstr "آخر إرسال %1$s: %2$s عنوان، الرد %3$s."
 #: includes/Seo/SettingsTab.php
 msgid "no answer"
 msgstr "بلا رد"
+
+#: includes/Import/Drop.php
+msgid "a page needs an address, a Persian title and a text."
+msgstr "تحتاج كل صفحة إلى عنوان رابط وعنوان فارسي ونص."
+
+#: includes/Import/Drop.php
+msgid "another page already answers at this address: nothing was changed."
+msgstr "توجد صفحة أخرى على هذا العنوان مسبقًا: لم يتغير شيء."
+
+#: includes/Import/Drop.php
+msgid "the parent page of this address was not found."
+msgstr "لم يتم العثور على الصفحة الأم لهذا العنوان."
+
+#: includes/Import/Drop.php
+msgid "WordPress did not save the page."
+msgstr "لم يحفظ ووردبريس الصفحة."
+
+#: includes/Import/Drop.php
+msgid "only product categories and brands can get a text."
+msgstr "يمكن إضافة نص لفئات المنتجات والعلامات التجارية فقط."
+
+#: includes/Import/Drop.php
+msgid "the category was not found on this site."
+msgstr "لم يتم العثور على هذه الفئة في الموقع."
+
+#: includes/Import/Drop.php
+msgid "the category at this address has a different ID than expected."
+msgstr "معرّف الفئة في هذا العنوان يختلف عن المتوقع."
+
+#: includes/Import/Drop.php
+msgid "a category entry needs a Persian text."
+msgstr "يحتاج كل إدخال فئة إلى نص فارسي."
+
+#: includes/Import/Drop.php
+msgid "kept: the page exists and the package does not replace it"
+msgstr "دون تغيير: الصفحة موجودة والحزمة لا تستبدلها"
+
+#: includes/Import/Drop.php
+msgid "introduction text added"
+msgstr "أضيف نص التعريف"
+
+#: includes/Import/Drop.php
+msgid "kept: the category already has a text"
+msgstr "دون تغيير: للفئة نص من قبل"
