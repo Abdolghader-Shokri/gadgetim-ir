@@ -540,7 +540,18 @@ final class Drop {
 		if ( '' !== $old && $old !== $new ) {
 			update_term_meta( (int) $term->term_id, '_gtm_drop_prev_desc', wp_slash( $old ) );
 		}
+		// WordPress runs every term description through wp_filter_kses, which keeps links and bold
+		// text but drops headings, paragraphs, lists and tables (Local, 2026-11-16: a 6,730-character
+		// introduction came out as one block of plain text). The text is already wp_kses_post'ed
+		// above, the same filter the archive template applies when it prints it.
+		$kses  = has_filter( 'pre_term_description', 'wp_filter_kses' );
+		if ( false !== $kses ) {
+			remove_filter( 'pre_term_description', 'wp_filter_kses', (int) $kses );
+		}
 		$saved = wp_update_term( (int) $term->term_id, $taxonomy, [ 'description' => wp_slash( $new ) ] );
+		if ( false !== $kses ) {
+			add_filter( 'pre_term_description', 'wp_filter_kses', (int) $kses );
+		}
 		if ( is_wp_error( $saved ) ) {
 			return [ 'error' => $saved->get_error_message() ];
 		}
