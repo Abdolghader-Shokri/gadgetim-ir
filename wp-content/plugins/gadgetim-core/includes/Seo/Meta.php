@@ -520,6 +520,32 @@ final class Meta {
 	];
 
 	/**
+	 * Archive headings (H1) that carry the phrase shoppers type, per taxonomy, decoded slug and
+	 * language; the stored name stays everywhere else. A heading reads as one natural name, so it
+	 * can be shorter than the title above (rival analysis, 2026-11-16: the H1 of the earbuds
+	 * category was «ایرپاد» while every rival's heading carried «هندزفری بلوتوثی»).
+	 */
+	private const HEADING_NAMES = [
+		'product_cat' => [
+			'ایرپاد'                       => [ 'fa' => 'ایرپاد و هندزفری بلوتوثی' ],
+			'شارژر-فندکی'                  => [ 'fa' => 'شارژر فندکی ماشین' ],
+			'اسپیکر-کالای-دیجیتیال-و-برقی' => [ 'fa' => 'اسپیکر بلوتوثی و گیمینگ' ],
+			'هدفون'                        => [ 'fa' => 'هدفون بلوتوثی و گیمینگ' ],
+			'ماساژور'                      => [ 'fa' => 'ماساژور برقی' ],
+		],
+	];
+
+	/**
+	 * The archive heading of a term in $lang (default: the current language), or '' to keep the
+	 * stored name. Filter: gadgetim_seo_heading_names, same shape as gadgetim_seo_term_names.
+	 */
+	public static function heading_name( WP_Term $term, ?string $lang = null ): string {
+		$lang ??= Languages::current();
+		$names = (array) apply_filters( 'gadgetim_seo_heading_names', self::HEADING_NAMES );
+		return (string) ( $names[ $term->taxonomy ][ rawurldecode( (string) $term->slug ) ][ $lang ] ?? '' );
+	}
+
+	/**
 	 * Term name in $lang (published translation, else the stored name for Persian).
 	 */
 	private static function term_name( WP_Term $term, string $lang ): string {
