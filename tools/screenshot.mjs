@@ -156,6 +156,12 @@ for (const job of opt.jobs) {
 		await cdp.send('Runtime.evaluate', { expression: opt.eval, awaitPromise: true });
 		await sleep(900);
 	}
+	// content-visibility: auto skips rendering away from the viewport, so a capture beyond it showed
+	// the home rails as empty boxes (2026-11-16). A full or sliced capture renders everything.
+	if (!opt.viewport) {
+		await cdp.send('Runtime.evaluate', { expression: `(() => { const s = document.createElement('style'); s.textContent = '*{content-visibility:visible!important}'; document.head.appendChild(s); })()` });
+		await sleep(400);
+	}
 	const total = Math.min(v.height || d.height, 20000);
 	// --viewport: one screenshot of the visible area where the page is scrolled to now (clip in page coordinates).
 	if (opt.viewport) {
