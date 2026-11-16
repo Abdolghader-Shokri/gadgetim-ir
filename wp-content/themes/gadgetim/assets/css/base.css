@@ -98,7 +98,8 @@
 	}
 
 	/* Prose: editor content of pages and posts. */
-	.prose { color: var(--ink-2); font-size: 15.5px; line-height: 2; max-inline-size: 76ch; }
+	/* Long-form text at 16 px: product descriptions and pages run past a thousand words. */
+	.prose { color: var(--ink-2); font-size: 16px; line-height: 2; max-inline-size: 76ch; }
 	.prose > * + * { margin-block-start: 1em; }
 	.prose h2 { font-size: 22px; margin-block-start: 1.6em; }
 	.prose h3 { font-size: 18px; margin-block-start: 1.4em; }
