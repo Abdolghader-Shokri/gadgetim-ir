@@ -113,6 +113,13 @@
 	.prose blockquote { padding: 14px 18px; border-inline-start: 4px solid var(--violet); background: var(--soft); border-radius: var(--r-sm); }
 	.prose img { border-radius: var(--r-md); }
 	.prose table { inline-size: 100%; font-size: 14px; }
+	/* A six-column comparison table is 409 px wide on a 343 px phone card whose overflow is
+	   hidden, so its last column was cut off (category texts, 2026-11-17): on small screens the
+	   table scrolls sideways inside the text instead. */
+	@media (max-width: 640px) {
+		.prose table { display: block; overflow-x: auto; overscroll-behavior-x: contain; }
+		.prose th { white-space: nowrap; }
+	}
 	.prose th, .prose td { padding: 10px 12px; border-block-end: 1px solid var(--line-2); text-align: start; }
 	.prose th { color: var(--ink); background: var(--soft); }
 	.prose hr { border: 0; block-size: 1px; background: var(--line-2); }
