@@ -507,6 +507,12 @@ final class Meta {
 	 *   «هدفون بلوتوثی» (2026-11-14).
 	 * - «ماساژور»: all five products are electric (motor or heating); «ماساژور برقی» and «خرید
 	 *   ماساژور برقی», where «ماساژور» alone also means a masseur (2026-11-16).
+	 * - «شارژر»: all ten products are wall chargers, most of them fast chargers; «شارژر فست» is the
+	 *   phrase shoppers type, and two of three rivals carry it in their titles (2026-11-17).
+	 * - «هندزفری»: all three products are wired; «هندزفری سیمی», while «هندزفری» alone now means
+	 *   Bluetooth earbuds to most shoppers (2026-11-17).
+	 * - «کمپینگ و سفر»: every product is camping or travel gear; «لوازم کمپینگ» and «لوازم سفر»
+	 *   (2026-11-17).
 	 * Filter: gadgetim_seo_term_names.
 	 */
 	private const TERM_NAMES = [
@@ -516,6 +522,9 @@ final class Meta {
 			'اسپیکر-کالای-دیجیتیال-و-برقی' => [ 'fa' => 'اسپیکر بلوتوثی و گیمینگ' ],
 			'هدفون'                        => [ 'fa' => 'هدفون بلوتوثی و گیمینگ' ],
 			'ماساژور'                      => [ 'fa' => 'ماساژور برقی' ],
+			'شارژر'                        => [ 'fa' => 'شارژر فست و دیواری' ],
+			'هندزفری'                      => [ 'fa' => 'هندزفری سیمی' ],
+			'کمپینگ-و-سفر'                 => [ 'fa' => 'لوازم کمپینگ و سفر' ],
 		],
 	];
 
@@ -532,6 +541,9 @@ final class Meta {
 			'اسپیکر-کالای-دیجیتیال-و-برقی' => [ 'fa' => 'اسپیکر بلوتوثی و گیمینگ' ],
 			'هدفون'                        => [ 'fa' => 'هدفون بلوتوثی و گیمینگ' ],
 			'ماساژور'                      => [ 'fa' => 'ماساژور برقی' ],
+			'شارژر'                        => [ 'fa' => 'شارژر فست و دیواری' ],
+			'هندزفری'                      => [ 'fa' => 'هندزفری سیمی' ],
+			'کمپینگ-و-سفر'                 => [ 'fa' => 'لوازم کمپینگ و سفر' ],
 		],
 	];
 
