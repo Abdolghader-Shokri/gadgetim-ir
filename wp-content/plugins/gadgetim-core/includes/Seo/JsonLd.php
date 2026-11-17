@@ -11,9 +11,12 @@ declare( strict_types=1 );
 namespace Gadgetim\Core\Seo;
 
 use Gadgetim\Core\I18n\Languages;
+use Gadgetim\Core\I18n\PostTranslations;
+use Gadgetim\Core\I18n\TermTranslations;
 use Gadgetim\Core\Settings\Settings;
 use Gadgetim\Core\Support\Phone;
 use WP_Post;
+use WP_Term;
 
 /**
  * Prices in the product markup: schema.org wants an ISO 4217 code, and the store currency
@@ -61,6 +64,7 @@ final class JsonLd {
 	public static function register(): void {
 		add_action( 'wp_head', [ self::class, 'print_site' ], 25 );
 		add_action( 'wp_head', [ self::class, 'print_page_type' ], 26 );
+		add_action( 'wp_head', [ self::class, 'print_section_faq' ], 27 );
 		add_filter( 'gadgetim_breadcrumbs', [ self::class, 'capture_crumbs' ], 999, 1 );
 		add_action( 'wp_footer', [ self::class, 'print_breadcrumbs' ], 20 );
 		add_filter( 'woocommerce_structured_data_product', [ self::class, 'filter_product' ], 30, 2 );
@@ -140,6 +144,79 @@ final class JsonLd {
 			}
 		}
 		self::print_json( $page );
+	}
+
+	/**
+	 * wp_head (27): FAQPage for the questions a product text or a category or brand introduction
+	 * answers in its own FAQ section (CNT.16-02, 2026-11-17: every product text and eleven category
+	 * texts carry one, and none was marked up). Only the first page of an indexable archive or
+	 * product, and only the text shown in the current language, so the markup matches the page.
+	 */
+	public static function print_section_faq(): void {
+		if ( is_paged() ) {
+			return;
+		}
+		$data = Meta::data();
+		if ( ! $data['enabled'] || $data['noindex'] || '' === $data['canonical'] ) {
+			return;
+		}
+		$lang = $data['lang'];
+		$html = '';
+		$item = get_queried_object();
+		if ( is_singular( 'product' ) && $item instanceof WP_Post && ! post_password_required( $item ) ) {
+			$html = Languages::DEFAULT === $lang ? (string) $item->post_content : PostTranslations::get( $item->ID, 'content', $lang );
+		} elseif ( ( is_product_category() || is_tax( \Gadgetim\Core\Catalog\Brands::TAXONOMY ) ) && $item instanceof WP_Term ) {
+			$html = Languages::DEFAULT === $lang ? (string) $item->description : TermTranslations::description( $item, $lang );
+		}
+		$questions = self::section_faq( $html );
+		if ( ! $questions ) {
+			return;
+		}
+		self::print_json(
+			[
+				'@context'   => 'https://schema.org',
+				'@type'      => 'FAQPage',
+				'@id'        => $data['canonical'] . '#faq',
+				'url'        => $data['canonical'],
+				'inLanguage' => Languages::hreflang( $lang ),
+				'mainEntity' => $questions,
+			]
+		);
+	}
+
+	/**
+	 * Question nodes of the FAQ section of a text: every h3 with the paragraphs or list under it,
+	 * after the h2 whose heading names questions (fa «پرسش‌ها / سؤالات / سوالات», en "FAQ /
+	 * questions", ar «الأسئلة»), up to the next h2.
+	 *
+	 * @param string $html Text.
+	 * @return array<int,array<string,mixed>>
+	 */
+	public static function section_faq( string $html ): array {
+		if ( '' === $html || ! preg_match( '~<h2[^>]*>(?:(?!</h2>).)*(?:پرسش|سؤال|سوال|FAQ|[Qq]uestions|الأسئلة|أسئلة)(?:(?!</h2>).)*</h2>(.*?)(?=<h2[\s>]|$)~isu', $html, $section ) ) {
+			return [];
+		}
+		$parts = preg_split( '~(<h3[^>]*>.*?</h3>)~isu', $section[1], -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY );
+		$out   = [];
+		for ( $i = 0, $n = count( (array) $parts ); $i < $n; $i++ ) {
+			if ( ! preg_match( '~^<h3[^>]*>(.*?)</h3>$~isu', trim( $parts[ $i ] ), $q ) ) {
+				continue;
+			}
+			$name   = trim( (string) preg_replace( '/\s+/u', ' ', wp_strip_all_tags( $q[1] ) ) );
+			$answer = trim( (string) preg_replace( '/\s+/u', ' ', wp_strip_all_tags( (string) ( $parts[ $i + 1 ] ?? '' ) ) ) );
+			if ( '' === $name || '' === $answer || str_starts_with( trim( (string) ( $parts[ $i + 1 ] ?? '' ) ), '<h3' ) ) {
+				continue;
+			}
+			$out[] = [
+				'@type'          => 'Question',
+				'name'           => $name,
+				'acceptedAnswer' => [
+					'@type' => 'Answer',
+					'text'  => $answer,
+				],
+			];
+		}
+		return $out;
 	}
 
 	/**
