@@ -1749,8 +1749,10 @@ function gadgetim_pages_content_digits( $html ) {
 		if ( $skip > 0 || ! preg_match( '/\d/', $part ) ) {
 			continue;
 		}
+		// Character references (&#8211; from wptexturize, &#x2013;) keep their ASCII digits: converted, they
+		// print as text («&#۸۲۱۱;» nine times on the page with the store's story, 2026-11-17).
 		$parts[ $i ] = (string) preg_replace_callback(
-			'#(?:https?://|www\.)\S+|[\w.+-]+@[\w-]+(?:\.[\w-]+)+|(\d+)#u',
+			'#&\#(?:[xX][0-9A-Fa-f]+|\d+);|(?:https?://|www\.)\S+|[\w.+-]+@[\w-]+(?:\.[\w-]+)+|(\d+)#u',
 			static fn( array $mm ): string => isset( $mm[1] ) && '' !== $mm[1] ? gadgetim_digits( $mm[1] ) : $mm[0],
 			$part
 		);
