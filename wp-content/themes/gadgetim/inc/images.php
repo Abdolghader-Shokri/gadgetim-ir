@@ -389,10 +389,38 @@ function gadgetim_sizes_max_px( string $sizes ): int {
 }
 
 /**
+ * The narrowest an image can be drawn under a `sizes` value, in CSS pixels, with a vw length taken
+ * at a 320px phone; 0 when a length is not px or vw.
+ */
+function gadgetim_sizes_min_px( string $sizes ): int {
+	$min = 0;
+	foreach ( explode( ',', $sizes ) as $entry ) {
+		$entry = trim( $entry );
+		if ( '' === $entry || 'auto' === $entry ) {
+			continue;
+		}
+		if ( preg_match( '/(\d+(?:\.\d+)?)px$/', $entry, $px ) ) {
+			$width = (int) ceil( (float) $px[1] );
+		} elseif ( preg_match( '/(\d+(?:\.\d+)?)vw$/', $entry, $vw ) ) {
+			$width = (int) ceil( (float) $vw[1] * 320 / 100 );
+		} else {
+			return 0;
+		}
+		$min = 0 === $min ? $width : min( $min, $width );
+	}
+	return $min;
+}
+
+/**
  * The srcset candidates a screen can use under $sizes, '' when the src file ($src_width wide)
  * serves every screen alone, or $srcset unchanged when it cannot be read. The 174 images of the
  * home page carried the same five widths from 150 to 800 pixels, 32-pixel icons included: 67 kB
  * of the HTML (2026-11-15).
+ *
+ * The src serves every screen alone when it is wide enough for the widest drawing and at most
+ * twice what the narrowest one needs. Without the second condition, an 800px packshot in a home
+ * tile drawn 300px wide on desktop and 104px on phones lost its srcset, so phones loaded the
+ * 800px file (Lighthouse, 2026-11-17).
  *
  * Kept: every candidate up to 2.5 times the widest drawing (3x phones on the small images) and
  * the first one past it; of two candidates less than 10% apart, only the wider.
@@ -407,7 +435,7 @@ function gadgetim_trim_srcset( string $srcset, string $sizes, int $src_width = 0
 		return $srcset;
 	}
 	$need = (int) ceil( $max * 2.5 );
-	if ( $src_width >= $need ) {
+	if ( $src_width >= $need && $src_width <= 2 * (int) ceil( gadgetim_sizes_min_px( $sizes ) * 2.5 ) ) {
 		return '';
 	}
 	$candidates = [];
