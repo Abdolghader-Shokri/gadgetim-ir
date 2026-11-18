@@ -85,6 +85,12 @@ final class Redirects {
 	 * points anywhere else wins. The link comes from the live term, so it has the current base and,
 	 * through the I18n link filters, the language of the request.
 	 *
+	 * An old page number is dropped: page 2 of a brand with five products is a 404 here, so every old
+	 * page lands on the first one. A brand without products lands on its archive too, which says so
+	 * and links on (it is noindex, so it passes nothing in search; better for a visitor than a 404).
+	 * A target equal to the request (a base set back to "brand" under Settings → Permalinks) is
+	 * skipped, never redirected to itself.
+	 *
 	 * @param string $path    Normalised request path.
 	 * @param string $rule_to Target of the stored rule for the path, '' when none.
 	 */
@@ -93,7 +99,7 @@ final class Redirects {
 		if ( null === $parts ) {
 			return '';
 		}
-		[ $slug, $page ] = $parts;
+		$slug = $parts[0];
 		if ( '' !== $rule_to ) {
 			$renamed = self::old_brand_parts( Normalize::path( $rule_to ) );
 			if ( null === $renamed ) {
@@ -109,7 +115,10 @@ final class Redirects {
 		if ( ! is_string( $link ) || '' === $link ) {
 			return '';
 		}
-		return $page > 1 ? trailingslashit( $link ) . 'page/' . $page . '/' : $link;
+		if ( Normalize::path( (string) wp_parse_url( $link, PHP_URL_PATH ) ) === Normalize::path( $path ) ) {
+			return '';
+		}
+		return $link;
 	}
 
 	/**

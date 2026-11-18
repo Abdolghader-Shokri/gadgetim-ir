@@ -20,7 +20,10 @@
  * - posts[]: a page created at its path, or the texts of an existing page replaced (SEO engineer,
  *   2026-11-16: new guides and rewritten pages cannot travel in a database copy). A new page is
  *   made only where no page answers yet; an existing one changes only when the entry names its
- *   ID and says "replace", and WordPress keeps the previous texts as a revision.
+ *   ID and says "replace". The replaced texts are kept: the Persian ones as a revision saved just
+ *   before the update (WordPress itself saves a page only as it is after an update, so an imported
+ *   page that never had a revision kept no copy), the en/ar ones in the page's
+ *   _gtm_drop_prev_translations meta (JSON, lang => fields).
  * - terms[]: the introduction text of an existing product category or brand, in every language.
  *   A term that already has a text keeps it unless the entry says "replace"; the replaced text
  *   is kept in the term's _gtm_drop_prev_desc meta.
@@ -68,6 +71,9 @@ final class Drop {
 	public const RESULTS = 'gadgetim_drop_results';
 
 	public const META_PACKAGE = '_gtm_drop_package';
+
+	/** en/ar texts a replaced page had before the package (JSON, lang => fields). */
+	public const META_PREV_TRANSLATIONS = '_gtm_drop_prev_translations';
 
 	public const IMAGE_TYPES = [ 'webp', 'jpg', 'jpeg', 'png' ];
 
@@ -431,6 +437,10 @@ final class Drop {
 			if ( empty( $p['replace'] ) ) {
 				return self::page_result( $found, 'kept_text' );
 			}
+			// Keep what is replaced: the Persian texts as a revision of the page as it is now (WordPress
+			// saves one only after an update), the en/ar ones in META_PREV_TRANSLATIONS.
+			wp_save_post_revision( (int) $found->ID );
+			self::keep_previous_translations( (int) $found->ID, array_keys( (array) ( $p['translations'] ?? [] ) ) );
 			$id     = wp_update_post( wp_slash( [ 'ID' => (int) $found->ID ] + $fields ), true );
 			$action = 'updated';
 		} else {
@@ -851,6 +861,28 @@ final class Drop {
 		wp_update_attachment_metadata( (int) $aid, wp_generate_attachment_metadata( (int) $aid, $upload['file'] ) );
 		update_post_meta( (int) $aid, '_wp_attachment_image_alt', sanitize_text_field( (string) ( $image['alt'] ?? '' ) ) );
 		return (int) $aid;
+	}
+
+	/**
+	 * Copies the en/ar texts of a page about to be replaced into META_PREV_TRANSLATIONS, the way a
+	 * replaced term text goes to _gtm_drop_prev_desc (revisions hold only the Persian texts).
+	 *
+	 * @param string[] $langs Languages the package writes.
+	 */
+	private static function keep_previous_translations( int $id, array $langs ): void {
+		$prev = [];
+		foreach ( $langs as $lang ) {
+			$lang = sanitize_key( (string) $lang );
+			foreach ( self::TRANSLATED as $field ) {
+				$value = PostTranslations::raw( $id, $field, $lang );
+				if ( '' !== $value ) {
+					$prev[ $lang ][ $field ] = $value;
+				}
+			}
+		}
+		if ( $prev ) {
+			update_post_meta( $id, self::META_PREV_TRANSLATIONS, wp_slash( (string) wp_json_encode( $prev, JSON_UNESCAPED_UNICODE ) ) );
+		}
 	}
 
 	/**
