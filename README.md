@@ -26,6 +26,7 @@ Site: `C:\Users\GHADER\Local Sites\gadgetim\app\public` (http://gadgetim.local).
 | `tools/wp-bootstrap.php` | plain-PHP alternative to WP-CLI: loads WordPress from the Local site, then runs a file, `-r '<code>'` or STDIN (`--help`). |
 | `tools/lint.sh` | `php -l` on every PHP file, shellcheck, phpcs when installed, LF/BOM/exec-bit checks |
 | `tools/build-release.sh [tag]` | `git archive` per package -> `release/*.zip` + `.sha256`, LF verified |
+| `tools/bump-version.sh X.Y.Z` | sets the release number in the plugin header, `GADGETIM_CORE_VERSION` and the theme `style.css` |
 
 PowerShell scripts: the default policy blocks `.ps1` files, so either allow them once with `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` and call `tools\wp.ps1 ...` directly, or run `powershell -NoProfile -ExecutionPolicy Bypass -File tools\link-local.ps1` (fine for link/sync; through `-File`, WP-CLI arguments that contain spaces lose their quotes). Shell scripts run from Git Bash.
 
@@ -53,4 +54,17 @@ Environment overrides for all tools: `GADGETIM_PHP`, `GADGETIM_PHP_INI`, `GADGET
 
 ## Release
 
-Tag `vX.Y.Z` (the theme `style.css` Version and the plugin header must match), then `tools/build-release.sh vX.Y.Z`. Upload `gadgetim-core-X.Y.Z.zip` first, then `gadgetim-theme-X.Y.Z.zip` (Plugins/Themes -> Add -> Upload, "Replace current with uploaded") and compare the printed SHA-256. No self-updater by design.
+Every delivery of the plugin and the theme to the live site is a numbered release (owner, 2026-11-18). Both packages carry the same number:
+- Z for fixes only;
+- Y for new features or visible changes, with Z back to 0;
+- X for a breaking change.
+
+An untagged build (`<header version>-<sha>`) is a test build, never a delivery.
+
+1. `tools/bump-version.sh X.Y.Z` and a new section in `CHANGELOG.md`.
+2. Commit and merge.
+3. Tag the merge commit on main `vX.Y.Z`, push the tag, then `tools/build-release.sh vX.Y.Z` (it refuses headers that differ from the tag).
+4. Upload `gadgetim-core-X.Y.Z.zip` first, then `gadgetim-theme-X.Y.Z.zip` (Plugins/Themes -> Add -> Upload, "Replace current with uploaded"). Compare the printed SHA-256.
+5. Check the number on the live site: Plugins shows it for Gadgetim Core, and Appearance -> Themes -> Theme Details shows it for the theme.
+
+Content and product packages for `gadgetim-drop` keep their dated names; the release's upload guide lists them. No self-updater by design.
