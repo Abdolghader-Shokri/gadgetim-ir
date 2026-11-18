@@ -16,7 +16,7 @@ includes/Settings/    Schema Settings Capabilities Module Admin/{SettingsPage,Fi
 templates/admin/      settings views;  assets/admin/  admin.css admin.js;  languages/  translations
 ```
 
-Constants: `GADGETIM_CORE_VERSION` ('0.1.0'), `GADGETIM_CORE_API` (1), `GADGETIM_CORE_FILE/DIR/URL`,
+Constants: `GADGETIM_CORE_VERSION` (the release number, set by `tools/bump-version.sh`), `GADGETIM_CORE_API` (1), `GADGETIM_CORE_FILE/DIR/URL`,
 `GADGETIM_CORE_MIN_PHP/WP/WC`. Conventions: namespace `Gadgetim\Core`, options `gadgetim_*`, hooks
 `gadgetim_*`, meta `_gtm_*`, text domain `gadgetim-core`, English source strings, LF, no build step.
 
