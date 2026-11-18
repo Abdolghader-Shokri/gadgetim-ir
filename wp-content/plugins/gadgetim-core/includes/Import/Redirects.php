@@ -11,6 +11,7 @@ declare( strict_types=1 );
 
 namespace Gadgetim\Core\Import;
 
+use Gadgetim\Core\Catalog\Brands;
 use Gadgetim\Core\Support\Normalize;
 use Gadgetim\Core\Support\Options;
 
@@ -126,8 +127,10 @@ final class Redirects {
 					break;
 				}
 			}
+			// The old site's base was /brand/; the archives now live under Brands::base(). Slugs that
+			// did not change are mapped at request time (Catalog\Redirects), so only renames need a row.
 			if ( '' !== $old_slug && $old_slug !== $new_slug ) {
-				$add( '/brand/' . $old_slug . '/', '/brand/' . $new_slug . '/', 301, 'brand merged or renamed' );
+				$add( '/brand/' . $old_slug . '/', '/' . Brands::base() . '/' . $new_slug . '/', 301, 'brand merged or renamed' );
 			}
 		}
 
