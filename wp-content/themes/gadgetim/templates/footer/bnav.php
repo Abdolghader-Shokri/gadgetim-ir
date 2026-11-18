@@ -44,3 +44,12 @@ $gadgetim_cls      = static fn( int $i ): string => 'bnav__i' . ( $i === $gadget
 		<span class="bnav__icw"><?php gadgetim_the_icon( 'user' ); ?></span><span><?php esc_html_e( 'Account', 'gadgetim' ); ?></span>
 	</a>
 </nav>
+<?php
+// One-tap WhatsApp on phones (DES.5-03, 2026-11-17): under 768px the header hides its phone and
+// WhatsApp links, so asking before buying took the menu drawer or the footer. Product pages carry
+// their own WhatsApp button, and cart and checkout keep the buyer on the form.
+$gadgetim_wa = in_array( $gadgetim_kind, [ 'product', 'cart', 'checkout' ], true ) ? '' : gadgetim_whatsapp_url();
+if ( '' !== $gadgetim_wa ) :
+	?>
+	<a class="wafab" href="<?php echo esc_url( $gadgetim_wa ); ?>" target="_blank" rel="noopener" aria-label="<?php esc_attr_e( 'Chat on WhatsApp', 'gadgetim' ); ?>"><?php gadgetim_the_icon( 'chat' ); ?></a>
+<?php endif; ?>
