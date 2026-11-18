@@ -168,5 +168,4 @@ Every helper is wrapped in `function_exists()` so the theme's `inc/compat.php` s
 `maybe_upgrade()` (admin_init) repeats that when the version changes and fires `gadgetim_core_upgrade`.
 `uninstall.php` deletes the `gadgetim_*` options and transients **only** when `GADGETIM_REMOVE_DATA` is true.
 
-Lint: `php -l` on every file (`tools/lint.sh`); the Local PHP is
-`C:/Users/GHADER/AppData/Roaming/Local/lightning-services/php-8.2.29+0/bin/win64/php.exe`.
+Lint: `php -l` on every file (`tools/lint.sh`, which finds Local's PHP when none is on PATH).
