@@ -68,16 +68,32 @@ final class Brands {
 		if ( '' !== trim( (string) get_option( 'woocommerce_brand_permalink', '' ) ) ) {
 			return $args;
 		}
+		$base = self::pinned_base();
+		if ( '' !== $base ) {
+			$args['rewrite']['slug'] = $base;
+		}
+		return $args;
+	}
+
+	/**
+	 * URL base the brand archives are served under, without slashes: the one set under Settings →
+	 * Permalinks, else the pinned one. The importer points old brand links at it.
+	 */
+	public static function base(): string {
+		$custom = trim( (string) get_option( 'woocommerce_brand_permalink', '' ), "/ \t\n\r" );
+		return '' !== $custom ? $custom : self::pinned_base();
+	}
+
+	/**
+	 * The pinned base, without slashes.
+	 */
+	private static function pinned_base(): string {
 		/**
 		 * Filters the fixed URL base of the brand archives.
 		 *
 		 * @param string $base Base without slashes.
 		 */
-		$base = trim( (string) apply_filters( 'gadgetim_brand_rewrite_base', self::REWRITE_BASE ), '/' );
-		if ( '' !== $base ) {
-			$args['rewrite']['slug'] = $base;
-		}
-		return $args;
+		return trim( (string) apply_filters( 'gadgetim_brand_rewrite_base', self::REWRITE_BASE ), '/' );
 	}
 
 	/**
