@@ -3504,3 +3504,23 @@ msgstr "%s. تُدفع أجرة الشحن عند الاستلام: تدفعها
 #: inc/product.php
 msgid "Orders are packed securely and sent to every city in Iran. Shipping is paid on delivery: you pay the courier when the parcel reaches you."
 msgstr "تُغلَّف الطلبات بأمان وتُرسل إلى جميع مدن إيران. تُدفع أجرة الشحن عند الاستلام: تدفعها لمندوب الشحن عند وصول الطرد إليك."
+
+#: inc/pages.php
+msgid "Buying guide"
+msgstr "دليل الشراء"
+
+#: page-templates/guide.php
+msgid "More buying guides"
+msgstr "المزيد من أدلة الشراء"
+
+#: templates/pages/guides.php
+msgid "Buying guides"
+msgstr "أدلة الشراء"
+
+#: templates/pages/guides.php
+msgid "Clear answers before you buy"
+msgstr "إجابات واضحة قبل الشراء"
+
+#: templates/pages/guides.php
+msgid "Read the guide"
+msgstr "اقرأ الدليل"

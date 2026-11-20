@@ -3382,3 +3382,23 @@ msgstr ""
 #: woocommerce/single-product/up-sells.php:35
 msgid "Hand-picked by the Gadgetim team"
 msgstr ""
+
+#: inc/pages.php
+msgid "Buying guide"
+msgstr ""
+
+#: page-templates/guide.php
+msgid "More buying guides"
+msgstr ""
+
+#: templates/pages/guides.php
+msgid "Buying guides"
+msgstr ""
+
+#: templates/pages/guides.php
+msgid "Clear answers before you buy"
+msgstr ""
+
+#: templates/pages/guides.php
+msgid "Read the guide"
+msgstr ""

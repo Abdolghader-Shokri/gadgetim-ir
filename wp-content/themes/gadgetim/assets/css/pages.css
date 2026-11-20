@@ -149,6 +149,9 @@
 	   ================================================================ */
 	.pg { display: grid; gap: 16px; align-items: start; }
 	.pg__main { min-inline-size: 0; display: grid; gap: 14px; }
+	/* A wide table scrolls inside the text (display: block below); without this, the grid item grew to the
+	   table's width on phones and pushed the whole text column off the screen (guide pages, 2026-11-20). */
+	.pg__main > * { min-inline-size: 0; }
 	.pg__aside { min-inline-size: 0; display: grid; gap: 14px; align-content: start; }
 	@media (min-width: 1100px) {
 		.pg { grid-template-columns: minmax(0, 1fr) 330px; gap: 28px; }

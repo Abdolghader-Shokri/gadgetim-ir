@@ -44,7 +44,7 @@ function gadgetim_home_call( string $method, array $args, callable $fallback ): 
  * @return string[]
  */
 function gadgetim_home_sections(): array {
-	$sections = [ 'stories', 'hero', 'services', 'offers', 'newest', 'banners', 'ranked', 'categories', 'featured', 'brands', 'contact' ];
+	$sections = [ 'stories', 'hero', 'services', 'offers', 'newest', 'banners', 'ranked', 'categories', 'featured', 'guides', 'brands', 'contact' ];
 	return array_values( array_map( 'sanitize_key', (array) apply_filters( 'gadgetim_home_sections', $sections ) ) );
 }
 
