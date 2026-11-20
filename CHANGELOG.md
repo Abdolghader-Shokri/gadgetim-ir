@@ -7,6 +7,12 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.2.0 — 2026-11-20
+
+The guide pages are marked up as articles (#64). Three of the five page-one results for «راهنمای خرید اسپیکر بلوتوثی» and «شارژر فست چیست» are, and a buying guide is one: the page node of a page with the «Buying guide» template is now an Article with headline, publication and update dates, the shop as author and publisher, and the featured image.
+
+1.1.0 was built the same evening and never uploaded; 1.2.0 contains it.
+
 ## 1.1.0 — 2026-11-20
 
 New features for the buying-guide pages of the SEO run of 2026-11-20, and the Search Console proof the move had lost (#63):

@@ -143,7 +143,47 @@ final class JsonLd {
 				$page['@type'] = 'WebPage';
 			}
 		}
+		if ( self::GUIDE_TEMPLATE === get_page_template_slug( $post ) ) {
+			$page = self::guide_article( $page, $post, $root, $data['lang'] );
+		}
 		self::print_json( $page );
+	}
+
+	/**
+	 * Page template of the buying-guide pages (theme 1.1.0).
+	 */
+	private const GUIDE_TEMPLATE = 'page-templates/guide.php';
+
+	/**
+	 * A buying guide is an article the shop wrote (SEO run of 2026-11-20: three of the five page-one
+	 * rivals of «راهنمای خرید اسپیکر بلوتوثی» and «شارژر فست چیست» mark theirs up as Article). The
+	 * page node becomes an Article with its headline, dates, the shop as author and publisher, and
+	 * its featured image; the website link, description and canonical stay as they were.
+	 *
+	 * @param array<string,mixed> $page Page node.
+	 * @param WP_Post             $post Page.
+	 * @param string              $root Home URL of the default language.
+	 * @param string              $lang Current language.
+	 * @return array<string,mixed>
+	 */
+	private static function guide_article( array $page, WP_Post $post, string $root, string $lang ): array {
+		$shop = [
+			'@type' => 'Organization',
+			'@id'   => $root . '#organization',
+			'name'  => Settings::get_lang( 'brand.name', $lang, (string) get_bloginfo( 'name' ) ),
+			'url'   => $root,
+		];
+		$page['@type']            = 'Article';
+		$page['headline']         = mb_substr( (string) $page['name'], 0, 110 );
+		$page['datePublished']    = (string) get_post_time( 'c', true, $post );
+		$page['dateModified']     = (string) get_post_modified_time( 'c', true, $post );
+		$page['author']           = $shop;
+		$page['publisher']        = $shop;
+		$page['mainEntityOfPage'] = (string) $page['url'];
+		if ( isset( $page['primaryImageOfPage'] ) ) {
+			$page['image'] = $page['primaryImageOfPage'];
+		}
+		return $page;
 	}
 
 	/**
