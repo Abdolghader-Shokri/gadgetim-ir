@@ -5,14 +5,15 @@
  * (the other guides) and on the home page (templates/home/guides.php), so each guide is linked
  * from the strongest page and from its siblings. Prints nothing when there is no guide.
  *
- * Args: exclude (page ID), title, sub, id, class, limit (default 6).
+ * Args: exclude (page ID), title, sub, id, class, limit (default 12: every guide while there are
+ * fewer than a dozen; with 6, the seventh and eighth guides of 2026-11-20 were linked from no card).
  *
  * @package Gadgetim
  */
 
 declare( strict_types=1 );
 
-$gadgetim_guides = array_slice( gadgetim_guides( (int) ( $args['exclude'] ?? 0 ) ), 0, max( 1, (int) ( $args['limit'] ?? 6 ) ) );
+$gadgetim_guides = array_slice( gadgetim_guides( (int) ( $args['exclude'] ?? 0 ) ), 0, max( 1, (int) ( $args['limit'] ?? 12 ) ) );
 if ( ! $gadgetim_guides ) {
 	return;
 }
