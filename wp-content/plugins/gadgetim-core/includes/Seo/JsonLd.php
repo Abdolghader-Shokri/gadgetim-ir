@@ -147,10 +147,12 @@ final class JsonLd {
 	}
 
 	/**
-	 * wp_head (27): FAQPage for the questions a product text or a category or brand introduction
-	 * answers in its own FAQ section (CNT.16-02, 2026-11-17: every product text and eleven category
-	 * texts carry one, and none was marked up). Only the first page of an indexable archive or
-	 * product, and only the text shown in the current language, so the markup matches the page.
+	 * wp_head (27): FAQPage for the questions a product text, a category or brand introduction or a
+	 * guide page answers in its own FAQ section (CNT.16-02, 2026-11-17: every product text and eleven
+	 * category texts carry one, and none was marked up; 2026-11-20: the buying-guide pages carry one
+	 * too). Only the first page of an indexable archive, product or page, and only the text shown in
+	 * the current language, so the markup matches the page. The FAQ page itself is left to
+	 * print_page_type(), which already makes it the FAQPage node.
 	 */
 	public static function print_section_faq(): void {
 		if ( is_paged() ) {
@@ -163,7 +165,7 @@ final class JsonLd {
 		$lang = $data['lang'];
 		$html = '';
 		$item = get_queried_object();
-		if ( is_singular( 'product' ) && $item instanceof WP_Post && ! post_password_required( $item ) ) {
+		if ( ( is_singular( 'product' ) || self::is_guide_page( $item ) ) && $item instanceof WP_Post && ! post_password_required( $item ) ) {
 			$html = Languages::DEFAULT === $lang ? (string) $item->post_content : PostTranslations::get( $item->ID, 'content', $lang );
 		} elseif ( ( is_product_category() || is_tax( \Gadgetim\Core\Catalog\Brands::TAXONOMY ) ) && $item instanceof WP_Term ) {
 			$html = Languages::DEFAULT === $lang ? (string) $item->description : TermTranslations::description( $item, $lang );
@@ -182,6 +184,17 @@ final class JsonLd {
 				'mainEntity' => $questions,
 			]
 		);
+	}
+
+	/**
+	 * Whether the queried object is a content page whose own FAQ section should be marked up: any
+	 * page except the FAQ page, whose questions already form its FAQPage node (print_page_type()).
+	 *
+	 * @param mixed $item Queried object.
+	 */
+	private static function is_guide_page( $item ): bool {
+		return is_page() && $item instanceof WP_Post
+			&& 'faq' !== (string) get_post_meta( $item->ID, '_gtm_page_role', true );
 	}
 
 	/**
