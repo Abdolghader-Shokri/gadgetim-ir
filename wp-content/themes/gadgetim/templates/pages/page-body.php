@@ -28,6 +28,12 @@ if ( ! $gadgetim_protected ) {
 		/* translators: %s: date */
 		'text' => sprintf( __( 'Updated %s', 'gadgetim' ), gadgetim_date( (int) get_post_modified_time( 'U', true, $gadgetim_post ), 'medium' ) ),
 	];
+	if ( 'page-templates/guide.php' === get_page_template_slug( $gadgetim_post ) ) {
+		$gadgetim_chips[] = [
+			'icon' => 'user',
+			'text' => __( 'Written by the Gadgetim team', 'gadgetim' ),
+		];
+	}
 	if ( $gadgetim_prep['minutes'] > 1 ) {
 		$gadgetim_chips[] = [
 			'icon' => 'clock',

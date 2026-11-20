@@ -41,7 +41,7 @@
 	.btn--ghost { background: transparent; color: var(--violet); box-shadow: none; padding-inline: 12px; }
 	.btn--ghost::before, .btn--ghost::after { display: none; }
 	.btn--ghost:hover { background: var(--soft-2); transform: none; box-shadow: none; }
-	.btn--success { background: linear-gradient(135deg, #10b981, #0d9488); box-shadow: 0 16px 30px -16px rgba(16, 185, 129, .95); }
+	.btn--success { background: linear-gradient(135deg, #047857, #0f766e); box-shadow: 0 16px 30px -16px rgba(4, 120, 87, .95); }
 	.btn--dark { background: var(--ink); box-shadow: 0 16px 30px -16px rgba(23, 19, 59, .8); }
 	.btn--sm { min-block-size: 42px; padding-inline: 18px; font-size: 13.5px; border-radius: 14px; }
 	.btn--lg { min-block-size: 56px; padding-inline: 30px; font-size: 15.5px; border-radius: 18px; }

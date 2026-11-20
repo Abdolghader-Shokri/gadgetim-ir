@@ -7,6 +7,16 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.2.1 — 2026-11-20
+
+Fixes from the deep checks of the SEO run of 2026-11-20:
+- Product markup keeps a ListPrice only where the page strikes the old price through (from the strike threshold up). A product a few percent off showed one price on the page and an old price in the markup, which Google expects to match (SCH.3-03; `Seo\JsonLd::list_price_as_shown()`, test `tests/Pricing/ListPriceSchemaTest.php`).
+- The green WhatsApp and success buttons use a darker green, so white text reaches 4.5:1 (it was 2.5 to 3.7; DES.3-02).
+- Buying guides name their author under the title, «نوشتهٔ تیم گجتیم», as their Article markup already did (CNT.2-09).
+- The old site's `/order-tracking/` goes to the public order-tracking form instead of the account's order list, which asked guests to log in (TEC.6-03).
+
+1.2.0 was built the same evening and never uploaded; 1.2.1 contains it.
+
 ## 1.2.0 — 2026-11-20
 
 The guide pages are marked up as articles (#64). Three of the five page-one results for «راهنمای خرید اسپیکر بلوتوثی» and «شارژر فست چیست» are, and a buying guide is one: the page node of a page with the «Buying guide» template is now an Article with headline, publication and update dates, the shop as author and publisher, and the featured image.

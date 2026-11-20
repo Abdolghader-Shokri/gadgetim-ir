@@ -13,6 +13,8 @@ namespace Gadgetim\Core\Seo;
 use Gadgetim\Core\I18n\Languages;
 use Gadgetim\Core\I18n\PostTranslations;
 use Gadgetim\Core\I18n\TermTranslations;
+use Gadgetim\Core\Pricing\Calculator;
+use Gadgetim\Core\Pricing\Display;
 use Gadgetim\Core\Settings\Settings;
 use Gadgetim\Core\Support\Phone;
 use WP_Post;
@@ -475,8 +477,48 @@ final class JsonLd {
 		}
 		if ( ! empty( $markup['offers'] ) && is_array( $markup['offers'] ) ) {
 			$markup['offers'] = self::to_rial( $markup['offers'] );
+			$markup['offers'] = self::list_price_as_shown( $markup['offers'] );
 		}
 		return $markup;
+	}
+
+	/**
+	 * Keeps a ListPrice only where the page shows the old price struck through: from the strike
+	 * threshold up (Pricing\Display::thresholds(), design §5.5). Below it the page prints one price,
+	 * so a ListPrice would claim a discount the shopper never sees, and Google expects the markup to
+	 * match the page (deep check SCH.3-03, 2026-11-20: Sonify, 6% off, showed one price and carried
+	 * ListPrice 130,350,000 IRR).
+	 *
+	 * @param array<mixed> $offers Offers of WooCommerce's product markup.
+	 * @return array<mixed>
+	 */
+	public static function list_price_as_shown( array $offers ): array {
+		$strike  = (int) ( Display::thresholds()['strike'] ?? 10 );
+		$is_list = static fn( $spec ): bool => is_array( $spec ) && false !== stripos( (string) ( $spec['priceType'] ?? '' ), 'ListPrice' );
+		foreach ( $offers as $i => $offer ) {
+			if ( ! is_array( $offer ) || empty( $offer['priceSpecification'] ) || ! is_array( $offer['priceSpecification'] ) ) {
+				continue;
+			}
+			$now  = isset( $offer['price'] ) && is_numeric( $offer['price'] ) ? (float) $offer['price'] : null;
+			$list = null;
+			foreach ( $offer['priceSpecification'] as $spec ) {
+				if ( ! is_array( $spec ) || ! is_numeric( $spec['price'] ?? null ) ) {
+					continue;
+				}
+				if ( $is_list( $spec ) ) {
+					$list = (float) $spec['price'];
+				} elseif ( null === $now ) {
+					$now = (float) $spec['price'];
+				}
+			}
+			if ( null === $list || null === $now || Calculator::percent_off( $list, $now ) >= $strike ) {
+				continue;
+			}
+			$offers[ $i ]['priceSpecification'] = array_values(
+				array_filter( $offer['priceSpecification'], static fn( $spec ): bool => ! $is_list( $spec ) )
+			);
+		}
+		return $offers;
 	}
 
 	/**
