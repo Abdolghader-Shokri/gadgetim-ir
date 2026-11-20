@@ -17,7 +17,8 @@ namespace Gadgetim\Core\Seo;
  * Meta (<head> tags and archive titles), JsonLd (Organization/WebSite, BreadcrumbList,
  * WooCommerce product markup), Robots (robots.txt rules for parameter URLs, low-value
  * archives), Sitemap (encoded <loc>, no author sitemap), ShareJpeg (JPEG copies of WebP
- * share images for link previews), IndexNow (changed URLs to Bing and the other engines).
+ * share images for link previews), IndexNow (changed URLs to Bing and the other engines),
+ * Verification (Search Console ownership files kept from the old site).
  */
 final class Module {
 
@@ -32,5 +33,6 @@ final class Module {
 		Sitemap::register();
 		ShareJpeg::register();
 		IndexNow::register();
+		Verification::register();
 	}
 }
