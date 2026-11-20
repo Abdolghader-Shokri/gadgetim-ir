@@ -7,6 +7,12 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.2.2 — 2026-11-20
+
+The buying-guide cards show every guide again. They stopped at six, so with the Father's Day and Yalda guides of the same evening (eight guides) the home page left two out, and the last guide in the order was linked from no card at all. The cards now list up to twelve guides (`templates/pages/guides.php`).
+
+1.2.0 and 1.2.1 were built the same evening and never uploaded; 1.2.2 contains both.
+
 ## 1.2.1 — 2026-11-20
 
 Fixes from the deep checks of the SEO run of 2026-11-20:
