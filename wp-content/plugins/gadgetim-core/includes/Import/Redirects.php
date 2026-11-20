@@ -32,7 +32,7 @@ final class Redirects {
 		'مقایسه-محصولات' => [ '/shop/', 301, 'compare page not migrated' ],
 		'blog'           => [ '/', 301, 'blog index not migrated (client decision pending)' ],
 		'صفحه-اصلی-2'    => [ '/', 301, 'old builder home page' ],
-		'order-tracking' => [ '/my-account/orders/', 301, 'order tracking moved into the account' ],
+		'order-tracking' => [ '/my-account/orders/', 301, 'order tracking moved into the account; served by Catalog\Redirects as the public tracking form when it exists' ],
 	];
 
 	private const WC_PAGES = [ 'shop', 'cart', 'checkout', 'my-account' ];

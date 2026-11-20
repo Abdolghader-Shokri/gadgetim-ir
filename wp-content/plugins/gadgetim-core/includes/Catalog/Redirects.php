@@ -65,6 +65,13 @@ final class Redirects {
 				return;
 			}
 		}
+		if ( '/order-tracking/' === trailingslashit( $path ) ) {
+			$tracking = self::tracking_page_url();
+			if ( '' !== $tracking ) {
+				self::go( $tracking, 301 );
+				return;
+			}
+		}
 		if ( null === $rule ) {
 			return;
 		}
@@ -77,6 +84,18 @@ final class Redirects {
 			return;
 		}
 		self::go( home_url( $to ), in_array( $status, [ 301, 302, 307, 308 ], true ) ? $status : 301 );
+	}
+
+	/**
+	 * The public order-tracking form (the page that holds [woocommerce_order_tracking], found by the
+	 * theme's gadgetim_order_tracking_page_id()), or ''. The old site's /order-tracking/ was stored
+	 * as a redirect to the account's order list, which asks guests to log in and is noindex; the form
+	 * answers the same question without an account (deep check TEC.6-03, 2026-11-20).
+	 */
+	private static function tracking_page_url(): string {
+		$id  = function_exists( 'gadgetim_order_tracking_page_id' ) ? (int) gadgetim_order_tracking_page_id() : 0;
+		$url = $id > 0 ? get_permalink( $id ) : false;
+		return is_string( $url ) ? $url : '';
 	}
 
 	/**

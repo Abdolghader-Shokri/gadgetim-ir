@@ -2751,6 +2751,10 @@ msgid "Ask us about products, orders or authenticity. We are happy to help."
 msgstr ""
 
 #. translators: %s: date
+#: templates/pages/page-body.php:32
+msgid "Written by the Gadgetim team"
+msgstr ""
+
 #: templates/pages/page-body.php:29
 #, php-format
 msgid "Updated %s"
