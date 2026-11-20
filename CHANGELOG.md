@@ -7,6 +7,14 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.1.0 — 2026-11-20
+
+New features for the buying-guide pages of the SEO run of 2026-11-20, and the Search Console proof the move had lost (#63):
+- The old site's Google Search Console verification file `/google12fac158692d4dbf.html` answers again. The move on 2026-11-07 copied only WordPress, so it had answered 404 since then; the plugin now serves it itself (`Seo\Verification`).
+- Pages get FAQPage data for their own «پرسش‌های متداول» section, like products and category texts (the FAQ page keeps its single FAQPage node).
+- A «Buying guide» page template: the usual page body with a guide hero, then cards for the other guides.
+- A buying-guides section on the home page, between the featured products and the brands, listing every published guide (Persian home only).
+
 ## 1.0.0 — 2026-11-18
 
 First numbered release. The code is the build the owner uploaded on 2026-11-18 (main c1df399). The live site showed that build as plugin 0.1.0 and theme 1.0.0-dev. Only the two version headers and the release tooling changed.
