@@ -3400,3 +3400,23 @@ msgstr "%s. هزینه ارسال به‌صورت پس‌کرایه است و ه
 #: inc/product.php
 msgid "Orders are packed securely and sent to every city in Iran. Shipping is paid on delivery: you pay the courier when the parcel reaches you."
 msgstr "سفارش‌ها با بسته‌بندی ایمن به همه شهرهای ایران ارسال می‌شوند. هزینه ارسال به‌صورت پس‌کرایه است و هنگام تحویل مرسوله به مأمور ارسال پرداخت می‌شود."
+
+#: inc/pages.php
+msgid "Buying guide"
+msgstr "راهنمای خرید"
+
+#: page-templates/guide.php
+msgid "More buying guides"
+msgstr "راهنماهای خرید دیگر"
+
+#: templates/pages/guides.php
+msgid "Buying guides"
+msgstr "راهنمای خرید گجت"
+
+#: templates/pages/guides.php
+msgid "Clear answers before you buy"
+msgstr "پاسخ روشن و بی‌واسطه پیش از خرید"
+
+#: templates/pages/guides.php
+msgid "Read the guide"
+msgstr "خواندن راهنما"

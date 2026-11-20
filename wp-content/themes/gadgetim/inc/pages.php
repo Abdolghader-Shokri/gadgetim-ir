@@ -219,6 +219,43 @@ function gadgetim_pages_role_url( string $role ): string {
 }
 
 /**
+ * Published buying-guide pages (template page-templates/guide.php) that exist in the current
+ * language, oldest first so the order stays stable as guides are added (SEO run of 2026-11-20:
+ * the home page and every guide link to the guides, so a new guide is found and linked at once).
+ *
+ * @param int $exclude Page ID to leave out (the guide being shown).
+ * @return WP_Post[]
+ */
+function gadgetim_guides( int $exclude = 0 ): array {
+	static $memo = [];
+	$lang = gadgetim_lang();
+	if ( ! isset( $memo[ $lang ] ) ) {
+		$ids           = get_posts(
+			[
+				'post_type'        => 'page',
+				'post_status'      => 'publish',
+				'numberposts'      => 24,
+				'fields'           => 'ids',
+				'meta_key'         => '_wp_page_template', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- small indexed lookup, memoised.
+				'meta_value'       => 'page-templates/guide.php', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- as above.
+				'orderby'          => [
+					'menu_order' => 'ASC',
+					'date'       => 'ASC',
+				],
+				'suppress_filters' => false,
+			]
+		);
+		$memo[ $lang ] = array_values(
+			array_filter(
+				array_map( 'get_post', $ids ),
+				static fn( $p ): bool => $p instanceof WP_Post && ! post_password_required( $p ) && gadgetim_pages_in_lang( $p->ID )
+			)
+		);
+	}
+	return array_values( array_filter( $memo[ $lang ], static fn( WP_Post $p ): bool => $p->ID !== $exclude ) );
+}
+
+/**
  * Hero tone, icon, kicker and default lead line per page role (generic page template).
  *
  * @return array{tone:string,icon:string,kicker:string,lead:string}
@@ -236,6 +273,12 @@ function gadgetim_pages_role_style( string $role ): array {
 			'icon'   => 'layers',
 			'kicker' => __( 'Rules and policies', 'gadgetim' ),
 			'lead'   => __( 'The rules for using the site, placing orders, delivery and returns.', 'gadgetim' ),
+		],
+		'guide'   => [
+			'tone'   => 'pink',
+			'icon'   => 'sparkle',
+			'kicker' => __( 'Buying guide', 'gadgetim' ),
+			'lead'   => '',
 		],
 	];
 	$style = $styles[ $role ] ?? [
