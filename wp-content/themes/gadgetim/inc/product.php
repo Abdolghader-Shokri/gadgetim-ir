@@ -8,7 +8,8 @@
  *   .pdp__hero   gallery (product-image.php) · title area (product/head) · buy box (the
  *                woocommerce_single_product_summary hook) · key features + guarantee (product/side)
  *   .pdp-body    in-page chips (product/nav) + stacked sections (tabs/tabs.php) · desktop mini buy box
- *   then woocommerce_after_single_product_summary (up-sells 15, related 20, recently viewed 25),
+ *   then woocommerce_after_single_product_summary (buying guides 12, up-sells 15, related 20,
+ *   recently viewed 25),
  *   the mobile sticky buy bar and the lightbox <dialog>.
  *
  * Summary hook after this file runs:
@@ -49,6 +50,7 @@ function gadgetim_pdp_hooks(): void {
 	// woocommerce_output_product_data_tabs() there); up-sells and related stay on the hook, full width.
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 	add_action( 'woocommerce_after_single_product_summary', 'gadgetim_pdp_recent', 25 );
+	add_action( 'woocommerce_after_single_product_summary', 'gadgetim_pdp_guides', 12 );
 
 	// The specs table renders the attributes itself (through woocommerce_display_product_attributes);
 	// the hook still fires inside it for third-party additions.
@@ -709,6 +711,30 @@ function gadgetim_pdp_secondary(): void {
  */
 function gadgetim_pdp_perks(): void {
 	gadgetim_part( 'product/perks', [ 'perks' => gadgetim_pdp_perks_data() ] );
+}
+
+/**
+ * After summary 12: the buying guides that feature this product (gadgetim_guides_for_product()),
+ * as guide cards; nothing when no guide links to it, or on /en/ and /ar/ until a guide is translated.
+ */
+function gadgetim_pdp_guides(): void {
+	global $product;
+	if ( ! $product instanceof WC_Product ) {
+		return;
+	}
+	$guides = gadgetim_guides_for_product( $product->get_id() );
+	if ( ! $guides ) {
+		return;
+	}
+	gadgetim_part(
+		'pages/guides',
+		[
+			'items' => $guides,
+			'id'    => 'pdp-guides-t',
+			'title' => __( 'Buying guides that feature this product', 'gadgetim' ),
+			'class' => 'guides--pdp',
+		]
+	);
 }
 
 /**
