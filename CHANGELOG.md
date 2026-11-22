@@ -7,6 +7,14 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.3.4 — 2026-11-22
+
+Guides print model numbers as typed and give product photos a caption.
+- Page bodies (the guides and other pages) convert digits the way product pages do (`Digits::for_lang()`): a token with Latin letters and a bare number next to a Latin word keep their digits. Before, every digit run became Persian, so the guides' headings, tables and captions read «PDGA۰۵BK» and «Liberty ۴ Pro», which neither reads right nor matches a search for the model. Plain numbers, phone numbers and dates stay Persian.
+- Product photos in guides carry the product name as a caption (`.pg__body figcaption`: small, muted, centred under the photo).
+
+1.3.0 to 1.3.3 were built the same day and never uploaded; 1.3.4 contains them all.
+
 ## 1.3.3 — 2026-11-22
 
 Brand and category pages list the buying guides that cover their products. A rank check on 2026-11-22 found that the rival pages for «گرین لاین ساخت کجاست» carry a related-articles block and ours had none, and the three guides published that day had links only from the home page, the other guides and the product pages.
