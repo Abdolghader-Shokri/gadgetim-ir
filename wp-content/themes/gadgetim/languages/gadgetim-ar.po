@@ -2819,6 +2819,14 @@ msgstr "بقلم فريق Gadgetim"
 msgid "Buying guides that feature this product"
 msgstr "أدلة الشراء التي تعرض هذا المنتج"
 
+#: templates/archive/guides.php:23
+msgid "Related buying guides"
+msgstr "أدلة شراء ذات صلة"
+
+#: templates/archive/guides.php:24
+msgid "Guides that compare or recommend products on this page"
+msgstr "أدلة تقارن منتجات هذه الصفحة أو توصي بها"
+
 #: templates/pages/page-body.php:29
 #, php-format
 msgid "Updated %s"

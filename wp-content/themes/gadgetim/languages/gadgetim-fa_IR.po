@@ -2759,6 +2759,14 @@ msgstr "نوشتهٔ تیم گجتیم"
 msgid "Buying guides that feature this product"
 msgstr "راهنماهایی که این کالا را معرفی کرده‌اند"
 
+#: templates/archive/guides.php:23
+msgid "Related buying guides"
+msgstr "راهنماهای خرید مرتبط"
+
+#: templates/archive/guides.php:24
+msgid "Guides that compare or recommend products on this page"
+msgstr "راهنماهایی که کالاهای این صفحه را مقایسه یا پیشنهاد کرده‌اند"
+
 #: templates/pages/page-body.php:29
 #, php-format
 msgid "Updated %s"

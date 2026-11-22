@@ -7,6 +7,13 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.3.3 — 2026-11-22
+
+Brand and category pages list the buying guides that cover their products. A rank check on 2026-11-22 found that the rival pages for «گرین لاین ساخت کجاست» carry a related-articles block and ours had none, and the three guides published that day had links only from the home page, the other guides and the product pages.
+- Page 1 of a brand or product-category archive shows «راهنماهای خرید مرتبط» above its description: up to six guides that link at least one of its products, the guide most about the brand or category first (`gadgetim_guides_for_term()`, `templates/archive/guides.php`). Guides are Persian only, so /en/ and /ar/ show nothing; a term no guide covers shows nothing.
+
+1.3.0 to 1.3.2 were built the same day and never uploaded; 1.3.3 contains them all.
+
 ## 1.3.2 — 2026-11-22
 
 Brand pages carry the Persian names buyers search. A rank check on 2026-11-22 found the brand pages' heading was the Latin name alone, LePresso's title had no Persian name («محصولات اصل LEPRESSO») and Powerology's used the old site's spelling «پاورلوژی», while buyers search «لپرسو» and «پاورولوژی».
