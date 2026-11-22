@@ -1905,3 +1905,55 @@ function gadgetim_pages_content_digits( $html ) {
 	return implode( '', $parts );
 }
 add_filter( 'the_content', 'gadgetim_pages_content_digits', 30 );
+
+/**
+ * Photos placed in page bodies by URL (the guides' product photos: the guide builder links the
+ * 400 px size, and wp_kses_post in the drop importer drops srcset) get their attachment's
+ * wp-image-{id} class from the file path, so wp_filter_content_tags() (priority 12) adds srcset and
+ * sizes like for any attachment image (deep check MED.1-22 of 2026-11-22: a 400 px file shown at
+ * 360 px, blurry on phones). The src stays as it is; a file with no attachment is left alone.
+ *
+ * @param string $html Content.
+ */
+function gadgetim_pages_content_image_ids( $html ) {
+	if ( ! is_string( $html ) || ! str_contains( $html, '<img' ) || is_admin() || is_feed() || ! is_singular( 'page' ) ) {
+		return $html;
+	}
+	return (string) preg_replace_callback(
+		'#<img\b[^>]*>#i',
+		static function ( array $m ): string {
+			$img = $m[0];
+			if ( str_contains( $img, 'wp-image-' ) || str_contains( $img, ' srcset=' ) || ! preg_match( '#\ssrc="[^"]*/wp-content/uploads/(\d{4}/\d{2}/[^"/?]+)"#i', $img, $src ) ) {
+				return $img;
+			}
+			$file = (string) preg_replace( '/-\d+x\d+(?=\.[A-Za-z0-9]+$)/', '', rawurldecode( $src[1] ) );
+			$id   = gadgetim_pages_attachment_by_file( $file );
+			if ( $id <= 0 ) {
+				return $img;
+			}
+			return str_contains( $img, ' class="' )
+				? (string) preg_replace( '/ class="/', ' class="wp-image-' . $id . ' ', $img, 1 )
+				: (string) preg_replace( '/^<img\b/i', '<img class="wp-image-' . $id . '"', $img, 1 );
+		},
+		$html
+	);
+}
+add_filter( 'the_content', 'gadgetim_pages_content_image_ids', 9 );
+
+/**
+ * Attachment ID of an uploads-relative file (2026/10/1-15.webp, or its -scaled original), memoised.
+ *
+ * @param string $file Path relative to the uploads folder.
+ */
+function gadgetim_pages_attachment_by_file( string $file ): int {
+	static $memo = [];
+	if ( ! isset( $memo[ $file ] ) ) {
+		$base = trailingslashit( (string) wp_get_upload_dir()['baseurl'] );
+		$id   = (int) attachment_url_to_postid( $base . $file );
+		if ( $id <= 0 ) {
+			$id = (int) attachment_url_to_postid( $base . (string) preg_replace( '/(\.[A-Za-z0-9]+)$/', '-scaled$1', $file ) );
+		}
+		$memo[ $file ] = $id;
+	}
+	return $memo[ $file ];
+}

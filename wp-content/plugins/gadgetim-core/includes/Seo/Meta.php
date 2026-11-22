@@ -586,11 +586,17 @@ final class Meta {
 	/**
 	 * Persian names of brands, by slug, that win over the import aliases: buyers search «لپرسو» (the
 	 * brand had no Persian alias, so its title read «محصولات اصل LEPRESSO») and «پاورولوژی» (the old
-	 * site's alias was «پاورلوژی»), Google suggestions of 2026-11-22.
+	 * site's alias was «پاورلوژی»), Google suggestions of 2026-11-22. Anker, JBL, SanDisk, Philips and ENZO had no
+	 * alias either («محصولات اصل ANKER»); their names are spelt as in the keyword bank of the same day.
 	 */
 	public const BRAND_LOCAL_NAMES = [
 		'lepresso'   => 'لپرسو',
 		'powerology' => 'پاورولوژی',
+		'anker'      => 'انکر',
+		'jbl'        => 'جی بی ال',
+		'sandisk'    => 'سن دیسک',
+		'philips'    => 'فیلیپس',
+		'enzo'       => 'انزو',
 	];
 
 	/**
