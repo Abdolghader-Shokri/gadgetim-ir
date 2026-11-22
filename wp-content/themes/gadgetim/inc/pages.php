@@ -286,6 +286,69 @@ function gadgetim_guides_for_product( int $product_id ): array {
 }
 
 /**
+ * Buying guides of the current language that link at least one product of a brand or product
+ * category (subcategories included), for the «related guides» block of its archive (SEO run of
+ * 2026-11-22: the rivals' brand pages carry «مطالب مرتبط» and ours had none, and the new guides
+ * needed links from the pages whose products they compare). The guide most about the term comes
+ * first: the share of its product links that point into the term, then the number of them, then
+ * the guides' own order. Guides are Persian until one is translated, so /en/ and /ar/ get none.
+ *
+ * @param WP_Term $term  Brand or product category.
+ * @param int     $limit Most guides returned.
+ * @return WP_Post[]
+ */
+function gadgetim_guides_for_term( WP_Term $term, int $limit = 6 ): array {
+	static $memo = [];
+	$key = $term->taxonomy . ':' . $term->term_id . ':' . gadgetim_lang();
+	if ( ! isset( $memo[ $key ] ) ) {
+		$guides = gadgetim_guides();
+		$ids    = $guides ? get_posts(
+			[
+				'post_type'   => 'product',
+				'post_status' => 'publish',
+				'numberposts' => 300,
+				'fields'      => 'ids',
+				'tax_query'   => [ // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- one term, memoised.
+					[
+						'taxonomy'         => $term->taxonomy,
+						'field'            => 'term_id',
+						'terms'            => $term->term_id,
+						'include_children' => true,
+					],
+				],
+			]
+		) : [];
+		$paths  = [];
+		foreach ( $ids as $id ) {
+			$path = (string) wp_parse_url( (string) get_permalink( (int) $id ), PHP_URL_PATH );
+			if ( '' !== $path && '/' !== $path ) {
+				$paths[] = array_unique( [ 'href="' . rawurldecode( $path ) . '"', 'href="' . $path . '"' ] );
+			}
+		}
+		$scored = [];
+		foreach ( $guides as $order => $guide ) {
+			$text = (string) $guide->post_content;
+			$hits = 0;
+			foreach ( $paths as $needles ) {
+				foreach ( $needles as $needle ) {
+					if ( str_contains( $text, $needle ) ) {
+						++$hits;
+						break;
+					}
+				}
+			}
+			if ( $hits > 0 ) {
+				$all      = preg_match_all( '~href="[^"]*/product/[^"]+"~u', $text, $m ) ? count( array_unique( $m[0] ) ) : $hits;
+				$scored[] = [ $hits / max( $hits, $all ), $hits, $order, $guide ];
+			}
+		}
+		usort( $scored, static fn( array $a, array $b ): int => [ $b[0], $b[1], $a[2] ] <=> [ $a[0], $a[1], $b[2] ] );
+		$memo[ $key ] = array_column( $scored, 3 );
+	}
+	return array_slice( $memo[ $key ], 0, max( 1, $limit ) );
+}
+
+/**
  * Hero tone, icon, kicker and default lead line per page role (generic page template).
  *
  * @return array{tone:string,icon:string,kicker:string,lead:string}

@@ -14,7 +14,8 @@
  * Hero (templates/archive/hero.php), filters (sticky sidebar ≥ 1000 px, bottom sheet on phones:
  * templates/archive/filters.php + sheet.php), results (templates/archive/results.php: toolbar,
  * active filters, grid, load more, pagination — the same template answers the plugin's fragment
- * requests), the collapsed term description at the bottom. WooCommerce's hooks are kept; the
+ * requests), the buying guides that cover the page's products (templates/archive/guides.php) and
+ * the collapsed term description at the bottom. WooCommerce's hooks are kept; the
  * default parts they print are unhooked in inc/archive.php.
  *
  * @see https://woocommerce.com/document/template-structure/
@@ -56,6 +57,7 @@ do_action( 'woocommerce_shop_loop_header' );
 	</div>
 </div>
 <?php
+gadgetim_part( 'archive/guides' );
 gadgetim_part( 'archive/description' );
 
 /**
