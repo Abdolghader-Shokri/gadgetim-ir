@@ -422,6 +422,10 @@ function gadgetim_archive_info(): array {
 		case 'brand':
 			$eyebrow = __( 'Brand', 'gadgetim' );
 			$grad    = $name;
+			// The Persian heading carries what buyers type, «محصولات <brand>» (Seo\Meta).
+			$lead = $term && is_callable( [ 'Gadgetim\Core\Seo\Meta', 'brand_heading_lead' ] )
+				? (string) Gadgetim\Core\Seo\Meta::brand_heading_lead( $term )
+				: '';
 			$icon    = 'shield';
 			$word    = strtoupper( (string) preg_replace( '/[^A-Za-z0-9 ]+/', '', remove_accents( $name ) ) );
 			$word    = '' !== trim( $word ) ? $word : 'BRAND';

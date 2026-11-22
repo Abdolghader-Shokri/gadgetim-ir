@@ -584,12 +584,40 @@ final class Meta {
 	}
 
 	/**
+	 * Persian names of brands, by slug, that win over the import aliases: buyers search «لپرسو» (the
+	 * brand had no Persian alias, so its title read «محصولات اصل LEPRESSO») and «پاورولوژی» (the old
+	 * site's alias was «پاورلوژی»), Google suggestions of 2026-11-22.
+	 */
+	public const BRAND_LOCAL_NAMES = [
+		'lepresso'   => 'لپرسو',
+		'powerology' => 'پاورولوژی',
+	];
+
+	/**
+	 * Lead words of a brand archive heading in the default language, «محصولات <Persian name>», so the
+	 * H1 carries what buyers search («محصولات گرین لاین»; rank check of 2026-11-22: the heading was the
+	 * Latin name alone). '' in other languages, where the heading stays the brand name.
+	 *
+	 * @param WP_Term $term Brand term.
+	 */
+	public static function brand_heading_lead( WP_Term $term ): string {
+		if ( Brands::TAXONOMY !== $term->taxonomy || Languages::DEFAULT !== Languages::current() ) {
+			return '';
+		}
+		$local = self::brand_local_name( $term, (string) $term->name );
+		return '' !== $local ? 'محصولات ' . $local : 'محصولات';
+	}
+
+	/**
 	 * The Persian spelling of a Latin brand name, from the aliases the importer stored
 	 * (_gtm_import_aliases), or '' when the brand has none or its name is already Persian.
 	 */
 	private static function brand_local_name( WP_Term $term, string $name ): string {
 		if ( preg_match( '/\p{Arabic}/u', $name ) ) {
 			return '';
+		}
+		if ( isset( self::BRAND_LOCAL_NAMES[ $term->slug ] ) ) {
+			return (string) apply_filters( 'gadgetim_brand_local_name', self::BRAND_LOCAL_NAMES[ $term->slug ], $term );
 		}
 		$aliases = get_term_meta( (int) $term->term_id, Brands::META_ALIASES, true );
 		foreach ( is_array( $aliases ) ? $aliases : [] as $alias ) {
