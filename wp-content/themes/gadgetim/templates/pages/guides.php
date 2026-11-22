@@ -5,7 +5,8 @@
  * (the other guides) and on the home page (templates/home/guides.php), so each guide is linked
  * from the strongest page and from its siblings. Prints nothing when there is no guide.
  *
- * Args: exclude (page ID), title, sub, id, class, limit (default 12: every guide while there are
+ * Args: items (WP_Post[]: print exactly these, e.g. the guides of a product), exclude (page ID),
+ * title, sub, id, class, limit (default 12: every guide while there are
  * fewer than a dozen; with 6, the seventh and eighth guides of 2026-11-20 were linked from no card).
  *
  * @package Gadgetim
@@ -13,7 +14,10 @@
 
 declare( strict_types=1 );
 
-$gadgetim_guides = array_slice( gadgetim_guides( (int) ( $args['exclude'] ?? 0 ) ), 0, max( 1, (int) ( $args['limit'] ?? 12 ) ) );
+$gadgetim_guides = isset( $args['items'] ) && is_array( $args['items'] )
+	? array_values( array_filter( $args['items'], static fn( $g ): bool => $g instanceof WP_Post ) )
+	: gadgetim_guides( (int) ( $args['exclude'] ?? 0 ) );
+$gadgetim_guides = array_slice( $gadgetim_guides, 0, max( 1, (int) ( $args['limit'] ?? 12 ) ) );
 if ( ! $gadgetim_guides ) {
 	return;
 }

@@ -2815,6 +2815,10 @@ msgstr "اسألنا عن المنتجات أو الطلبات أو الأصال
 msgid "Written by the Gadgetim team"
 msgstr "بقلم فريق Gadgetim"
 
+#: inc/product.php:734
+msgid "Buying guides that feature this product"
+msgstr "أدلة الشراء التي تعرض هذا المنتج"
+
 #: templates/pages/page-body.php:29
 #, php-format
 msgid "Updated %s"

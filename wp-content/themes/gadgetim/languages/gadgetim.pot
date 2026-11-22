@@ -2755,6 +2755,10 @@ msgstr ""
 msgid "Written by the Gadgetim team"
 msgstr ""
 
+#: inc/product.php:734
+msgid "Buying guides that feature this product"
+msgstr ""
+
 #: templates/pages/page-body.php:29
 #, php-format
 msgid "Updated %s"

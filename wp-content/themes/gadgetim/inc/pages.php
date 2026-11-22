@@ -256,6 +256,36 @@ function gadgetim_guides( int $exclude = 0 ): array {
 }
 
 /**
+ * Buying guides of the current language whose text links to a product, in the guides' own order
+ * (SEO run of 2026-11-22: a product page links to every guide that features it, so the guides are
+ * linked from the product pages they send buyers to, and a buyer who lands on a product finds the
+ * guide that compares it). Guides are Persian until one is translated, so /en/ and /ar/ get none.
+ *
+ * @param int $product_id Product ID.
+ * @return WP_Post[]
+ */
+function gadgetim_guides_for_product( int $product_id ): array {
+	$path = (string) wp_parse_url( (string) get_permalink( $product_id ), PHP_URL_PATH );
+	if ( '' === $path || '/' === $path ) {
+		return [];
+	}
+	$needles = array_unique( [ 'href="' . rawurldecode( $path ) . '"', 'href="' . $path . '"' ] );
+	return array_values(
+		array_filter(
+			gadgetim_guides(),
+			static function ( WP_Post $guide ) use ( $needles ): bool {
+				foreach ( $needles as $needle ) {
+					if ( str_contains( (string) $guide->post_content, $needle ) ) {
+						return true;
+					}
+				}
+				return false;
+			}
+		)
+	);
+}
+
+/**
  * Hero tone, icon, kicker and default lead line per page role (generic page template).
  *
  * @return array{tone:string,icon:string,kicker:string,lead:string}
