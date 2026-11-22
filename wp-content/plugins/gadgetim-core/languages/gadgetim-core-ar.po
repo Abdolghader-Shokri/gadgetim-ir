@@ -3243,3 +3243,42 @@ msgstr "حزمة محتوى: تُستورد مباشرة بعد ذلك"
 #, php-format
 msgid "Update package %s was applied:"
 msgstr "تم تطبيق حزمة التحديث %s:"
+
+#: includes/Import/Drop.php
+msgid "Gadgetim packages"
+msgstr "حزم Gadgetim"
+
+#: includes/Import/Drop.php
+msgid "No package has been processed yet. Put an update package into wp-content/gadgetim-drop/ and open the dashboard."
+msgstr "لم تُعالَج أي حزمة بعد. ضع حزمة التحديث في wp-content/gadgetim-drop/ ثم افتح لوحة التحكم."
+
+#: includes/Import/Drop.php
+msgid "Every line is also kept in wp-content/gadgetim-drop/log.txt."
+msgstr "تُحفظ كل هذه الأسطر أيضًا في wp-content/gadgetim-drop/log.txt."
+
+#: includes/Import/Drop.php
+msgid "done"
+msgstr "تم"
+
+#: includes/Import/Drop.php
+msgid "done, with the warnings below"
+msgstr "تم، مع التحذيرات أدناه"
+
+#: includes/Import/Drop.php
+msgid "not applied"
+msgstr "لم يُطبَّق"
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "%d more"
+msgstr "%d أخرى"
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "Being applied right now: %s. Refresh this page in a few seconds."
+msgstr "قيد التطبيق الآن: %s. حدّث هذه الصفحة بعد بضع ثوانٍ."
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "Waiting in the drop folder: %s. An update package is applied when an administrator opens the dashboard; content packages also within the hour."
+msgstr "في انتظار المعالجة في مجلد الحزم: %s. تُطبَّق حزمة التحديث عندما يفتح مدير الموقع لوحة التحكم، وتُستورد حزم المحتوى أيضًا خلال ساعة."

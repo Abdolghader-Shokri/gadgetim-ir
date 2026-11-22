@@ -2838,3 +2838,42 @@ msgstr ""
 #, php-format
 msgid "Update package %s was applied:"
 msgstr ""
+
+#: includes/Import/Drop.php
+msgid "Gadgetim packages"
+msgstr ""
+
+#: includes/Import/Drop.php
+msgid "No package has been processed yet. Put an update package into wp-content/gadgetim-drop/ and open the dashboard."
+msgstr ""
+
+#: includes/Import/Drop.php
+msgid "Every line is also kept in wp-content/gadgetim-drop/log.txt."
+msgstr ""
+
+#: includes/Import/Drop.php
+msgid "done"
+msgstr ""
+
+#: includes/Import/Drop.php
+msgid "done, with the warnings below"
+msgstr ""
+
+#: includes/Import/Drop.php
+msgid "not applied"
+msgstr ""
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "%d more"
+msgstr ""
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "Being applied right now: %s. Refresh this page in a few seconds."
+msgstr ""
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "Waiting in the drop folder: %s. An update package is applied when an administrator opens the dashboard; content packages also within the hour."
+msgstr ""
