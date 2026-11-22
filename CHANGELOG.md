@@ -7,6 +7,22 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.4.0 — 2026-11-22
+
+One zip for every update (owner, 2026-11-22: put one file on the host, open the dashboard once, and everything is done).
+- `tools/build-update-bundle.php X.Y.Z [drops…]` packs the release zips of the plugin and the theme and the day's drop packages into `gadgetim-update-X.Y.Z-<date>.zip`, with `gadgetim-update.json` listing the SHA-256 and version of every file. It refuses a missing tag, a zip whose header or `.sha256` does not match, and a drop package without a version 1 `manifest.json`, and reads the finished zip back.
+- `Import\Bundle` applies it from `wp-content/gadgetim-drop/` on a dashboard page load (GET) of an administrator:
+  - every file is checked against its SHA-256 and the plugin and theme against their own Version headers;
+  - an older version refuses the whole package, the same version is skipped, a package already applied is not applied twice;
+  - a newer plugin or theme is installed with WordPress's own upgraders, as "Replace current with uploaded" does, and the old copy waits in `upgrade-temp-backup/`;
+  - the server then loads the home page and the dashboard with WordPress's fatal-error check; on a fatal error both old copies are moved back and the package goes to `failed/`;
+  - the drop packages are imported on the next page load, which the browser reaches by itself and which runs the new code; the dashboard notice lists the plugin, the theme and each content package.
+- Never from WP-Cron, by a shop manager, during a POST or on the update screens, and never over a plugin or theme folder that is a link (Local's junctions to this repository: PHP's `is_link()` misses them, the real path does not).
+- A package that the plugin before 1.4.0 moved into `failed/` ("manifest.json is missing") is taken back once, and that version's red notice is hidden.
+- The drop notice lists results oldest first, so an update package comes before the content it brought.
+
+Tested on a copy of the Local site with its own database and real (not linked) plugin and theme folders: the owner's flow through the dashboard (theme 1.3.6 to 1.4.0 and today's content: 3 pages and 11 texts), a newer plugin and theme, a plugin that throws on load (put back automatically, site kept answering), an older package, a damaged one, the same package twice, a package in `failed/`, a blocked self-check (update kept, warning shown) and a linked theme folder (refused).
+
 ## 1.3.6 — 2026-11-22
 
 The air-pump category answers «پمپ باد شارژی».
