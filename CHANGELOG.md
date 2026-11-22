@@ -7,6 +7,14 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.4.1 — 2026-11-22
+
+The result of an update package can no longer be missed.
+- The owner applied the 1.4.0 package the same evening. Live shows the theme installed at 18:37:44 UTC and the content imported at 18:37:48 UTC: the whole update ran in about four seconds. Still, no message was seen. The one-time notices were used up by a page load nobody looked at, most likely the browser preloading the dashboard address while it was typed.
+- The dashboard home has a «بسته‌های گجتیم» box at the top. It lists the last five results with Jalali date and time, state (done / done with warnings / not applied) and their lines, whether or not their notice was seen, plus what waits in the drop folder.
+- Browser preloads (`Sec-Purpose`/`Purpose` prefetch or prerender, `X-Moz`, `X-Purpose: preview`) neither apply packages nor import content, and do not mark notices seen. Neither does the update's own fatal-error check of the dashboard.
+- An info notice says when a package is being applied right now ("refresh in a few seconds") or is waiting.
+
 ## 1.4.0 — 2026-11-22
 
 One zip for every update (owner, 2026-11-22: put one file on the host, open the dashboard once, and everything is done).
