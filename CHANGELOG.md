@@ -7,6 +7,10 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.3.0 — 2026-11-22
+
+Product pages link to the buying guides that feature them. Under the product body, before «we also recommend», a product page now shows the guide cards of every buying guide whose text links to that product («راهنماهایی که این کالا را معرفی کرده‌اند»). The guides get links from the product pages they send buyers to, and a buyer who lands on a product from search finds the guide that compares it. Nothing prints when no guide links to the product, or on /en/ and /ar/ until a guide is translated (`gadgetim_guides_for_product()`, `gadgetim_pdp_guides()`; the guide cards part takes a ready list through `items`).
+
 ## 1.2.2 — 2026-11-20
 
 The buying-guide cards show every guide again. They stopped at six, so with the Father's Day and Yalda guides of the same evening (eight guides) the home page left two out, and the last guide in the order was linked from no card at all. The cards now list up to twelve guides (`templates/pages/guides.php`).
