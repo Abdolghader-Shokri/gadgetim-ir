@@ -7,6 +7,14 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.3.1 — 2026-11-22
+
+The old theme's filter URLs can now leave Google's index. Its brand filter wrote every combination as a URL (`/shop/?orderby=price-desc&dina_brand=218,298,350…`); a `site:` search on 2026-11-22 showed about 133,000 results for the domain, with these URLs and the old titles among the first. robots.txt kept them out of the crawl because they start with `?orderby=`, so Google could never see that they are gone.
+- A request with a parameter of the old theme (`dina_…`) gets a 301 to the same path without a query string (`Catalog\Redirects::drop_legacy_params()`).
+- robots.txt allows `/*?dina_brand=` and `/*&dina_brand=`. Each rule is longer than any parameter rule such a URL also matches, so crawlers apply it and see the 301; the new site's own sort and filter URLs stay blocked.
+
+1.3.0 was built the same day and never uploaded; 1.3.1 contains it.
+
 ## 1.3.0 — 2026-11-22
 
 Product pages link to the buying guides that feature them. Under the product body, before «we also recommend», a product page now shows the guide cards of every buying guide whose text links to that product («راهنماهایی که این کالا را معرفی کرده‌اند»). The guides get links from the product pages they send buyers to, and a buyer who lands on a product from search finds the guide that compares it. Nothing prints when no guide links to the product, or on /en/ and /ar/ until a guide is translated (`gadgetim_guides_for_product()`, `gadgetim_pdp_guides()`; the guide cards part takes a ready list through `items`).

@@ -20,6 +20,7 @@ declare( strict_types=1 );
 namespace Gadgetim\Core\Catalog;
 
 use Gadgetim\Core\I18n\Languages;
+use Gadgetim\Core\Support\Context;
 use Gadgetim\Core\Support\Normalize;
 use Gadgetim\Core\Support\Options;
 use WP_Term;
@@ -40,6 +41,52 @@ final class Redirects {
 	 */
 	public static function register(): void {
 		add_action( 'template_redirect', [ self::class, 'maybe_redirect' ], 0 );
+		add_action( 'parse_request', [ self::class, 'drop_legacy_params' ], 5 );
+	}
+
+	/**
+	 * Query parameters of the old site's theme (before the move of 2026-11-07). Its brand filter wrote
+	 * every combination as a URL (/shop/?orderby=price-desc&dina_brand=218,298,350…), Google indexed
+	 * thousands of them with the old titles (a site: search of 2026-11-22 showed about 133,000
+	 * results, the filter URLs among the first), and robots.txt kept them out of the crawl because
+	 * they start with ?orderby=, so they could never leave the index. A request that carries one now
+	 * gets a 301 to the same path without a query string, and Seo\Robots lets these URLs be crawled
+	 * so the redirect is seen. The new theme never writes these parameters.
+	 */
+	public const LEGACY_PARAM_PREFIXES = [ 'dina_' ];
+
+	/**
+	 * parse_request (5): 301 for a GET request that carries a parameter of the old theme.
+	 */
+	public static function drop_legacy_params(): void {
+		if ( 'cli' === PHP_SAPI || is_admin() || wp_doing_ajax() || wp_doing_cron() || ( class_exists( Context::class ) && Context::is_rest_request() ) ) {
+			return;
+		}
+		if ( 'GET' !== strtoupper( isset( $_SERVER['REQUEST_METHOD'] ) ? sanitize_key( wp_unslash( (string) $_SERVER['REQUEST_METHOD'] ) ) : 'GET' ) ) {
+			return;
+		}
+		$legacy = false;
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- only the parameter names are read.
+		foreach ( array_keys( $_GET ) as $key ) {
+			foreach ( self::LEGACY_PARAM_PREFIXES as $prefix ) {
+				if ( str_starts_with( (string) $key, $prefix ) ) {
+					$legacy = true;
+					break 2;
+				}
+			}
+		}
+		if ( ! $legacy ) {
+			return;
+		}
+		// The raw request path keeps a language prefix (/en/…); wp_safe_redirect() only allows the site's host.
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$uri  = isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( (string) $_SERVER['REQUEST_URI'] ) : '/';
+		$path = (string) wp_parse_url( $uri, PHP_URL_PATH );
+		$home = wp_parse_url( home_url( '/' ) );
+		$base = ( $home['scheme'] ?? 'http' ) . '://' . ( $home['host'] ?? '' ) . ( isset( $home['port'] ) ? ':' . $home['port'] : '' );
+		if ( wp_safe_redirect( $base . ( '' !== $path ? $path : '/' ), 301, 'Gadgetim' ) ) {
+			exit;
+		}
 	}
 
 	/**
