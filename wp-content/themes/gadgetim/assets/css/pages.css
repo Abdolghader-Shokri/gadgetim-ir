@@ -180,6 +180,9 @@
 	.pg__body li { padding-inline-start: 4px; }
 	.pg__body p a, .pg__body li a { overflow-wrap: anywhere; }
 	.pg__body img { block-size: auto; box-shadow: var(--sh-1); }
+	/* Product photos in guides carry the product name as a caption (SEO run of 2026-11-22). */
+	.pg__body figure { inline-size: fit-content; max-inline-size: 100%; }
+	.pg__body figcaption { margin-block-start: 8px; font-size: 13px; line-height: 1.8; color: var(--muted); text-align: center; }
 	.pg__body table { display: block; overflow-x: auto; border-radius: var(--r-md); border: 1px solid var(--line); }
 	.pg__body .wp-block-quote, .pg__body blockquote { position: relative; padding-inline-start: 22px; font-weight: 600; color: var(--ink); }
 	.pg__pages { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-block-start: 22px; }
