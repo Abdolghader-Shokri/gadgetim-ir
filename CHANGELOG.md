@@ -7,6 +7,13 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.3.6 — 2026-11-22
+
+The air-pump category answers «پمپ باد شارژی».
+- Its title, description and heading read «پمپ باد شارژی» (`Seo\Meta` TERM_NAMES and HEADING_NAMES): «قیمت و خرید پمپ باد شارژی اصل» and H1 «پمپ باد شارژی». Both products are cordless pumps with an internal battery, and for «پمپ باد شارژی» four of Google's first six results on 2026-11-22 were category pages, so the keyword moved from the buying guide to this category; the guide keeps the comparison phrases («بهترین پمپ باد شارژی»).
+
+1.3.0 to 1.3.5 were built the same day and never uploaded; 1.3.6 contains them all.
+
 ## 1.3.5 — 2026-11-22
 
 Persian names for five more brands, and sharp product photos in guides on phones.
