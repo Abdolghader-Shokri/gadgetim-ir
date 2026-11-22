@@ -3144,3 +3144,102 @@ msgstr "أضيف نص التعريف"
 #: includes/Import/Drop.php
 msgid "kept: the category already has a text"
 msgstr "دون تغيير: للفئة نص من قبل"
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "This update package was already applied on %s; nothing was done again."
+msgstr "سبق تطبيق حزمة التحديث هذه في %s؛ لم يُنفَّذ شيء مرة أخرى."
+
+#: includes/Import/Bundle.php
+msgid "PHP zip support is not available on this server: install the plugin and the theme from the dashboard instead."
+msgstr "دعم zip في PHP غير متوفر على هذا الخادم: ثبّت الإضافة والقالب من لوحة التحكم بدلًا من ذلك."
+
+#: includes/Import/Bundle.php
+msgid "gadgetim-update.json is missing or not a version 1 update package."
+msgstr "ملف gadgetim-update.json مفقود، أو ليست هذه حزمة تحديث من الإصدار 1."
+
+#: includes/Import/Bundle.php
+msgid "The update package lists no plugin, theme or content."
+msgstr "حزمة التحديث لا تتضمن إضافة ولا قالبًا ولا محتوى."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "The update package is damaged: %s does not match its checksum."
+msgstr "حزمة التحديث تالفة: %s لا يطابق رمز التحقق الخاص به."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "%1$s in the update package is not version %2$s."
+msgstr "%1$s في حزمة التحديث ليس الإصدار %2$s."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "The update package holds %1$s %2$s, older than the installed %3$s: nothing was changed."
+msgstr "تحتوي حزمة التحديث على %1$s بالإصدار %2$s، وهو أقدم من الإصدار المثبّت %3$s: لم يتغير شيء."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "%s could not be put into the drop folder."
+msgstr "تعذّر وضع %s في مجلد الحزم."
+
+#: includes/Import/Bundle.php
+msgid "This site does not allow installing plugins and themes (DISALLOW_FILE_MODS), so the update package was not applied."
+msgstr "هذا الموقع لا يسمح بتثبيت الإضافات والقوالب (DISALLOW_FILE_MODS)، لذا لم تُطبَّق حزمة التحديث."
+
+#: includes/Import/Bundle.php
+msgid "The plugin or theme folder is a link to a development copy, so code is never installed over it."
+msgstr "مجلد الإضافة أو القالب رابط إلى نسخة تطوير، لذا لا يُثبَّت فوقه أي كود."
+
+#: includes/Import/Bundle.php
+msgid "The host asks for FTP details to change files, so the plugin and the theme cannot be installed from the drop folder: install them from the dashboard instead."
+msgstr "تطلب الاستضافة بيانات FTP لتعديل الملفات، لذا لا يمكن تثبيت الإضافة والقالب من مجلد الحزم: ثبّتهما من لوحة التحكم بدلًا من ذلك."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "Installing %1$s failed, so nothing was changed: %2$s"
+msgstr "فشل تثبيت %1$s، لذا لم يتغير شيء: %2$s"
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "The new version stopped the site with an error, so the previous version was put back: %s"
+msgstr "أوقف الإصدار الجديد الموقع بخطأ، لذا أُعيد الإصدار السابق: %s"
+
+#: includes/Import/Bundle.php
+msgid "Putting the previous version back failed: upload the previous plugin and theme from the dashboard."
+msgstr "فشلت إعادة الإصدار السابق: ارفع الإضافة والقالب السابقين من لوحة التحكم."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "The site could not be loaded from the server after the update (%s): open the home page once to make sure it works."
+msgstr "تعذّر تحميل الموقع من الخادم بعد التحديث (%s): افتح الصفحة الرئيسية مرة واحدة للتأكد من أنه يعمل."
+
+#: includes/Import/Bundle.php
+msgid "unknown error"
+msgstr "خطأ غير معروف"
+
+#: includes/Import/Bundle.php
+msgid "Gadgetim Core plugin"
+msgstr "إضافة نواة Gadgetim"
+
+#: includes/Import/Bundle.php
+msgid "Gadgetim theme"
+msgstr "قالب Gadgetim"
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "updated from %1$s to %2$s"
+msgstr "تم التحديث من %1$s إلى %2$s"
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "already version %s"
+msgstr "الإصدار %s مثبّت مسبقًا"
+
+#: includes/Import/Drop.php
+msgid "content package: imported right after this"
+msgstr "حزمة محتوى: تُستورد مباشرة بعد ذلك"
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "Update package %s was applied:"
+msgstr "تم تطبيق حزمة التحديث %s:"

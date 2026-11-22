@@ -3116,3 +3116,102 @@ msgstr "متن معرفی اضافه شد"
 #: includes/Import/Drop.php
 msgid "kept: the category already has a text"
 msgstr "بدون تغییر: دسته از قبل متن دارد"
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "This update package was already applied on %s; nothing was done again."
+msgstr "این بستهٔ به‌روزرسانی پیش‌تر در %s اجرا شده بود؛ دوباره کاری انجام نشد."
+
+#: includes/Import/Bundle.php
+msgid "PHP zip support is not available on this server: install the plugin and the theme from the dashboard instead."
+msgstr "پشتیبانی zip در PHP این سرور فعال نیست؛ افزونه و قالب را از پیشخوان نصب کنید."
+
+#: includes/Import/Bundle.php
+msgid "gadgetim-update.json is missing or not a version 1 update package."
+msgstr "فایل gadgetim-update.json در بسته نیست، یا این بسته بستهٔ به‌روزرسانی نسخهٔ 1 نیست."
+
+#: includes/Import/Bundle.php
+msgid "The update package lists no plugin, theme or content."
+msgstr "بستهٔ به‌روزرسانی نه افزونه دارد، نه قالب و نه محتوا."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "The update package is damaged: %s does not match its checksum."
+msgstr "بستهٔ به‌روزرسانی خراب است: %s با کد بررسی‌اش نمی‌خواند."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "%1$s in the update package is not version %2$s."
+msgstr "%1$s داخل بستهٔ به‌روزرسانی نسخهٔ %2$s نیست."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "The update package holds %1$s %2$s, older than the installed %3$s: nothing was changed."
+msgstr "بستهٔ به‌روزرسانی %1$s نسخهٔ %2$s را دارد که از نسخهٔ نصب‌شده (%3$s) قدیمی‌تر است؛ چیزی تغییر نکرد."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "%s could not be put into the drop folder."
+msgstr "%s در پوشهٔ بسته‌ها گذاشته نشد."
+
+#: includes/Import/Bundle.php
+msgid "This site does not allow installing plugins and themes (DISALLOW_FILE_MODS), so the update package was not applied."
+msgstr "این سایت نصب افزونه و قالب را اجازه نمی‌دهد (DISALLOW_FILE_MODS)، پس بستهٔ به‌روزرسانی اجرا نشد."
+
+#: includes/Import/Bundle.php
+msgid "The plugin or theme folder is a link to a development copy, so code is never installed over it."
+msgstr "پوشهٔ افزونه یا قالب پیوندی به نسخهٔ توسعه است؛ روی آن هرگز کدی نصب نمی‌شود."
+
+#: includes/Import/Bundle.php
+msgid "The host asks for FTP details to change files, so the plugin and the theme cannot be installed from the drop folder: install them from the dashboard instead."
+msgstr "هاست برای تغییر فایل‌ها مشخصات FTP می‌خواهد، پس افزونه و قالب از پوشهٔ بسته‌ها نصب نمی‌شوند؛ آن‌ها را از پیشخوان نصب کنید."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "Installing %1$s failed, so nothing was changed: %2$s"
+msgstr "نصب %1$s انجام نشد و چیزی تغییر نکرد: %2$s"
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "The new version stopped the site with an error, so the previous version was put back: %s"
+msgstr "نسخهٔ تازه سایت را با خطا از کار انداخت، پس نسخهٔ قبلی برگردانده شد: %s"
+
+#: includes/Import/Bundle.php
+msgid "Putting the previous version back failed: upload the previous plugin and theme from the dashboard."
+msgstr "برگرداندن نسخهٔ قبلی انجام نشد: افزونه و قالب قبلی را از پیشخوان بارگذاری کنید."
+
+#: includes/Import/Bundle.php
+#, php-format
+msgid "The site could not be loaded from the server after the update (%s): open the home page once to make sure it works."
+msgstr "بعد از به‌روزرسانی، سایت از خود سرور باز نشد (%s)؛ یک بار صفحهٔ اصلی را باز کنید تا مطمئن شوید درست کار می‌کند."
+
+#: includes/Import/Bundle.php
+msgid "unknown error"
+msgstr "خطای ناشناخته"
+
+#: includes/Import/Bundle.php
+msgid "Gadgetim Core plugin"
+msgstr "افزونهٔ هسته گجتیم"
+
+#: includes/Import/Bundle.php
+msgid "Gadgetim theme"
+msgstr "قالب گجتیم"
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "updated from %1$s to %2$s"
+msgstr "از %1$s به %2$s به‌روز شد"
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "already version %s"
+msgstr "همین نسخهٔ %s نصب بود"
+
+#: includes/Import/Drop.php
+msgid "content package: imported right after this"
+msgstr "بستهٔ محتوا: بلافاصله بعد از این وارد سایت می‌شود"
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "Update package %s was applied:"
+msgstr "بستهٔ به‌روزرسانی %s اجرا شد:"

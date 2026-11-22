@@ -3,7 +3,7 @@
  * Plugin Name:       Gadgetim Core
  * Plugin URI:        https://gadgetim.ir/
  * Description:       Data and behaviour for the Gadgetim storefront: trilingual routing, multi-currency pricing, settings, catalog extras, importer and SEO. The "Gadgetim" theme is presentation only and relies on this plugin.
- * Version:           1.3.6
+ * Version:           1.4.0
  * Requires at least: 6.7
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -34,7 +34,7 @@ if ( defined( 'GADGETIM_CORE_VERSION' ) ) {
 	return;
 }
 
-define( 'GADGETIM_CORE_VERSION', '1.3.6' );
+define( 'GADGETIM_CORE_VERSION', '1.4.0' );
 define( 'GADGETIM_CORE_API', 1 );
 define( 'GADGETIM_CORE_FILE', __FILE__ );
 define( 'GADGETIM_CORE_DIR', plugin_dir_path( __FILE__ ) );

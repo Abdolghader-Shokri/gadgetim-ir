@@ -64,7 +64,11 @@ An untagged build (`<header version>-<sha>`) is a test build, never a delivery.
 1. `tools/bump-version.sh X.Y.Z` and a new section in `CHANGELOG.md`.
 2. Commit and merge.
 3. Tag the merge commit on main `vX.Y.Z`, push the tag, then `tools/build-release.sh vX.Y.Z` (it refuses headers that differ from the tag).
-4. Upload `gadgetim-core-X.Y.Z.zip` first, then `gadgetim-theme-X.Y.Z.zip` (Plugins/Themes -> Add -> Upload, "Replace current with uploaded"). Compare the printed SHA-256.
-5. Check the number on the live site: Plugins shows it for Gadgetim Core, and Appearance -> Themes -> Theme Details shows it for the theme.
+4. Pack the delivery into one file (owner, 2026-11-22: one zip on the host, one visit to the dashboard):
+   `"$PHP" -c "$INI" tools/build-update-bundle.php X.Y.Z [content-….zip products-….zip …]`
+   writes `release/deploy/gadgetim-update-X.Y.Z-<date>.zip` with both release zips and the day's drop packages. Every delivery carries the plugin and the theme, also a content-only one: the site skips a version it has and catches up on one it missed.
+5. The owner puts that one file into `public_html/wp-content/gadgetim-drop/` and opens the dashboard. `Import\Bundle` checks every SHA-256 and version, installs a newer plugin and theme the way "Replace current with uploaded" does, loads the site from the server and puts the old version back on a fatal error, then the content is imported and the dashboard shows what happened.
+   - A live site before 1.4.0 cannot read the package: upload `gadgetim-core-X.Y.Z.zip` once from Plugins -> Add -> Upload ("Replace current with uploaded") first. A package that the old version moved into `failed/` is taken back by itself.
+6. Check the number on the live site: Plugins shows it for Gadgetim Core, and Appearance -> Themes -> Theme Details shows it for the theme.
 
-Content and product packages for `gadgetim-drop` keep their dated names; the release's upload guide lists them. No self-updater by design.
+Nothing is ever fetched from a remote update channel: code reaches the site only in a package the owner uploads by hand (architecture D7).
