@@ -7,6 +7,14 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.3.5 — 2026-11-22
+
+Persian names for five more brands, and sharp product photos in guides on phones.
+- `Seo\Meta::BRAND_LOCAL_NAMES` gives Anker «انکر», JBL «جی بی ال», SanDisk «سن دیسک», Philips «فیلیپس» and ENZO «انزو», spelt as in the keyword bank of 2026-11-22 («انکر» alone is in 114 searched phrases). Their brand pages read «محصولات اصل انکر ANKER: قیمت و خرید» and «محصولات انکر ANKER» instead of the Latin name alone.
+- Photos placed in page bodies by URL (the guides' product photos) get their attachment's `wp-image-{id}` class from the file path (`gadgetim_pages_content_image_ids()`), so WordPress adds srcset and sizes. Before, the guides showed the 400 px file at 360 px with no larger source for high-density screens, because the drop importer's wp_kses_post drops srcset.
+
+1.3.0 to 1.3.4 were built the same day and never uploaded; 1.3.5 contains them all.
+
 ## 1.3.4 — 2026-11-22
 
 Guides print model numbers as typed and give product photos a caption.
