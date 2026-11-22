@@ -32,6 +32,10 @@
  * processed package moves to done/ (or failed/ when nothing could be imported), a line per item
  * goes to log.txt, and the dashboard shows a notice with links.
  *
+ * An update package (a zip with gadgetim-update.json, owner 2026-11-22: one zip for every update)
+ * carries the plugin, the theme and drop packages together. Bundle applies it first, on a
+ * dashboard page load of an administrator only; this scan leaves it alone.
+ *
  * Without PHP's zip extension an extracted package folder (gadgetim-drop/<name>/manifest.json)
  * is read the same way.
  *
@@ -117,12 +121,14 @@ final class Drop {
 	}
 
 	/**
-	 * admin_init: scans for a shop manager on a normal dashboard page.
+	 * admin_init: applies a waiting update package (Bundle, which may send the browser to the same
+	 * page and stop here), then scans for a shop manager on a normal dashboard page.
 	 */
 	public static function maybe_scan(): void {
 		if ( wp_doing_ajax() || ! current_user_can( 'manage_woocommerce' ) ) {
 			return;
 		}
+		Bundle::maybe_apply();
 		self::scan();
 	}
 
@@ -137,6 +143,8 @@ final class Drop {
 		}
 		$dir      = self::dir();
 		$packages = array_merge( glob( $dir . '/*.zip' ) ?: [], glob( $dir . '/*/manifest.json' ) ?: [] );
+		// Update packages wait for an administrator's dashboard page load (Bundle).
+		$packages = array_values( array_filter( $packages, static fn( string $p ): bool => ! Bundle::is_bundle( $p ) ) );
 		if ( ! $packages || get_transient( self::LOCK ) ) {
 			return [];
 		}
@@ -151,9 +159,18 @@ final class Drop {
 		}
 		delete_transient( self::LOCK );
 
-		$all = array_merge( $run, (array) get_option( self::RESULTS, [] ) );
-		update_option( self::RESULTS, array_slice( $all, 0, 20 ), false );
+		foreach ( array_reverse( $run ) as $result ) {
+			self::remember( $result );
+		}
 		return $run;
+	}
+
+	/**
+	 * Keeps a package result for the dashboard notice (newest first, 20 kept).
+	 */
+	public static function remember( array $result ): void {
+		$all = array_merge( [ $result ], (array) get_option( self::RESULTS, [] ) );
+		update_option( self::RESULTS, array_slice( $all, 0, 20 ), false );
 	}
 
 	/**
@@ -919,23 +936,34 @@ final class Drop {
 
 	/**
 	 * Moves a processed package into done/ or failed/ (never imported twice).
+	 *
+	 * @return string Where it went ('' when it could not be moved and was deleted).
 	 */
-	private static function archive( string $path, bool $is_zip, string $to ): void {
+	public static function archive( string $path, bool $is_zip, string $to ): string {
 		$dir = self::dir() . '/' . $to;
 		wp_mkdir_p( $dir );
 		$src  = $is_zip ? $path : dirname( $path );
 		$dest = $dir . '/' . gmdate( 'Ymd-His' ) . '-' . basename( $src );
-		if ( ! @rename( $src, $dest ) && $is_zip ) { // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- result checked.
+		if ( @rename( $src, $dest ) ) { // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- result checked.
+			return $dest;
+		}
+		if ( $is_zip ) {
 			@unlink( $src ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged, WordPress.WP.AlternativeFunctions.unlink_unlink -- never import twice.
 		}
+		return '';
 	}
 
 	/**
 	 * Appends the run to gadgetim-drop/log.txt.
 	 */
-	private static function log( array $result ): void {
+	public static function log( array $result ): void {
 		$lines = [ gmdate( 'c' ) . ' ' . $result['package'] ];
 		foreach ( $result['items'] as $i ) {
+			if ( 'update' === ( $result['kind'] ?? '' ) ) {
+				$lines[] = '  ' . $i['action'] . ' ' . $i['title']
+					. ( isset( $i['to'] ) ? ' ' . $i['from'] . ' -> ' . $i['to'] : '' );
+				continue;
+			}
 			$sku     = (string) ( $i['sku'] ?? '' );
 			$lines[] = '  ' . $i['action'] . ' #' . $i['id'] . ( '' !== $sku ? ' ' . $sku : '' )
 				. ( isset( $i['files'] ) ? ' files=' . (int) $i['files'] : '' ) . ' ' . $i['url'];
@@ -948,24 +976,32 @@ final class Drop {
 
 	/**
 	 * What happened to an item, for the notice.
+	 *
+	 * @param array $i Result item.
 	 */
-	private static function action_label( string $action, int $files = 0 ): string {
-		return match ( $action ) {
-			'created'  => __( 'added', 'gadgetim-core' ),
-			'image'    => __( 'featured image added', 'gadgetim-core' ),
-			'kept'     => __( 'kept: the page already has a featured image', 'gadgetim-core' ),
+	private static function action_label( array $i ): string {
+		return match ( (string) ( $i['action'] ?? '' ) ) {
+			'created'      => __( 'added', 'gadgetim-core' ),
+			'image'        => __( 'featured image added', 'gadgetim-core' ),
+			'kept'         => __( 'kept: the page already has a featured image', 'gadgetim-core' ),
 			/* translators: %d: number of files */
-			'restored' => sprintf( __( 'image files put back: %d', 'gadgetim-core' ), $files ),
-			'present'   => __( 'nothing to put back: the files are in place', 'gadgetim-core' ),
-			'kept_text' => __( 'kept: the page exists and the package does not replace it', 'gadgetim-core' ),
-			'term'      => __( 'introduction text added', 'gadgetim-core' ),
-			'term_kept' => __( 'kept: the category already has a text', 'gadgetim-core' ),
-			default     => __( 'updated', 'gadgetim-core' ),
+			'restored'     => sprintf( __( 'image files put back: %d', 'gadgetim-core' ), (int) ( $i['files'] ?? 0 ) ),
+			'present'      => __( 'nothing to put back: the files are in place', 'gadgetim-core' ),
+			'kept_text'    => __( 'kept: the page exists and the package does not replace it', 'gadgetim-core' ),
+			'term'         => __( 'introduction text added', 'gadgetim-core' ),
+			'term_kept'    => __( 'kept: the category already has a text', 'gadgetim-core' ),
+			/* translators: 1: old version, 2: new version */
+			'code_updated' => sprintf( __( 'updated from %1$s to %2$s', 'gadgetim-core' ), (string) ( $i['from'] ?? '' ), (string) ( $i['to'] ?? '' ) ),
+			/* translators: %s: version number */
+			'code_same'    => sprintf( __( 'already version %s', 'gadgetim-core' ), (string) ( $i['to'] ?? '' ) ),
+			'queued'       => __( 'content package: imported right after this', 'gadgetim-core' ),
+			default        => __( 'updated', 'gadgetim-core' ),
 		};
 	}
 
 	/**
-	 * admin_notices: results not shown yet, with links to the products and pages.
+	 * admin_notices: results not shown yet (oldest first, so an update package comes before the
+	 * content it brought), with links to the products and pages.
 	 */
 	public static function notice(): void {
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
@@ -973,18 +1009,27 @@ final class Drop {
 		}
 		$all     = (array) get_option( self::RESULTS, [] );
 		$changed = false;
-		foreach ( $all as $k => $r ) {
+		foreach ( array_reverse( $all, true ) as $k => $r ) {
 			if ( ! is_array( $r ) || ! empty( $r['seen'] ) ) {
 				continue;
 			}
 			$class = empty( $r['errors'] ) ? 'notice-success' : ( empty( $r['items'] ) ? 'notice-error' : 'notice-warning' );
 			echo '<div class="notice ' . esc_attr( $class ) . ' is-dismissible"><p><strong>';
-			/* translators: %s: package file name */
-			echo esc_html( sprintf( __( 'Package %s was imported:', 'gadgetim-core' ), (string) $r['package'] ) );
+			echo esc_html(
+				'update' === ( $r['kind'] ?? '' )
+					/* translators: %s: update package file name */
+					? sprintf( __( 'Update package %s was applied:', 'gadgetim-core' ), (string) $r['package'] )
+					/* translators: %s: package file name */
+					: sprintf( __( 'Package %s was imported:', 'gadgetim-core' ), (string) $r['package'] )
+			);
 			echo '</strong></p><ul style="list-style:disc;padding-inline-start:20px">';
 			foreach ( (array) $r['items'] as $i ) {
-				$label = self::action_label( (string) ( $i['action'] ?? '' ), (int) ( $i['files'] ?? 0 ) );
-				echo '<li><a href="' . esc_url( (string) $i['url'] ) . '" target="_blank">' . esc_html( (string) $i['title'] ) . '</a> (' . esc_html( $label ) . ')</li>';
+				$label = self::action_label( (array) $i );
+				$title = esc_html( (string) ( $i['title'] ?? '' ) );
+				if ( '' !== (string) ( $i['url'] ?? '' ) ) {
+					$title = '<a href="' . esc_url( (string) $i['url'] ) . '" target="_blank">' . $title . '</a>';
+				}
+				echo '<li>' . $title . ' (' . esc_html( $label ) . ')</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $title is escaped above.
 			}
 			foreach ( (array) $r['errors'] as $e ) {
 				echo '<li style="color:#b32d2e">' . esc_html( (string) $e ) . '</li>';
