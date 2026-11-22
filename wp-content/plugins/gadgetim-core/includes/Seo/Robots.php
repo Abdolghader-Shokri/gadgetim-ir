@@ -23,6 +23,15 @@ final class Robots {
 	public const BLOCKED_PARAMS = [ 'orderby', 'min_price', 'max_price', 'instock', 'sale', 'on_sale', 'brand', 'filter_', 'query_type_', 'replytocom', 's' ];
 
 	/**
+	 * URLs that stay crawlable although they also match a blocked parameter: the old theme's filter
+	 * URLs (Catalog\Redirects::LEGACY_PARAM_PREFIXES), which answer with a 301 that crawlers must see to
+	 * drop them from the index. Each rule (14 characters) is longer than every parameter rule above
+	 * that such a URL can also match (/*?orderby= is 11), so it wins the longest-match test; a tie
+	 * goes to Allow.
+	 */
+	public const ALLOWED_PATTERNS = [ '/*?dina_brand=', '/*&dina_brand=' ];
+
+	/**
 	 * Hooks.
 	 */
 	public static function register(): void {
@@ -48,6 +57,12 @@ final class Robots {
 				if ( false === strpos( $output, $rule ) ) {
 					$lines .= $rule;
 				}
+			}
+		}
+		foreach ( self::ALLOWED_PATTERNS as $pattern ) {
+			$rule = 'Allow: ' . $pattern . "\n";
+			if ( false === strpos( $output, $rule ) ) {
+				$lines .= $rule;
 			}
 		}
 		if ( '' === $lines ) {
