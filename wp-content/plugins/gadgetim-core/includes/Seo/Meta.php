@@ -513,6 +513,8 @@ final class Meta {
 	 *   Bluetooth earbuds to most shoppers (2026-11-17).
 	 * - «کمپینگ و سفر»: every product is camping or travel gear; «لوازم کمپینگ» and «لوازم سفر»
 	 *   (2026-11-17).
+	 * - «پمپ باد»: both products are cordless pumps with an internal battery charged over USB-C;
+	 *   «پمپ باد شارژی», for which 4 of the first 6 results are category pages (2026-11-22).
 	 * Filter: gadgetim_seo_term_names.
 	 */
 	private const TERM_NAMES = [
@@ -525,6 +527,7 @@ final class Meta {
 			'شارژر'                        => [ 'fa' => 'شارژر فست و دیواری' ],
 			'هندزفری'                      => [ 'fa' => 'هندزفری سیمی' ],
 			'کمپینگ-و-سفر'                 => [ 'fa' => 'لوازم کمپینگ و سفر' ],
+			'پمپ-باد'                      => [ 'fa' => 'پمپ باد شارژی' ],
 		],
 	];
 
@@ -544,6 +547,7 @@ final class Meta {
 			'شارژر'                        => [ 'fa' => 'شارژر فست و دیواری' ],
 			'هندزفری'                      => [ 'fa' => 'هندزفری سیمی' ],
 			'کمپینگ-و-سفر'                 => [ 'fa' => 'لوازم کمپینگ و سفر' ],
+			'پمپ-باد'                      => [ 'fa' => 'پمپ باد شارژی' ],
 		],
 	];
 
