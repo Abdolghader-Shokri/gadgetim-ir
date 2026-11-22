@@ -7,6 +7,14 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.3.2 — 2026-11-22
+
+Brand pages carry the Persian names buyers search. A rank check on 2026-11-22 found the brand pages' heading was the Latin name alone, LePresso's title had no Persian name («محصولات اصل LEPRESSO») and Powerology's used the old site's spelling «پاورلوژی», while buyers search «لپرسو» and «پاورولوژی».
+- `Seo\Meta::BRAND_LOCAL_NAMES` gives LePresso «لپرسو» and Powerology «پاورولوژی»; they win over the import aliases in titles and descriptions.
+- On Persian brand pages the heading reads «محصولات <Persian name> <brand>» (`Seo\Meta::brand_heading_lead()`), e.g. «محصولات گرین لاین Green Lion»; English and Arabic headings stay the brand name.
+
+1.3.0 and 1.3.1 were built the same day and never uploaded; 1.3.2 contains both.
+
 ## 1.3.1 — 2026-11-22
 
 The old theme's filter URLs can now leave Google's index. Its brand filter wrote every combination as a URL (`/shop/?orderby=price-desc&dina_brand=218,298,350…`); a `site:` search on 2026-11-22 showed about 133,000 results for the domain, with these URLs and the old titles among the first. robots.txt kept them out of the crawl because they start with `?orderby=`, so Google could never see that they are gone.
