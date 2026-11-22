@@ -3215,3 +3215,42 @@ msgstr "بستهٔ محتوا: بلافاصله بعد از این وارد سا
 #, php-format
 msgid "Update package %s was applied:"
 msgstr "بستهٔ به‌روزرسانی %s اجرا شد:"
+
+#: includes/Import/Drop.php
+msgid "Gadgetim packages"
+msgstr "بسته‌های گجتیم"
+
+#: includes/Import/Drop.php
+msgid "No package has been processed yet. Put an update package into wp-content/gadgetim-drop/ and open the dashboard."
+msgstr "هنوز بسته‌ای اجرا نشده است. بستهٔ به‌روزرسانی را در wp-content/gadgetim-drop/ بگذارید و پیشخوان را باز کنید."
+
+#: includes/Import/Drop.php
+msgid "Every line is also kept in wp-content/gadgetim-drop/log.txt."
+msgstr "همهٔ این خط‌ها در فایل wp-content/gadgetim-drop/log.txt هم نگه داشته می‌شود."
+
+#: includes/Import/Drop.php
+msgid "done"
+msgstr "انجام شد"
+
+#: includes/Import/Drop.php
+msgid "done, with the warnings below"
+msgstr "انجام شد، با هشدارهای زیر"
+
+#: includes/Import/Drop.php
+msgid "not applied"
+msgstr "انجام نشد"
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "%d more"
+msgstr "%d مورد دیگر"
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "Being applied right now: %s. Refresh this page in a few seconds."
+msgstr "همین حالا در حال اجرا: %s. چند ثانیه بعد این صفحه را تازه کنید."
+
+#: includes/Import/Drop.php
+#, php-format
+msgid "Waiting in the drop folder: %s. An update package is applied when an administrator opens the dashboard; content packages also within the hour."
+msgstr "در پوشهٔ بسته‌ها منتظر است: %s. بستهٔ به‌روزرسانی با باز شدن پیشخوان به دست مدیر کل اجرا می‌شود؛ بستهٔ محتوا حداکثر تا یک ساعت هم خودش وارد می‌شود."

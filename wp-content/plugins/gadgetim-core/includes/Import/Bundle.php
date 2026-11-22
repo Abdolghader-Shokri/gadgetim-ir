@@ -115,6 +115,7 @@ final class Bundle {
 		$method = isset( $_SERVER['REQUEST_METHOD'] ) ? strtoupper( sanitize_key( wp_unslash( $_SERVER['REQUEST_METHOD'] ) ) ) : '';
 		return is_admin()
 			&& 'GET' === $method
+			&& ! Drop::speculative()
 			&& ! wp_doing_ajax()
 			&& ! wp_doing_cron()
 			&& ! isset( $_GET['wp_scrape_key'] ) // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- only tells the update's own check apart.

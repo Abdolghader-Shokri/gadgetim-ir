@@ -53,6 +53,8 @@ use Gadgetim\Core\I18n\Slugs;
 use Gadgetim\Core\I18n\TermTranslations;
 use Gadgetim\Core\Pricing\Handover;
 use Gadgetim\Core\Seo\Meta;
+use Gadgetim\Core\Support\Digits;
+use Gadgetim\Core\Support\Jalali;
 use WC_Product;
 use WC_Product_Simple;
 use WP_Post;
@@ -94,6 +96,24 @@ final class Drop {
 		add_action( self::CRON, [ self::class, 'scan' ] );
 		add_action( 'init', [ self::class, 'schedule' ], 20 );
 		add_action( 'admin_notices', [ self::class, 'notice' ] );
+		add_action( 'wp_dashboard_setup', [ self::class, 'dashboard_widget' ] );
+	}
+
+	/**
+	 * Whether the browser is only preloading this page (Chrome and Edge prerender a dashboard
+	 * address while it is typed, Firefox and Safari prefetch). Owner, 2026-11-22: the 1.4.0 update
+	 * package was applied and its content imported in about four seconds, yet no message was seen:
+	 * a load the owner never looked at had used up the one-time notices. Such a load changes nothing
+	 * now and leaves the notices for the real visit.
+	 */
+	public static function speculative(): bool {
+		foreach ( [ 'HTTP_SEC_PURPOSE', 'HTTP_PURPOSE', 'HTTP_X_PURPOSE', 'HTTP_X_MOZ' ] as $header ) {
+			$value = isset( $_SERVER[ $header ] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER[ $header ] ) ) ) : '';
+			if ( '' !== $value && ( str_contains( $value, 'prefetch' ) || str_contains( $value, 'prerender' ) || str_contains( $value, 'preview' ) ) ) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -125,7 +145,7 @@ final class Drop {
 	 * page and stop here), then scans for a shop manager on a normal dashboard page.
 	 */
 	public static function maybe_scan(): void {
-		if ( wp_doing_ajax() || ! current_user_can( 'manage_woocommerce' ) ) {
+		if ( wp_doing_ajax() || self::speculative() || ! current_user_can( 'manage_woocommerce' ) ) {
 			return;
 		}
 		Bundle::maybe_apply();
@@ -1007,39 +1027,172 @@ final class Drop {
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
 			return;
 		}
+		$waiting = self::waiting();
+		if ( $waiting ) {
+			echo '<div class="notice notice-info"><p>' . esc_html( self::waiting_text( $waiting ) ) . '</p></div>';
+		}
+
 		$all     = (array) get_option( self::RESULTS, [] );
 		$changed = false;
 		foreach ( array_reverse( $all, true ) as $k => $r ) {
 			if ( ! is_array( $r ) || ! empty( $r['seen'] ) ) {
 				continue;
 			}
-			$class = empty( $r['errors'] ) ? 'notice-success' : ( empty( $r['items'] ) ? 'notice-error' : 'notice-warning' );
-			echo '<div class="notice ' . esc_attr( $class ) . ' is-dismissible"><p><strong>';
-			echo esc_html(
-				'update' === ( $r['kind'] ?? '' )
-					/* translators: %s: update package file name */
-					? sprintf( __( 'Update package %s was applied:', 'gadgetim-core' ), (string) $r['package'] )
-					/* translators: %s: package file name */
-					: sprintf( __( 'Package %s was imported:', 'gadgetim-core' ), (string) $r['package'] )
-			);
-			echo '</strong></p><ul style="list-style:disc;padding-inline-start:20px">';
-			foreach ( (array) $r['items'] as $i ) {
-				$label = self::action_label( (array) $i );
-				$title = esc_html( (string) ( $i['title'] ?? '' ) );
-				if ( '' !== (string) ( $i['url'] ?? '' ) ) {
-					$title = '<a href="' . esc_url( (string) $i['url'] ) . '" target="_blank">' . $title . '</a>';
-				}
-				echo '<li>' . $title . ' (' . esc_html( $label ) . ')</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $title is escaped above.
-			}
-			foreach ( (array) $r['errors'] as $e ) {
-				echo '<li style="color:#b32d2e">' . esc_html( (string) $e ) . '</li>';
-			}
-			echo '</ul></div>';
+			echo '<div class="notice ' . esc_attr( 'notice-' . self::state( $r ) ) . ' is-dismissible"><p><strong>';
+			echo esc_html( self::heading( $r ) );
+			echo '</strong></p>';
+			self::result_list( $r, PHP_INT_MAX );
+			echo '</div>';
 			$all[ $k ]['seen'] = true;
 			$changed           = true;
 		}
-		if ( $changed ) {
+		// A preloaded page, or the dashboard an update package loads to check itself, is never looked
+		// at: the notices wait for the real visit.
+		if ( $changed && ! self::speculative() && ! isset( $_GET['wp_scrape_key'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- only tells the update's own check apart.
 			update_option( self::RESULTS, $all, false );
 		}
+	}
+
+	/**
+	 * wp_dashboard_setup: the «Gadgetim packages» box on the dashboard home, at the top. It keeps
+	 * the last results whether or not their one-time notice was seen.
+	 */
+	public static function dashboard_widget(): void {
+		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+			return;
+		}
+		wp_add_dashboard_widget( 'gadgetim_drop', __( 'Gadgetim packages', 'gadgetim-core' ), [ self::class, 'render_widget' ], null, null, 'normal', 'high' );
+	}
+
+	/**
+	 * The dashboard box: what waits in the drop folder, then the last five results, newest first.
+	 */
+	public static function render_widget(): void {
+		$waiting = self::waiting();
+		if ( $waiting ) {
+			echo '<p><strong>' . esc_html( self::waiting_text( $waiting ) ) . '</strong></p>';
+		}
+		$all = array_slice( array_values( array_filter( (array) get_option( self::RESULTS, [] ), 'is_array' ) ), 0, 5 );
+		if ( ! $all ) {
+			echo '<p>' . esc_html__( 'No package has been processed yet. Put an update package into wp-content/gadgetim-drop/ and open the dashboard.', 'gadgetim-core' ) . '</p>';
+			return;
+		}
+		$colors = [
+			'success' => '#00a32a',
+			'warning' => '#dba617',
+			'error'   => '#d63638',
+		];
+		echo '<ul style="margin:0">';
+		foreach ( $all as $r ) {
+			$state = self::state( $r );
+			echo '<li style="margin:0 0 14px;padding:0 0 10px;border-bottom:1px solid #f0f0f1">';
+			echo '<span style="display:inline-block;width:10px;height:10px;border-radius:50%;margin-inline-end:6px;background:' . esc_attr( $colors[ $state ] ) . '"></span>';
+			echo '<strong>' . esc_html( self::heading( $r ) ) . '</strong>';
+			echo '<br><span style="color:#646970">' . esc_html( self::when( (int) ( $r['time'] ?? 0 ) ) ) . ' — ' . esc_html( self::state_label( $state ) ) . '</span>';
+			self::result_list( $r, 4 );
+			echo '</li>';
+		}
+		echo '</ul>';
+		echo '<p style="color:#646970;margin-bottom:0">' . esc_html__( 'Every line is also kept in wp-content/gadgetim-drop/log.txt.', 'gadgetim-core' ) . '</p>';
+	}
+
+	/**
+	 * success, warning (done with errors) or error (nothing done).
+	 */
+	private static function state( array $r ): string {
+		return empty( $r['errors'] ) ? 'success' : ( empty( $r['items'] ) ? 'error' : 'warning' );
+	}
+
+	/**
+	 * The state in words.
+	 */
+	private static function state_label( string $state ): string {
+		return match ( $state ) {
+			'success' => __( 'done', 'gadgetim-core' ),
+			'warning' => __( 'done, with the warnings below', 'gadgetim-core' ),
+			default   => __( 'not applied', 'gadgetim-core' ),
+		};
+	}
+
+	/**
+	 * First line of a result.
+	 */
+	private static function heading( array $r ): string {
+		return 'update' === ( $r['kind'] ?? '' )
+			/* translators: %s: update package file name */
+			? sprintf( __( 'Update package %s was applied:', 'gadgetim-core' ), (string) ( $r['package'] ?? '' ) )
+			/* translators: %s: package file name */
+			: sprintf( __( 'Package %s was imported:', 'gadgetim-core' ), (string) ( $r['package'] ?? '' ) );
+	}
+
+	/**
+	 * The item lines of a result (the first $show, the rest folded) and all its errors.
+	 */
+	private static function result_list( array $r, int $show ): void {
+		$lines = [];
+		foreach ( (array) ( $r['items'] ?? [] ) as $i ) {
+			$i     = (array) $i;
+			$title = esc_html( (string) ( $i['title'] ?? '' ) );
+			if ( '' !== (string) ( $i['url'] ?? '' ) ) {
+				$title = '<a href="' . esc_url( (string) $i['url'] ) . '" target="_blank">' . $title . '</a>';
+			}
+			$lines[] = '<li>' . $title . ' (' . esc_html( self::action_label( $i ) ) . ')</li>';
+		}
+		$ul = '<ul style="list-style:disc;padding-inline-start:20px;margin:6px 0 0">';
+		echo $ul . implode( '', array_slice( $lines, 0, $show ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built from escaped parts above.
+		foreach ( (array) ( $r['errors'] ?? [] ) as $e ) {
+			echo '<li style="color:#b32d2e">' . esc_html( (string) $e ) . '</li>';
+		}
+		echo '</ul>';
+		if ( count( $lines ) > $show ) {
+			/* translators: %d: number of further lines */
+			$more = sprintf( __( '%d more', 'gadgetim-core' ), count( $lines ) - $show );
+			if ( str_starts_with( get_user_locale(), 'fa' ) && class_exists( Digits::class ) ) {
+				$more = Digits::for_lang( $more, 'fa', false );
+			}
+			echo '<details style="margin-top:4px"><summary style="cursor:pointer">' . esc_html( $more ) . '</summary>';
+			echo $ul . implode( '', array_slice( $lines, $show ) ) . '</ul></details>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built from escaped parts above.
+		}
+	}
+
+	/**
+	 * Date and time of a result: Jalali for a Persian dashboard, the site's format otherwise.
+	 */
+	private static function when( int $time ): string {
+		if ( $time <= 0 ) {
+			return '';
+		}
+		if ( str_starts_with( get_user_locale(), 'fa' ) && class_exists( Jalali::class ) ) {
+			return Jalali::format( $time, 'j F Y، H:i', 'fa' );
+		}
+		return (string) wp_date( 'Y-m-d H:i', $time );
+	}
+
+	/**
+	 * Packages waiting in the drop folder (zip names and extracted folders).
+	 *
+	 * @return string[]
+	 */
+	private static function waiting(): array {
+		$dir = self::dir();
+		return array_map(
+			'basename',
+			array_merge( glob( $dir . '/*.zip' ) ?: [], array_map( 'dirname', glob( $dir . '/*/manifest.json' ) ?: [] ) )
+		);
+	}
+
+	/**
+	 * What the waiting packages are doing, for the notice and the dashboard box.
+	 *
+	 * @param string[] $waiting Package names.
+	 */
+	private static function waiting_text( array $waiting ): string {
+		$names = implode( '، ', $waiting );
+		if ( get_transient( self::LOCK ) ) {
+			/* translators: %s: package file names */
+			return sprintf( __( 'Being applied right now: %s. Refresh this page in a few seconds.', 'gadgetim-core' ), $names );
+		}
+		/* translators: %s: package file names */
+		return sprintf( __( 'Waiting in the drop folder: %s. An update package is applied when an administrator opens the dashboard; content packages also within the hour.', 'gadgetim-core' ), $names );
 	}
 }
