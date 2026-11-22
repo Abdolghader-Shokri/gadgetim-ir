@@ -1847,7 +1847,8 @@ add_filter( 'comment_reply_link', 'gadgetim_pages_reply_link_class' );
 /**
  * Persian/Arabic digits in the text of content pages (the imported pages were typed with Latin
  * digits: «07152855731»). Only text between tags is touched; <a>/<code>/<pre>/<script>/<style>/
- * <kbd>/<samp> contents, URLs and e-mail addresses keep their digits. Pages only (posts and
+ * <kbd>/<samp> contents, URLs, e-mail addresses and model names (PDGA05BK, Liberty 4 Pro) keep their
+ * digits. Pages only (posts and
  * product descriptions are left alone); filter gadgetim_content_digits to opt out.
  *
  * @param string $html Content.
@@ -1883,6 +1884,14 @@ function gadgetim_pages_content_digits( $html ) {
 			continue;
 		}
 		if ( $skip > 0 || ! preg_match( '/\d/', $part ) ) {
+			continue;
+		}
+		// Model names and codes keep their digits, as on product pages: Digits::for_lang() leaves tokens with
+		// Latin letters and a bare number next to a Latin word alone. The guides printed «PDGA۰۵BK» and
+		// «Liberty ۴ Pro» in headings, tables and captions, which neither reads right nor matches a search for
+		// the model (SEO run of 2026-11-22). Both paths keep the ASCII digits of character references.
+		if ( class_exists( 'Gadgetim\Core\Support\Digits' ) ) {
+			$parts[ $i ] = Gadgetim\Core\Support\Digits::for_lang( $part, gadgetim_lang(), true );
 			continue;
 		}
 		// Character references (&#8211; from wptexturize, &#x2013;) keep their ASCII digits: converted, they
