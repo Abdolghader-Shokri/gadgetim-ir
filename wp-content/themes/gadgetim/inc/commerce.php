@@ -404,6 +404,15 @@ function gadgetim_cart_count(): int {
 }
 
 /**
+ * Whether the cart holds a product sold as a copy: the cart and checkout then drop their
+ * authenticity promise (owner, 2026-11-25).
+ */
+function gadgetim_cart_has_copy(): bool {
+	$extras = 'Gadgetim\Core\Catalog\ProductExtras';
+	return class_exists( $extras ) && method_exists( $extras, 'copies_in_cart' ) && [] !== $extras::copies_in_cart();
+}
+
+/**
  * «N items» with locale digits.
  */
 function gadgetim_items_label( int $count ): string {
@@ -478,7 +487,8 @@ function gadgetim_commerce_steps( string $current ): string {
 }
 
 /**
- * Trust line under totals and before the pay button: secure payment, authenticity, returns.
+ * Trust line under totals and before the pay button: secure payment, authenticity, returns. No
+ * authenticity item while the cart holds a copy.
  *
  * @param string $class Extra classes.
  */
@@ -488,6 +498,9 @@ function gadgetim_commerce_trust( string $class = '' ): string {
 		[ 'shield', __( 'Authenticity guarantee', 'gadgetim' ) ],
 		[ 'return', gadgetim_t( 'trust.return_window', __( '7-day return guarantee', 'gadgetim' ) ) ],
 	];
+	if ( gadgetim_cart_has_copy() ) {
+		unset( $items[1] );
+	}
 	$html = '<ul class="' . esc_attr( trim( 'ctrust ' . $class ) ) . '">';
 	foreach ( $items as [ $icon, $label ] ) {
 		$html .= '<li>' . gadgetim_icon( $icon ) . '<span>' . esc_html( wp_strip_all_tags( (string) $label ) ) . '</span></li>';

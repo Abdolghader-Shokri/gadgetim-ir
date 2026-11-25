@@ -8,6 +8,9 @@
  * A package holds manifest.json (version 1) with one or more of these lists, and the files they name:
  * - products[]: each product is matched by SKU. A new SKU creates a published simple product, a
  *   known one is updated (texts, prices, specs, translations; images only when the product has none).
+ *   "authenticity": "copy" marks a product the shop sells as a non-original copy, and a "guarantee"
+ *   text (Persian and per translation) replaces the store-wide guarantee on its page (owner,
+ *   2026-11-25: what the client's text says about a copy or a warranty is what the buyer sees).
  * - pages[]: a branded featured image for an existing published page, found by its path; the
  *   expected ID guards against a different page at that address. A page that already has a
  *   featured image keeps it unless the entry says "replace" (image program, 2026-11-14: the site
@@ -48,6 +51,7 @@ namespace Gadgetim\Core\Import;
 
 use Gadgetim\Core\Catalog\Brands;
 use Gadgetim\Core\Catalog\ProductExtras;
+use Gadgetim\Core\I18n\Languages;
 use Gadgetim\Core\I18n\PostTranslations;
 use Gadgetim\Core\I18n\Slugs;
 use Gadgetim\Core\I18n\TermTranslations;
@@ -349,6 +353,22 @@ final class Drop {
 		if ( isset( $fa['specs'] ) ) {
 			$product->update_meta_data( ProductExtras::META_SPECS, ProductExtras::sanitize_specs( wp_json_encode( $fa['specs'] ) ) );
 		}
+		// What the client's text says about a copy or a warranty is what the buyer sees (owner,
+		// 2026-11-25). No flag means original. The product's own guarantee text replaces the store-wide
+		// one; the text a copy had goes when the product turns original.
+		$was_copy  = ! $created && ProductExtras::COPY === $product->get_meta( ProductExtras::META_AUTHENTICITY );
+		$is_copy   = ProductExtras::COPY === ( $p['authenticity'] ?? '' );
+		$guarantee = array_key_exists( 'guarantee', $fa ) ? ProductExtras::sanitize_guarantee( $fa['guarantee'] ) : null;
+		if ( $is_copy ) {
+			$product->update_meta_data( ProductExtras::META_AUTHENTICITY, ProductExtras::COPY );
+		} else {
+			$product->delete_meta_data( ProductExtras::META_AUTHENTICITY );
+		}
+		if ( null !== $guarantee && '' !== $guarantee ) {
+			$product->update_meta_data( ProductExtras::META_GUARANTEE, $guarantee );
+		} elseif ( '' === $guarantee || ( $was_copy && ! $is_copy ) ) {
+			$product->delete_meta_data( ProductExtras::META_GUARANTEE );
+		}
 		$product->update_meta_data( self::META_PACKAGE, $package );
 
 		$id = (int) $product->save();
@@ -379,6 +399,11 @@ final class Drop {
 			}
 		}
 
+		if ( $was_copy && ! $is_copy ) {
+			foreach ( Languages::secondary_codes() as $lang ) {
+				delete_post_meta( $id, ProductExtras::META_GUARANTEE . '_' . $lang );
+			}
+		}
 		self::apply_translations( $id, (array) ( $p['translations'] ?? [] ) );
 		clean_post_cache( $id );
 
@@ -949,6 +974,14 @@ final class Drop {
 				// update_post_meta() unslashes its value: unprotected, a quote inside a row (\") broke
 				// the JSON and the whole English table of a product was saved empty (2026-11-15).
 				update_post_meta( $id, ProductExtras::META_SPECS . '_' . $lang, wp_slash( ProductExtras::sanitize_specs( wp_json_encode( $t['specs'] ) ) ) );
+			}
+			if ( 'product' === $type && isset( $t['guarantee'] ) ) {
+				$guarantee = ProductExtras::sanitize_guarantee( $t['guarantee'] );
+				if ( '' !== $guarantee ) {
+					update_post_meta( $id, ProductExtras::META_GUARANTEE . '_' . $lang, wp_slash( $guarantee ) );
+				} else {
+					delete_post_meta( $id, ProductExtras::META_GUARANTEE . '_' . $lang );
+				}
 			}
 			PostTranslations::set( $id, 'status', $lang, 'published' );
 		}

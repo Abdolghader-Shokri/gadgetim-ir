@@ -295,6 +295,7 @@ Language packs: `ar` must be installed for core and WooCommerce. *Settings → T
 | Spec table | `_gtm_specs` (JSON `[["label","value"],…]`) | `_gtm_specs_{lang}` ("copy rows from Persian") | metabox repeater |
 | FAQ | `_gtm_faq` (JSON `[{"q","a"}]`) | `_gtm_faq_{lang}` | metabox repeater |
 | Guarantee text override | `_gtm_guarantee` | `_gtm_guarantee_{lang}` | metabox |
+| Sold as a copy (not original) | `_gtm_authenticity` = `copy`, absent otherwise (1.5.0, owner 2026-11-25): the page shows «کالای غیراصل (کپی)» and «ضمانت این کالا» with the product's own guarantee text instead of the original badge and the authenticity guarantee; the cart and checkout drop their authenticity promise while it is in the cart; the product markup names no brand | — | metabox checkbox, product package `"authenticity": "copy"` |
 | SEO title / description | `_gtm_seo_title`, `_gtm_seo_desc` | `_gtm_seo_title_{lang}`, `_gtm_seo_desc_{lang}` | metabox |
 | Translation status | — | `_gtm_status_{lang}` = `published` / `draft` / absent — **the visibility gate** (3.5) | metabox |
 | Term name / slug / description | term fields | term meta `_gtm_name_{lang}`, `_gtm_slug_{lang}`, `_gtm_desc_{lang}`, `_gtm_status_{lang}` | term edit screen |
@@ -936,7 +937,7 @@ Post meta (product/page)
   _gtm_specs[_{lang}] _gtm_faq[_{lang}] _gtm_guarantee[_{lang}] _gtm_seo_title[_{lang}] _gtm_seo_desc[_{lang}]
   _gtm_status_{lang} _gtm_search_{lang}
   _gtm_price_currency _gtm_base_regular_price _gtm_base_sale_price _gtm_rate_used _gtm_priced_at
-  _gtm_contact_only _gtm_views _gtm_import_old_id
+  _gtm_contact_only _gtm_views _gtm_import_old_id _gtm_authenticity
 
 Attachment meta
   _gtm_lqip _gtm_import_src

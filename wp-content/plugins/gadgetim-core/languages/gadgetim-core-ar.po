@@ -3282,3 +3282,16 @@ msgstr "قيد التطبيق الآن: %s. حدّث هذه الصفحة بعد 
 #, php-format
 msgid "Waiting in the drop folder: %s. An update package is applied when an administrator opens the dashboard; content packages also within the hour."
 msgstr "في انتظار المعالجة في مجلد الحزم: %s. تُطبَّق حزمة التحديث عندما يفتح مدير الموقع لوحة التحكم، وتُستورد حزم المحتوى أيضًا خلال ساعة."
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:125
+msgid "Not original: the shop sells this product as a copy"
+msgstr "غير أصلي: يبيع المتجر هذا المنتج كنسخة مقلدة"
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:127
+msgid "The page then shows “Not original (copy)” instead of “Original product” and the authenticity guarantee, and the cart and checkout drop their authenticity promise while it is in the cart. Write the guarantee it does have (for example the 7-day health test) in the field below."
+msgstr "تعرض صفحة المنتج عندها «منتج غير أصلي (نسخة مقلدة)» بدلاً من «منتج أصلي» وضمان الأصالة، ولا تَعِد السلة وصفحة الدفع بالأصالة ما دام المنتج في السلة. اكتب الضمان الذي يشمله المنتج فعلاً (مثل فحص السلامة لمدة ٧ أيام) في الحقل أدناه."
+
+#: includes/Checkout/Warranty.php:135
+#, php-format
+msgid "Not original (copy): the warranty of %s covers only its sound condition, not authenticity."
+msgstr "منتج غير أصلي (نسخة مقلدة): يشمل ضمان %s سلامة المنتج فقط، لا أصالته."

@@ -301,8 +301,29 @@ function gadgetim_pdp_key_specs( WC_Product $product, int $limit = 4 ): array {
 }
 
 /**
+ * Whether the shop sells the product as original. gadgetim-core flags a copy («های کپی»); its page
+ * then says so in place of the authenticity promise (owner, 2026-11-25). Without that plugin
+ * (or with one older than 1.5.0) every product counts as original, as before.
+ */
+function gadgetim_product_is_original( WC_Product $product ): bool {
+	$extras = 'Gadgetim\Core\Catalog\ProductExtras';
+	return ! class_exists( $extras ) || ! method_exists( $extras, 'is_original' ) || $extras::is_original( $product );
+}
+
+/**
+ * Guarantee text (HTML) of a copy: the product's own text, else one plain sentence that it has no
+ * authenticity guarantee. Never the store-wide text, which promises authenticity.
+ */
+function gadgetim_copy_guarantee( WC_Product $product ): string {
+	$extras = 'Gadgetim\Core\Catalog\ProductExtras';
+	$own    = class_exists( $extras ) ? trim( (string) $extras::guarantee( $product ) ) : '';
+	return '' !== $own ? $own : '<p>' . esc_html__( 'This product is not original (a copy) and has no authenticity guarantee.', 'gadgetim' ) . '</p>';
+}
+
+/**
  * FAQ rows: the product's own (ProductExtras::faq), else a short store FAQ built from the trust
  * settings (authenticity, delivery, returns, advice) — filter gadgetim_pdp_faq_fallback → false hides it.
+ * A copy answers the authenticity question with its own guarantee text.
  *
  * @return array{rows:array<int,array{q:string,a:string}>,own:bool}
  */
@@ -345,6 +366,10 @@ function gadgetim_pdp_faq( WC_Product $product ): array {
 	$separator = 'en' === gadgetim_lang() ? ', ' : '، ';
 
 	$authentic = '' !== trim( $guarantee ) ? trim( $guarantee ) : __( 'Every product is genuine, with an authenticity guarantee.', 'gadgetim' );
+	if ( ! gadgetim_product_is_original( $product ) ) {
+		$authentic = trim( wp_strip_all_tags( gadgetim_copy_guarantee( $product ) ) );
+		$steps     = [];
+	}
 	if ( $steps ) {
 		/* translators: %s: list of verification steps */
 		$authentic .= ' ' . sprintf( __( 'You can check it yourself: %s.', 'gadgetim' ), implode( $separator, $steps ) );

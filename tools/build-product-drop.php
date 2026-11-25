@@ -7,6 +7,10 @@
  * e.g. the client's category plus the more specific one the site already has for that kind of
  * product). Only existing categories are used by the importer.
  *
+ * "authenticity": "copy" marks a product the client's text calls a copy («های کپی»), and a
+ * "guarantee" text in fa/en/ar replaces the store-wide guarantee on its page (owner, 2026-11-25:
+ * what the client's text says about a copy, a warranty or authenticity is what the buyer sees).
+ *
  * Usage: php tools/build-product-drop.php <out.zip> <listing-dir> [<listing-dir> ...]
  * Needs the zip extension (Local's PHP has it).
  */
@@ -28,16 +32,24 @@ foreach ( array_slice( $argv, 2 ) as $dir ) {
 		fwrite( STDERR, "bad listing: $dir\n" );
 		exit( 1 );
 	}
-	$text = static fn( array $x ): array => [
-		'title'     => $x['title'],
-		'slug'      => $x['slug'] ?? '',
-		'subtitle'  => $x['subtitle'] ?? '',
-		'excerpt'   => $x['short'] ?? '',
-		'content'   => $x['content'] ?? '',
-		'seo_title' => $x['seo_title'] ?? '',
-		'seo_desc'  => $x['seo_desc'] ?? '',
-		'specs'     => $x['specs'] ?? [],
-	];
+	$text = static function ( array $x ): array {
+		$t = [
+			'title'     => $x['title'],
+			'slug'      => $x['slug'] ?? '',
+			'subtitle'  => $x['subtitle'] ?? '',
+			'excerpt'   => $x['short'] ?? '',
+			'content'   => $x['content'] ?? '',
+			'seo_title' => $x['seo_title'] ?? '',
+			'seo_desc'  => $x['seo_desc'] ?? '',
+			'specs'     => $x['specs'] ?? [],
+		];
+		// The product's own guarantee text (a copy, or a warranty other than the store's), only when the
+		// listing has one: without the key the site keeps what the product already shows.
+		if ( isset( $x['guarantee'] ) ) {
+			$t['guarantee'] = (string) $x['guarantee'];
+		}
+		return $t;
+	};
 	$images = [];
 	foreach ( $l['images'] as $im ) {
 		$src = $dir . '/' . $im['file'];
@@ -69,6 +81,8 @@ foreach ( array_slice( $argv, 2 ) as $dir ) {
 		],
 		'categories'   => array_values( array_unique( array_filter( array_map( 'strval', array_merge( (array) ( $l['categories'] ?? [] ), [ $l['category'] ?? '' ] ) ) ) ) ),
 		'brand'        => (string) ( $l['brand'] ?? '' ),
+		// "copy" when the client's text says the product is not original (gadgetim-core 1.5.0).
+		'authenticity' => 'copy' === ( $l['authenticity'] ?? '' ) ? 'copy' : 'original',
 		'stock'        => isset( $l['stock_quantity'] ) ? [ 'quantity' => (int) $l['stock_quantity'] ] : [ 'status' => 'instock' ],
 		'images'       => $images,
 		'fa'           => $text( $l['fa'] ),

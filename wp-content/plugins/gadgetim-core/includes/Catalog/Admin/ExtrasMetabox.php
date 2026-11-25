@@ -1,6 +1,6 @@
 <?php
 /**
- * "Gadgetim" product metabox: subtitle, short title, spec table, FAQ, guarantee, views.
+ * "Gadgetim" product metabox: subtitle, short title, spec table, FAQ, copy flag, guarantee, views.
  *
  * @package Gadgetim\Core
  */
@@ -120,6 +120,14 @@ final class ExtrasMetabox {
 			</div>
 
 			<div class="gtm-extras__field">
+				<label class="gtm-field__label" for="gtm-extras-copy">
+					<input type="checkbox" id="gtm-extras-copy" name="<?php echo esc_attr( $field ); ?>[copy]" value="1"<?php checked( ! ProductExtras::is_original( $id ) ); ?>>
+					<?php esc_html_e( 'Not original: the shop sells this product as a copy', 'gadgetim-core' ); ?>
+				</label>
+				<p class="gtm-extras__hint"><?php esc_html_e( 'The page then shows “Not original (copy)” instead of “Original product” and the authenticity guarantee, and the cart and checkout drop their authenticity promise while it is in the cart. Write the guarantee it does have (for example the 7-day health test) in the field below.', 'gadgetim-core' ); ?></p>
+			</div>
+
+			<div class="gtm-extras__field">
 				<label class="gtm-field__label" for="gtm-extras-guarantee"><?php esc_html_e( 'Guarantee text override', 'gadgetim-core' ); ?></label>
 				<textarea class="widefat gtm-textarea" id="gtm-extras-guarantee" name="<?php echo esc_attr( $field ); ?>[guarantee]" rows="3"><?php echo esc_textarea( $guarantee ); ?></textarea>
 				<p class="gtm-extras__hint"><?php esc_html_e( 'Leave empty to show the default guarantee text from Gadgetim → Settings → Trust & policies.', 'gadgetim-core' ); ?></p>
@@ -156,6 +164,7 @@ final class ExtrasMetabox {
 		self::set_or_delete( $product, ProductExtras::META_SPECS, ProductExtras::sanitize_specs( $raw['specs'] ?? [] ) );
 		self::set_or_delete( $product, ProductExtras::META_FAQ, ProductExtras::sanitize_faq( $raw['faq'] ?? [] ) );
 		self::set_or_delete( $product, ProductExtras::META_GUARANTEE, ProductExtras::sanitize_guarantee( $raw['guarantee'] ?? '' ) );
+		self::set_or_delete( $product, ProductExtras::META_AUTHENTICITY, empty( $raw['copy'] ) ? '' : ProductExtras::COPY );
 
 		if ( isset( $raw['views'] ) ) {
 			$product->update_meta_data( ProductExtras::META_VIEWS, ProductExtras::sanitize_views( $raw['views'] ) );

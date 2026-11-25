@@ -488,7 +488,8 @@ final class Meta {
 		if ( '' === $key || '' === $name ) {
 			return $own;
 		}
-		$count = (int) ( $GLOBALS['wp_query']->found_posts ?? 0 );
+		// The templates count "original products": copies in the term are left out of the number.
+		$count = (int) ( $GLOBALS['wp_query']->found_posts ?? 0 ) - ProductExtras::copies_in_term( $term );
 		if ( $count <= 0 ) {
 			// An empty archive is noindex (Seo\Robots); a template would announce products it does not list.
 			return $own;

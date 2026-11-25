@@ -2,7 +2,8 @@
 /**
  * Beside / under the buy box: key features (first spec rows → «مشخصات فنی»), the short description
  * when the product has one, and the authenticity card (ProductExtras::guarantee, the trust
- * verification steps, the guarantee page link).
+ * verification steps, the guarantee page link). A copy gets a «This product's guarantee» card
+ * with its own text only: no seal, no verification steps, no link to the authenticity guarantee.
  *
  * @package Gadgetim
  *
@@ -22,8 +23,9 @@ $gadgetim_short     = trim( (string) apply_filters( 'woocommerce_short_descripti
 $gadgetim_attrs     = gadgetim_pdp_content_attrs();
 $gadgetim_extras    = 'Gadgetim\Core\Catalog\ProductExtras';
 $gadgetim_guarantee = class_exists( $gadgetim_extras ) ? trim( (string) $gadgetim_extras::guarantee( $gadgetim_product ) ) : '';
-$gadgetim_steps     = gadgetim_list_setting( 'trust.verification_steps' );
-$gadgetim_g_url     = gadgetim_guarantee_url();
+$gadgetim_original  = gadgetim_product_is_original( $gadgetim_product );
+$gadgetim_steps     = $gadgetim_original ? gadgetim_list_setting( 'trust.verification_steps' ) : [];
+$gadgetim_g_url     = $gadgetim_original ? gadgetim_guarantee_url() : '';
 ?>
 <div class="pdp__side">
 	<?php if ( $gadgetim_keys || '' !== $gadgetim_short ) : ?>
@@ -48,13 +50,15 @@ $gadgetim_g_url     = gadgetim_guarantee_url();
 		</section>
 	<?php endif; ?>
 
-	<section class="pdp-guar" aria-labelledby="pdp-guar-t">
-		<span class="pdp-guar__seal" aria-hidden="true"><?php echo gadgetim_pdp_svg( 'seal' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?></span>
+	<section class="pdp-guar<?php echo $gadgetim_original ? '' : ' pdp-guar--copy'; ?>" aria-labelledby="pdp-guar-t">
+		<span class="pdp-guar__seal" aria-hidden="true"><?php echo $gadgetim_original ? gadgetim_pdp_svg( 'seal' ) : gadgetim_icon( 'alert' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG / escaped in gadgetim_icon(). ?></span>
 		<div class="pdp-guar__body">
-			<h2 class="pdp-guar__t" id="pdp-guar-t"><?php esc_html_e( 'Authenticity guarantee', 'gadgetim' ); ?></h2>
+			<h2 class="pdp-guar__t" id="pdp-guar-t"><?php echo $gadgetim_original ? esc_html__( 'Authenticity guarantee', 'gadgetim' ) : esc_html__( "This product's guarantee", 'gadgetim' ); ?></h2>
 			<div class="pdp-guar__x">
 				<?php
-				if ( '' !== $gadgetim_guarantee ) {
+				if ( ! $gadgetim_original ) {
+					echo gadgetim_pdp_html_digits( wp_kses_post( gadgetim_copy_guarantee( $gadgetim_product ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_kses_post() output, digits in text nodes only.
+				} elseif ( '' !== $gadgetim_guarantee ) {
 					echo gadgetim_pdp_html_digits( wp_kses_post( $gadgetim_guarantee ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_kses_post() output, digits in text nodes only.
 				} else {
 					echo '<p>' . esc_html__( 'Every product is genuine, with an authenticity guarantee.', 'gadgetim' ) . '</p>';

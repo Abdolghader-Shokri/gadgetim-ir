@@ -1,6 +1,7 @@
 <?php
 /**
- * Product title area: brand chip, category chip, authenticity chip, short title (H1), subtitle,
+ * Product title area: brand chip, category chip, authenticity chip («Not original (copy)» on a
+ * copy), short title (H1), subtitle,
  * rating / reviews link, views, SKU, the WooCommerce meta hooks, share button with its popover.
  *
  * @package Gadgetim
@@ -47,7 +48,11 @@ $gadgetim_meta_end = trim( (string) ob_get_clean() );
 			<?php $gadgetim_lane_url = get_term_link( $gadgetim_lane ); ?>
 			<a class="pdp-chip" href="<?php echo esc_url( is_string( $gadgetim_lane_url ) ? $gadgetim_lane_url : '' ); ?>"><?php gadgetim_the_icon( function_exists( 'gadgetim_category_icon' ) ? gadgetim_category_icon( $gadgetim_lane ) : 'grid' ); ?><?php echo esc_html( gadgetim_term_name( $gadgetim_lane ) ); ?></a>
 		<?php endif; ?>
-		<span class="pdp-chip pdp-chip--ok"><?php gadgetim_the_icon( 'shield' ); ?><?php esc_html_e( 'Original product', 'gadgetim' ); ?></span>
+		<?php if ( gadgetim_product_is_original( $gadgetim_product ) ) : ?>
+			<span class="pdp-chip pdp-chip--ok"><?php gadgetim_the_icon( 'shield' ); ?><?php esc_html_e( 'Original product', 'gadgetim' ); ?></span>
+		<?php else : ?>
+			<span class="pdp-chip pdp-chip--copy"><?php gadgetim_the_icon( 'alert' ); ?><?php esc_html_e( 'Not original (copy)', 'gadgetim' ); ?></span>
+		<?php endif; ?>
 	</div>
 
 	<?php $gadgetim_long = mb_strlen( gadgetim_short_title( $gadgetim_product ) ) > 64; ?>

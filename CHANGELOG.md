@@ -7,6 +7,20 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.5.0 — 2026-11-25
+
+A product can be sold as a copy, and its page says so (owner, 2026-11-25: every product the client sends is listed, and what its text says about a copy, a warranty or authenticity is exactly what the buyer must see).
+- A product flagged as a copy (`_gtm_authenticity = copy`: the «Not original» box in the Gadgetim product metabox, or `"authenticity": "copy"` in a product package):
+  - shows «کالای غیراصل (کپی)» where every other product shows «کالای اصل», and in the mini buy box instead of «ضمانت اصالت کالا»;
+  - has a «ضمانت این کالا» card with its own guarantee text (or one sentence that it has no authenticity guarantee) in place of the authenticity card, without the seal, the verification steps and the guarantee page link;
+  - answers the store FAQ's "Is this product original?" with that text;
+  - never falls back to the store-wide guarantee text, which promises authenticity;
+  - names no brand in its product markup (the page still names the brand it copies, next to the label), because Google's merchant listings refuse goods that carry another company's mark.
+- While the cart holds a copy, the cart drops «همه کالاها اصل، با ضمانت اصالت کالا» and the authenticity item of the trust line, and the checkout's warranty terms add a line naming the copies: their warranty covers sound condition only, not authenticity.
+- Category, brand and tag descriptions that count "original products" leave copies out of the number.
+- Product packages carry `"authenticity"` and a per-language `"guarantee"` text (`tools/build-product-drop.php`). A product that turns original again loses the guarantee text it had as a copy.
+- The site-wide lines (top bar, footer, shop description) stay as they are, at the owner's choice.
+
 ## 1.4.1 — 2026-11-22
 
 The result of an update package can no longer be missed.

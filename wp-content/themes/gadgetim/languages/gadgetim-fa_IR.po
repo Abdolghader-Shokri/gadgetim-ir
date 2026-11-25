@@ -3436,3 +3436,16 @@ msgstr "پاسخ روشن و بی‌واسطه پیش از خرید"
 #: templates/pages/guides.php
 msgid "Read the guide"
 msgstr "خواندن راهنما"
+
+#: templates/product/head.php:54
+#: templates/product/mini-buy.php:70
+msgid "Not original (copy)"
+msgstr "کالای غیراصل (کپی)"
+
+#: templates/product/side.php:56
+msgid "This product's guarantee"
+msgstr "ضمانت این کالا"
+
+#: inc/product.php:320
+msgid "This product is not original (a copy) and has no authenticity guarantee."
+msgstr "این کالا اصل نیست (کپی است) و ضمانت اصالت کالا ندارد."
