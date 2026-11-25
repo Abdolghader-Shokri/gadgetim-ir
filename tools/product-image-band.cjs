@@ -23,6 +23,7 @@ const repo = path.resolve(__dirname, '..').replace(/\\/g, '/');
 const theme = repo + '/wp-content/themes/gadgetim/assets';
 const browser = process.env.GADGETIM_BROWSER || 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
 const work = path.join(os.tmpdir(), 'gadgetim-image-band');
+const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 const [, , outDir, ...jobs] = process.argv;
 
 if (!outDir || !jobs.length) {
@@ -69,11 +70,23 @@ for (const job of jobs) {
 	const html = path.join(work, name + '.html');
 	fs.writeFileSync(html, page(fileUrl(path.resolve(src))));
 	const png = path.join(outDir, name + '.png');
-	execFileSync(browser, [
-		'--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--disable-extensions',
-		'--disable-background-networking', '--disable-component-update', '--disable-sync', '--hide-scrollbars',
-		'--allow-file-access-from-files', '--force-device-scale-factor=1', '--window-size=800,800',
-		'--virtual-time-budget=3000', '--user-data-dir=' + path.join(work, 'profile'), '--screenshot=' + png, fileUrl(html),
-	], { stdio: 'ignore' });
+	fs.rmSync(png, { force: true });
+	// Edge can return before its screenshot is on disk (2026-11-25: the first image of a run appeared a moment
+	// after the size check failed), so wait for the file, and run the browser once more if it never comes.
+	for (let attempt = 1; attempt <= 2 && !fs.existsSync(png); attempt++) {
+		execFileSync(browser, [
+			'--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--disable-extensions',
+			'--disable-background-networking', '--disable-component-update', '--disable-sync', '--hide-scrollbars',
+			'--allow-file-access-from-files', '--force-device-scale-factor=1', '--window-size=800,800',
+			'--virtual-time-budget=3000', '--user-data-dir=' + path.join(work, 'profile'), '--screenshot=' + png, fileUrl(html),
+		], { stdio: 'ignore' });
+		for (let waited = 0; waited < 15000 && !fs.existsSync(png); waited += 200) {
+			sleep(200);
+		}
+	}
+	if (!fs.existsSync(png)) {
+		console.error('no screenshot was written for ' + name);
+		process.exit(1);
+	}
 	console.log(name, fs.statSync(png).size);
 }
