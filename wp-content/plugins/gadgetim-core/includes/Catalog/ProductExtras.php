@@ -1,7 +1,7 @@
 <?php
 /**
- * Product extras: subtitle, short title, spec table, FAQ, guarantee override, view counter
- * (architecture §3.3, §5.10, §6).
+ * Product extras: subtitle, short title, spec table, FAQ, guarantee override, view counter,
+ * authenticity flag (architecture §3.3, §5.10, §6).
  *
  * @package Gadgetim\Core
  */
@@ -15,6 +15,7 @@ use Gadgetim\Core\Support\Context;
 use WC_Product;
 use WP_Post;
 use WP_Query;
+use WP_Term;
 
 /**
  * Storage and read API for the `_gtm_*` product extras. Persian values live in the base
@@ -32,6 +33,17 @@ final class ProductExtras {
 	public const META_SEO_TITLE   = '_gtm_seo_title';
 	public const META_SEO_DESC    = '_gtm_seo_desc';
 	public const META_IMPORT_ID   = '_gtm_import_old_id';
+
+	/**
+	 * `copy` on a product the shop sells as a non-original copy («های کپی»); absent on everything
+	 * else. Owner, 2026-11-25: what the client's product text says about a copy, a warranty or
+	 * authenticity is exactly what the buyer must see, so such a product never shows the
+	 * «Original product» badge or the store's authenticity guarantee.
+	 */
+	public const META_AUTHENTICITY = '_gtm_authenticity';
+
+	/** META_AUTHENTICITY value of a non-original product. */
+	public const COPY = 'copy';
 
 	/** Keys that have per-language variants. */
 	public const TRANSLATABLE = [ self::META_SUBTITLE, self::META_SPECS, self::META_FAQ, self::META_GUARANTEE, self::META_SEO_TITLE, self::META_SEO_DESC ];
@@ -109,6 +121,17 @@ final class ProductExtras {
 				'single'            => true,
 				'show_in_rest'      => false,
 				'sanitize_callback' => [ self::class, 'sanitize_guarantee' ],
+				'auth_callback'     => $auth,
+			]
+		);
+		register_post_meta(
+			'product',
+			self::META_AUTHENTICITY,
+			[
+				'type'              => 'string',
+				'single'            => true,
+				'show_in_rest'      => false,
+				'sanitize_callback' => [ self::class, 'sanitize_authenticity' ],
 				'auth_callback'     => $auth,
 			]
 		);
@@ -241,12 +264,16 @@ final class ProductExtras {
 	}
 
 	/**
-	 * Guarantee text (HTML): the product override, else the `trust.guarantee` setting.
+	 * Guarantee text (HTML): the product override, else the `trust.guarantee` setting. A copy gets
+	 * its own text or nothing: the store-wide text promises authenticity.
 	 */
 	public static function guarantee( WC_Product|WP_Post|int $product, ?string $lang = null ): string {
 		$own = trim( (string) self::meta( $product, self::META_GUARANTEE, $lang ) );
 		if ( '' !== $own ) {
 			return $own;
+		}
+		if ( ! self::is_original( $product ) ) {
+			return '';
 		}
 		if ( class_exists( Settings::class ) ) {
 			return Settings::get_lang( 'trust.guarantee', $lang );
@@ -259,6 +286,76 @@ final class ProductExtras {
 	 */
 	public static function has_own_guarantee( WC_Product|WP_Post|int $product ): bool {
 		return '' !== trim( (string) self::meta( $product, self::META_GUARANTEE, 'fa' ) );
+	}
+
+	/**
+	 * Whether the shop sells the product as original: every product is, unless it is flagged as a
+	 * copy. A variation follows its parent.
+	 */
+	public static function is_original( WC_Product|WP_Post|int $product ): bool {
+		$id = $product instanceof WC_Product && $product->get_parent_id() > 0 ? (int) $product->get_parent_id() : self::id( $product );
+		return $id <= 0 || self::COPY !== get_post_meta( $id, self::META_AUTHENTICITY, true );
+	}
+
+	/**
+	 * The non-original products in the cart (product ID => name), for the cart and checkout lines
+	 * that otherwise promise an authenticity guarantee.
+	 *
+	 * @return array<int,string>
+	 */
+	public static function copies_in_cart(): array {
+		if ( ! function_exists( 'WC' ) || ! WC()->cart ) {
+			return [];
+		}
+		$copies = [];
+		foreach ( WC()->cart->get_cart() as $item ) {
+			$product = $item['data'] ?? null;
+			if ( $product instanceof WC_Product && ! self::is_original( $product ) ) {
+				$copies[ (int) $product->get_id() ] = (string) $product->get_name();
+			}
+		}
+		return $copies;
+	}
+
+	/**
+	 * Published non-original products in a category, brand or tag (children included, once per
+	 * request), so archive descriptions that count "original products" count only those.
+	 */
+	public static function copies_in_term( WP_Term $term ): int {
+		static $counts = [];
+		$key = $term->taxonomy . ':' . $term->term_id;
+		if ( ! isset( $counts[ $key ] ) ) {
+			$query          = new WP_Query(
+				[
+					'post_type'              => 'product',
+					'post_status'            => 'publish',
+					'posts_per_page'         => 1,
+					'fields'                 => 'ids',
+					'ignore_sticky_posts'    => true,
+					'suppress_filters'       => true,
+					'update_post_meta_cache' => false,
+					'update_post_term_cache' => false,
+					// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- one small count per archive view.
+					'tax_query'              => [
+						[
+							'taxonomy'         => $term->taxonomy,
+							'field'            => 'term_id',
+							'terms'            => (int) $term->term_id,
+							'include_children' => true,
+						],
+					],
+					// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- the flag is set on very few products.
+					'meta_query'             => [
+						[
+							'key'   => self::META_AUTHENTICITY,
+							'value' => self::COPY,
+						],
+					],
+				]
+			);
+			$counts[ $key ] = (int) $query->found_posts;
+		}
+		return $counts[ $key ];
 	}
 
 	/**
@@ -475,6 +572,13 @@ final class ProductExtras {
 	 */
 	public static function sanitize_guarantee( mixed $value ): string {
 		return is_scalar( $value ) ? trim( wp_kses_post( (string) $value ) ) : '';
+	}
+
+	/**
+	 * Meta sanitizer for `_gtm_authenticity`: `copy` or nothing.
+	 */
+	public static function sanitize_authenticity( mixed $value ): string {
+		return self::COPY === $value ? self::COPY : '';
 	}
 
 	/**

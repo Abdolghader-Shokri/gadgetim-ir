@@ -10,6 +10,7 @@ declare( strict_types=1 );
 
 namespace Gadgetim\Core\Seo;
 
+use Gadgetim\Core\Catalog\ProductExtras;
 use Gadgetim\Core\I18n\Languages;
 use Gadgetim\Core\I18n\PostTranslations;
 use Gadgetim\Core\I18n\TermTranslations;
@@ -17,6 +18,7 @@ use Gadgetim\Core\Pricing\Calculator;
 use Gadgetim\Core\Pricing\Display;
 use Gadgetim\Core\Settings\Settings;
 use Gadgetim\Core\Support\Phone;
+use WC_Product;
 use WP_Post;
 use WP_Term;
 
@@ -478,6 +480,12 @@ final class JsonLd {
 		if ( ! empty( $markup['offers'] ) && is_array( $markup['offers'] ) ) {
 			$markup['offers'] = self::to_rial( $markup['offers'] );
 			$markup['offers'] = self::list_price_as_shown( $markup['offers'] );
+		}
+		// A copy is not the brand's own product: the page names the brand it copies next to its
+		// «Not original» label, the data names no brand (Google's merchant listings refuse goods that
+		// carry another company's mark, 2026-11-25).
+		if ( $product instanceof WC_Product && ! ProductExtras::is_original( $product ) ) {
+			unset( $markup['brand'] );
 		}
 		return $markup;
 	}

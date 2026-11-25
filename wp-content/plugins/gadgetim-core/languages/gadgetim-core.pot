@@ -2877,3 +2877,16 @@ msgstr ""
 #, php-format
 msgid "Waiting in the drop folder: %s. An update package is applied when an administrator opens the dashboard; content packages also within the hour."
 msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:125
+msgid "Not original: the shop sells this product as a copy"
+msgstr ""
+
+#: includes/Catalog/Admin/ExtrasMetabox.php:127
+msgid "The page then shows “Not original (copy)” instead of “Original product” and the authenticity guarantee, and the cart and checkout drop their authenticity promise while it is in the cart. Write the guarantee it does have (for example the 7-day health test) in the field below."
+msgstr ""
+
+#: includes/Checkout/Warranty.php:135
+#, php-format
+msgid "Not original (copy): the warranty of %s covers only its sound condition, not authenticity."
+msgstr ""

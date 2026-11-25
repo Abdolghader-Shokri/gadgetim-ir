@@ -64,7 +64,11 @@ $gadgetim_wa      = $gadgetim_in ? gadgetim_pdp_whatsapp_order_url( $gadgetim_pr
 	<?php endif; ?>
 
 	<ul class="pdp-mini__trust">
-		<li><?php gadgetim_the_icon( 'shield' ); ?><?php esc_html_e( 'Authenticity guarantee', 'gadgetim' ); ?></li>
+		<?php if ( gadgetim_product_is_original( $gadgetim_product ) ) : ?>
+			<li><?php gadgetim_the_icon( 'shield' ); ?><?php esc_html_e( 'Authenticity guarantee', 'gadgetim' ); ?></li>
+		<?php else : ?>
+			<li class="is-copy"><?php gadgetim_the_icon( 'alert' ); ?><?php esc_html_e( 'Not original (copy)', 'gadgetim' ); ?></li>
+		<?php endif; ?>
 		<li><?php gadgetim_the_icon( 'truck' ); ?><?php echo esc_html( gadgetim_digits( gadgetim_t( 'trust.delivery', __( 'Delivery across Iran', 'gadgetim' ) ) ) ); ?></li>
 		<li><?php gadgetim_the_icon( 'return' ); ?><?php echo esc_html( gadgetim_digits( gadgetim_t( 'trust.return_window', __( '7-day return guarantee', 'gadgetim' ) ) ) ); ?></li>
 	</ul>

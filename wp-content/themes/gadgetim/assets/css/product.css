@@ -156,6 +156,9 @@
 	.pdp-chip__dot { inline-size: 8px; block-size: 8px; border-radius: 50%; background: var(--grad); box-shadow: 0 0 0 3px rgba(124, 58, 237, .14); }
 	.pdp-chip--ok { color: var(--green); background: #ecfdf5; border-color: #a7f3d0; box-shadow: none; }
 	.pdp-chip--ok .ic { color: var(--green-2); stroke-width: 2.1; }
+	/* A product sold as a copy says so where the original badge would be (owner, 2026-11-25). */
+	.pdp-chip--copy { color: var(--warn); background: #fffbeb; border-color: #fcd34d; box-shadow: none; }
+	.pdp-chip--copy .ic { color: var(--amber); stroke-width: 2.1; }
 	.pdp-head__title { margin: 0; font: 900 21px/1.65 var(--display); color: var(--ink); text-wrap: pretty; overflow-wrap: anywhere; }
 	.pdp-head__title--long { font-size: 18.5px; }
 	.pdp-head__sub { font-size: 14px; line-height: 1.9; color: var(--muted); }
@@ -396,6 +399,10 @@
 	.pdp-guar__steps .ic { inline-size: 14px; block-size: 14px; stroke-width: 2.6; color: var(--green-2); }
 	.pdp-guar__more { display: inline-flex; align-items: center; gap: 4px; min-block-size: 40px; margin-block-start: 4px; font-size: 12.5px; font-weight: 800; color: var(--green); }
 	.pdp-guar__more .ic { inline-size: 16px; block-size: 16px; }
+	.pdp-guar--copy { background: linear-gradient(140deg, #fffbeb 0%, #fef3c7 55%, #fff7ed 100%); border-color: #fde68a; }
+	.pdp-guar--copy::after { background: repeating-radial-gradient(circle, rgba(245, 158, 11, .12) 0 1.5px, transparent 1.5px 14px); }
+	.pdp-guar--copy .pdp-guar__seal { background: linear-gradient(140deg, var(--gold), var(--amber)); box-shadow: 0 14px 24px -12px rgba(217, 119, 6, .9); }
+	.pdp-guar--copy .pdp-guar__t, .pdp-guar--copy .pdp-guar__x { color: #78350f; }
 
 	/* =================================================================== */
 	/* 6. Body: chips, sections, description, specs, FAQ                    */
@@ -610,6 +617,8 @@
 	.pdp-mini__trust { display: grid; gap: 6px; padding-block-start: 12px; border-block-start: 1px dashed var(--line-2); font-size: 12px; font-weight: 700; color: var(--ink-2); }
 	.pdp-mini__trust li { display: flex; align-items: center; gap: 8px; }
 	.pdp-mini__trust .ic { inline-size: 17px; block-size: 17px; color: var(--violet); }
+	.pdp-mini__trust .is-copy { color: var(--warn); }
+	.pdp-mini__trust .is-copy .ic { color: var(--amber); }
 
 	/* =================================================================== */
 	/* 9. Sticky buy bar (< 1100 px; replaces the bottom nav on phones)     */

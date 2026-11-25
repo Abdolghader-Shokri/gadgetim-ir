@@ -51,7 +51,7 @@ if ( in_array( $gadgetim_view, [ 'account', 'tracking' ], true ) ) {
 		<h1 class="cm-head__t"><?php echo esc_html( $gadgetim_title ); ?></h1>
 		<?php if ( in_array( $gadgetim_view, [ 'checkout', 'pay' ], true ) ) : ?>
 			<span class="cm-safe"><?php gadgetim_the_icon( 'lock' ); ?><?php esc_html_e( 'Secure checkout', 'gadgetim' ); ?></span>
-		<?php elseif ( 'cart' === $gadgetim_view && gadgetim_cart_count() > 0 ) : ?>
+		<?php elseif ( 'cart' === $gadgetim_view && gadgetim_cart_count() > 0 && ! gadgetim_cart_has_copy() ) : ?>
 			<span class="cm-safe cm-safe--soft"><?php gadgetim_the_icon( 'shield' ); ?><?php esc_html_e( 'Every product genuine, with an authenticity guarantee', 'gadgetim' ); ?></span>
 		<?php endif; ?>
 	</header>

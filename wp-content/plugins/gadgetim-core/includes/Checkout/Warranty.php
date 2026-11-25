@@ -20,6 +20,7 @@ declare( strict_types=1 );
 
 namespace Gadgetim\Core\Checkout;
 
+use Gadgetim\Core\Catalog\ProductExtras;
 use Gadgetim\Core\Settings\Settings;
 use WC_Order;
 use WP_Error;
@@ -127,6 +128,12 @@ final class Warranty {
 		echo '<div class="gtm-warranty__terms" role="note">';
 		echo '<p class="gtm-blink">' . esc_html__( 'The warranty covers the authenticity of the product, and the right to return it is kept for the customer for 7 days only.', 'gadgetim-core' ) . '</p>';
 		echo '<p class="gtm-blink">' . esc_html__( 'Return conditions: a return is accepted in only two cases — the product is not original, or the product is not in sound condition.', 'gadgetim-core' ) . '</p>';
+		$copies = ProductExtras::copies_in_cart();
+		if ( $copies ) {
+			// A copy carries no authenticity guarantee (owner, 2026-11-25): the buyer reads it here too.
+			/* translators: %s: names of the non-original products in the cart */
+			echo '<p class="gtm-blink">' . esc_html( sprintf( __( 'Not original (copy): the warranty of %s covers only its sound condition, not authenticity.', 'gadgetim-core' ), implode( wp_get_list_item_separator(), $copies ) ) ) . '</p>';
+		}
 		echo '</div>';
 
 		echo '<p class="form-row gtm-warranty__agree" id="' . esc_attr( self::TERMS_FIELD ) . '_field">';
