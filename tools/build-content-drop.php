@@ -19,6 +19,9 @@
  *   The featured image travels with a page that is new or that the live site shows without one.
  * - terms: Local term IDs. "replace" swaps a text the live term already has (the old one is kept
  *   in its meta); without it only an empty text is filled. "live_id" guards the address.
+ * - "translations": false on a row ships the Persian texts only. The live site writes every en/ar
+ *   field a package carries, so a row whose translations were not worked on leaves them out
+ *   (SEO run, 2026-11-26: Local holds en/ar category texts that were never checked against live).
  */
 
 declare( strict_types=1 );
@@ -81,7 +84,7 @@ foreach ( (array) ( $want['posts'] ?? [] ) as $n => $row ) {
 	if ( $post->menu_order ) {
 		$entry['menu_order'] = (int) $post->menu_order;
 	}
-	foreach ( $langs as $lang ) {
+	foreach ( false === ( $row['translations'] ?? true ) ? [] : $langs as $lang ) {
 		$t = PostTranslations::all( $id, $lang );
 		if ( '' === ( $t['title'] ?? '' ) ) {
 			continue;
@@ -141,7 +144,7 @@ foreach ( (array) ( $want['terms'] ?? [] ) as $n => $row ) {
 	if ( ! empty( $row['replace'] ) ) {
 		$entry['replace'] = true;
 	}
-	foreach ( $langs as $lang ) {
+	foreach ( false === ( $row['translations'] ?? true ) ? [] : $langs as $lang ) {
 		$t = TermTranslations::all( (int) $term->term_id, $lang );
 		$t = array_filter(
 			[
