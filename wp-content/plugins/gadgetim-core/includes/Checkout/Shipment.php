@@ -398,7 +398,7 @@ final class Shipment {
 	 * @param string   $code         Tracking code as typed.
 	 * @param bool     $notify       Tell the customer.
 	 * @param bool     $mark_shipped Move a "Processing" order to "Shipped".
-	 * @return string '' nothing changed, 'removed', 'saved' (no new code), 'new' (a new code).
+	 * @return string '' nothing changed, 'removed', 'new' (a new or corrected code).
 	 */
 	public static function apply( WC_Order $order, string $carrier, string $name, string $code, bool $notify = true, bool $mark_shipped = true ): string {
 		$carrier = sanitize_key( $carrier );
@@ -413,7 +413,12 @@ final class Shipment {
 			return '';
 		}
 
-		if ( '' === $carrier && '' === $code ) {
+		// A shipment exists only with a code. The box preselects the customer's company on every
+		// order, so a save without a code stores nothing, and emptying the code removes it all.
+		if ( '' === $code ) {
+			if ( '' === $old['code'] && '' === $old['carrier'] && '' === $old['name'] ) {
+				return '';
+			}
 			foreach ( [ self::META_CARRIER, self::META_NAME, self::META_CODE, self::META_DATE ] as $key ) {
 				$order->delete_meta_data( $key );
 			}
@@ -435,21 +440,10 @@ final class Shipment {
 		} else {
 			$order->delete_meta_data( self::META_NAME );
 		}
-		$is_new = '' !== $code && ( $code !== $old['code'] || $carrier !== $old['carrier'] || $name !== $old['name'] );
-		if ( '' !== $code ) {
-			$order->update_meta_data( self::META_CODE, $code );
-		} else {
-			$order->delete_meta_data( self::META_CODE );
-			$order->delete_meta_data( self::META_DATE );
-		}
-		if ( $is_new ) {
-			$order->update_meta_data( self::META_DATE, gmdate( 'Y-m-d H:i:s' ) );
-		}
+		$order->update_meta_data( self::META_CODE, $code );
+		$order->update_meta_data( self::META_DATE, gmdate( 'Y-m-d H:i:s' ) );
 		$order->save();
 
-		if ( ! $is_new ) {
-			return 'saved';
-		}
 		if ( $notify ) {
 			$order->add_order_note( self::customer_text( $order ), 1, true );
 		} else {

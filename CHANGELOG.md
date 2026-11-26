@@ -18,7 +18,10 @@ Tracking codes on orders (owner, 2026-11-27: the customer picks the shipping met
   - stores it on the order (`_gtm_ship_carrier`, `_gtm_ship_carrier_name`, `_gtm_ship_code`, `_gtm_ship_date`);
   - adds a customer note in the order's language with the company, the code and the company's tracking page. WooCommerce e-mails it ("Customer note") and the account lists it under the order updates. With "tell the customer" unticked, a private note records the code instead;
   - moves a Processing order to «ارسال شده», unless the status was changed to something else in the same save.
-- Saving the same values again does nothing. Clearing both fields removes the shipment and leaves a private note.
+- A shipment exists only with a code:
+  - saving an order without a code stores nothing, although the box shows the customer's company;
+  - saving the same values again does nothing;
+  - emptying the code removes the shipment and leaves a private note.
 - The customer sees a «مرسولهٔ شما» card in the account's order view and on the order tracking page:
   - the company and the date;
   - the code in Latin digits, with a copy button;
