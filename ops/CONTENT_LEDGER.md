@@ -20,10 +20,10 @@ Before creating a page, search this file and the site's page list; if a page alr
 
 | Keyword (main) | Intent | URL | Type | Date | Status | Notes |
 |---|---|---|---|---|---|---|
-| تشخیص شارژر اصل سامسونگ | informational | /تشخیص-شارژر-اصل-سامسونگ/ | guide (Local #6518; live ID once imported) | 2026-11-26 | new | spoke of /تشخیص-لوازم-جانبی-اصل/; Samsung 25 W and 45 W only (EP-T2510, EP-T4511), cable, serial, «ساخت ویتنام» |
-| تبدیل سه به دو / تبدیل ۳ به ۲ | transactional | /product-category/تبدیل-3-به-2/ | category text | 2026-11-26 | improve | the text was empty; a guide would miss the intent |
-| شارژر ۴۵ وات سامسونگ | transactional | /product/شارژر-45-وات-سامسونگ-ep-t4511-با-کابل/ | product (mahsool 22) | 2026-11-26 | improve | internal links only; the out-of-stock duplicate #675 gets no contextual links |
-| کتری برقی دماسنج دار | transactional | /product/کتری-برقی-کلاسیک-گرین-لاین-green-lion-gl-ek3/ | product | 2026-11-26 | improve | internal links only (category «گجت‌های خانگی», Yalda guide); the thermometer only shows the temperature |
+| تشخیص شارژر اصل سامسونگ | informational | /تشخیص-شارژر-اصل-سامسونگ/ | guide (live #6463; Local #6518) | 2026-11-26 | published | spoke of /تشخیص-لوازم-جانبی-اصل/; Samsung 25 W and 45 W only (EP-T2510, EP-T4511), cable, serial, «ساخت ویتنام» |
+| تبدیل سه به دو / تبدیل ۳ به ۲ | transactional | /product-category/تبدیل-3-به-2/ | category text | 2026-11-26 | published | the text was empty; a guide would miss the intent |
+| شارژر ۴۵ وات سامسونگ | transactional | /product/شارژر-45-وات-سامسونگ-ep-t4511-با-کابل/ | product (mahsool 22) | 2026-11-26 | published | internal links only; the out-of-stock duplicate #675 gets no contextual links |
+| کتری برقی دماسنج دار | transactional | /product/کتری-برقی-کلاسیک-گرین-لاین-green-lion-gl-ek3/ | product | 2026-11-26 | published | internal links only (category «گجت‌های خانگی», Yalda guide); the thermometer only shows the temperature |
 | جت فن شارژی چیست | informational | /جت-فن-شارژی-چیست/ | guide (live #6425) | 2026-11-22 | published | |
 | پمپ باد شارژی یا فندکی؛ راهنمای خرید پمپ باد | informational / comparison | /راهنمای-خرید-پمپ-باد/ | guide (live #6423) | 2026-11-22 | published | «پمپ باد شارژی» itself is the category /product-category/پمپ-باد/ |
 | کادو تولد | commercial (gift ideas) | /کادو-تولد/ | guide (live #6421) | 2026-11-22 | published | |
@@ -55,10 +55,10 @@ Inputs:
 
 | Keyword | Intent (Google, 11-26) | Decision | URL | Status |
 |---|---|---|---|---|
-| تشخیص شارژر اصل سامسونگ (+ ۴۵ وات، ۲۵ وات، سری، کلگی) | informational: articles and videos only; dedicated 45W articles rank | **new** page. The general guide /تشخیص-لوازم-جانبی-اصل/ keeps its short charger section and links here (hub → spoke). | /تشخیص-شارژر-اصل-سامسونگ/ | new |
-| تبدیل سه به دو / تبدیل ۳ به ۲ (+ آمپر بالا، شارژر سامسونگ، برای سرخ کن، تایمر دار) | transactional: category and product pages | **improve** the category, which had no text; a guide would miss the intent | /product-category/تبدیل-3-به-2/ | improve |
-| شارژر ۴۵ وات سامسونگ (+ مناسب چه گوشی‌هایی است، t4511) | transactional: product pages | **improve** through links to the in-stock product. The two old links to the out-of-stock duplicate #675 now point to it. | /product/شارژر-45-وات-سامسونگ-ep-t4511-با-کابل/ | improve |
-| کتری برقی دماسنج دار | transactional: product and category pages | **improve** through links: the home gadgets category text (it had none) and the Yalda guide | /product/کتری-برقی-کلاسیک-گرین-لاین-green-lion-gl-ek3/ | improve |
+| تشخیص شارژر اصل سامسونگ (+ ۴۵ وات، ۲۵ وات، سری، کلگی) | informational: articles and videos only; dedicated 45W articles rank | **new** page. The general guide /تشخیص-لوازم-جانبی-اصل/ keeps its short charger section and links here (hub → spoke). | /تشخیص-شارژر-اصل-سامسونگ/ | published |
+| تبدیل سه به دو / تبدیل ۳ به ۲ (+ آمپر بالا، شارژر سامسونگ، برای سرخ کن، تایمر دار) | transactional: category and product pages | **improve** the category, which had no text; a guide would miss the intent | /product-category/تبدیل-3-به-2/ | published |
+| شارژر ۴۵ وات سامسونگ (+ مناسب چه گوشی‌هایی است، t4511) | transactional: product pages | **improve** through links to the in-stock product. The two old links to the out-of-stock duplicate #675 now point to it. | /product/شارژر-45-وات-سامسونگ-ep-t4511-با-کابل/ | published |
+| کتری برقی دماسنج دار | transactional: product and category pages | **improve** through links: the home gadgets category text (it had none) and the Yalda guide | /product/کتری-برقی-کلاسیک-گرین-لاین-green-lion-gl-ek3/ | published |
 
 Also improved, without a new keyword:
 - /هدیه-روز-مادر/: the sleep mask, before Mother's Day on 11-30, and a link to /کادو-تولد/ (it had no contextual link).
@@ -78,7 +78,14 @@ Delivery: `release/deploy/gadgetim-update-1.5.0-2026-11-26.zip`. It carries `con
 - 2 term texts filled: 83 and 90;
 - Persian only: no en/ar fields.
 
-Report: `ops/DAILY_REPORT_2026-11-26.md`. Status changes to `published` once the owner confirms the upload.
+Report: `ops/DAILY_REPORT_2026-11-26.md`.
+
+Live: the owner uploaded the package, and the site imported it on 2026-11-26 at 22:15:58 UTC. On 2026-11-27, 19 read-only checks on live all passed:
+- the new guide is live #6463 (featured image #6464): 200, datePublished, one h1, canonical, FAQ markup;
+- categories 83 and 90 have their texts;
+- 66, 67, 96, 68 and brand 140 carry today's changes;
+- pages 6411, 6413, 6417 and 6403 carry today's changes;
+- the theme is still 1.5.0.
 
 Not done today, for the next runs:
 - product titles over 60 characters (289 tags);
