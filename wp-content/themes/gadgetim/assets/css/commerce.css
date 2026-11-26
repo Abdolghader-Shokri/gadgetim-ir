@@ -1048,6 +1048,19 @@
 	.vo-notes__list .description p { margin: 4px 0 0; font-size: 13.5px; line-height: 1.9; color: var(--ink-2); }
 	.vo-notes__list .clear { display: none; }
 
+	/* Shipment card (view order, tracking): company and date, tracking code with copy, tracking page. */
+	.shp__code { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin-block-start: 14px; padding: 12px 14px; border-radius: 16px; background: var(--soft); border: 1px dashed var(--line-2); }
+	.shp__k { inline-size: 100%; font-size: 12px; font-weight: 700; color: var(--muted); }
+	/* The code is a kbd with Latin digits (the carriers' pages expect them); no browser monospace look. */
+	.shp__v { flex: 1 1 auto; min-inline-size: 0; font: 800 20px/1.4 var(--font); font-variant-numeric: tabular-nums; letter-spacing: .08em; color: var(--ink); overflow-wrap: anywhere; unicode-bidi: isolate; direction: ltr; text-align: start; }
+	.shp__copy { gap: 6px; min-block-size: 38px; padding-inline: 14px; }
+	.shp__copy .ic { inline-size: 16px; block-size: 16px; }
+	.shp__copy.is-done { color: #fff; background: #10b981; box-shadow: none; }
+	.shp__go { margin: 14px 0 0; }
+	.shp__link { gap: 8px; }
+	.shp__link .ic { inline-size: 17px; block-size: 17px; }
+	.shp__hint { margin: 10px 0 0; font-size: 12.5px; line-height: 1.8; color: var(--muted); }
+
 	/* Addresses */
 	.myac-intro { margin: 0; font-size: 13.5px; line-height: 1.8; color: var(--muted); }
 	.maddr { display: grid; gap: 16px; }

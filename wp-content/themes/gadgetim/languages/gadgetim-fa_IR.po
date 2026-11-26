@@ -3449,3 +3449,60 @@ msgstr "ضمانت این کالا"
 #: inc/product.php:320
 msgid "This product is not original (a copy) and has no authenticity guarantee."
 msgstr "این کالا اصل نیست (کپی است) و ضمانت اصالت کالا ندارد."
+
+#: inc/commerce.php:614
+#, php-format
+msgid "On its way to you with %s."
+msgstr "با %s در راه شماست."
+
+#: inc/commerce.php:614
+msgid "Your parcel is on its way to you."
+msgstr "مرسولهٔ شما در راه است."
+
+#: templates/commerce/shipment.php:30
+msgid "Your parcel"
+msgstr "مرسولهٔ شما"
+
+#: templates/commerce/shipment.php:36
+#, php-format
+msgid "Sent with %1$s on %2$s"
+msgstr "با %1$s ارسال شد، %2$s"
+
+#: templates/commerce/shipment.php:38
+#, php-format
+msgid "Sent with %s"
+msgstr "با %s ارسال شد"
+
+#: templates/commerce/shipment.php:46
+msgid "Tracking code"
+msgstr "کد رهگیری"
+
+#: templates/commerce/shipment.php:48
+msgid "Tracking code copied"
+msgstr "کد رهگیری کپی شد"
+
+#: templates/commerce/shipment.php:48
+msgid "Copy the tracking code"
+msgstr "کپی کد رهگیری"
+
+#: templates/commerce/shipment.php:48
+msgid "Copy"
+msgstr "کپی"
+
+#: templates/commerce/shipment.php:56
+#, php-format
+msgid "Track it on the %s website"
+msgstr "پیگیری در سایت %s"
+
+#: templates/commerce/shipment.php:60
+msgid "Copy the code, then paste it on the page that opens."
+msgstr "کد را کپی کنید و در صفحه‌ای که باز می‌شود بچسبانید."
+
+#: templates/commerce/shipment.php:65
+#, php-format
+msgid "Track your parcel with this code on the website or app of %s."
+msgstr "مرسوله را با همین کد در سایت یا اپلیکیشن %s پیگیری کنید."
+
+#: inc/commerce.php:614
+msgid "Parcel sent"
+msgstr "مرسوله ارسال شد"

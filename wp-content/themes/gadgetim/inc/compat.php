@@ -338,3 +338,15 @@ if ( ! function_exists( 'gadgetim_term_name' ) ) {
 		return (string) $term->name;
 	}
 }
+
+if ( ! function_exists( 'gadgetim_order_shipment' ) ) {
+	/**
+	 * No shipment data without the plugin (it stores the tracking code).
+	 *
+	 * @return array{carrier: string, name: string, code: string, url: string, date: int}|null
+	 */
+	function gadgetim_order_shipment( WC_Order $order ): ?array {
+		unset( $order );
+		return null;
+	}
+}

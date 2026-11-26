@@ -407,7 +407,7 @@ function receivedInit() {
 		}
 		btn.classList.add('is-done');
 		setTimeout(() => btn.classList.remove('is-done'), 1600);
-		toast({ title: t('copied'), icon: 'check', type: 'success', duration: 2200 });
+		toast({ title: btn.dataset.copied || t('copied'), icon: 'check', type: 'success', duration: 2200 });
 	});
 }
 
@@ -428,7 +428,9 @@ function boot() {
 	if (view === 'checkout') checkoutInit();
 	if (view === 'auth') authInit();
 	if (view === 'account') accountInit();
-	if (view === 'received') receivedInit();
+	// Copy buttons: the order number on the thank-you page, the tracking code on the order view
+	// (account) and on the order tracking page.
+	if (view === 'received' || view === 'account' || view === 'tracking') receivedInit();
 
 	let queued = false;
 	new MutationObserver((records) => {

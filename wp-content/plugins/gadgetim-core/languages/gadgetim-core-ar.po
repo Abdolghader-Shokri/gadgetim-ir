@@ -3295,3 +3295,119 @@ msgstr "تعرض صفحة المنتج عندها «منتج غير أصلي (ن
 #, php-format
 msgid "Not original (copy): the warranty of %s covers only its sound condition, not authenticity."
 msgstr "منتج غير أصلي (نسخة مقلدة): يشمل ضمان %s سلامة المنتج فقط، لا أصالته."
+
+#: includes/Checkout/Shipment.php:217
+msgid "the shipping company"
+msgstr "شركة الشحن"
+
+#: includes/Checkout/Shipment.php:281
+msgid "Shipment"
+msgstr "الشحنة"
+
+#: includes/Checkout/Shipment.php:303
+msgid "Shipping company"
+msgstr "شركة الشحن"
+
+#: includes/Checkout/Shipment.php:305
+msgid "— Choose —"
+msgstr "— اختر —"
+
+#: includes/Checkout/Shipment.php:309
+msgid "Another company"
+msgstr "شركة أخرى"
+
+#: includes/Checkout/Shipment.php:312
+msgid "Name of the company"
+msgstr "اسم الشركة"
+
+#: includes/Checkout/Shipment.php:315
+msgid "Tracking code"
+msgstr "رقم التتبع"
+
+#: includes/Checkout/Shipment.php:320
+#, php-format
+msgid "The customer chose: %s"
+msgstr "اختيار العميل: %s"
+
+#: includes/Checkout/Shipment.php:323
+msgid "Set the order status to \"Shipped\" when a new code is saved"
+msgstr "عند حفظ رقم جديد تصبح حالة الطلب «تم الشحن»"
+
+#: includes/Checkout/Shipment.php:325
+msgid "Tell the customer about a new code (order note and e-mail)"
+msgstr "إبلاغ العميل بالرقم الجديد (ملاحظة الطلب والبريد الإلكتروني)"
+
+#: includes/Checkout/Shipment.php:333
+#, php-format
+msgid "Saved on %s."
+msgstr "حُفظ في %s."
+
+#: includes/Checkout/Shipment.php:336
+msgid "Open the tracking page"
+msgstr "فتح صفحة التتبع"
+
+#: includes/Checkout/Shipment.php:405
+#, php-format
+msgid "Shipment removed (it was %1$s, tracking code %2$s)."
+msgstr "حُذفت بيانات الشحن (كانت: %1$s، رقم التتبع %2$s)."
+
+#: includes/Checkout/Shipment.php:439
+#, php-format
+msgid "Tracking code saved without telling the customer: %1$s, %2$s."
+msgstr "حُفظ رقم التتبع دون إبلاغ العميل: %1$s، %2$s."
+
+#: includes/Checkout/Shipment.php:442
+msgid "Parcel sent."
+msgstr "تم إرسال الطرد."
+
+#: includes/Checkout/Shipment.php:457
+#, php-format
+msgid "Your parcel has been sent with %1$s. Tracking code: %2$s"
+msgstr "أُرسل طردك عبر %1$s. رقم التتبع: %2$s"
+
+#: includes/Checkout/Shipment.php:460
+#, php-format
+msgid "Track it on this page with the code: %s"
+msgstr "تتبّعه بهذا الرقم في هذه الصفحة: %s"
+
+#: includes/Checkout/Shipment.php:492
+#, php-format
+msgid "Sent with %s"
+msgstr "أُرسل عبر %s"
+
+#: includes/Checkout/Shipment.php:494
+#, php-format
+msgid "Track it on the %s website"
+msgstr "التتبع على موقع %s"
+
+#: includes/Checkout/Shipment.php:496
+#: includes/Checkout/Shipment.php:505
+msgid "Your parcel"
+msgstr "طردك"
+
+#: includes/Checkout/Shipment.php:498
+#: includes/Checkout/Shipment.php:506
+msgid "Tracking code:"
+msgstr "رقم التتبع:"
+
+#: includes/Checkout/Shipment.php:524
+#: includes/Checkout/Shipment.php:528
+msgid "Tracking"
+msgstr "التتبع"
+
+#: includes/Checkout/Shipment.php:549
+msgid "No tracking code yet"
+msgstr "لا يوجد رقم تتبع بعد"
+
+#: includes/Checkout/SettingsTab.php:92
+msgid "Shipment tracking"
+msgstr "تتبع الشحنات"
+
+#: includes/Checkout/SettingsTab.php:93
+msgid "The tracking page of each shipping company. When the shop saves a tracking code on an order (the \"Shipment\" box on the order screen), the customer sees the company, the code and a button to this page in their account, on the order tracking page and in the e-mails. Leave a field empty when the company has no tracking page: the customer then gets the code only."
+msgstr "صفحة التتبع لكل شركة شحن. عندما يحفظ المتجر رقم التتبع في صفحة الطلب (مربع «الشحنة»)، يرى العميل اسم الشركة والرقم وزرًا إلى هذه الصفحة في حسابه وفي صفحة تتبع الطلب وفي رسائل البريد الإلكتروني. اترك الحقل فارغًا إذا لم يكن للشركة صفحة تتبع، وعندها يحصل العميل على الرقم فقط."
+
+#: includes/Checkout/SettingsTab.php:113
+#, php-format
+msgid "Tracking page of %s"
+msgstr "صفحة تتبع %s"

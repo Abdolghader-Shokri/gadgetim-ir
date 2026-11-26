@@ -2890,3 +2890,119 @@ msgstr ""
 #, php-format
 msgid "Not original (copy): the warranty of %s covers only its sound condition, not authenticity."
 msgstr ""
+
+#: includes/Checkout/Shipment.php:217
+msgid "the shipping company"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:281
+msgid "Shipment"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:303
+msgid "Shipping company"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:305
+msgid "— Choose —"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:309
+msgid "Another company"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:312
+msgid "Name of the company"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:315
+msgid "Tracking code"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:320
+#, php-format
+msgid "The customer chose: %s"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:323
+msgid "Set the order status to \"Shipped\" when a new code is saved"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:325
+msgid "Tell the customer about a new code (order note and e-mail)"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:333
+#, php-format
+msgid "Saved on %s."
+msgstr ""
+
+#: includes/Checkout/Shipment.php:336
+msgid "Open the tracking page"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:405
+#, php-format
+msgid "Shipment removed (it was %1$s, tracking code %2$s)."
+msgstr ""
+
+#: includes/Checkout/Shipment.php:439
+#, php-format
+msgid "Tracking code saved without telling the customer: %1$s, %2$s."
+msgstr ""
+
+#: includes/Checkout/Shipment.php:442
+msgid "Parcel sent."
+msgstr ""
+
+#: includes/Checkout/Shipment.php:457
+#, php-format
+msgid "Your parcel has been sent with %1$s. Tracking code: %2$s"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:460
+#, php-format
+msgid "Track it on this page with the code: %s"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:492
+#, php-format
+msgid "Sent with %s"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:494
+#, php-format
+msgid "Track it on the %s website"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:496
+#: includes/Checkout/Shipment.php:505
+msgid "Your parcel"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:498
+#: includes/Checkout/Shipment.php:506
+msgid "Tracking code:"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:524
+#: includes/Checkout/Shipment.php:528
+msgid "Tracking"
+msgstr ""
+
+#: includes/Checkout/Shipment.php:549
+msgid "No tracking code yet"
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:92
+msgid "Shipment tracking"
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:93
+msgid "The tracking page of each shipping company. When the shop saves a tracking code on an order (the \"Shipment\" box on the order screen), the customer sees the company, the code and a button to this page in their account, on the order tracking page and in the e-mails. Leave a field empty when the company has no tracking page: the customer then gets the code only."
+msgstr ""
+
+#: includes/Checkout/SettingsTab.php:113
+#, php-format
+msgid "Tracking page of %s"
+msgstr ""
