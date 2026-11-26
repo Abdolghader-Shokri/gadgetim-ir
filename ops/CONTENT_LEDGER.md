@@ -68,6 +68,8 @@ Also improved, without a new keyword:
   - the two links to #675 now go to mahsool 22;
   - the 45 W cable sentences in شارژر and کابل شارژ now carry Samsung India's exception: Galaxy S25 and later get SFC 2.0 with the bundled 3 A cable.
 - Brand samsung: a «محصولات سامسونگ در گجتیم» section with links.
+- /شارژر-فست-چیست/: its closing «همهٔ شارژرها و کابل‌های گجتیم اصل‌اند» now names the copy charger as the exception.
+- Still open, by the owner's 11-25 choice for site-wide lines: the closing «همهٔ کالاهای گجتیم اصل و اورجینال‌اند» in /هدیه-روز-مادر/, /هدیه-شب-یلدا/ and /تشخیص-لوازم-جانبی-اصل/.
 
 Delivery: `release/deploy/gadgetim-update-1.5.0-2026-11-26.zip`. It carries `content-2026-11-26.zip`:
 - 1 new page;
