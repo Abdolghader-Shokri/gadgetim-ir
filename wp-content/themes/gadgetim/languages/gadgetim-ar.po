@@ -3553,3 +3553,60 @@ msgstr "ضمان هذا المنتج"
 #: inc/product.php:320
 msgid "This product is not original (a copy) and has no authenticity guarantee."
 msgstr "هذا المنتج ليس أصلياً (نسخة مقلدة) ولا يشمله ضمان الأصالة."
+
+#: inc/commerce.php:614
+#, php-format
+msgid "On its way to you with %s."
+msgstr "في الطريق إليك عبر %s."
+
+#: inc/commerce.php:614
+msgid "Your parcel is on its way to you."
+msgstr "طردك في الطريق إليك."
+
+#: templates/commerce/shipment.php:30
+msgid "Your parcel"
+msgstr "طردك"
+
+#: templates/commerce/shipment.php:36
+#, php-format
+msgid "Sent with %1$s on %2$s"
+msgstr "أُرسل عبر %1$s في %2$s"
+
+#: templates/commerce/shipment.php:38
+#, php-format
+msgid "Sent with %s"
+msgstr "أُرسل عبر %s"
+
+#: templates/commerce/shipment.php:46
+msgid "Tracking code"
+msgstr "رقم التتبع"
+
+#: templates/commerce/shipment.php:48
+msgid "Tracking code copied"
+msgstr "تم نسخ رقم التتبع"
+
+#: templates/commerce/shipment.php:48
+msgid "Copy the tracking code"
+msgstr "نسخ رقم التتبع"
+
+#: templates/commerce/shipment.php:48
+msgid "Copy"
+msgstr "نسخ"
+
+#: templates/commerce/shipment.php:56
+#, php-format
+msgid "Track it on the %s website"
+msgstr "التتبع على موقع %s"
+
+#: templates/commerce/shipment.php:60
+msgid "Copy the code, then paste it on the page that opens."
+msgstr "انسخ الرقم ثم الصقه في الصفحة التي تُفتح."
+
+#: templates/commerce/shipment.php:65
+#, php-format
+msgid "Track your parcel with this code on the website or app of %s."
+msgstr "تتبّع طردك بهذا الرقم على موقع %s أو تطبيقه."
+
+#: inc/commerce.php:614
+msgid "Parcel sent"
+msgstr "تم إرسال الطرد"

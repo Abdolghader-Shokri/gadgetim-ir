@@ -277,6 +277,22 @@ if ( ! function_exists( 'gadgetim_t' ) ) {
 	}
 }
 
+if ( ! function_exists( 'gadgetim_order_shipment' ) ) {
+	/**
+	 * The order's shipment once the shop has saved a tracking code (Checkout\Shipment): the
+	 * company's name in the current language, the code, the company's tracking page ('' when it
+	 * has none) and when the code was saved; null before that.
+	 *
+	 * @return array{carrier: string, name: string, code: string, url: string, date: int}|null
+	 */
+	function gadgetim_order_shipment( WC_Order $order ): ?array {
+		if ( ! class_exists( 'Gadgetim\Core\Checkout\Shipment' ) ) {
+			return null;
+		}
+		return Gadgetim\Core\Checkout\Shipment::get( $order );
+	}
+}
+
 if ( ! function_exists( 'gadgetim_term_name' ) ) {
 	/**
 	 * Translated term name for the current language (I18n\TermTranslations), else the source name.

@@ -27,6 +27,8 @@ final class SettingsTab {
 
 	public const SECTION_RETURNS = 'returns';
 
+	public const SECTION_TRACKING = 'tracking';
+
 	/**
 	 * init (priority 5): registers the tab. Gateway toggles are added per installed gateway
 	 * on admin_init by Gateways::register_fields().
@@ -86,8 +88,33 @@ final class SettingsTab {
 						],
 					],
 				],
+				self::SECTION_TRACKING => [
+					'label'       => __( 'Shipment tracking', 'gadgetim-core' ),
+					'description' => __( 'The tracking page of each shipping company. When the shop saves a tracking code on an order (the "Shipment" box on the order screen), the customer sees the company, the code and a button to this page in their account, on the order tracking page and in the e-mails. Leave a field empty when the company has no tracking page: the customer then gets the code only.', 'gadgetim-core' ),
+					'order'       => 25,
+					'fields'      => self::tracking_fields(),
+				],
 			],
 			[ 'order' => 40 ]
 		);
+	}
+
+	/**
+	 * One address field per shipping company of Shipment::carriers().
+	 *
+	 * @return array<string, array<string, mixed>>
+	 */
+	private static function tracking_fields(): array {
+		$fields = [];
+		foreach ( Shipment::carriers() as $key => $carrier ) {
+			$fields[ Shipment::url_setting( $key ) ] = [
+				'type'    => 'url',
+				/* translators: %s: shipping company */
+				'label'   => sprintf( __( 'Tracking page of %s', 'gadgetim-core' ), $carrier['fa'] ),
+				'default' => $carrier['url'],
+				'attrs'   => [ 'dir' => 'ltr' ],
+			];
+		}
+		return $fields;
 	}
 }

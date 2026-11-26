@@ -11,7 +11,8 @@
  * the readme will list any important changes.
  *
  * Gadgetim (Aurora): the order head card (number, Jalali date, status chip, total), the status
- * timeline, the order updates as a feed, then WooCommerce's order details (woocommerce_view_order).
+ * timeline, the shipment card once the shop has saved a tracking code, the order updates as a feed,
+ * then WooCommerce's order details (woocommerce_view_order).
  *
  * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
@@ -64,6 +65,8 @@ $notes = $order->get_customer_order_notes();
 
 	<?php echo gadgetim_order_timeline( $order, [ 'title' => false ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in the template. ?>
 
+	<?php echo gadgetim_order_shipment_card( $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in the template. ?>
+
 	<?php if ( $notes ) : ?>
 		<section class="cm-card vo-notes">
 			<h2 class="cm-card__t vo-notes__t"><?php gadgetim_the_icon( 'bell' ); ?><?php esc_html_e( 'Order updates', 'woocommerce' ); ?></h2>
@@ -74,7 +77,7 @@ $notes = $order->get_customer_order_notes();
 						<div class="comment-text">
 							<p class="meta"><?php echo esc_html( gadgetim_date( (int) strtotime( $note->comment_date_gmt . ' UTC' ), 'datetime' ) ); ?></p>
 							<div class="description">
-								<?php echo wp_kses_post( wpautop( wptexturize( $note->comment_content ) ) ); ?>
+								<?php echo wp_kses_post( wpautop( wptexturize( make_clickable( $note->comment_content ) ) ) ); // Links clickable, as in WooCommerce's customer note e-mail. ?>
 							</div>
 							<div class="clear"></div>
 						</div>

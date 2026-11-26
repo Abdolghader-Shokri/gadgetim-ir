@@ -591,17 +591,31 @@ function gadgetim_order_status_chip( WC_Order $order ): string {
 /**
  * Timeline steps of an order: placed → payment → preparing → completed, each with a state
  * (done, current, next) and a date when known; a stopped order (cancelled, refunded, failed) gets
- * a final "stopped" step. Filter: gadgetim_order_timeline_steps.
+ * a final "stopped" step. A shipped order (status "Shipped", or a saved tracking code) has its
+ * parcel prepared and the last step in progress, with the shipping company and the date it was
+ * sent. Filter: gadgetim_order_timeline_steps.
  *
  * @return array<int,array{key:string,label:string,text:string,state:string,date:string,icon:string}>
  */
 function gadgetim_order_timeline_steps( WC_Order $order ): array {
-	$status  = (string) $order->get_status();
-	$paid_at = $order->get_date_paid();
-	$date    = static fn( $d ): string => $d instanceof WC_DateTime ? gadgetim_date( $d->getTimestamp(), 'medium' ) : '';
-	$stopped = in_array( $status, [ 'cancelled', 'refunded', 'failed' ], true );
-	$known   = in_array( $status, [ 'pending', 'on-hold', 'checkout-draft', 'processing', 'completed', 'cancelled', 'refunded', 'failed' ], true );
-	$is_paid = $paid_at instanceof WC_DateTime || in_array( $status, [ 'processing', 'completed' ], true ) || ( ! $known && ! $order->needs_payment() );
+	$status   = (string) $order->get_status();
+	$paid_at  = $order->get_date_paid();
+	$date     = static fn( $d ): string => $d instanceof WC_DateTime ? gadgetim_date( $d->getTimestamp(), 'medium' ) : '';
+	$stopped  = in_array( $status, [ 'cancelled', 'refunded', 'failed' ], true );
+	$known    = in_array( $status, [ 'pending', 'on-hold', 'checkout-draft', 'processing', 'shipped', 'completed', 'cancelled', 'refunded', 'failed' ], true );
+	$is_paid  = $paid_at instanceof WC_DateTime || in_array( $status, [ 'processing', 'shipped', 'completed' ], true ) || ( ! $known && ! $order->needs_payment() );
+	$shipment = gadgetim_order_shipment( $order );
+	$shipped  = 'completed' !== $status && ( 'shipped' === $status || null !== $shipment );
+
+	$last_label = __( 'Shipped and completed', 'gadgetim' );
+	$last_text  = __( 'On its way to you, or already delivered.', 'gadgetim' );
+	$last_date  = $date( $order->get_date_completed() );
+	if ( $shipped ) {
+		$last_label = __( 'Parcel sent', 'gadgetim' );
+		/* translators: %s: shipping company */
+		$last_text = null !== $shipment ? sprintf( __( 'On its way to you with %s.', 'gadgetim' ), $shipment['name'] ) : __( 'Your parcel is on its way to you.', 'gadgetim' );
+		$last_date = null !== $shipment && $shipment['date'] ? gadgetim_date( $shipment['date'], 'medium' ) : '';
+	}
 
 	$paid_text = __( 'Waiting for payment.', 'gadgetim' );
 	if ( $is_paid ) {
@@ -633,15 +647,15 @@ function gadgetim_order_timeline_steps( WC_Order $order ): array {
 			'text'  => __( 'Checked, sealed and packed with care.', 'gadgetim' ),
 			'icon'  => 'box',
 			'date'  => '',
-			'state' => 'completed' === $status ? 'done' : ( $is_paid ? 'current' : 'next' ),
+			'state' => 'completed' === $status || $shipped ? 'done' : ( $is_paid ? 'current' : 'next' ),
 		],
 		[
 			'key'   => 'completed',
-			'label' => __( 'Shipped and completed', 'gadgetim' ),
-			'text'  => __( 'On its way to you, or already delivered.', 'gadgetim' ),
+			'label' => $last_label,
+			'text'  => $last_text,
 			'icon'  => 'truck',
-			'date'  => $date( $order->get_date_completed() ),
-			'state' => 'completed' === $status ? 'done' : 'next',
+			'date'  => $last_date,
+			'state' => 'completed' === $status ? 'done' : ( $shipped ? 'current' : 'next' ),
 		],
 	];
 
@@ -680,6 +694,26 @@ function gadgetim_order_timeline( WC_Order $order, array $args = [] ): string {
 			'steps' => gadgetim_order_timeline_steps( $order ),
 			'title' => $args['title'] ?? true,
 			'class' => (string) ( $args['class'] ?? '' ),
+		]
+	);
+}
+
+/**
+ * The shipment card (company, tracking code with a copy button, the company's tracking page)
+ * once the shop has saved a tracking code; '' before that.
+ *
+ * @param WC_Order $order Order.
+ */
+function gadgetim_order_shipment_card( WC_Order $order ): string {
+	$shipment = gadgetim_order_shipment( $order );
+	if ( null === $shipment || '' === (string) ( $shipment['code'] ?? '' ) ) {
+		return '';
+	}
+	return gadgetim_capture(
+		'commerce/shipment',
+		[
+			'order'    => $order,
+			'shipment' => $shipment,
 		]
 	);
 }

@@ -3431,3 +3431,60 @@ msgstr ""
 #: inc/product.php:320
 msgid "This product is not original (a copy) and has no authenticity guarantee."
 msgstr ""
+
+#: inc/commerce.php:614
+#, php-format
+msgid "On its way to you with %s."
+msgstr ""
+
+#: inc/commerce.php:614
+msgid "Your parcel is on its way to you."
+msgstr ""
+
+#: templates/commerce/shipment.php:30
+msgid "Your parcel"
+msgstr ""
+
+#: templates/commerce/shipment.php:36
+#, php-format
+msgid "Sent with %1$s on %2$s"
+msgstr ""
+
+#: templates/commerce/shipment.php:38
+#, php-format
+msgid "Sent with %s"
+msgstr ""
+
+#: templates/commerce/shipment.php:46
+msgid "Tracking code"
+msgstr ""
+
+#: templates/commerce/shipment.php:48
+msgid "Tracking code copied"
+msgstr ""
+
+#: templates/commerce/shipment.php:48
+msgid "Copy the tracking code"
+msgstr ""
+
+#: templates/commerce/shipment.php:48
+msgid "Copy"
+msgstr ""
+
+#: templates/commerce/shipment.php:56
+#, php-format
+msgid "Track it on the %s website"
+msgstr ""
+
+#: templates/commerce/shipment.php:60
+msgid "Copy the code, then paste it on the page that opens."
+msgstr ""
+
+#: templates/commerce/shipment.php:65
+#, php-format
+msgid "Track your parcel with this code on the website or app of %s."
+msgstr ""
+
+#: inc/commerce.php:614
+msgid "Parcel sent"
+msgstr ""

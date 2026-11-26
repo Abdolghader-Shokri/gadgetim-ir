@@ -3267,3 +3267,119 @@ msgstr "صفحهٔ کالا به‌جای «کالای اصل» و ضمانت ا
 #, php-format
 msgid "Not original (copy): the warranty of %s covers only its sound condition, not authenticity."
 msgstr "کالای غیراصل (کپی): ضمانت %s فقط سالم بودن کالاست، نه اصالت آن."
+
+#: includes/Checkout/Shipment.php:217
+msgid "the shipping company"
+msgstr "شرکت حمل‌ونقل"
+
+#: includes/Checkout/Shipment.php:281
+msgid "Shipment"
+msgstr "ارسال مرسوله"
+
+#: includes/Checkout/Shipment.php:303
+msgid "Shipping company"
+msgstr "شرکت حمل‌ونقل"
+
+#: includes/Checkout/Shipment.php:305
+msgid "— Choose —"
+msgstr "— انتخاب کنید —"
+
+#: includes/Checkout/Shipment.php:309
+msgid "Another company"
+msgstr "شرکت دیگر"
+
+#: includes/Checkout/Shipment.php:312
+msgid "Name of the company"
+msgstr "نام شرکت"
+
+#: includes/Checkout/Shipment.php:315
+msgid "Tracking code"
+msgstr "کد رهگیری"
+
+#: includes/Checkout/Shipment.php:320
+#, php-format
+msgid "The customer chose: %s"
+msgstr "انتخاب مشتری: %s"
+
+#: includes/Checkout/Shipment.php:323
+msgid "Set the order status to \"Shipped\" when a new code is saved"
+msgstr "با ثبت کد تازه، وضعیت سفارش «ارسال شده» شود"
+
+#: includes/Checkout/Shipment.php:325
+msgid "Tell the customer about a new code (order note and e-mail)"
+msgstr "کد تازه به مشتری خبر داده شود (یادداشت سفارش و ایمیل)"
+
+#: includes/Checkout/Shipment.php:333
+#, php-format
+msgid "Saved on %s."
+msgstr "ثبت‌شده در %s."
+
+#: includes/Checkout/Shipment.php:336
+msgid "Open the tracking page"
+msgstr "باز کردن صفحهٔ رهگیری"
+
+#: includes/Checkout/Shipment.php:405
+#, php-format
+msgid "Shipment removed (it was %1$s, tracking code %2$s)."
+msgstr "اطلاعات ارسال پاک شد (پیش از این: %1$s، کد رهگیری %2$s)."
+
+#: includes/Checkout/Shipment.php:439
+#, php-format
+msgid "Tracking code saved without telling the customer: %1$s, %2$s."
+msgstr "کد رهگیری بدون خبر دادن به مشتری ثبت شد: %1$s، %2$s."
+
+#: includes/Checkout/Shipment.php:442
+msgid "Parcel sent."
+msgstr "مرسوله ارسال شد."
+
+#: includes/Checkout/Shipment.php:457
+#, php-format
+msgid "Your parcel has been sent with %1$s. Tracking code: %2$s"
+msgstr "مرسولهٔ شما با %1$s ارسال شد. کد رهگیری: %2$s"
+
+#: includes/Checkout/Shipment.php:460
+#, php-format
+msgid "Track it on this page with the code: %s"
+msgstr "پیگیری با همین کد در این صفحه: %s"
+
+#: includes/Checkout/Shipment.php:492
+#, php-format
+msgid "Sent with %s"
+msgstr "با %s ارسال شد"
+
+#: includes/Checkout/Shipment.php:494
+#, php-format
+msgid "Track it on the %s website"
+msgstr "پیگیری در سایت %s"
+
+#: includes/Checkout/Shipment.php:496
+#: includes/Checkout/Shipment.php:505
+msgid "Your parcel"
+msgstr "مرسولهٔ شما"
+
+#: includes/Checkout/Shipment.php:498
+#: includes/Checkout/Shipment.php:506
+msgid "Tracking code:"
+msgstr "کد رهگیری:"
+
+#: includes/Checkout/Shipment.php:524
+#: includes/Checkout/Shipment.php:528
+msgid "Tracking"
+msgstr "رهگیری"
+
+#: includes/Checkout/Shipment.php:549
+msgid "No tracking code yet"
+msgstr "هنوز کد رهگیری ثبت نشده"
+
+#: includes/Checkout/SettingsTab.php:92
+msgid "Shipment tracking"
+msgstr "رهگیری مرسوله"
+
+#: includes/Checkout/SettingsTab.php:93
+msgid "The tracking page of each shipping company. When the shop saves a tracking code on an order (the \"Shipment\" box on the order screen), the customer sees the company, the code and a button to this page in their account, on the order tracking page and in the e-mails. Leave a field empty when the company has no tracking page: the customer then gets the code only."
+msgstr "صفحهٔ رهگیری هر شرکت حمل‌ونقل. وقتی فروشگاه کد رهگیری را در صفحهٔ سفارش (کادر «ارسال مرسوله») ثبت کند، مشتری نام شرکت، کد و دکمه‌ای به همین صفحه را در حساب کاربری خود، در صفحهٔ پیگیری سفارش و در ایمیل‌ها می‌بیند. اگر شرکتی صفحهٔ رهگیری ندارد، فیلد آن را خالی بگذارید؛ آن‌وقت مشتری فقط کد را می‌بیند."
+
+#: includes/Checkout/SettingsTab.php:113
+#, php-format
+msgid "Tracking page of %s"
+msgstr "صفحهٔ رهگیری %s"

@@ -7,6 +7,40 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.6.0 — 2026-11-27
+
+Tracking codes on orders (owner, 2026-11-27: the customer picks the shipping method at checkout; once the parcel is sent, the shop opens the order, picks the shipping company and enters the tracking code).
+- The order screen has a «ارسال مرسوله» (Shipment) box right under "Order actions":
+  - the shipping company: Tipax, Dekapost, Post, or another company with its name. It starts on the method the customer chose at checkout;
+  - the tracking code. Persian and Arabic digits become Latin, and spaces and other marks are dropped;
+  - two choices, both on by default: "set the status to «ارسال شده» when a new code is saved" (Processing orders only) and "tell the customer".
+- Saving a new code:
+  - stores it on the order (`_gtm_ship_carrier`, `_gtm_ship_carrier_name`, `_gtm_ship_code`, `_gtm_ship_date`);
+  - adds a customer note in the order's language with the company, the code and the company's tracking page. WooCommerce e-mails it ("Customer note") and the account lists it under the order updates. With "tell the customer" unticked, a private note records the code instead;
+  - moves a Processing order to «ارسال شده», unless the status was changed to something else in the same save.
+- Saving the same values again does nothing. Clearing both fields removes the shipment and leaves a private note.
+- The customer sees a «مرسولهٔ شما» card in the account's order view and on the order tracking page:
+  - the company and the date;
+  - the code in Latin digits, with a copy button;
+  - a button to the company's tracking page.
+
+  The status timeline's last step reads «مرسوله ارسال شد», with the company and the date, until the order is completed.
+- Every later customer e-mail of the order carries the shipment. The customer note that announced it does not repeat it.
+- The order list has a «رهگیری» column: the code and the company, or a dash.
+- Gadgetim → Settings → Checkout → «رهگیری مرسوله» holds each company's tracking page:
+  - Tipax (`https://tipaxco.com/tracking`) and Iran Post (`https://tracking.post.ir/`) are set. Both pages ask for the code themselves, so the card says to paste it;
+  - Dekapost's site could not be reached from outside Iran on 2026-11-27, so its field starts empty and its customers get the code only.
+- Links in order updates are clickable on the order view and the tracking page.
+- Dekapost's English and Arabic checkout titles now use the company's own name: "Dekapost" and «ديكا بوست» (were "Dakapost" and «داكابست»).
+
+Tested on Local with throw-away orders: fake e-mail, every e-mail caught before sending, orders deleted afterwards. 38 checks covered:
+- the box, the save and the notes;
+- the status change and the e-mails;
+- the card, the timeline and the list column;
+- an English order, clearing and a bad nonce.
+
+Screenshots were checked for the box, the order list, the settings section, and the card on phone and desktop.
+
 ## 1.5.0 — 2026-11-25
 
 A product can be sold as a copy, and its page says so (owner, 2026-11-25: every product the client sends is listed, and what its text says about a copy, a warranty or authenticity is exactly what the buyer must see).

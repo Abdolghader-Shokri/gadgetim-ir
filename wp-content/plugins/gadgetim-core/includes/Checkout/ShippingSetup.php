@@ -41,8 +41,8 @@ final class ShippingSetup {
 			'ar' => 'تيباكس',
 		],
 		'دکاپست'  => [
-			'en' => 'Dakapost',
-			'ar' => 'داكابست',
+			'en' => 'Dekapost',
+			'ar' => 'ديكا بوست',
 		],
 		'پست پیشتاز' => [
 			'en' => 'Post (Pishtaz express)',
