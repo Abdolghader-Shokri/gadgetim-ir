@@ -691,14 +691,16 @@ final class Drop {
 		if ( $all ) {
 			$ids = get_posts(
 				[
-					'post_type'        => [ 'product', 'product_variation' ],
-					'post_status'      => [ 'publish', 'private', 'draft', 'pending', 'future' ],
-					'fields'           => 'ids',
-					'posts_per_page'   => -1,
-					'orderby'          => 'ID',
-					'order'            => 'ASC',
-					'no_found_rows'    => true,
-					'suppress_filters' => true,
+					'post_type'          => [ 'product', 'product_variation' ],
+					'post_status'        => [ 'publish', 'private', 'draft', 'pending', 'future' ],
+					'fields'             => 'ids',
+					'posts_per_page'     => -1,
+					'orderby'            => 'ID',
+					'order'              => 'ASC',
+					'no_found_rows'      => true,
+					'suppress_filters'   => true,
+					// Every product, whatever the request's language (I18n\Visibility).
+					'gadgetim_skip_gate' => true,
 				]
 			);
 		} elseif ( '' !== $sku ) {
