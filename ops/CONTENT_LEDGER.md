@@ -20,6 +20,11 @@ Before creating a page, search this file and the site's page list; if a page alr
 
 | Keyword (main) | Intent | URL | Type | Date | Status | Notes |
 |---|---|---|---|---|---|---|
+| کلاس کارت حافظه (+ تفاوت کارت حافظه اکستریم با اولترا) | informational / comparison | /کلاس-کارت-حافظه/ | guide (Local #6529, menu_order 11) | 2026-11-27 | new | SD Association classes (C, U, V, A1/A2, SDHC/SDXC), SanDisk Ultra vs Extreme table with official figures, the shop's 6 microSD cards; the shop sells no Endurance card; SanDisk warranty may refuse cards not imported through its channels |
+| راهنمای خرید فلش مموری (+ تفاوت usb 2 و 3، فایل بالای ۴ گیگ، فلش ضبط ماشین، اتصال فلش به گوشی) | commercial investigation | /راهنمای-خرید-فلش-مموری/ | guide (Local #6533, menu_order 12) | 2026-11-27 | new | the flash category /product-category/لوازم-جانبی-کامپیوتر/فلش-مموری/ stays the «خرید فلش مموری» page and links here; OTG only as far as a flash buyer needs it |
+| رابط OTG (+ تایپ سی، برای آیفون، سامسونگ) | transactional | /product-category/رابط-otg/ | category text | 2026-11-27 | improve | the text was empty; the Koranco Lightning adapter's box speed is quoted only as the maker's claim |
+| سن دیسک (+ ۶۴ گیگ، ۱۲۸ گیگ، اکستریم پرو) | transactional (brand) | /برند/sandisk/ | brand text | 2026-11-27 | improve | the text was empty; the shop sells Extreme, not Extreme PRO |
+| کورانکو / Koranco | transactional (brand) | /برند/koranco/ | brand text | 2026-11-27 | improve | the text was empty; Google shows no Persian searches for the brand name, the text is for shoppers and links 11 unlinked Koranco products; spelling «کورانکو» as in the product titles |
 | تشخیص شارژر اصل سامسونگ | informational | /تشخیص-شارژر-اصل-سامسونگ/ | guide (live #6463; Local #6518) | 2026-11-26 | published | spoke of /تشخیص-لوازم-جانبی-اصل/; Samsung 25 W and 45 W only (EP-T2510, EP-T4511), cable, serial, «ساخت ویتنام» |
 | تبدیل سه به دو / تبدیل ۳ به ۲ | transactional | /product-category/تبدیل-3-به-2/ | category text | 2026-11-26 | published | the text was empty; a guide would miss the intent |
 | شارژر ۴۵ وات سامسونگ | transactional | /product/شارژر-45-وات-سامسونگ-ep-t4511-با-کابل/ | product (mahsool 22) | 2026-11-26 | published | internal links only; the out-of-stock duplicate #675 gets no contextual links |
@@ -28,7 +33,7 @@ Before creating a page, search this file and the site's page list; if a page alr
 | پمپ باد شارژی یا فندکی؛ راهنمای خرید پمپ باد | informational / comparison | /راهنمای-خرید-پمپ-باد/ | guide (live #6423) | 2026-11-22 | published | «پمپ باد شارژی» itself is the category /product-category/پمپ-باد/ |
 | کادو تولد | commercial (gift ideas) | /کادو-تولد/ | guide (live #6421) | 2026-11-22 | published | |
 | هدیه شب یلدا | commercial (gift ideas) | /هدیه-شب-یلدا/ | guide (live #6417) | 2026-11-20 | published | |
-| هدیه روز پدر | commercial (gift ideas) | /هدیه-روز-پدر/ | guide (live #6415) | 2026-11-20 | published | |
+| هدیه روز پدر | commercial (gift ideas) | /هدیه-روز-پدر/ | guide (live #6415) | 2026-11-20 | improve (2026-11-27) | 2026-11-27: + Porodo PD-HSM20 stand, Green Lion GM-95X and Porodo Movo lavalier mics, Porodo camping chair/table, Green Lion Campflame stove, Jet Lighter X (3 photos, 6 table rows). Source of truth from now on: the Local database. The seat-belt silencers are never suggested (they silence the seat-belt reminder) |
 | تشخیص لوازم جانبی اصل | informational | /تشخیص-لوازم-جانبی-اصل/ | guide (live #6413) | 2026-11-20 | published | general hub: power bank, charger, cable, earbuds, flash |
 | شارژر فست چیست | informational | /شارژر-فست-چیست/ | guide (live #6411) | 2026-11-20 | published | fast-charging standards; not authenticity |
 | راهنمای خرید پاوربانک | commercial investigation | /راهنمای-خرید-پاوربانک/ | guide (live #6409) | 2026-11-20 | published | |
@@ -46,6 +51,45 @@ own model query. Batches: 2026-11-11 to 2026-11-25 (mahsool 2–23).
 ## Daily runs
 
 Each run lists the keywords chosen (at most five), the decision and the evidence. Newest first.
+
+### 2026-11-27 (second run)
+
+Inputs:
+- Still no Search Console export (need #5).
+- Demand comes from the project keyword bank, Google's live autocomplete (fa/IR) and the live results page (hl=fa, gl=ir), all read today.
+- The bank had almost no memory-card phrases (2 rows), so the autocomplete seeds were read directly.
+
+| Keyword | Intent (Google, 11-27) | Decision | URL | Status |
+|---|---|---|---|---|
+| کلاس کارت حافظه (+ چیست، کلاس ۱۰، u3 و u1، a1 و a2، sdhc و sdxc، مناسب دوربین ثبت وقایع / گوشی) | informational: explainers and buying guides only (datismart, technosun, digikala, sfiord, pixel.ir) | **new** guide | /کلاس-کارت-حافظه/ | new |
+| تفاوت کارت حافظه اکستریم با اولترا | comparison: mixed and dated results, no Persian page with SanDisk's official figures | **section + table** in the same guide (a separate page would cannibalise it) | /کلاس-کارت-حافظه/ | new |
+| راهنمای خرید فلش مموری (+ تفاوت usb 2 و 3، انتقال فایل بالای ۴ گیگ، فلش روی ضبط ماشین نمیخونه، فرمت فلش، اتصال فلش به گوشی، تست فلش) | buying guides (zoomit, digikala mag, technolife, mobonews) plus Aparat videos; mostly model lists | **new** guide; the flash category keeps «خرید فلش مموری» and links to it | /راهنمای-خرید-فلش-مموری/ | new |
+| رابط OTG (+ تایپ سی، برای آیفون، سامسونگ) | transactional: category and product pages | **improve** the category, which had no text | /product-category/رابط-otg/ | improve |
+
+Also on 11-27:
+- Brand texts written where there were none: /برند/sandisk/ and /برند/koranco/.
+- /هدیه-روز-پدر/ improved with six unlinked products, ahead of Father's Day (2 Dey = 12-23).
+- One-sentence links to the new guides were added in:
+  - categories 102 فلش مموری, 63 لوازم جانبی کامپیوتر and 68 لوازم جانبی موبایل;
+  - /راهنمای-خرید-اسپیکر-بلوتوثی/ and /تشخیص-لوازم-جانبی-اصل/.
+- Not linked on purpose: the two seat-belt silencers (they defeat the seat-belt reminder) and the duplicate #675.
+- After today, the "no contextual link" list is 9 pages: 6 service pages, the two silencers and #675.
+
+Planned for later runs:
+- «شارژر فندکی چند وات خوبه» (buying guide, only 2 car chargers in stock);
+- «otg چیست» (the SERP belongs to Digikala, Zoomit and Wikipedia; write it only with new value);
+- the old app name «Memory Zone» on the SanDisk Dual Drive Go page (product text).
+
+Delivery: `release/deploy/gadgetim-update-1.7.0-2026-11-27.zip`. It carries the plugin and theme 1.7.0 (stock[]), `content-2026-11-27.zip` and `stock-2026-11-27.zip` (every product to 2):
+- 2 new pages;
+- 3 pages replaced: live 6415, 6407 and 6413;
+- 3 category texts replaced: 102, 63 and 68;
+- 3 empty texts filled: category 84 and brands 141 and 131;
+- Persian only.
+
+Report: `ops/DAILY_REPORT_2026-11-27.md`.
+
+Source of truth: the Local database, also for /هدیه-روز-پدر/ and /راهنمای-خرید-اسپیکر-بلوتوثی/ from 11-27. Never republish them from the old `page.cjs` files.
 
 ### 2026-11-26 (first daily-seo-operations run)
 
