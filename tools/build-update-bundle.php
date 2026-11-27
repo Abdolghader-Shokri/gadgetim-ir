@@ -39,7 +39,7 @@ const CODE     = [
 	'plugin' => [ 'name' => 'gadgetim-core', 'entry' => 'gadgetim-core/gadgetim-core.php' ],
 	'theme'  => [ 'name' => 'gadgetim-theme', 'entry' => 'gadgetim/style.css' ],
 ];
-const DROP_LISTS = [ 'products', 'pages', 'media', 'posts', 'terms' ];
+const DROP_LISTS = [ 'products', 'pages', 'media', 'posts', 'terms', 'stock' ];
 
 /**
  * Prints a Persian error and stops.
@@ -215,7 +215,7 @@ foreach ( $drops as $path ) {
 		}
 	}
 	if ( $nested || ! is_array( $data ) || 1 !== (int) ( $data['version'] ?? 0 ) || ! $lists ) {
-		bundle_die( "$name بستهٔ gadgetim-drop نسخهٔ 1 نیست (manifest.json با products/pages/media/posts/terms)." );
+		bundle_die( "$name بستهٔ gadgetim-drop نسخهٔ 1 نیست (manifest.json با products/pages/media/posts/terms/stock)." );
 	}
 	$names[ $name ] = true;
 	$listed[]       = [
