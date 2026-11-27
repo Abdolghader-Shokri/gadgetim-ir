@@ -30,6 +30,11 @@
  * - terms[]: the introduction text of an existing product category or brand, in every language.
  *   A term that already has a text keeps it unless the entry says "replace"; the replaced text
  *   is kept in the term's _gtm_drop_prev_desc meta.
+ * - stock[]: the stock of every product ("products": "all"), or of one product by "sku" or "id"
+ *   (owner, 2026-11-27: every product to a stock of 2). Only the stock changes: stock management
+ *   turns on with the given quantity, and WooCommerce derives in stock or out of stock from it.
+ *   Texts, prices, categories and images stay as they are, unlike products[], which rewrites
+ *   every field. What a product had before is kept in its _gtm_drop_prev_stock meta (JSON).
  *
  * The scan runs on the next dashboard page load of a shop manager and hourly through WP-Cron. A
  * processed package moves to done/ (or failed/ when nothing could be imported), a line per item
@@ -57,6 +62,7 @@ use Gadgetim\Core\I18n\Slugs;
 use Gadgetim\Core\I18n\TermTranslations;
 use Gadgetim\Core\Pricing\Handover;
 use Gadgetim\Core\Seo\Meta;
+use Gadgetim\Core\Support\Cache;
 use Gadgetim\Core\Support\Digits;
 use Gadgetim\Core\Support\Jalali;
 use WC_Product;
@@ -84,6 +90,9 @@ final class Drop {
 
 	/** en/ar texts a replaced page had before the package (JSON, lang => fields). */
 	public const META_PREV_TRANSLATIONS = '_gtm_drop_prev_translations';
+
+	/** Stock a product had before a stock[] entry changed it (JSON: manage, quantity, status, package, time). */
+	public const META_PREV_STOCK = '_gtm_drop_prev_stock';
 
 	public const IMAGE_TYPES = [ 'webp', 'jpg', 'jpeg', 'png' ];
 
@@ -218,7 +227,8 @@ final class Drop {
 		$media    = is_array( $data ) && is_array( $data['media'] ?? null ) ? $data['media'] : [];
 		$posts    = is_array( $data ) && is_array( $data['posts'] ?? null ) ? $data['posts'] : [];
 		$terms    = is_array( $data ) && is_array( $data['terms'] ?? null ) ? $data['terms'] : [];
-		if ( ! is_array( $data ) || (int) ( $data['version'] ?? 0 ) !== self::VERSION || ( ! $products && ! $pages && ! $media && ! $posts && ! $terms ) ) {
+		$stock    = is_array( $data ) && is_array( $data['stock'] ?? null ) ? $data['stock'] : [];
+		if ( ! is_array( $data ) || (int) ( $data['version'] ?? 0 ) !== self::VERSION || ( ! $products && ! $pages && ! $media && ! $posts && ! $terms && ! $stock ) ) {
 			if ( $read ) {
 				$result['errors'][] = __( 'manifest.json is missing or not a version 1 package.', 'gadgetim-core' );
 			}
@@ -244,6 +254,12 @@ final class Drop {
 				$item = is_array( $t ) ? self::import_term( $t, $name ) : [ 'error' => 'invalid entry' ];
 				self::collect( $result, $item, is_array( $t ) ? rawurldecode( (string) ( $t['slug'] ?? '' ) ) : '' );
 			}
+			// Stock last: it also covers the products this package created.
+			foreach ( $stock as $s ) {
+				foreach ( is_array( $s ) ? self::import_stock( $s, $name ) : [ [ 'error' => 'invalid entry' ] ] as $item ) {
+					self::collect( $result, $item, '' );
+				}
+			}
 		}
 
 		if ( self::$zip instanceof ZipArchive ) {
@@ -252,6 +268,10 @@ final class Drop {
 		}
 		self::archive( $path, $is_zip, $result['items'] ? 'done' : 'failed' );
 		self::log( $result );
+		// The per-product lines of a stock change live in log.txt only, not in the results option.
+		foreach ( $result['items'] as $k => $i ) {
+			unset( $result['items'][ $k ]['details'] );
+		}
 		return $result;
 	}
 
@@ -647,6 +667,175 @@ final class Drop {
 	}
 
 	/**
+	 * Sets the stock of every product, or of one product (a stock[] entry).
+	 *
+	 * Simple products and variations hold stock; a variable parent, a grouped or an external
+	 * product has none of its own and is left alone. A product that already manages this quantity
+	 * is not saved again, so its date stays as it is.
+	 *
+	 * @param array  $s       Manifest entry: quantity, and "products": "all", or "sku", or "id".
+	 * @param string $package Package name.
+	 * @return array<int,array> Result items, errors as [ 'error' => … ].
+	 */
+	public static function import_stock( array $s, string $package ): array {
+		$qty = $s['quantity'] ?? null;
+		if ( is_string( $qty ) && ctype_digit( $qty ) ) {
+			$qty = (int) $qty;
+		}
+		if ( ! is_int( $qty ) || $qty < 0 ) {
+			return [ [ 'error' => __( 'a stock entry needs a whole quantity of 0 or more.', 'gadgetim-core' ) ] ];
+		}
+
+		$all = 'all' === ( $s['products'] ?? '' );
+		$sku = sanitize_text_field( (string) ( $s['sku'] ?? '' ) );
+		if ( $all ) {
+			$ids = get_posts(
+				[
+					'post_type'        => [ 'product', 'product_variation' ],
+					'post_status'      => [ 'publish', 'private', 'draft', 'pending', 'future' ],
+					'fields'           => 'ids',
+					'posts_per_page'   => -1,
+					'orderby'          => 'ID',
+					'order'            => 'ASC',
+					'no_found_rows'    => true,
+					'suppress_filters' => true,
+				]
+			);
+		} elseif ( '' !== $sku ) {
+			$ids = array_filter( [ (int) wc_get_product_id_by_sku( $sku ) ] );
+			if ( ! $ids ) {
+				return [ [ 'error' => $sku . ': ' . __( 'no product has this SKU on this site.', 'gadgetim-core' ) ] ];
+			}
+		} elseif ( (int) ( $s['id'] ?? 0 ) > 0 ) {
+			$ids = [ (int) $s['id'] ];
+		} else {
+			return [ [ 'error' => __( 'a stock entry needs "products": "all", a "sku" or an "id".', 'gadgetim-core' ) ] ];
+		}
+
+		$items   = [];
+		$details = [];
+		$changed = 0;
+		$same    = 0;
+		$was_out = 0;
+		self::quiet_stock_mail( true );
+		foreach ( array_map( 'intval', (array) $ids ) as $id ) {
+			$product = wc_get_product( $id );
+			$label   = '' !== $sku ? $sku : '#' . $id;
+			if ( ! $product instanceof WC_Product || ! $product->is_type( [ 'simple', 'variation' ] ) ) {
+				if ( ! $all ) {
+					$items[] = [ 'error' => $label . ': ' . __( 'no product with a stock of its own has this ID.', 'gadgetim-core' ) ];
+				}
+				continue;
+			}
+			$before = [
+				'manage'   => $product->get_manage_stock(),
+				'quantity' => $product->get_stock_quantity(),
+				'status'   => $product->get_stock_status(),
+			];
+			if ( true === $before['manage'] && $qty === $before['quantity'] ) {
+				++$same;
+				if ( ! $all ) {
+					$items[] = self::stock_item( $product, 'stock_same', $qty );
+				}
+				continue;
+			}
+			$product->set_manage_stock( true );
+			$product->set_stock_quantity( $qty );
+			$product->update_meta_data( self::META_PREV_STOCK, (string) wp_json_encode( $before + [ 'package' => $package, 'time' => time() ] ) );
+			try {
+				$saved = (int) $product->save();
+			} catch ( \Throwable $e ) {
+				$saved = 0;
+			}
+			if ( $saved <= 0 ) {
+				$items[] = [ 'error' => $label . ': ' . __( 'WooCommerce did not save the stock.', 'gadgetim-core' ) ];
+				continue;
+			}
+			++$changed;
+			if ( 'outofstock' === $before['status'] ) {
+				++$was_out;
+			}
+			$line      = sprintf( '#%d %s %s -> %d', $id, true === $before['manage'] ? (string) (int) $before['quantity'] : 'unmanaged', $before['status'], $qty );
+			$details[] = $line;
+			if ( ! $all ) {
+				$items[] = self::stock_item( $product, 'stock', $qty ) + [ 'details' => [ $line ] ];
+			}
+		}
+		self::quiet_stock_mail( false );
+		if ( $changed > 0 ) {
+			Cache::purge_all();
+		}
+
+		if ( $all ) {
+			$items[] = [
+				'id'       => 0,
+				'sku'      => '',
+				'title'    => __( 'All products', 'gadgetim-core' ),
+				'action'   => 'stock_all',
+				'url'      => admin_url( 'edit.php?post_type=product' ),
+				'quantity' => $qty,
+				'changed'  => $changed,
+				'same'     => $same,
+				'was_out'  => $was_out,
+				'details'  => $details,
+			];
+		}
+		return $items;
+	}
+
+	/**
+	 * The result line of one product whose stock a package set.
+	 */
+	private static function stock_item( WC_Product $product, string $action, int $qty ): array {
+		$parent = $product->is_type( 'variation' ) ? (int) $product->get_parent_id() : 0;
+		return [
+			'id'       => (int) $product->get_id(),
+			'sku'      => (string) $product->get_sku(),
+			'title'    => (string) $product->get_name(),
+			'action'   => $action,
+			'url'      => (string) get_permalink( $parent > 0 ? $parent : (int) $product->get_id() ),
+			'quantity' => $qty,
+		];
+	}
+
+	/** Hooks the stock-change check was taken off while a package sets stock (hook => priority). */
+	private static array $stock_hooks = [];
+
+	/**
+	 * While a package sets stock, WooCommerce sends no "low in stock" or "out of stock" e-mail. The
+	 * shop's low-stock threshold is 2 (2026-11-27), so a stock of 2 is "low": a package is not a
+	 * sale, and one e-mail per product would only fill the shop's inbox. WooCommerce 11.3 checks
+	 * the threshold only for stock that orders change; other versions check it on every change.
+	 */
+	private static function quiet_stock_mail( bool $quiet ): void {
+		if ( $quiet ) {
+			add_filter( 'woocommerce_should_send_low_stock_notification', [ self::class, 'no_stock_mail' ], PHP_INT_MAX );
+			add_filter( 'woocommerce_should_send_no_stock_notification', [ self::class, 'no_stock_mail' ], PHP_INT_MAX );
+			foreach ( [ 'woocommerce_product_set_stock', 'woocommerce_variation_set_stock' ] as $hook ) {
+				$priority = has_action( $hook, 'wc_trigger_stock_change_actions' );
+				if ( false !== $priority ) {
+					remove_action( $hook, 'wc_trigger_stock_change_actions', (int) $priority );
+					self::$stock_hooks[ $hook ] = (int) $priority;
+				}
+			}
+			return;
+		}
+		remove_filter( 'woocommerce_should_send_low_stock_notification', [ self::class, 'no_stock_mail' ], PHP_INT_MAX );
+		remove_filter( 'woocommerce_should_send_no_stock_notification', [ self::class, 'no_stock_mail' ], PHP_INT_MAX );
+		foreach ( self::$stock_hooks as $hook => $priority ) {
+			add_action( $hook, 'wc_trigger_stock_change_actions', $priority );
+		}
+		self::$stock_hooks = [];
+	}
+
+	/**
+	 * Filter callback while a package sets stock: no stock e-mail.
+	 */
+	public static function no_stock_mail(): bool {
+		return false;
+	}
+
+	/**
 	 * The result line of a page.
 	 */
 	private static function page_result( ?WP_Post $page, string $action ): array {
@@ -1019,7 +1208,13 @@ final class Drop {
 			}
 			$sku     = (string) ( $i['sku'] ?? '' );
 			$lines[] = '  ' . $i['action'] . ' #' . $i['id'] . ( '' !== $sku ? ' ' . $sku : '' )
-				. ( isset( $i['files'] ) ? ' files=' . (int) $i['files'] : '' ) . ' ' . $i['url'];
+				. ( isset( $i['files'] ) ? ' files=' . (int) $i['files'] : '' )
+				. ( isset( $i['quantity'] ) ? ' quantity=' . (int) $i['quantity'] : '' )
+				. ( isset( $i['changed'] ) ? ' changed=' . (int) $i['changed'] . ' same=' . (int) ( $i['same'] ?? 0 ) . ' was_out=' . (int) ( $i['was_out'] ?? 0 ) : '' )
+				. ' ' . $i['url'];
+			foreach ( (array) ( $i['details'] ?? [] ) as $detail ) {
+				$lines[] = '    ' . $detail;
+			}
 		}
 		foreach ( $result['errors'] as $e ) {
 			$lines[] = '  ERROR ' . $e;
@@ -1033,7 +1228,19 @@ final class Drop {
 	 * @param array $i Result item.
 	 */
 	private static function action_label( array $i ): string {
-		return match ( (string) ( $i['action'] ?? '' ) ) {
+		$action = (string) ( $i['action'] ?? '' );
+		if ( str_starts_with( $action, 'stock' ) ) {
+			$label = match ( $action ) {
+				/* translators: %d: stock quantity */
+				'stock'      => sprintf( __( 'stock set to %d', 'gadgetim-core' ), (int) ( $i['quantity'] ?? 0 ) ),
+				/* translators: %d: stock quantity */
+				'stock_same' => sprintf( __( 'unchanged: the stock was already %d', 'gadgetim-core' ), (int) ( $i['quantity'] ?? 0 ) ),
+				/* translators: 1: stock quantity, 2: number of products changed, 3: how many of them were out of stock, 4: products that already had this stock */
+				default      => sprintf( __( 'stock set to %1$d for %2$d products, %3$d of which were out of stock; %4$d already had this stock', 'gadgetim-core' ), (int) ( $i['quantity'] ?? 0 ), (int) ( $i['changed'] ?? 0 ), (int) ( $i['was_out'] ?? 0 ), (int) ( $i['same'] ?? 0 ) ),
+			};
+			return str_starts_with( get_user_locale(), 'fa' ) ? Digits::for_lang( $label, 'fa', false ) : $label;
+		}
+		return match ( $action ) {
 			'created'      => __( 'added', 'gadgetim-core' ),
 			'image'        => __( 'featured image added', 'gadgetim-core' ),
 			'kept'         => __( 'kept: the page already has a featured image', 'gadgetim-core' ),

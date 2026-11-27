@@ -3006,3 +3006,42 @@ msgstr ""
 #, php-format
 msgid "Tracking page of %s"
 msgstr ""
+
+#: includes/Import/Drop.php:686
+msgid "a stock entry needs a whole quantity of 0 or more."
+msgstr ""
+
+#: includes/Import/Drop.php:707
+msgid "no product has this SKU on this site."
+msgstr ""
+
+#: includes/Import/Drop.php:712
+msgid "a stock entry needs \"products\": \"all\", a \"sku\" or an \"id\"."
+msgstr ""
+
+#: includes/Import/Drop.php:726
+msgid "no product with a stock of its own has this ID."
+msgstr ""
+
+#: includes/Import/Drop.php:751
+msgid "WooCommerce did not save the stock."
+msgstr ""
+
+#: includes/Import/Drop.php:773
+msgid "All products"
+msgstr ""
+
+#: includes/Import/Drop.php:1235
+#, php-format
+msgid "stock set to %d"
+msgstr ""
+
+#: includes/Import/Drop.php:1237
+#, php-format
+msgid "unchanged: the stock was already %d"
+msgstr ""
+
+#: includes/Import/Drop.php:1239
+#, php-format
+msgid "stock set to %1$d for %2$d products, %3$d of which were out of stock; %4$d already had this stock"
+msgstr ""

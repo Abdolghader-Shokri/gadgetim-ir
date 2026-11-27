@@ -3411,3 +3411,42 @@ msgstr "صفحة التتبع لكل شركة شحن. عندما يحفظ الم
 #, php-format
 msgid "Tracking page of %s"
 msgstr "صفحة تتبع %s"
+
+#: includes/Import/Drop.php:686
+msgid "a stock entry needs a whole quantity of 0 or more."
+msgstr "يحتاج سطر المخزون إلى كمية صحيحة تساوي 0 أو أكثر."
+
+#: includes/Import/Drop.php:707
+msgid "no product has this SKU on this site."
+msgstr "لا يوجد منتج بهذا الرمز SKU في هذا الموقع."
+
+#: includes/Import/Drop.php:712
+msgid "a stock entry needs \"products\": \"all\", a \"sku\" or an \"id\"."
+msgstr "يحتاج سطر المخزون إلى \"products\": \"all\" أو \"sku\" أو \"id\"."
+
+#: includes/Import/Drop.php:726
+msgid "no product with a stock of its own has this ID."
+msgstr "لا يوجد منتج له مخزون خاص به بهذا المعرّف."
+
+#: includes/Import/Drop.php:751
+msgid "WooCommerce did not save the stock."
+msgstr "لم يحفظ ووكومرس المخزون."
+
+#: includes/Import/Drop.php:773
+msgid "All products"
+msgstr "كل المنتجات"
+
+#: includes/Import/Drop.php:1235
+#, php-format
+msgid "stock set to %d"
+msgstr "تم ضبط المخزون على %d"
+
+#: includes/Import/Drop.php:1237
+#, php-format
+msgid "unchanged: the stock was already %d"
+msgstr "بلا تغيير: كان المخزون %d من قبل"
+
+#: includes/Import/Drop.php:1239
+#, php-format
+msgid "stock set to %1$d for %2$d products, %3$d of which were out of stock; %4$d already had this stock"
+msgstr "تم ضبط مخزون %2$d منتجًا على %1$d، منها %3$d كانت غير متوفرة؛ و%4$d منتجًا كان لديها هذا المخزون من قبل"
