@@ -7,6 +7,25 @@ Every delivery of the plugin and the theme to the live site is a numbered releas
 
 The release steps are in the README, under "Release". The newest release comes first.
 
+## 1.7.0 — 2026-11-27
+
+Stock through a package (owner, 2026-11-27: «همه محصولات رو موجودیشون رو به 2 تا تغییر بدی»). A drop package can now change the stock of products and nothing else; until now only the products list could, and it rewrites every field of a product.
+- New manifest list `stock[]`:
+  - `{ "products": "all", "quantity": N }` sets every product that is not in the trash, of any status. Simple products and variations hold stock; a variable parent, a grouped product or an external product has none of its own and is left alone;
+  - `{ "sku": "…", "quantity": N }` or `{ "id": N, "quantity": N }` sets one product.
+- Each product gets stock management with the quantity, and WooCommerce derives in stock or out of stock from it. Texts, prices, categories, images and the sale price stay as they are.
+- A product that already manages that quantity is not saved again, so its date stays.
+- What a product had before (managed or not, the quantity, the status) is kept in its `_gtm_drop_prev_stock` meta, with the package name and the time.
+- WooCommerce sends no "low in stock" or "out of stock" e-mail during the change. The shop's low-stock threshold is 2, so a stock of 2 counts as low: one e-mail per product would only fill the shop's inbox. WooCommerce 11.3 checks the threshold only when an order changes stock; the guard covers versions that check on every change.
+- The dashboard shows one line for "all products": how many were set, how many of them were out of stock, and how many already had that stock. `gadgetim-drop/log.txt` keeps one line per product with its old stock.
+- `tools/build-content-drop.php` copies a `stock` list into the package, and a list may hold stock alone.
+
+Tested on Local inside a database transaction that was rolled back, so the Local stock is unchanged. 24 checks passed:
+- 131 products: 105 set to 2, 30 of which had been out of stock, and 26 already at 2 that were not saved again;
+- names, texts, prices and categories were unchanged, and no e-mail was sent;
+- a second run changed nothing;
+- one product by SKU and by ID, and five kinds of wrong entry.
+
 ## 1.6.0 — 2026-11-27
 
 Tracking codes on orders (owner, 2026-11-27: the customer picks the shipping method at checkout; once the parcel is sent, the shop opens the order, picks the shipping company and enters the tracking code).

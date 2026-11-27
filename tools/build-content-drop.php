@@ -22,6 +22,10 @@
  * - "translations": false on a row ships the Persian texts only. The live site writes every en/ar
  *   field a package carries, so a row whose translations were not worked on leaves them out
  *   (SEO run, 2026-11-26: Local holds en/ar category texts that were never checked against live).
+ * - stock: copied into the package as it is, for example [ { "products": "all", "quantity": 2 } ]
+ *   (owner, 2026-11-27: every product to a stock of 2), or { "sku": "…", "quantity": N } for one
+ *   product. The live site changes only the stock: texts, prices and categories stay. A list may
+ *   hold stock alone.
  */
 
 declare( strict_types=1 );
@@ -38,7 +42,7 @@ if ( 2 !== count( $args ) ) {
 }
 [ $out, $list ] = $args;
 $want = json_decode( (string) file_get_contents( $list ), true );
-if ( ! is_array( $want ) || ( empty( $want['posts'] ) && empty( $want['terms'] ) ) ) {
+if ( ! is_array( $want ) || ( empty( $want['posts'] ) && empty( $want['terms'] ) && empty( $want['stock'] ) ) ) {
 	fwrite( STDERR, "bad list: $list\n" );
 	exit( 1 );
 }
@@ -161,6 +165,17 @@ foreach ( (array) ( $want['terms'] ?? [] ) as $n => $row ) {
 	$terms[] = $entry;
 }
 
+$stock = [];
+foreach ( (array) ( $want['stock'] ?? [] ) as $n => $row ) {
+	$qty    = is_array( $row ) ? ( $row['quantity'] ?? null ) : null;
+	$target = is_array( $row ) && ( 'all' === ( $row['products'] ?? '' ) || '' !== (string) ( $row['sku'] ?? '' ) || (int) ( $row['id'] ?? 0 ) > 0 );
+	if ( ! is_int( $qty ) || $qty < 0 || ! $target ) {
+		$problems[] = "stock[$n]: needs a whole quantity of 0 or more, and \"products\": \"all\", a sku or an id";
+		continue;
+	}
+	$stock[] = $row;
+}
+
 if ( $problems ) {
 	fwrite( STDERR, implode( "\n", $problems ) . "\n" );
 	exit( 1 );
@@ -178,6 +193,7 @@ $manifest = array_filter(
 		'built'   => gmdate( 'c' ),
 		'posts'   => $posts,
 		'terms'   => $terms,
+		'stock'   => $stock,
 	]
 );
 $zip->addFromString( 'manifest.json', (string) wp_json_encode( $manifest, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) );
@@ -185,4 +201,4 @@ foreach ( $files as $name => $src ) {
 	$zip->addFile( $src, $name );
 }
 $zip->close();
-printf( "%s: %d page(s), %d term text(s), %d image(s)\n", $out, count( $posts ), count( $terms ), count( $files ) );
+printf( "%s: %d page(s), %d term text(s), %d image(s), %d stock entr(ies)\n", $out, count( $posts ), count( $terms ), count( $files ), count( $stock ) );
